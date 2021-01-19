@@ -118,3 +118,22 @@ Example message: "project init + node-modules ignored"
 22. Ask for a pull request in GitHub, from base 'Dev' to compared 'featureBranchName'
 
 ***
+
+# Angular commands
+
+In your terminal or console, type the following commands to...
+
+* open development server: ng serve -o 
+
+* restart development server: ng serve
+
+* run Kharma test runner: ng test 
+
+* run test coverage and create coverage folder in project: ng test --no-watch –code-coverage
+(Open its index.html in browser to see the coverage UI)
+
+* stop server or stop test runner: Ctr+C (in Windows, Linux) , Cmd+C (in Mac)
+
+* build for development: ng build
+
+* build for production: ng build --prod

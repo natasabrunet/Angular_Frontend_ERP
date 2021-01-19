@@ -2,7 +2,8 @@
 
 # ANGULAR PROJECT SEED
 
-For this project, whe have a given repo named ITProject-ERP-Frontend, with a GitHub remote URL named  https://github.com/it-academyproject/ITProject-ERP-Frontend.git
+For this project, whe have a given repo named ITProject-ERP-Frontend,
+with a GitHub remote URL:  https://github.com/it-academyproject/ITProject-ERP-Frontend.git
 
 In this documentation:
 We will use 'localProjectFolderName' as a generic alias for the local folder's name

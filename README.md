@@ -1,8 +1,6 @@
 # ITProject-ERP-Frontend
 
-ANGULAR PROJECT SEED
-
-
+# ANGULAR PROJECT SEED
 
 For this project, whe have a given repo named ITProject-ERP-Frontend, with a GitHub remote URL named  https://github.com/it-academyproject/ITProject-ERP-Frontend.git...
 
@@ -15,6 +13,8 @@ Remember to use git checkout branchName to switch branches if needed.
 Given a GitHub remote repo with files .gitignore and README.md already in it...
 wanting to set up a fresh Angular “ERP” project inside that repo...
 follow next steps in console:
+
+***
 
 REQUIREMENTS
 Skip these steps if you already have Node.js, git, account and Angular installed in your local machine, and a valid GitHub account.
@@ -46,6 +46,7 @@ https://angular.io/
 Install Angular globally in you rmachine: npm install -g @angular/cli
 Then check for its version, if instyallation whent OK. Type this in your terminal or console: ng v 
 
+***
 
 THEN FOLLOW NEXT STEPS:
 
@@ -111,7 +112,7 @@ Example: seed.documentation.docx, nav.documentation.docx, ngrx.documentation.doc
 17. Add changes (we did in documentation   folder) to Stage. Then Commit with a message.
 Example message: "documentation folder added"
 * (optional) check there's no warning: git status
-****************
+
 18. Make and paste current documentation as (.docx) to previus folder:
 
 19. Add changes (we did in seed.documentation.docx file) to Stage.

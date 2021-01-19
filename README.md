@@ -14,9 +14,9 @@ In this documentation:
 
 Given a GitHub remote repo with files '.gitignore' and 'README.md' already in it, and wanting to set up a fresh Angular 'ERP' project inside that repo, follow next steps in terminal or console:
 
-***
+****
 
-REQUIREMENTS
+### REQUIREMENTS
 
 Skip the steps of this section if you already have Node.js, git and Angular installed in your local machine, and a valid GitHub account.
 If not, follow required steps: 
@@ -50,9 +50,9 @@ https://angular.io/
 Install Angular CLI globally in your machine: npm install -g @angular/cli
 Then check for its version, if installation whent OK. Type this in your terminal or console: ng v 
 
-***
+****
 
-THEN FOLLOW NEXT STEPS
+### THEN FOLLOW NEXT STEPS
 
 1. Clone the repo from remote to local:	git clone repoURL
 
@@ -117,9 +117,9 @@ Example message: "project init + node-modules ignored"
 
 22. Ask for a pull request in GitHub, from base 'Dev' to compared 'featureBranchName'
 
-***
+****
 
-# Angular commands
+### Angular commands
 
 In your terminal or console, type the following commands to...
 

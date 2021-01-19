@@ -6,10 +6,11 @@ For this project, whe have a given repo named ITProject-ERP-Frontend,
 with a GitHub remote URL:  https://github.com/it-academyproject/ITProject-ERP-Frontend.git
 
 In this documentation:
-We will use 'localProjectFolderName' as a generic alias for the local folder's name
-We will use 'repoURL' as a generic alias for the remote repo's URL
-We will use 'featureBranchName' as a generic for the branches generated from 'Dev'
-We will use 'yourGitHubName' and 'yourGitHubEmail' as alias for your user name and email registered in your GitHub account
+
+* We will use 'localProjectFolderName' as a generic alias for the local folder's name
+* We will use 'repoURL' as a generic alias for the remote repo's URL
+* We will use 'featureBranchName' as a generic for the branches generated from 'Dev'
+* We will use 'yourGitHubName' and 'yourGitHubEmail' as alias for your user name and email registered in your GitHub account
 
 Given a GitHub remote repo with files .gitignore and README.md already in it...
 wanting to set up a fresh Angular 'ERP' project inside that repo...

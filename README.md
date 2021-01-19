@@ -119,7 +119,7 @@ Example message: "project init + node-modules ignored"
 
 ****
 
-### Angular commands
+### ANGULAR COMMANDS
 
 In your terminal or console, type the following commands to...
 

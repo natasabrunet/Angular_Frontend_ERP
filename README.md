@@ -98,8 +98,10 @@ So just add this lines to top of .gitignore file:
 
 /node_modules
 
-NOTE: In Visual Studio Code, ignored files and olders apperar in gray color in project tree
-And as said before, download node-modules for your project, if you havn't yet: npm update
+NOTE: In Visual Studio Code, ignored files and olders apperar in gray color in project tree.
+
+And as said before, download node-modules for your project, if you haven't yet.
+Just type in your terminal or console: npm update
 
 14. Pull Dev branch state before pushing featureBranchName:  git pull origin Dev
 

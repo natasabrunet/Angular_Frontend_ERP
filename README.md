@@ -1,5 +1,7 @@
 # ITProject-ERP-Frontend
 
+# I. Project Seed
+
 For this project, whe have a given repo named ITProject-ERP-Frontend,
 with a GitHub remote URL:  https://github.com/it-academyproject/ITProject-ERP-Frontend.git
 

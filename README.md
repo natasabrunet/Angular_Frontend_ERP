@@ -5,51 +5,54 @@
 For this project, whe have a given repo named ITProject-ERP-Frontend, with a GitHub remote URL named  https://github.com/it-academyproject/ITProject-ERP-Frontend.git
 
 In this documentation:
-We will use 'localProjectFolderName' as a generic alias for the local folder's name.
-We will use 'repoURL' as a generic alias for the remote repo's URL.
-We will use 'featureBranchName' as a generic for the branches generated from 'Dev'.
-
-Remember to use git checkout branchName to switch branches if needed.
+We will use 'localProjectFolderName' as a generic alias for the local folder's name
+We will use 'repoURL' as a generic alias for the remote repo's URL
+We will use 'featureBranchName' as a generic for the branches generated from 'Dev'
+We will use 'yourGitHubName' and 'yourGitHubEmail' as alias for your user name and email registered in your GitHub account
 
 Given a GitHub remote repo with files .gitignore and README.md already in it...
-wanting to set up a fresh Angular “ERP” project inside that repo...
-follow next steps in console:
+wanting to set up a fresh Angular 'ERP' project inside that repo...
+follow next steps in terminal or console:
 
 ***
 
 REQUIREMENTS
-Skip these steps if you already have Node.js, git, account and Angular installed in your local machine, and a valid GitHub account.
 
-1. Download and install git CLI if you haven't yet.
+Skip the steps of this section if you already have Node.js, git and Angular installed in your local machine, and a valid GitHub account.
+If not, follow required steps: 
+
+1. Download and install git CLI if you haven't yet
 https://git-scm.com/
 
-2. Rewgister in GitHub if you have any acocunt created yet
+2. Register in GitHub if you have any account created yet
 https://github.com/
-Then check for its version, if instyallation whent OK. Type this in your terminal or console: git --version
+
+Then check for its version, if installation whent OK.
+Type this in your terminal or console: git --version
 
 Then, in your machine, open a terminal or console and...
 
-2.1 Set up your name and email for local git CLI. It must match the name and email you registered in GitHub when you signed up before.
+2.1 Set up your name and email for local git CLI.
+It must match the name and email you registered in GitHub when you signed up before
 git config –-global user.name yourGitHubName
 git config –-global user.email yourGitHubEmail
 
-2.2. Check existing name and email. They must match what u typed in before.
+2.2. Check existing name and email. They must match what you typed in before
 git config –-global user.name
 git config –-global user.email
 
-git --version
-3. Downlad and install Node.js if you haven't yet.
+3. Downlad and install Node.js if you haven't yet
 https://nodejs.org/es/
-Chek that installation whent OK. Node version should appear in terminal or console if you type: node -v
+Check that installation whent OK. Node version should appear in terminal or console if you type: node -v
 
 4. Downlad and install Angular if you haven't yet
 https://angular.io/
-Install Angular globally in you rmachine: npm install -g @angular/cli
-Then check for its version, if instyallation whent OK. Type this in your terminal or console: ng v 
+Install Angular CLI globally in your machine: npm install -g @angular/cli
+Then check for its version, if installation whent OK. Type this in your terminal or console: ng v 
 
 ***
 
-THEN FOLLOW NEXT STEPS:
+THEN FOLLOW NEXT STEPS
 
 1. Clone the repo from remote to local:	git clone repoURL
 

@@ -32,7 +32,7 @@ Type this in your terminal or console: git --version
 
 Then, in your machine, open a terminal or console and...
 
-2.1 Set up your name and email for local git CLI.
+2.1. Set up your name and email for local git CLI.
 It must match the name and email you registered in GitHub when you signed up before
 git config –-global user.name yourGitHubName
 git config –-global user.email yourGitHubEmail
@@ -57,6 +57,7 @@ THEN FOLLOW NEXT STEPS
 1. Clone the repo from remote to local:	git clone repoURL
 
 2. Access that folder in local: cd localProjectFolderName
+IMPORTANT: For the following steps, you must be inside the localProjectFolderName folder
 * (optional) check the branch we're in is "main": git branch
 
 3. Pull Dev branch, for safety reasons: git pull origin Dev
@@ -90,7 +91,6 @@ This command wil init Angular project in localProjectFolderName, not in a subfol
 
 11. And recover old original Angular's .gitignore and README files from backup folder. Remember? And paste them in localProjectFolderName 
  
-
 12. Check all the recovery process went fine: git status
 Now, no warnings related to .gitignore and README should appear.
  
@@ -108,30 +108,9 @@ And as said before, download node-modules for your project, if you havn't yet: n
 Example message: "project init + node-modules ignored"
 * (optional) check there's no warning: git status
 
-16. Create a folder named documentation in localProjectFolderName
-Now, add a provisional documentation of the seeding. In that documentation  folder, we'll save all other documentations. Use open office extension (.docx)
-RECOMENDED: Follow this naming patter: concept.documentation.docx
-Example: seed.documentation.docx, nav.documentation.docx, ngrx.documentation.docx...
-
-17. Add changes (we did in documentation   folder) to Stage. Then Commit with a message.
-Example message: "documentation folder added"
-* (optional) check there's no warning: git status
-
-18. Make and paste current documentation as (.docx) to previus folder:
-
-19. Add changes (we did in seed.documentation.docx file) to Stage.
-Then Commit with a message. Example message: "seed.documentation added"
-* (optional) check there's no warning: git status
-
-20. Pull Dev branch state before pushing featureBranchName:  git pull origin Dev
+16. Pull Dev branch state before pushing featureBranchName:  git pull origin Dev
 
 21. Push featureBranchName: git push origin featureBranchName
 
-22. Ask for a pull request in GitHub
-- In the repoURL, select your branch and click on the New pull request button
-- Select Dev as a base branch (because we want to merge our changes with Dev) and select your featureBranchName as the branch to compare.
-- Click on the Create Pull Request button
-(optional) You can copy/paste the URL to pass to your partners the info of the changes that
-you're requesting to merge
-- Once some of your partners code-reviewed your changes, you can merge with Dev branch using the Merge pull request button
+22. Ask for a pull request in GitHub, from base 'Dev' to compared 'featureBranchName'
 

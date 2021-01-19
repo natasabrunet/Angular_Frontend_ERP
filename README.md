@@ -2,11 +2,12 @@
 
 # ANGULAR PROJECT SEED
 
-For this project, whe have a given repo named ITProject-ERP-Frontend, with a GitHub remote URL named  https://github.com/it-academyproject/ITProject-ERP-Frontend.git...
+For this project, whe have a given repo named ITProject-ERP-Frontend, with a GitHub remote URL named  https://github.com/it-academyproject/ITProject-ERP-Frontend.git
 
-We will use localProjectFolderName as a generic alias for this example local folder's name.
-We will use repoURL as a generic alias for this example remote repo's URL.
-We will use featureBranchName as a generic 
+In this documentation:
+We will use 'localProjectFolderName' as a generic alias for the local folder's name.
+We will use 'repoURL' as a generic alias for the remote repo's URL.
+We will use 'featureBranchName' as a generic for the branches generated from 'Dev'.
 
 Remember to use git checkout branchName to switch branches if needed.
 

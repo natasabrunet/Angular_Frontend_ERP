@@ -12,9 +12,7 @@ In this documentation:
 * We will use 'featureBranchName' as a generic for the branches generated from 'Dev'
 * We will use 'yourGitHubName' and 'yourGitHubEmail' as alias for your user name and email registered in your GitHub account
 
-Given a GitHub remote repo with files .gitignore and README.md already in it...
-wanting to set up a fresh Angular 'ERP' project inside that repo...
-follow next steps in terminal or console:
+Given a GitHub remote repo with files '.gitignore' and 'README.md' already in it, and wanting to set up a fresh Angular 'ERP' project inside that repo, follow next steps in terminal or console:
 
 ***
 

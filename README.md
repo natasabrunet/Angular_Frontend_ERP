@@ -96,10 +96,10 @@ Now, no warnings related to .gitignore and README should appear.
  
 13. Modify .gitignore, to ignore node_modules, when pushing to GitHub.
 NOTE: Remember to use the command npm update, to download node-modules as stated in package.json of your Angular project, when you're cloning a repo to local. But never push node-modules to GitHiub, since the folder is too big sized.
-So just add this lines to top of .gitignore file: '
-# dependencies
+So just add this lines to top of .gitignore file: 
+
 /node_modules
-'
+
 NOTE: In Visual Studio Code, ignored files and olders apperar in gray color in project tree
 And as said before, download node-modules for your project, if you havn't yet: npm update
 

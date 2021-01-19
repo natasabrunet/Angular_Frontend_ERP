@@ -117,3 +117,4 @@ Example message: "project init + node-modules ignored"
 
 22. Ask for a pull request in GitHub, from base 'Dev' to compared 'featureBranchName'
 
+***

@@ -1,0 +1,22 @@
+///////////////////////////////////////////////////////////////////////////
+//	Here, we can add or remove custom colors to Bootstrap5 theme-colors  //
+///////////////////////////////////////////////////////////////////////////
+
+// TO ADD --> map-merge
+$extra-colors: (
+  "purple": purple,
+  "cadetblue": cadetblue,
+  "papayawhip": papayawhip,
+  "plum": plum,
+  "darkorange": darkorange,
+  "orange": orange,
+  "gold": gold,
+  "goldenrod": goldenrod,
+  "primary-darken-5": darken($primary, 5),
+);
+
+$theme-colors: map-merge($theme-colors, $extra-colors);
+
+// TO REMOVE --> map-remove
+
+// $theme-colors: map-remove($theme-colors, "primary", "light", "dark"); // etc...

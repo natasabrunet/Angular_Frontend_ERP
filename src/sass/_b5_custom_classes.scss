@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////
+//	Here, we can modify or create Bootstrap5 classes  //
+////////////////////////////////////////////////////////
+
+/* ISAAC */
+
+$utilities: map-merge(
+  $utilities,
+  (
+    // A. syntax for brand-new custom classes
+    "opacity":
+      (
+        property: opacity,
+        // specify responsive if wanted
+        responsive: true,
+        // new class name
+        class: op,
+        // setup values
+        values:
+          (
+            0: 0,
+            25: 0.25,
+            50: 0.5,
+            75: 0.75,
+            100: 1,
+          ),
+      ),
+    // B. syntax to modify B5 native classes (already responsive)
+    "text-align":
+      map-merge(
+        map-get($utilities, "text-align"),
+        (
+          // add values
+          values:
+            map-merge(
+              map-get(map-get($utilities, "text-align"), "values"),
+              (
+                justify: justify,
+              )
+            )
+        )
+      ),
+    //
+    "background-color":
+      map-merge(
+        map-get($utilities, "background-color"),
+        (
+          // add responsive
+          responsive: true,
+        )
+      )
+  )
+);
+
+/* ADD YOUR CUTOM CLASSES BELOW */

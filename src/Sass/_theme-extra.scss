@@ -1,0 +1,17 @@
+// A. extra theme-colors merge
+$extra-colors: (
+  "purple": purple,
+  "cadetblue": cadetblue,
+  "papayawhip": papayawhip,
+  "plum": plum,
+  "darkorange": darkorange,
+  "orange": orange,
+  "gold": gold,
+  "goldenrod": goldenrod,
+  "primary-darken-5": darken($primary, 5),
+);
+
+$theme-colors: map-merge($theme-colors, $extra-colors);
+
+// B. extra theme-colors remove
+// $theme-colors: map-remove($theme-colors, "primary", "light", "dark"); // etc...

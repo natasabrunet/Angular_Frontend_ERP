@@ -1,21 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
 /////////////////////////
 // THEMING + BOOTSTRAP //
 /////////////////////////
 
-// TODO: before production, review assertive tecnologies B5 (for each components section)
+// TODO: before production, review assertive tecnologies B5 (for each components secction)
 // TODO: before production, review B5 imports you realy used. comment out those not used!
 
 // I. Configuration
 @import "../node_modules/bootstrap/scss/functions";
 
 // 1.1. core theme-colors override
-@import "./sass/b5_theme_core";
+@import "./sass/theme-core";
 
 // default variables
 @import "../node_modules/bootstrap/scss/variables";
 
-// 1.2. extra theme-colors modify or remove
-@import "./sass/b5_theme_extra";
+// 1.2. extra theme-colors modify
+@import "./sass/theme-extra";
 
 // ... config
 @import "../node_modules/bootstrap/scss/mixins";
@@ -24,7 +25,7 @@
 @import "../node_modules/bootstrap/scss/utilities"; // spacing, shadow, etc.
 
 // 2.1. B5 custom classes
-@import "./sass/b5_custom_classes";
+@import "./sass/custom-classes";
 
 // ... layout
 @import "../node_modules/bootstrap/scss/containers";
@@ -74,14 +75,12 @@
 
 @import "./sass/root";
 
-///////////////////////////////
-// OTHER LIBRARIES OR STYLES //
-///////////////////////////////
+//////////////////
+// CUSTOM STYLE //
+//////////////////
 
-// import some libary or scss file
-
-// B5 classes override
-@import "./sass/b5_override"; 
+// B5 classes overrides
+@import "./sass/overrides";
 
 /*
   NOTE:

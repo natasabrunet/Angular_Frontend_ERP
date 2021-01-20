@@ -33,13 +33,13 @@ Type this in your terminal or console: git --version
 Then, in your machine, open a terminal or console and...
 
 2.1. Set up your name and email for local git CLI.
-It must match the name and email you registered in GitHub when you signed up before
-git config –-global user.name yourGitHubName
-git config –-global user.email yourGitHubEmail
+It must match the name and email you registered in GitHub when you signed up before.
+* git config –-global user.name yourGitHubName
+* git config –-global user.email yourGitHubEmail
 
-2.2. Check existing name and email. They must match what you typed in before
-git config –-global user.name
-git config –-global user.email
+2.2. Check existing name and email. They must match what you typed in before.
+* git config –-global user.name
+* git config –-global user.email
 
 3. Downlad and install Node.js if you haven't yet
 https://nodejs.org/es/

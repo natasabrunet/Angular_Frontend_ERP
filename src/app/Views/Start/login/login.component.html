@@ -1,10 +1,9 @@
 <h2>Log In</h2>
 
- <!-- FORMULAR -->
- <div class="row">
-	<div class="col-lg-8 mx-auto">
-	  <form [formGroup]="form" (ngSubmit)="send()" autocomplete="off">
-		<!-- NAME -->
+<!-- FORMULAR -->
+<div class="row">
+  <div class="col-lg-8 mx-auto">
+    <!-- <form [formGroup]="form" (ngSubmit)="send()" autocomplete="off">
 		<div class="control-group">
 		  <div
 			class="form-group floating-label-form-group controls mb-0 pb-2"
@@ -18,7 +17,6 @@
 			  formControlName="name"
 			  [class.is-invalid]="validateOnTouched(ref1) > 0"
 			/>
-			<!-- invalid-feedback -->
 			<small
 			  class="invalid-feedback"
 			  *ngIf="validateOnTouched(ref1) === 1"
@@ -34,7 +32,6 @@
 		  </div>
 		</div>
 
-		<!-- EMAIL -->
 		<div class="control-group">
 		  <div
 			class="form-group floating-label-form-group controls mb-0 pb-2"
@@ -48,7 +45,6 @@
 			  formControlName="email"
 			  [class.is-invalid]="validateOnTouched(ref2) > 0"
 			/>
-			<!-- invalid-feedback -->
 			<small
 			  class="invalid-feedback"
 			  *ngIf="validateOnTouched(ref2) === 1"
@@ -64,7 +60,6 @@
 		  </div>
 		</div>
 
-		<!-- MSG -->
 		<div class="control-group">
 		  <div
 			class="form-group floating-label-form-group controls mb-0 pb-2"
@@ -78,7 +73,6 @@
 			  formControlName="msg"
 			  [class.is-invalid]="validateOnTouched(ref3) > 0"
 			></textarea>
-			<!-- invalid-feedback -->
 			<small
 			  class="invalid-feedback"
 			  *ngIf="validateOnTouched(ref3) === 1"
@@ -94,7 +88,6 @@
 		  </div>
 		</div>
 
-		<!-- LGPD -->
 		<div class="control-group">
 		  <div class="form-group my-5">
 			<label class="small">
@@ -105,7 +98,6 @@
 				formControlName="lgpd"
 				[class.is-invalid]="validateOnTouched(ref4) > 0"
 			  />
-			  <!-- Privacy Policy -->
 			  {{ contact.warn1 }}
 			  <a
 				class="px-1"
@@ -117,7 +109,6 @@
 			  {{ contact.warn2 }}
 			</label>
 
-			<!-- invalid-feedback -->
 			<small
 			  class="d-block invalid-feedback small"
 			  *ngIf="validateOnTouched(ref4) === 1"
@@ -127,7 +118,6 @@
 		  </div>
 		</div>
 
-		<!-- submit -->
 		<div class="control-group">
 		  <div class="form-group mt-0">
 			<button
@@ -143,15 +133,15 @@
 			</button>
 		  </div>
 		</div>
-	  </form>
-	</div>
+	  </form> -->
+  </div>
 
-	<!-- DEBUGG -->
-	<!-- <pre class="border border-danger p-3">
+  <!-- DEBUGG -->
+  <!-- <pre class="border border-danger p-3">
 	  form.valid: {{ form.valid }}
 	  <br>
 	  form.status: {{ form.status }}
 	  <br>
 	  form.value: {{ form.value | json }}     
 	</pre> -->
-  </div>
+</div>

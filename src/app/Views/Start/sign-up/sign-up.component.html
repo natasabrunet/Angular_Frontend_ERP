@@ -1,0 +1,105 @@
+<div class="container pt-5">
+  <h1 class="text-center">Sign up</h1>
+  <hr>
+
+  <div id="alert" class="animated fadeIn slow alert alert-success d-none text-center" role="alert">
+  Your message has been sent succesfully, see you soon!
+  </div>
+
+  <form #formContacto="ngForm" (ngSubmit)="onSubmit(formContacto)" class="mx-auto row pt-5 pb-4">
+      <div class="form-group mx-auto col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+        <div class="d-flex">
+          <label class="p-2" for="exampleInputEmail1">Name</label>
+          <input
+              type="text"
+              name="businessName"
+              class="form-control"
+              placeholder="Introduce your full name"
+              [ngClass]="{'is-invalid': businessName.touched && !businessName.valid}"
+              #businessName="ngModel" [(ngModel)]="new_user.businessName"
+              required pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"
+          >
+        </div>
+
+        <div *ngIf="businessName.touched && !businessName.valid" class="invalid-feedback">
+            Este campo es obligatorio!
+        </div>
+      </div>
+
+      <div class="form-group mx-auto col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+        <div class="d-flex">
+          <label class="p-2" for="exampleInputEmail1">CIF</label>
+          <input
+            type="text"
+            name="cif"
+            class="form-control"
+            placeholder="Introduce your full name"
+            [ngClass]="{'is-invalid': cif.touched && !cif.valid}"
+            #cif="ngModel" [(ngModel)]="new_user.cif"
+
+          >
+        </div>
+        <div *ngIf="cif.touched && !cif.valid" class="invalid-feedback">
+            Este campo es obligatorio!
+        </div>
+    </div>
+
+      <div class="form-group mx-auto col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+          <label for="exampleInputEmail1">Email</label>
+          <input
+              type="email"
+              name="email"
+              class="form-control"
+              placeholder="Introduce your email"
+              [ngClass]="{'is-invalid': email.touched && !email.valid}"
+              #email="ngModel"
+              [(ngModel)]="new_user.email"
+              required pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$">
+          <div *ngIf="email.touched && !email.valid" class="invalid-feedback">
+              Este campo es obligatorio!
+          </div>
+      </div>
+
+      <div class="form-group mx-auto col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+          <label for="exampleInputEmail1">Password</label>
+          <input
+              type="text"
+              name="password"
+              class="form-control"
+              placeholder="Introduce your password"
+              [ngClass]="{'is-invalid': password.touched && !password.valid}"
+              #password="ngModel" [(ngModel)]="new_user.password"
+              required pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{8,})\S$"
+          >
+          <div *ngIf="password.touched && !password.valid" class="invalid-feedback">
+              Este campo es obligatorio!
+          </div>
+      </div>
+
+      <div class="form-group mx-auto col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+        <label for="exampleInputEmail1">Confirm Password</label>
+        <input
+            type="text"
+            name="password-control"
+            class="form-control"
+            placeholder="Introduce your password again"
+            [ngClass]="{'is-invalid': password2.touched && !password2.valid}"
+            #password2="ngModel" [(ngModel)]="new_user.password"
+            required pattern="^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{8,})\S$"
+        >
+        <div *ngIf="password2.touched && !password2.valid" class="invalid-feedback">
+            Este campo es obligatorio!
+        </div>
+    </div>
+
+      <div class="form-group mx-auto col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+          <button
+              type="submit"
+              class="btn btn-outline-info btn-block"
+              [disabled]="!formContacto.form.valid"
+          >
+              Submit
+          </button>
+      </div>
+    </form>
+</div>

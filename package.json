@@ -21,7 +21,9 @@
     "@angular/router": "~10.1.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "@popperjs/core": "^2.6.0",
+    "bootstrap": "^5.0.0-beta1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.7",

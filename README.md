@@ -1,6 +1,6 @@
 # ITProject-ERP-Frontend
 
-# I. Project Seed
+## I. Project Seed
 
 For this project, whe have a given repo named ITProject-ERP-Frontend,
 with a GitHub remote URL:  https://github.com/it-academyproject/ITProject-ERP-Frontend.git
@@ -14,9 +14,9 @@ In this documentation:
 
 Given a GitHub remote repo with files '.gitignore' and 'README.md' already in it, and wanting to set up a fresh Angular 'ERP' project inside that repo, follow next steps in terminal or console:
 
-***
+****
 
-REQUIREMENTS
+### REQUIREMENTS
 
 Skip the steps of this section if you already have Node.js, git and Angular installed in your local machine, and a valid GitHub account.
 If not, follow required steps: 
@@ -33,13 +33,13 @@ Type this in your terminal or console: git --version
 Then, in your machine, open a terminal or console and...
 
 2.1. Set up your name and email for local git CLI.
-It must match the name and email you registered in GitHub when you signed up before
-git config –-global user.name yourGitHubName
-git config –-global user.email yourGitHubEmail
+It must match the name and email you registered in GitHub when you signed up before.
+* git config –-global user.name yourGitHubName
+* git config –-global user.email yourGitHubEmail
 
-2.2. Check existing name and email. They must match what you typed in before
-git config –-global user.name
-git config –-global user.email
+2.2. Check existing name and email. They must match what you typed in before.
+* git config –-global user.name
+* git config –-global user.email
 
 3. Downlad and install Node.js if you haven't yet
 https://nodejs.org/es/
@@ -50,9 +50,9 @@ https://angular.io/
 Install Angular CLI globally in your machine: npm install -g @angular/cli
 Then check for its version, if installation whent OK. Type this in your terminal or console: ng v 
 
-***
+****
 
-THEN FOLLOW NEXT STEPS
+### THEN FOLLOW NEXT STEPS
 
 1. Clone the repo from remote to local:	git clone repoURL
 
@@ -117,4 +117,23 @@ Example message: "project init + node-modules ignored"
 
 22. Ask for a pull request in GitHub, from base 'Dev' to compared 'featureBranchName'
 
-***
+****
+
+### ANGULAR COMMANDS
+
+In your terminal or console, type the following commands to...
+
+* open development server: ng serve -o 
+
+* restart development server: ng serve
+
+* run Kharma test runner: ng test 
+
+* run test coverage and create coverage folder in project: ng test --no-watch –code-coverage
+(Open its index.html in browser to see the coverage UI)
+
+* stop server or stop test runner: Ctr+C (in Windows, Linux) , Cmd+C (in Mac)
+
+* build for development: ng build
+
+* build for production: ng build --prod

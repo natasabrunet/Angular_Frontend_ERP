@@ -8,6 +8,7 @@ import { AdminComponent } from './views/header/admin/admin.component';
 import { NotificationsComponent } from './views/header/notifications/notifications.component';
 import { HeaderSearchComponent } from './views/header/header-search/header-search.component';
 import { TogglerComponent } from './views/header/toggler/toggler.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TogglerComponent } from './views/header/toggler/toggler.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

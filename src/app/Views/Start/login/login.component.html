@@ -1,147 +1,43 @@
 <h2 class="text-purple text-center">Log In</h2>
 
 <!-- FORMULAR -->
-<div class="row">
-  <div class="col-lg-8 mx-auto">
-    <!-- <form [formGroup]="form" (ngSubmit)="send()" autocomplete="off">
-		<div class="control-group">
-		  <div
-			class="form-group floating-label-form-group controls mb-0 pb-2"
-		  >
-			<label>Name</label>
-			<input
-			  #ref1
-			  class="form-control"
-			  type="text"
-			  placeholder="Name"
-			  formControlName="name"
-			  [class.is-invalid]="validateOnTouched(ref1) > 0"
-			/>
-			<small
-			  class="invalid-feedback"
-			  *ngIf="validateOnTouched(ref1) === 1"
-			>
-			  {{ contact.required1 }}
-			</small>
-			<small
-			  class="invalid-feedback"
-			  *ngIf="validateOnTouched(ref1) === 2"
-			>
-			  {{ contact.match1 }}
-			</small>
-		  </div>
-		</div>
-
-		<div class="control-group">
-		  <div
-			class="form-group floating-label-form-group controls mb-0 pb-2"
-		  >
-			<label>Email Address</label>
-			<input
-			  #ref2
-			  class="form-control border border-white"
-			  type="text"
-			  placeholder="Email Address"
-			  formControlName="email"
-			  [class.is-invalid]="validateOnTouched(ref2) > 0"
-			/>
-			<small
-			  class="invalid-feedback"
-			  *ngIf="validateOnTouched(ref2) === 1"
-			>
-			  {{ contact.required2 }}
-			</small>
-			<small
-			  class="invalid-feedback"
-			  *ngIf="validateOnTouched(ref2) === 2"
-			>
-			  {{ contact.match2 }}
-			</small>
-		  </div>
-		</div>
-
-		<div class="control-group">
-		  <div
-			class="form-group floating-label-form-group controls mb-0 pb-2"
-		  >
-			<label>Message</label>
-			<textarea
-			  #ref3
-			  rows="5"
-			  class="form-control border border-white rounded"
-			  placeholder="Message"
-			  formControlName="msg"
-			  [class.is-invalid]="validateOnTouched(ref3) > 0"
-			></textarea>
-			<small
-			  class="invalid-feedback"
-			  *ngIf="validateOnTouched(ref3) === 1"
-			>
-			  {{ contact.required3 }}
-			</small>
-			<small
-			  class="invalid-feedback"
-			  *ngIf="validateOnTouched(ref3) === 2"
-			>
-			  {{ contact.match3 }}
-			</small>
-		  </div>
-		</div>
-
-		<div class="control-group">
-		  <div class="form-group my-5">
-			<label class="small">
-			  <input
-				#ref4
-				class="mr-2"
-				type="checkbox"
-				formControlName="lgpd"
-				[class.is-invalid]="validateOnTouched(ref4) > 0"
-			  />
-			  {{ contact.warn1 }}
-			  <a
-				class="px-1"
-				rel="nofollow noreferrer"
-				[routerLink]="[contact.link]"
-				routerLinkActive="router-link-active"
-				>{{ contact.text }}</a
-			  >
-			  {{ contact.warn2 }}
-			</label>
-
-			<small
-			  class="d-block invalid-feedback small"
-			  *ngIf="validateOnTouched(ref4) === 1"
-			>
-			  {{ contact.required4 }}
-			</small>
-		  </div>
-		</div>
-
-		<div class="control-group">
-		  <div class="form-group mt-0">
-			<button
-			  class="btn btn-lg"
-			  type="submit"
-			  name="submited"
-			  value="valid"
-			  [disabled]="disabled && !submitable"
-			  [class.btn-outline-dark]="!disabled || submitable"
-			  [class.btn-danger]="disabled && !submitable"
-			>
-			  Send
-			</button>
-		  </div>
-		</div>
-	  </form> -->
+<form class="mx-auto border border-purple p-5 rounded">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+    />
+	<!-- feedback -->
+    <div class="invalid-feedback">invalid email format</div>
+    <!-- assertive tech -->
+    <div id="emailHelp" class="form-text">
+      We'll never share your email with anyone else.
+    </div>
   </div>
 
-  <!-- DEBUGG -->
-  <!-- <pre class="border border-danger p-3">
-	  form.valid: {{ form.valid }}
-	  <br>
-	  form.status: {{ form.status }}
-	  <br>
-	  form.value: {{ form.value | json }}     
-	</pre> -->
-</div>
+  <div class="mb-3">
+    <label for="inputPassword5" class="form-label">Password</label>
+    <input
+      type="password"
+      id="inputPassword5"
+      class="form-control"
+      aria-describedby="passwordHelpBlock"
+    />
+    <!-- feedback -->
+    <div class="invalid-feedback">invalid pasword format</div>
+    <!-- assertive tech -->
+    <div id="passwordHelpBlock" class="form-text">
+      Your password must be 8-20 characters long, contain letters and numbers,
+      and must not contain spaces, special characters, or emoji.
+    </div>
+  </div>
+
+  <div class="login-footer d-flex justify-content-between">
+    <button type="submit" class="btn btn-purple">Log In</button>
+
+    <a href="javascript: void(0)">Forgot password?</a>
+  </div>
+</form>

@@ -12,7 +12,7 @@ import { NotificationsComponent } from './views/header/notifications/notificatio
 import { HeaderSearchComponent } from './views/header/header-search/header-search.component';
 import { TogglerComponent } from './views/header/toggler/toggler.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AdminComponent,
     NotificationsComponent,
     HeaderSearchComponent,
-    TogglerComponent
+    TogglerComponent,
+    NavbarClientComponent
   ],
   imports: [
     BrowserModule,

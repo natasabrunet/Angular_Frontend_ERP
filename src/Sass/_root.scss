@@ -43,10 +43,19 @@ h6 {
   font-size: 18px;
 }
 
-// this is override actually
+// TODO: this is override actually. Can we modify .btn SASS?
 
 // header,
 .btn,
 .navbar {
   font-size: 16px;
+}
+
+// BUTTONS
+.btn {
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 5px 10px 0px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
 }

@@ -1,17 +1,35 @@
-// A. extra theme-colors merge
-$extra-colors: (
-  "purple": purple,
-  "cadetblue": cadetblue,
-  "papayawhip": papayawhip,
-  "plum": plum,
-  "darkorange": darkorange,
-  "orange": orange,
-  "gold": gold,
-  "goldenrod": goldenrod,
-  "primary-darken-5": darken($primary, 5),
-);
+////////////////////////////////////
+// EXPAND B5 main color variables //
+////////////////////////////////////
 
+// 1. Import global custom color variables if any
+
+@import "../Sass/root"; // example: $gold
+
+// 2. Just add colors to whatever named variables in this $extra-colors map
+
+// Example: add purple to enable "text-example1", "bg-example1", "btn-example1", "border-example1" to be purple
+
+$extra-colors: (/* "example1": purple,*/ "gold": $gold);
+
+// 3. Previsous custom colors will be added top B5 palette.
 $theme-colors: map-merge($theme-colors, $extra-colors);
 
-// B. extra theme-colors remove
-// $theme-colors: map-remove($theme-colors, "primary", "light", "dark"); // etc...
+// Don't remove the following line (which actually merges the new colors with the default ones)
+
+////////////////////////////////////
+// REMOVE B5 main color variables //
+////////////////////////////////////
+
+/*
+  This is not a recommended approach.
+
+  But if you're 100% sure, you won't ever use a color,
+  then you can remove it from palette, to optimize final bundle size.
+  Do it under your responsibility.
+
+  Example: remove "primary" and "dark" from B5 palette
+
+  $theme-colors: map-remove($theme-colors, "primary", "dark");
+
+*/

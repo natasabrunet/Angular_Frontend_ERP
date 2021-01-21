@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserSignUp } from 'src/app/Models/newUser';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -10,7 +11,7 @@ export class SignUpComponent implements OnInit {
   public new_user:UserSignUp;
 
   constructor() {
-    this.new_user = new UserSignUp('', '', '','');
+    this.new_user = new UserSignUp('', '', '','', '');
   }
 
   ngOnInit(): void {

@@ -1,0 +1,85 @@
+<ul class="navbar-nav d-flex">
+  <li class="nav-item dropdown">
+    <a
+      class="nav-link counter"
+      id="notificationDropdown"
+      role="button"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <fa-icon [icon]="faBell" size="lg"></fa-icon>
+      <span class="counter__symbol"></span>
+    </a>
+
+    <div
+      class="dropdown-menu dropdown-menu-end menu-box"
+      aria-labelledby="profileDropdown"
+    >
+      <h6 class="p-3">Notifications</h6>
+      <div class="dropdown-divider"></div>
+
+      <!-- Call to see last notifications (NgFor) -->
+      <a class="dropdown-item notification">
+        <div
+          class="notification__item d-flex justify-content-center align-items-center"
+        >
+          <div class="notification__item--thumbnail">
+            <!-- Icon related to notification -->
+          </div>
+        </div>
+        <div
+          class="notification__item--content d-flex align-items-start flex-column justify-content-center ml-3"
+        >
+          <h6 class="notification__item--content-title mb-1">Event today</h6>
+          <p class="notification__item--content-text mb-0">
+            Just a reminder that you have an event today
+          </p>
+        </div>
+      </a>
+
+      <div class="dropdown-divider"></div>
+
+
+      <a class="dropdown-item notification">
+        <div
+          class="notification__item d-flex justify-content-center align-items-center"
+        >
+          <div class="notification__item--thumbnail">
+            <!-- Icon related to notification -->
+          </div>
+        </div>
+        <div
+          class="notification__item--content d-flex align-items-start flex-column justify-content-center ml-3"
+        >
+          <h6 class="notification__item--content-title mb-1">Event today</h6>
+          <p class="notification__item--content-text mb-0">
+            Just a reminder that you have an event today
+          </p>
+        </div>
+      </a>
+
+      <div class="dropdown-divider"></div>
+
+
+      <a class="dropdown-item notification">
+        <div
+          class="notification__item d-flex justify-content-center align-items-center"
+        >
+          <div class="notification__item--thumbnail">
+            <!-- Icon related to notification -->
+          </div>
+        </div>
+        <div
+          class="notification__item--content d-flex align-items-start flex-column justify-content-center ml-3"
+        >
+          <h6 class="notification__item--content-title mb-1">Event today</h6>
+          <p class="notification__item--content-text mb-0">
+            Just a reminder that you have an event today
+          </p>
+        </div>
+      </a>
+      
+    </div>
+  </li>
+</ul>

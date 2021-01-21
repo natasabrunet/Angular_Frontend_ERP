@@ -1,0 +1,47 @@
+.counter {
+  position: relative;
+  color: #242a32;
+
+  &__symbol {
+    position: absolute;
+    top: 3px;
+    left: 32px;
+    background-color: #dd5d56;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+  }
+}
+
+
+.menu-box {
+  box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+  border: none;
+  margin-top: 1rem;
+}
+
+.notification {
+  display: inline-flex;
+
+  &__item {
+    &--thumbnail {
+      width: 30px;
+      height: 30px;
+      background-color: #dd5d56;
+      border-radius: 100%;
+    }
+
+    &--content {
+      font-family: "Montserrat", sans-serif;
+
+      &-title {
+        font-weight: 500;
+      }
+
+      &-text {
+        font-weight: 300;
+        color: #8c8c8c;
+      }
+    }
+  }
+}

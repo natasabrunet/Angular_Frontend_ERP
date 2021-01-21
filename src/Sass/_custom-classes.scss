@@ -59,6 +59,46 @@ $utilities: map-merge(
 // CREATE NEW B5-syntaxed or MODIFY B5-ready CLASSES //
 ///////////////////////////////////////////////////////
 
-// Don't modify previuos commented exmaple lines!
+// Don't modify previuos commented example lines!
 
-// Write your code just below. 
+// Write your code just below.
+
+$utilities: map-merge(
+  $utilities,
+  (
+    // new
+    "erp-opacity":
+      (
+        property: opacity,
+        responsive: true,
+        class: op,
+        state: hover,
+        values: (
+          0: 0,
+          25: 0.25,
+          50: 0.5,
+          75: 0.75,
+          100: 1,
+        ),
+      ),
+    // new
+    "erp-btn":
+      (
+        property: transform,
+        class: erp-btn,
+        state: hover,
+        values: (
+          null: translateY(-3px),
+        ),
+      ),
+    // new
+    "erp-shade":
+      (
+        property: box-shadow,
+        class: erp-shade,
+        state: hover,
+        values: (
+          null: 4px 5px 10px 0px rgba(0, 0, 0, 0.35),
+        ),
+      ), )
+);

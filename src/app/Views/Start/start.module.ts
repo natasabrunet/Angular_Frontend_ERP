@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../../app-routing.module';
 
 //import components
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
@@ -18,6 +19,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule
   ]
 })
 export class StartModule { }

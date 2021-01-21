@@ -17,6 +17,7 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //TODO: hacer pop up de registro correcto onSubmit
   onSubmit(form){
     console.log(this.new_user);
     form.reset();

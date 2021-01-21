@@ -1,0 +1,29 @@
+////////////////////////////////////////////////
+// GLOBAL STYLING, independent from B5 syntax //
+////////////////////////////////////////////////
+
+// Here, you can define global SASS/CSS styles which will apply on the whole app
+
+/*
+Example:
+
+// global vars
+$root-bg: papayawhip;
+
+// global styles from shell (above Angular's component's scope)
+:root {
+  background-color: darken($root-bg, 10); #222222
+  body {
+    background-color: $root-bg;
+    user-select: none;
+  }
+}
+*/
+
+//////////////////////////////////////
+// ERP GLOBAL VARIABLES AND STYLING //
+//////////////////////////////////////
+
+// color variables
+// example:
+$gold: gold;

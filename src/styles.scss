@@ -1,10 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
 /////////////////////////
 // THEMING + BOOTSTRAP //
 /////////////////////////
 
 // TODO: before production, review assertive tecnologies B5 (for each components secction)
-// TODO: before production, review B5 imports you realy used. comment out those not used!
+// TODO: before production, review B5 imports you realy used. Comment out those not used!
 
 // I. Configuration
 @import "../node_modules/bootstrap/scss/functions";
@@ -22,9 +21,9 @@
 @import "../node_modules/bootstrap/scss/mixins";
 
 // II. Layout
-@import "../node_modules/bootstrap/scss/utilities"; // spacing, shadow, etc.
+@import "../node_modules/bootstrap/scss/utilities"; // spacing, shadow, text-align, etc.
 
-// 2.1. B5 custom classes
+// 2.1. B5-syntaxed custom classes
 @import "./sass/custom-classes";
 
 // ... layout
@@ -32,43 +31,42 @@
 @import "../node_modules/bootstrap/scss/grid";
 
 // III. Content
-@import "../node_modules/bootstrap/scss/root"; // CSS variables --blue, etc.
-@import "../node_modules/bootstrap/scss/reboot"; // normalize
+@import "../node_modules/bootstrap/scss/root"; // B5 CSS variables --blue, etc.
+@import "../node_modules/bootstrap/scss/reboot"; // normalize.js for responsive design
 @import "../node_modules/bootstrap/scss/type"; // headings // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/images"; // for PRODUCTS // thumbs, figures, etc.
-// @import "../node_modules/bootstrap/scss/tables"; // NO CRUD in FRONT // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/images"; // thumbs, figures, etc.
+@import "../node_modules/bootstrap/scss/tables"; // (TODO: assertive tech)
 
-// IV. Components + NO Javascript
+// IV. CSS Components + NO Javascript
 @import "../node_modules/bootstrap/scss/buttons"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/breadcrumb"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/pagination"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/forms"; // for CRUD // (TODO: assertive tech)
-@import "../node_modules/bootstrap/scss/close"; // for LGPD - close btn for modals, alerts...
-// @import "../node_modules/bootstrap/scss/card"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/button-group"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/badge"; // (TODO: assertive tech)
-@import "../node_modules/bootstrap/scss/spinners"; // for CRUD req, res status
-// @import "../node_modules/bootstrap/scss/progress";
+@import "../node_modules/bootstrap/scss/breadcrumb"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/pagination"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/forms"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/close"; // close btn for modals, alerts...
+@import "../node_modules/bootstrap/scss/card"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/button-group"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/badge"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/spinners";
+@import "../node_modules/bootstrap/scss/progress";
 
-// IV. Components + Javascript
-// @import "../node_modules/bootstrap/scss/alert"; // for CRUD feedback // (TODO: assertive tech)
-@import "../node_modules/bootstrap/scss/dropdown"; // + popper // (TODO: assertive tech)
-@import "../node_modules/bootstrap/scss/navbar"; // requires transitions // (TODO: assertive tech)
+// IV. CSS Components + Javascript
+@import "../node_modules/bootstrap/scss/alert"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/dropdown"; // + @popperjs/core (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/navbar"; // requires transitions.scss // (TODO: assertive tech)
 @import "../node_modules/bootstrap/scss/transitions";
-@import "../node_modules/bootstrap/scss/modal"; // for LGPD - styled prompts, alerts, etc..
-// @import "../node_modules/bootstrap/scss/list-group"; // model variations (BRUT, SEMI, DOLÇ) // news feed, etc... // (TODO: assertive tech)
-
-// @import "../node_modules/bootstrap/scss/accordion";
-// @import "../node_modules/bootstrap/scss/toasts"; // styled prompts, alerts, etc.. // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/carousel"; // AVOID CAROUSELS / not compliant with accessibility standards.
-// @import "../node_modules/bootstrap/scss/tooltip"; // + popper // FIXME: replace bootstrap.bundle.js in angular.json if popper finally don't used
-// @import "../node_modules/bootstrap/scss/popover"; // + popper (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/list-group"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/accordion";
+@import "../node_modules/bootstrap/scss/toasts"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/carousel"; // TODO: AVOID CAROUSELS / not compliant with assertive tech standards.
+@import "../node_modules/bootstrap/scss/tooltip"; // + @popperjs/core
+@import "../node_modules/bootstrap/scss/popover"; // + @popperjs/core (TODO: assertive tech)
 
 // V. Helpers
 @import "../node_modules/bootstrap/scss/helpers"; // position, visually-hidden, etc.
 
 // VI. Utilities
-@import "../node_modules/bootstrap/scss/utilities/api"; // required for SASS theming
+@import "../node_modules/bootstrap/scss/utilities/api"; // required for B5 classes SASS theming and customizing
 
 //////////////////
 // ROOT GLOBALS //
@@ -76,26 +74,27 @@
 
 @import "./sass/root";
 
-//////////////////
-// CUSTOM STYLE //
-//////////////////
+///////////////////////////////////////
+// OTHER CSS LIBRARIES and OVERRIDES //
+///////////////////////////////////////
 
-// B5 classes overrides
-@import "./sass/overrides";
+// 1. import below other CSS libraries or snippets you want to use
 
 /*
-  NOTE:
-
-  box-sizing in B5 is border-box,
+NOTE:
+  "box-sizing" is set to "border-box" in B5,
   but it can cause problems with some third party software like
-  Google Maps and Google Custom Search Engine.
+  "Google Maps" and "Google Custom Search Engine".
 
   On the rare occasion you need to override it,
-  use something like the following:
+  use something like the following CSS rules:
 
   .selector-for-some-widget {
     box-sizing: content-box;
   }
 
-  https://css-tricks.com/box-sizing/
+HELP: https://css-tricks.com/box-sizing/
 */
+
+// 2. B5 classes overrides
+@import "./sass/overrides";

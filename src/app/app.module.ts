@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//import local StartModule
+import { StartModule } from './Views/Start/start.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +16,8 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

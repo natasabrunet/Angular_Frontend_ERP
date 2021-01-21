@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 /////////////////////////
 // THEMING + BOOTSTRAP //
 /////////////////////////
@@ -35,34 +36,34 @@
 @import "../node_modules/bootstrap/scss/root"; // CSS variables --blue, etc.
 @import "../node_modules/bootstrap/scss/reboot"; // normalize
 @import "../node_modules/bootstrap/scss/type"; // headings // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/images"; // for PRODUCTS // thumbs, figures, etc.
-// @import "../node_modules/bootstrap/scss/tables"; // NO CRUD in FRONT // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/images"; // for PRODUCTS // thumbs, figures, etc.
+@import "../node_modules/bootstrap/scss/tables"; // NO CRUD in FRONT // (TODO: assertive tech)
 
 // IV. Components + NO Javascript
 @import "../node_modules/bootstrap/scss/buttons"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/breadcrumb"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/pagination"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/forms"; // for CRUD // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/breadcrumb"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/pagination"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/forms"; // for CRUD // (TODO: assertive tech)
 @import "../node_modules/bootstrap/scss/close"; // for LGPD - close btn for modals, alerts...
-// @import "../node_modules/bootstrap/scss/card"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/button-group"; // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/badge"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/card"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/button-group"; // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/badge"; // (TODO: assertive tech)
 @import "../node_modules/bootstrap/scss/spinners"; // for CRUD req, res status
-// @import "../node_modules/bootstrap/scss/progress";
+@import "../node_modules/bootstrap/scss/progress";
 
 // IV. Components + Javascript
-// @import "../node_modules/bootstrap/scss/alert"; // for CRUD feedback // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/alert"; // for CRUD feedback // (TODO: assertive tech)
 @import "../node_modules/bootstrap/scss/dropdown"; // + popper // (TODO: assertive tech)
 @import "../node_modules/bootstrap/scss/navbar"; // requires transitions // (TODO: assertive tech)
 @import "../node_modules/bootstrap/scss/transitions";
 @import "../node_modules/bootstrap/scss/modal"; // for LGPD - styled prompts, alerts, etc..
-// @import "../node_modules/bootstrap/scss/list-group"; // model variations (BRUT, SEMI, DOLÇ) // news feed, etc... // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/list-group"; // model variations (BRUT, SEMI, DOLÇ) // news feed, etc... // (TODO: assertive tech)
 
-// @import "../node_modules/bootstrap/scss/accordion";
-// @import "../node_modules/bootstrap/scss/toasts"; // styled prompts, alerts, etc.. // (TODO: assertive tech)
-// @import "../node_modules/bootstrap/scss/carousel"; // AVOID CAROUSELS / not compliant with accessibility standards.
-// @import "../node_modules/bootstrap/scss/tooltip"; // + popper // FIXME: replace bootstrap.bundle.js in angular.json if popper finally don't used
-// @import "../node_modules/bootstrap/scss/popover"; // + popper (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/accordion";
+@import "../node_modules/bootstrap/scss/toasts"; // styled prompts, alerts, etc.. // (TODO: assertive tech)
+@import "../node_modules/bootstrap/scss/carousel"; // AVOID CAROUSELS / not compliant with accessibility standards.
+@import "../node_modules/bootstrap/scss/tooltip"; // + popper // FIXME: replace bootstrap.bundle.js in angular.json if popper finally don't used
+@import "../node_modules/bootstrap/scss/popover"; // + popper (TODO: assertive tech)
 
 // V. Helpers
 @import "../node_modules/bootstrap/scss/helpers"; // position, visually-hidden, etc.
@@ -99,3 +100,4 @@
 
   https://css-tricks.com/box-sizing/
 */
+

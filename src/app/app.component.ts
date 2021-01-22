@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 //////////////////////////
 // Bootstrap JS imports //
@@ -32,8 +32,10 @@ import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ITProject-ERP-Frontend';
+
+  ngOnInit() {}
 }

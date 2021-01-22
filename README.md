@@ -67,18 +67,7 @@ If not, follow next steps:
 >
 >         IMPORTANT! Be sure you are inside the <localProjectFolderName> folder
 
-> 3.  Finally, set up the **Angular** project without overriding the existing `git` folder.  
->     Also set up the project in the **same folder** (the root) you're in.
->     To do so, type the following command in your terminal or console:
-
-    ng new <localProjectFolderName> --skip-git --directory=./
-
-> 4.  In the project scafolding:
->
-> - select SPA mode: `Routing: yes`
-> - select `SASS` as CSS preprocessor
-
-> 5.  Remember to download all `node-modules` **dependecies** as defined in the `package.json` file.  
+> 3.  Remember to download all `node-modules` **dependecies** as defined in the `package.json` file.  
 >     To do so, jut type in the following command in your terminal:
 
     npm update

@@ -16,6 +16,8 @@ import { HeaderSearchComponent } from './Components/header/header-search/header-
 import { TogglerComponent } from './Components/header/toggler/toggler.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { LicenceComponent } from './Components/Footer/licence/licence.component'; 
 // import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 
 
@@ -28,7 +30,9 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
     HeaderSearchComponent,
     TogglerComponent,
     NavbarClientComponent,
-    NavbarClientComponent
+    NavbarClientComponent,
+    FooterComponent,
+    LicenceComponent
       // RecoverPasswordComponent
   ],
   imports: [

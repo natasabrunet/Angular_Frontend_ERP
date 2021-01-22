@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RecoverPasswordComponent } from '../app/Views/Start/recover-password/recover-password.component';
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
+import { LicenceComponent } from './Components/Footer/licence/licence.component';
 
 const routes: Routes = [
   { path: 'recover-password', component: RecoverPasswordComponent},
-  {path:'sign_up', component:SignUpComponent}
+  {path:'sign_up', component:SignUpComponent},
+  {path: 'Licence', component: LicenceComponent}
   
 ];
-
+  
 @NgModule({
 
   imports: [RouterModule.forRoot(routes)],

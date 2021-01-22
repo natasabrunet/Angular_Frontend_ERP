@@ -34,12 +34,13 @@ h6 {
   font-size: 18px;
 }
 
-// TODO: this is override actually. Can we modify .btn SASS?
+// FIXME: this is override actually. Can we modify .btn SASS instead?
 
 // header,
 .btn,
 .navbar {
   font-size: 16px;
+  // font-family: 'Montserrat', sans-serif;
 }
 
 // BUTTONS

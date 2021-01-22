@@ -20,6 +20,7 @@ ALERT!
 */
 
 // TYPOGRAPHY //
+
 .btn,
 .navbar {
   font-family: "Montserrat", sans-serif;
@@ -30,10 +31,17 @@ ALERT!
 }
 
 // BUTTONS //
+
 .btn {
   &:hover {
     transform: translateY(-3px);
     box-shadow: 4px 5px 10px 0px rgba(0, 0, 0, 0.35);
     transition: transform 0.2s, box-shadow 0.2s;
   }
+}
+
+// LINKS //
+
+.nav-link {
+  text-decoration: none;
 }

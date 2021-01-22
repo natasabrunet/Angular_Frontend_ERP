@@ -73,18 +73,30 @@ footer {
 
 // LINKS //
 
-a {
+a:not(.navbar-brand):not(.nav-link) {
+  display: inline-block;
   color: $erp-blue;
   text-decoration: none;
-  &:hover {
-    color: $erp-red;
+  &::after {
+    content: "";
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: $erp-blue;
+  }
+  &:hover::after {
+    width: 100%;
+    transition: width 0.5s;
   }
 }
 
 footer a {
-  color: inherit;
+  color: inherit !important;
   &:hover {
-    color: inherit;
-    text-decoration: underline;
+    color: inherit !important;
+    text-decoration: underline !important;
+  }
+  &:hover::after {
+    width: 0% !important;
   }
 }

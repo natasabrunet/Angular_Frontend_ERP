@@ -24,7 +24,7 @@ $root-bg: papayawhip;
 // GLOBAL STYLING //
 ////////////////////
 
-// TYPOGRAPHY
+// TYPOGRAPHY //
 h1,
 h2,
 h3,
@@ -32,22 +32,18 @@ h4,
 h5,
 h6 {
   font-size: 18px;
-}
-
-// FIXME: this is override actually. Can we modify .btn SASS instead?
-
-// header,
-.btn,
-.navbar {
-  font-size: 16px;
+  font-weight: 500;
   // font-family: 'Montserrat', sans-serif;
 }
 
-// BUTTONS
-.btn {
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 4px 5px 10px 0px rgba(0, 0, 0, 0.35);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+p {
+  font-size: 16px;
+  font-weight: 400;
+  // font-family: 'Raleway', sans-serif;
+}
+
+footer {
+  font-size: 10x;
+  font-weight: 400;
+  // font-family: 'Raleway', sans-serif;
 }

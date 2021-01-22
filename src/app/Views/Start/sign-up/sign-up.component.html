@@ -5,14 +5,16 @@
     <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
       <h1 class="text-center pb-3">Sign up</h1>
       <div class="d-flex justify-content-between">
-        <a class="ps-2" [routerLink]="['/home']">Already a member?</a>
-    <!-- TODO: redireccionar a Home. Hacer git pull origin Dev antes para actualizar -->
+        <a class="ps-2" [routerLink]="['/']">Already a member?</a>
+    <!-- TODO: redireccionar a Log-in. Hacer git pull origin Dev antes para actualizar -->
       <button
         type="submit"
         class="btn"
+        [routerLink]="['/']"
       >
         BACK
       </button>
+      <!-- TODO: redireccionar a Home. Hacer git pull origin Dev antes para actualizar -->
       </div>
     </div>
   </div>
@@ -72,28 +74,31 @@
       </div>
 
 <!-- TODO: poner asteriscos y quizás opción de ver -->
+<!-- TODO: hacer popover de criterios password (hover) -->
+
       <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 d-flex">
         <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
         <div class="col-10">
-          <input
-          type="text"
-          name="password"
-          class="form-control"
-          [ngClass]="{'is-invalid': password.touched && !password.valid}"
-          #password="ngModel"
-          [(ngModel)]="new_user.password"
-          required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
-          >
-          <div *ngIf="password.touched && !password.valid" class="invalid-feedback">
-            This password does not match the required format!
-          </div>
+            <input
+            type="text"
+            name="password"
+            class="form-control fa"
+            [ngClass]="{'is-invalid': password.touched && !password.valid}"
+            #password="ngModel"
+            [(ngModel)]="new_user.password"
+            required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
+            required
+            >
+            <div *ngIf="password.touched && !password.valid" class="invalid-feedback">
+              This password does not match the required format!
+            </div>
         </div>
       </div>
 
       <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 d-flex">
           <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
           <div class="col-10">
-            <input
+              <input
               type="text"
               name="password-control"
               class="form-control"
@@ -101,11 +106,11 @@
               #password2="ngModel"
               [(ngModel)]="password_conf"
               required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
-            >
-            <div *ngIf="password2.touched && !password2.valid" class="invalid-feedback">
-              This password does not match the password written above!
+              >
+              <div *ngIf="password2.touched && !password2.valid" class="invalid-feedback">
+                This password does not match the password written above!
+              </div>
             </div>
-          </div>
       </div>
 
       <div class="form-group d-grid pt-2 mx-auto col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">

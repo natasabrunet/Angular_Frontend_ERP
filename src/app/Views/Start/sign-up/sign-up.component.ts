@@ -10,9 +10,11 @@ export class SignUpComponent implements OnInit {
 
   public new_user:UserSignUp;
   public password_conf:string;
+  public check_password:boolean;
 
   constructor() {
     this.new_user = new UserSignUp('', '', '','');
+    this.check_password = false;
   }
 
   ngOnInit(): void {
@@ -24,6 +26,32 @@ export class SignUpComponent implements OnInit {
     form.reset();
     setTimeout(()=> alert('Your registration was succesful!'), 1000);
   }
+
+  // mostrarPassword(password:string){
+  //   let cambio = (<HTMLDivElement>document.getElementById('show_password'));
+	// 	if(this.check_password === false){
+  //     cambio.classList.remove('fa-eye-slash');
+  //     cambio.classList.add('fa-eye');
+  //     this.check_password = true;
+	// 	}else{
+  //     cambio.classList.remove('fa-eye');
+  //     cambio.classList.add('fa-eye-slash');
+  //     this.check_password = false;
+	// 	}
+  // }
+
+  // mostrarPassword2(){
+  //   let cambio = (<HTMLDivElement>document.getElementById('show_password2'));
+	// 	if(this.check_password === false){
+  //     cambio.classList.remove('fa-eye-slash');
+  //     cambio.classList.add('fa-eye');
+	// 		this.check_password = true;
+	// 	}else{
+  //     cambio.classList.remove('fa-eye');
+  //     cambio.classList.add('fa-eye-slash');
+  //     this.check_password = false;
+	// 	}
+	// }
 
 }
 

@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//import local StartModule
+import { StartModule } from './Views/Start/start.module';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule } from '@angular/forms';
@@ -13,6 +16,8 @@ import { HeaderSearchComponent } from './Components/header/header-search/header-
 import { TogglerComponent } from './Components/header/toggler/toggler.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
+// import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
+
 
 @NgModule({
   declarations: [
@@ -22,13 +27,16 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
     NotificationsComponent,
     HeaderSearchComponent,
     TogglerComponent,
+    NavbarClientComponent,
     NavbarClientComponent
+      // RecoverPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    StartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

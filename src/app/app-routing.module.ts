@@ -8,12 +8,11 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 const routes: Routes = [
   {path: 'recover-password', component: RecoverPasswordComponent},
   {path:'sign_up', component:SignUpComponent},
-  {path: 'Licence', component: LicenceComponent}
-  
+  {path: 'Licence', component: LicenceComponent},
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
 ];
-  
+   
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

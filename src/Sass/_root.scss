@@ -41,6 +41,14 @@ $root-bg: papayawhip;
 }
 
 // TYPOGRAPHY //
+
+body > * {
+  // color: $erp-black;
+  font-family: "Raleway", sans-serif; // default font
+  font-size: 16px;
+}
+
+// headings, header, footer
 h1,
 h2,
 h3,
@@ -59,12 +67,24 @@ header {
 
 // .btn, .navbar --> _overrides.scss
 
-p {
-  font-family: "Raleway", sans-serif;
-  font-size: 16px;
+footer {
+  font-size: 10px;
 }
 
-footer {
-  font-family: "Raleway", sans-serif;
-  font-size: 10px;
+// LINKS //
+
+a {
+  color: $erp-blue;
+  text-decoration: none;
+  &:hover {
+    color: $erp-red;
+  }
+}
+
+footer a {
+  color: inherit;
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
 }

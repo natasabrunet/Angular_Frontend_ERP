@@ -42,6 +42,14 @@ ALERT!
 
 // LINKS //
 
-.nav-link {
-  text-decoration: none;
+.dropdown-item,
+.nav-item {
+  .nav-link {
+    color: $erp-white !important;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: $erp-blue;
+    transition: background-color 0.75s;
+  }
 }

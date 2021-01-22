@@ -73,7 +73,7 @@ footer {
 
 // LINKS //
 
-a:not(.navbar-brand):not(.nav-link) {
+a:not(.navbar-brand):not(.nav-link):not(.dropdown-item) {
   display: inline-block;
   color: $erp-blue;
   text-decoration: none;
@@ -86,7 +86,7 @@ a:not(.navbar-brand):not(.nav-link) {
   }
   &:hover::after {
     width: 100%;
-    transition: width 0.5s;
+    transition: width 0.75s;
   }
 }
 

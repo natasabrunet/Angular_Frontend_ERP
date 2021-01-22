@@ -1,20 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-//import local StartModule
-import { StartModule } from './Views/Start/start.module';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// import local modules
+import { StartModule } from './Views/Start/start.module';
+
+// components (not modular)
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
-import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarClientComponent,
-      RecoverPasswordComponent
+    NavbarClientComponent
+      
   ],
   imports: [
     BrowserModule,

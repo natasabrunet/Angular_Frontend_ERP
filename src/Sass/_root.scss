@@ -91,12 +91,8 @@ a:not(.navbar-brand):not(.nav-link):not(.dropdown-item) {
 }
 
 footer a {
-  color: inherit !important;
-  &:hover {
-    color: inherit !important;
-    text-decoration: underline !important;
-  }
-  &:hover::after {
-    width: 0% !important;
+  color: $erp-white !important;
+  &::after {
+    background: $erp-white !important;
   }
 }

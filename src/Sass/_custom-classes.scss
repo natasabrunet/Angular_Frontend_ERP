@@ -1,7 +1,15 @@
+/*
+  We can create new B5 classes adding those to the $utilities B5 variable,
+  defined in partial SASS, with path: node_modules/bootstrap/scss/utilities
+  We can also midify existend map $utilities
+  You have some examples below
+*/
+
+/*
 $utilities: map-merge(
     $utilities,
     (
-      // A. syntax for brand-new custom classes
+      // A. syntax for brand-new custom class (not included in default $utilities)
       "opacity":
       (
         property: opacity,
@@ -34,21 +42,23 @@ $utilities: map-merge(
             )
           )
       ),
-      //
+      // C. syntax to add responsive behaviour to B5 native classes
       "background-color":
       map-merge(
           map-get($utilities, "background-color"),
           (
             // add responsive
             responsive: true,
-            // values:
-            //   map-merge(
-            //     map-get(map-get($utilities, "text-align"), "values"),
-            //     (
-            //       justify: justify,
-            //     )
-            //   )
           )
       )
     )
 );
+*/
+
+///////////////////////////////////////////////////////
+// CREATE NEW B5-syntaxed or MODIFY B5-ready CLASSES //
+///////////////////////////////////////////////////////
+
+// Don't modify previuos commented exmaple lines!
+
+// Write your code just below. 

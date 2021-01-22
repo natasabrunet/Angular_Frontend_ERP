@@ -6,7 +6,7 @@
       <h1 class="text-center pb-3">Sign up</h1>
       <div class="d-flex justify-content-between">
         <a class="ps-2" [routerLink]="['/home']">Already a member?</a>
-    //TODO: redireccionar a Home. Hacer git pull origin Dev antes para actualizar
+    <!-- TODO: redireccionar a Home. Hacer git pull origin Dev antes para actualizar -->
       <button
         type="submit"
         class="btn"
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  //TODO: hacer pop up de registro correcto onSubmit
+  <!-- TODO: hacer pop up de registro correcto onSubmit -->
   <form #formContacto="ngForm" (ngSubmit)="onSubmit(formContacto)" class="mx-auto row pt-3 pb-4">
       <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 d-flex">
           <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
@@ -71,7 +71,7 @@
           </div>
       </div>
 
-//TODO: poner asteriscos y quizás opción de ver
+<!-- TODO: poner asteriscos y quizás opción de ver -->
       <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 d-flex">
         <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
         <div class="col-10">
@@ -99,7 +99,7 @@
               class="form-control"
               [ngClass]="{'is-invalid': password2.touched && !password2.valid && password !== password2}"
               #password2="ngModel"
-              [(ngModel)]="new_user.password_conf"
+              [(ngModel)]="password_conf"
               required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
             >
             <div *ngIf="password2.touched && !password2.valid" class="invalid-feedback">

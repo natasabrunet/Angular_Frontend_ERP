@@ -24,6 +24,22 @@ $root-bg: papayawhip;
 // GLOBAL STYLING //
 ////////////////////
 
+// FONTS //
+
+@font-face {
+  font-family: "Montserrat";
+  src: url(/assets/fonts/Montserrat/Montserrat-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url(/assets/fonts/Raleway/Raleway-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 // TYPOGRAPHY //
 h1,
 h2,
@@ -31,19 +47,24 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
-  font-weight: 500;
-  // font-family: 'Montserrat', sans-serif;
 }
 
-p {
+header {
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  font-weight: 400;
-  // font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+}
+
+// .btn, .navbar --> _overrides.scss
+
+p {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
 }
 
 footer {
-  font-size: 10x;
-  font-weight: 400;
-  // font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
+  font-size: 10px;
 }

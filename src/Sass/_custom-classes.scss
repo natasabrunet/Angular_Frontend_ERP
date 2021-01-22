@@ -62,3 +62,24 @@ $utilities: map-merge(
 // Don't modify previuos commented example lines!
 
 // Write your code just below.
+
+$utilities: map-merge(
+  $utilities,
+  (
+    // extend B5 text-...
+    "text-align":
+      map-merge(
+        map-get($utilities, "text-align"),
+        (
+          // add values
+          values:
+            map-merge(
+              map-get(map-get($utilities, "text-align"), "values"),
+              (
+                justify: justify,
+              )
+            )
+        )
+      )
+  )
+);

@@ -1,20 +1,21 @@
 <ul class="navbar-nav d-flex">
-  <li class="nav-item dropdown">
+  <li class="nav-item dropdown me-5">
     <a
       class="nav-link counter"
       id="notificationDropdown"
       role="button"
-      data-toggle="dropdown"
+      data-bs-toggle="dropdown"
       aria-haspopup="true"
       aria-expanded="false"
+      href=""
     >
       <fa-icon [icon]="faBell" size="lg"></fa-icon>
       <span class="counter__symbol"></span>
     </a>
 
-    <div
+    <ul
       class="dropdown-menu dropdown-menu-end menu-box"
-      aria-labelledby="profileDropdown"
+      aria-labelledby="notificationDropdown"
     >
       <h6 class="p-3">Notifications</h6>
       <div class="dropdown-divider"></div>
@@ -29,7 +30,7 @@
           </div>
         </div>
         <div
-          class="notification__item--content d-flex align-items-start flex-column justify-content-center ml-3"
+          class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3"
         >
           <h6 class="notification__item--content-title mb-1">Event today</h6>
           <p class="notification__item--content-text mb-0">
@@ -50,7 +51,7 @@
           </div>
         </div>
         <div
-          class="notification__item--content d-flex align-items-start flex-column justify-content-center ml-3"
+          class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3"
         >
           <h6 class="notification__item--content-title mb-1">Event today</h6>
           <p class="notification__item--content-text mb-0">
@@ -71,7 +72,7 @@
           </div>
         </div>
         <div
-          class="notification__item--content d-flex align-items-start flex-column justify-content-center ml-3"
+          class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3"
         >
           <h6 class="notification__item--content-title mb-1">Event today</h6>
           <p class="notification__item--content-text mb-0">
@@ -80,6 +81,5 @@
         </div>
       </a>
       
-    </div>
+    </ul>
   </li>
-</ul>

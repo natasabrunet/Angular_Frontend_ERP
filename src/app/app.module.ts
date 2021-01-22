@@ -1,14 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
-//import local StartModule
+// import local modules
 import { StartModule } from './Views/Start/start.module';
 
-import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { AdminComponent } from './Components/header/admin/admin.component';
 import { NotificationsComponent } from './Components/header/notifications/notifications.component';
@@ -31,6 +31,7 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
     NavbarClientComponent
       // RecoverPasswordComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

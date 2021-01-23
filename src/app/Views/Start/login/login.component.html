@@ -48,8 +48,16 @@
   <!-- FIXME: config routing for routerlink wihtout page refresh -->
   <a href="recover-password" class="mb-3">Forgot password?</a>
 
-  <button type="submit" class="btn btn-erp-blue w-100">
-    <a routerLink="home" class="text-erp-white">
+  <button
+    type="submit"
+    class="btn btn-erp-blue w-100"
+    [ngStyle]="{ cursor: 'not-allowed' }"
+  >
+    <a
+      routerLink="home"
+      class="text-erp-white"
+      [ngStyle]="{ cursor: 'not-allowed' }"
+    >
       Sign in
       <i class="fas fa-sign-in-alt"></i>
     </a>

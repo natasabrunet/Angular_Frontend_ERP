@@ -4,9 +4,11 @@
     <code>(F1.7 - working on it)</code>
   </span>
 
-  <button type="submit" class="btn btn-erp-blue text-erp-white">
-    Sign Up
-    <i class="fas fa-user-plus"></i>
+  <button type="submit" class="btn btn-erp-blue">
+    <a routerLink="sign-up" class="text-erp-white">
+      Sign Up
+      <i class="fas fa-user-plus"></i>
+    </a>
   </button>
 </header>
 
@@ -34,11 +36,7 @@
     </div>
   </div>
 
-  <div class="row mb-3">
-    <div class="col">
-      <a routerLink="recover-password">Forgot password?</a>
-    </div>
-  </div>
+  <a routerLink="recover-password" class="mb-3">Forgot password?</a>
 
   <button type="submit" class="btn btn-erp-blue text-erp-white w-100">
     Sign in

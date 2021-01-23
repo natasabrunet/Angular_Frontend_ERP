@@ -29,6 +29,15 @@ import 'bootstrap/js/dist/scrollspy'; // onepage or section
 import 'bootstrap/js/dist/button'; // ~toggle buttons on/of state
 import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import {
+  faBlind,
+  faPalette,
+  faSpinner,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

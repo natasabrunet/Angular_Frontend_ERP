@@ -1,3 +1,10 @@
-header, form {
-	max-width: 576px; // xs
+header,
+form {
+  max-width: 576px; // xs
+}
+
+button a {
+  &::after {
+    background: inherit !important;
+  }
 }

@@ -16,7 +16,6 @@ import { Component, OnInit } from '@angular/core';
    npm uninstall @popperjs/core
 */
 
-
 import 'bootstrap/js/dist/alert';
 import 'bootstrap/js/dist/dropdown'; // @popperjs/core
 import 'bootstrap/js/dist/collapse'; // ~navbar, ~transitions, ~accordion
@@ -29,6 +28,18 @@ import 'bootstrap/js/dist/scrollspy'; // onepage or section
 import 'bootstrap/js/dist/button'; // ~toggle buttons on/of state
 import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 
+//////////////////////////////////////////
+// Font Awesome Single Icon npm Library //
+//////////////////////////////////////////
+
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
+import {
+  faBlind,
+  faPalette,
+  faSpinner,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -37,5 +48,13 @@ import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 export class AppComponent implements OnInit {
   title = 'ITProject-ERP-Frontend';
 
-  ngOnInit() {}
+  ngOnInit() {
+    //  FONT AWESOME ICONS add plugin  //
+
+    // We are only using the user-astronaut icon
+    library.add(faBlind, faPalette, faSpinner, faUser);
+    // Replace any existing <i> tags with <svg> and set up a MutationObserver to
+    // continue doing this as the DOM changes.
+    dom.watch();
+  }
 }

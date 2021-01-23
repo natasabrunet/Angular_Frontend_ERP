@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserSignUp } from 'src/app/Models/newUser';
+// import { UserSignUp } from 'src/app/Models/newUser';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -7,26 +7,26 @@ import { UserSignUp } from 'src/app/Models/newUser';
 })
 export class SignUpComponent implements OnInit {
 
-  public new_user:UserSignUp;
+  // public new_user:UserSignUp;
 
   constructor() {
-    this.new_user = new UserSignUp('', '', '','');
+    // this.new_user = new UserSignUp('', '', '','');
   }
 
   ngOnInit(): void {
   }
 
-  onSubmit(form){
-    console.log(this.new_user);
-    form.reset();
-    this.enviarAlert();
-  }
+  // onSubmit(form){
+  //   console.log(this.new_user);
+  //   form.reset();
+  //   this.enviarAlert();
+  // }
 
-  enviarAlert (){
-    const editor: HTMLDivElement = (document.getElementById('alert') as HTMLDivElement);
-    editor.classList.remove('d-none');
-    setTimeout(()=> editor.classList.add('d-none'), 4000);
-  }
+  // enviarAlert (){
+  //   const editor: HTMLDivElement = (document.getElementById('alert') as HTMLDivElement);
+  //   editor.classList.remove('d-none');
+  //   setTimeout(()=> editor.classList.add('d-none'), 4000);
+  // }
 
 }
 

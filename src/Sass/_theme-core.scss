@@ -1,4 +1,38 @@
-// core theme-colors override
-//$primary: pink;
-//$danger: yellowgreen;
-//$success: orange;
+/////////////////////////////////////////////////////////////////
+// OVERRIDE B5 main color variables, aka primary, danger, etc. //
+/////////////////////////////////////////////////////////////////
+
+/*
+	You can optionally override the B5 $theme-colors main palette here,
+	just by overriding B5 global color varaiables
+
+	Example: 
+		$primary: orange;
+		$danger: yellowgreen;
+		$success: pink;
+		etc.
+
+	Nevertheless, this is probably not the best design approach!
+	
+	A better practice is jut to create custom colors instead of overriding defaults.
+
+	Example: use "text-orange" instead of overriding "text-primary" to cast orange color.
+
+	To do so, go to this project's...
+	
+	"Sass/_theme-extra.scss"
+
+*/
+
+//////////////////////////
+// ERP GLOBAL VARIABLES //
+//////////////////////////
+
+// MAIN COLORS //
+$erp-black: #242a32;
+$erp-silver: #f4f5f8;
+$erp-gray: #8c8c8c;
+$erp-white: #ffffff;
+$erp-cyan: #60c3d6;
+$erp-blue: #4e78bb;
+$erp-red: #dd5d56;

@@ -1,43 +1,31 @@
-<h2 class="text-purple text-center">Log In</h2>
+<p>login works!</p>
+<!-- <hr> -->
 
-<!-- FORMULAR -->
-<form class="mx-auto border border-purple p-5 rounded">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-    />
-	<!-- feedback -->
-    <div class="invalid-feedback">invalid email format</div>
-    <!-- assertive tech -->
-    <div id="emailHelp" class="form-text">
-      We'll never share your email with anyone else.
+<form class="w-50 mx-auto bg-erp-white rounded-3 p-4">
+  <div class="row mb-3">
+    <h3 class="text-uppercase">log in</h3>
+  </div>
+
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-4 col-form-label">Email:</label>
+    <div class="col">
+      <input type="email" class="form-control bg-erp-silver" id="inputEmail3" />
     </div>
   </div>
 
-  <div class="mb-3">
-    <label for="inputPassword5" class="form-label">Password</label>
-    <input
-      type="password"
-      id="inputPassword5"
-      class="form-control"
-      aria-describedby="passwordHelpBlock"
-    />
-    <!-- feedback -->
-    <div class="invalid-feedback">invalid pasword format</div>
-    <!-- assertive tech -->
-    <div id="passwordHelpBlock" class="form-text">
-      Your password must be 8-20 characters long, contain letters and numbers,
-      and must not contain spaces, special characters, or emoji.
+  <div class="row mb-3">
+    <label for="inputPassword3" class="col-4 col-form-label">Password:</label>
+    <div class="col">
+      <input type="password" class="form-control bg-erp-silver" id="inputPassword3" />
     </div>
   </div>
 
-  <div class="login-footer d-flex justify-content-between">
-    <button type="submit" class="btn btn-purple">Log In</button>
-
-    <a href="javascript: void(0)">Forgot password?</a>
+  <div class="row mb-3">
+    <a href="javascript:void(0)">Forgot password?</a>
   </div>
+
+  <button type="submit" class="btn btn-erp-blue text-erp-white w-100">
+    Sign in
+    <i class="me-4 fas fa-blind fa-2x"></i>
+  </button>
 </form>

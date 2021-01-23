@@ -1,17 +1,34 @@
-// A. extra theme-colors merge
+////////////////////////////////////
+// EXPAND B5 main color variables //
+////////////////////////////////////
+
+// 1. Just add colors to whatever named variables in this $extra-colors map
 $extra-colors: (
-  "purple": purple,
-  "cadetblue": cadetblue,
-  "papayawhip": papayawhip,
-  "plum": plum,
-  "darkorange": darkorange,
-  "orange": orange,
-  "gold": gold,
-  "goldenrod": goldenrod,
-  "primary-darken-5": darken($primary, 5),
+  "erp-black": $erp-black,
+  "erp-silver": $erp-silver,
+  "erp-gray": $erp-gray,
+  "erp-white": $erp-white,
+  "erp-cyan": $erp-cyan,
+  "erp-blue": $erp-blue,
+  "erp-red": $erp-red,
 );
 
+// 2. Previsous custom colors will be added top B5 palette.
 $theme-colors: map-merge($theme-colors, $extra-colors);
 
-// B. extra theme-colors remove
-// $theme-colors: map-remove($theme-colors, "primary", "light", "dark"); // etc...
+////////////////////////////////////
+// REMOVE B5 main color variables //
+////////////////////////////////////
+
+/*
+  This is not a recommended approach.
+
+  But if you're 100% sure, you won't ever use a color,
+  then you can remove it from palette, to optimize final bundle size.
+  Do it under your responsibility.
+
+  Example: remove "primary" and "dark" from B5 palette
+
+  $theme-colors: map-remove($theme-colors, "primary", "dark");
+
+*/

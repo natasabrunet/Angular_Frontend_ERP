@@ -18,6 +18,7 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 // import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 // components (not modular)
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
+import { SingleProductComponent } from './Views/single-product/single-product.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
     FooterComponent,
     LicenceComponent,
       // RecoverPasswordComponent
-    NavbarClientComponent
+    NavbarClientComponent,
+      SingleProductComponent
       
   ],
   imports: [

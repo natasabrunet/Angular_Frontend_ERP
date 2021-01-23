@@ -33,6 +33,7 @@ ALERT!
 // BUTTONS //
 
 .btn {
+  text-transform: uppercase;
   &:hover {
     transform: translateY(-3px);
     box-shadow: 4px 5px 10px 0px rgba(0, 0, 0, 0.35);

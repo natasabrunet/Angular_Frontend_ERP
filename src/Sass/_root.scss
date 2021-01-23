@@ -74,6 +74,7 @@ footer {
 // LINKS //
 
 a:not(.navbar-brand):not(.nav-link):not(.dropdown-item) {
+  cursor: pointer;
   display: inline-block;
   color: $erp-blue;
   text-decoration: none;

@@ -1,8 +1,16 @@
-<button class="btn btn-erp-silver">
-  <a routerLink="log-in">log in</a>
-</button>
+<div class="btn-group-vertical p-3 border bg-erp-cyan">
+  <button class="btn btn-erp-silver mb-3">
+    <a routerLink="log-in">log in</a>
+  </button>
+  <button class="btn btn-erp-silver mb-3">
+    <a routerLink="sign-up">sign up</a>
+  </button>
+  <button class="btn btn-erp-silver">
+    <a routerLink="recover-password">recover</a>
+  </button>
+</div>
 
-<section class="bg-erp-black py-3">
+<!-- <section class="bg-erp-black py-3">
   <h2 class="text-erp-cyan text-center">Buttons to Routes</h2>
 
   <button class="btn btn-outline-erp-blue btn-lg d-block w-25 mx-auto m-3">
@@ -125,7 +133,6 @@
   <h3 class="text-center bg-erp-cyan p-2">ICONS</h3>
   <h4 class="text-center">Font Awesome optimized Single library</h4>
 
-  <!-- Font Awesome Single Icon npm Library -->
   <i class="me-3 fas fa-blind fa-spin"></i>
   <i class="me-3 fas fa-palette fa-spin"></i>
   <i class="me-3 fas fa-user text-erp-red fa-pulse"></i>
@@ -135,7 +142,6 @@
 <section class="text align">
   <h3 class="text-center bg-erp-cyan p-2">Bootstrap spinners</h3>
 
-  <!-- b5 spinners -->
   <div
     class="spinner-grow bg-erp-cyan"
     style="width: 1rem; height: 1rem"
@@ -161,7 +167,7 @@
 </section>
 
 <section class="bg-erp-gray">
-  <!-- <app-login></app-login> -->
+  <app-login></app-login>
   <app-recover-password></app-recover-password>
   <app-sign-up></app-sign-up>
 </section>
@@ -169,6 +175,6 @@
 <footer class="bg-erp-black p-3">
   <a href="#" class="">Just a Footer LINK 1</a>
   <a href="#" class="">Just a Footer LINK 2</a>
-</footer>
+</footer> -->
 
 <router-outlet></router-outlet>

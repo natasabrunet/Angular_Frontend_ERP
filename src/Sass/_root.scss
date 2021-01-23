@@ -48,6 +48,10 @@ body > * {
   font-size: 16px;
 }
 
+body {
+  background-color: $erp-gray; // default bg-color
+}
+
 // headings, header, footer
 h1,
 h2,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-recover-password',
@@ -9,9 +10,10 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class RecoverPasswordComponent implements OnInit {
 
+	closeResult = '';
 	emailCtrl = new FormControl('',[Validators.required, Validators.pattern(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)]);
 
-  constructor() { 
+  constructor(private modalService: NgbModal) { 
 	  this.emailCtrl.valueChanges
 	  .pipe(
 		  debounceTime(500)
@@ -27,6 +29,24 @@ export class RecoverPasswordComponent implements OnInit {
 	event.preventDefault();
 	console.log(this.emailCtrl.value);
 }
+
+open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 
 
 }

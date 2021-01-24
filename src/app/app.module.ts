@@ -10,6 +10,7 @@ import { StartModule } from './Views/Start/start.module';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
     BrowserModule,
     AppRoutingModule,
     StartModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

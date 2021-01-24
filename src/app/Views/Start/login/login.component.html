@@ -81,12 +81,15 @@
     <label for="inputEmail3" class="col-4 col-form-label">Email</label>
     <div class="col">
       <input
+        #ref1
         type="email"
         class="form-control bg-erp-silver"
-        [class.is-invalid]="true"
+        [class.is-invalid]="validateOnTouched(ref1) > 0"
       />
       <!-- invalid-feedback -->
-      <div class="invalid-feedback">inject textContent</div>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 1">
+        inject textContent
+      </small>
     </div>
   </div>
 
@@ -94,13 +97,16 @@
     <label for="inputPassword3" class="col-4 col-form-label">Password</label>
     <div class="col">
       <input
+        #ref2
         type="password"
         class="form-control bg-erp-silver"
-        [class.is-invalid]="true"
+        [class.is-invalid]="validateOnTouched(ref2) > 0"
         autocomplete="off"
       />
       <!-- invalid-feedback -->
-      <div class="invalid-feedback">inject textContent</div>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 1">
+        inject textContent
+      </small>
     </div>
   </div>
 

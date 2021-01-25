@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  submitable = false;
+  disabled = false;
   form: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.createForm();
   }
 
-  // methods
+  // setup reactive form
   createForm(): void {
     const regexEmail =
       '[a-z0-9]+([._-]?[a-z0-9]+)*' +
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
 
     const regexPassword = '^(?=.d)(?=.[A-Z])(?=.[a-z])(?=.[^wds:])([^s]){8,}$';
 
+    // FIXME: regex CIF
     const regexCIF = '^[a-zA-Z]{1}d{7}[a-zA-Z0-9]{1}$';
 
     this.form = this.fb.group({
@@ -55,66 +58,48 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // validation feedback
   validateOnTouched(ref: HTMLElement): number {
-    let errorType = 0; // counter
     const alias = ref.getAttribute('formControlName');
+    let errorType = 0; // counter
 
     // condition repertoire
     const controlRequired: boolean =
       this.form.get(alias).invalid && this.form.get(alias).touched;
 
-    const controlMinLength: boolean =
-      this.form.get(alias).hasError('minlength') &&
-      this.form.get(alias).touched;
-
     const controlPattern: boolean =
       this.form.get(alias).hasError('pattern') && this.form.get(alias).touched;
 
-    // const min: boolean = ... // OTHER. etc.
-
-    // NAME
-    if (alias === 'name') {
-      if (controlRequired) {
-        errorType += 1; // errorType 1
-      }
-
-      if (controlMinLength) {
-        errorType += 1; // errorType 2
-      }
+    // error counter
+    if (controlRequired) {
+      errorType += 1; // errorType 1
     }
 
-    // EMAIL
-    if (alias === 'email') {
-      if (controlRequired) {
-        errorType += 1; // errorType 1
-      }
-
-      if (controlPattern) {
-        errorType += 1; // errorType 2
-      }
+    if (controlPattern) {
+      errorType += 1; // errorType 2
     }
-
-    // MSG
-    if (alias === 'msg') {
-      if (controlRequired) {
-        errorType += 1; // errorType 1
-      }
-
-      if (controlMinLength) {
-        errorType += 1; // errorType 2
-      }
-    }
-
-    // lGPD
-    if (alias === 'lgpd') {
-      if (controlRequired) {
-        errorType += 1; // errorType 1
-      }
-    }
-
-    // OTHER
-    //  if (alias === 'number') { ... } etc.
 
     return errorType;
+  }
+
+  // before submit
+  send(): void {
+    // on submit
+    if (this.form.valid) {
+      // FIXME: remocve console log after test ok
+      console.log(
+        '[disable.console.log in production] -> SUBMITING to API REST...',
+        this.form.value
+      );
+
+      // then... clean form
+      this.form.reset();
+      this.disabled = false; // !.btn-erp-red
+    } else {
+      this.disabled = true; // .btn-erp-red
+      return Object.values(this.form.controls).forEach((control) =>
+        control.markAsTouched()
+      );
+    }
   }
 }

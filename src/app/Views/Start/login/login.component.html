@@ -71,7 +71,12 @@
 </header>
 
 <!-- FORM -->
-<form class="mx-auto p-4 bg-erp-white rounded-3">
+<form
+  [formGroup]="form"
+  (ngSubmit)="send()"
+  autocomplete="off"
+  class="mx-auto p-4 bg-erp-white rounded-3"
+>
   <div class="row mb-3">
     <h3 class="text-uppercase">log in</h3>
   </div>
@@ -90,7 +95,10 @@
       />
       <!-- invalid-feedback -->
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 1">
-        inject textContent
+        input requirted
+      </small>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 2">
+        wrong pattern
       </small>
     </div>
   </div>
@@ -105,11 +113,13 @@
         formControlName="password"
         class="form-control bg-erp-silver"
         [class.is-invalid]="validateOnTouched(ref2) > 0"
-        autocomplete="off"
       />
       <!-- invalid-feedback -->
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 1">
-        inject textContent
+        input requirted
+      </small>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 2">
+        wrong pattern
       </small>
     </div>
   </div>
@@ -117,16 +127,18 @@
   <!-- FIXME: config routing for routerlink wihtout page refresh -->
   <a href="recover-password" class="mb-3">Did you forget your password?</a>
 
+  <!-- submit -->
   <button
-    type="submit"
     class="btn btn-erp-blue w-100"
-    [ngStyle]="{ cursor: 'not-allowed' }"
+    type="submit"
+    name="submited"
+    value="valid"
+    [disabled]="disabled && !submitable"
+    [class.btn-erp-red]="disabled && !submitable"
+    [class.cursor-not-allowed]="disabled && !submitable"
   >
-    <a
-      routerLink="home"
-      class="text-erp-white"
-      [ngStyle]="{ cursor: 'not-allowed' }"
-    >
+    <a routerLink="home" class="text-erp-white">
+      <!-- [ngStyle]="{ cursor: 'not-allowed' }" -->
       log in
       <i class="fas fa-sign-in-alt"></i>
     </a>

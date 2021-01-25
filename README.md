@@ -26,7 +26,7 @@ If not, follow next steps:
 >     Then check for its version, to make sure the installation went fine.  
 >     To do so, type this in your terminal or console:
 
-    git --version
+    git--version
 
 > 3.  Then, set up your name and email for local **git CLI**.  
 >     Type the following commands in your terminal or console:

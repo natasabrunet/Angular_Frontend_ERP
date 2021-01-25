@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LicenceComponent } from './Components/Footer/licence/licence.component';
 import { LoginComponent } from './Views/Start/login/login.component';
 import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';

@@ -8,7 +8,6 @@ import { RecoverPasswordComponent } from './recover-password/recover-password.co
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
-
 @NgModule({
   declarations: [
     RecoverPasswordComponent,
@@ -27,4 +26,4 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SignUpComponent
   ],
 })
-export class StartModule { }
+export class StartModule {}

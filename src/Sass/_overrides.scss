@@ -18,3 +18,39 @@ ALERT!
 	"Sass/_custom-classes.scss"
 	
 */
+
+// TYPOGRAPHY //
+
+.btn,
+.navbar {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+.navbar-brand {
+  text-transform: uppercase;
+}
+
+// BUTTONS //
+
+.btn {
+  text-transform: uppercase;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 5px 10px 0px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+}
+
+// LINKS //
+
+.dropdown-item,
+.nav-item {
+  .nav-link {
+    color: $erp-white !important;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: $erp-blue;
+    transition: background-color 0.75s;
+  }
+}

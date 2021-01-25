@@ -20,10 +20,83 @@ $root-bg: papayawhip;
 }
 */
 
-//////////////////////////////////////
-// ERP GLOBAL VARIABLES AND STYLING //
-//////////////////////////////////////
+////////////////////
+// GLOBAL STYLING //
+////////////////////
 
-// color variables
-// example:
-$gold: gold;
+// FONTS //
+
+@font-face {
+  font-family: "Montserrat";
+  src: url(/assets/fonts/Montserrat/Montserrat-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url(/assets/fonts/Raleway/Raleway-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+// TYPOGRAPHY //
+
+body > * {
+  // color: $erp-black;
+  font-family: "Raleway", sans-serif; // default font
+  font-size: 16px;
+}
+
+body {
+  background-color: $erp-gray; // default bg-color
+}
+
+// headings, header, footer
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
+
+header {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+// .btn, .navbar --> _overrides.scss
+
+footer {
+  font-size: 10px;
+}
+
+// LINKS //
+
+a:not(.navbar-brand):not(.nav-link):not(.dropdown-item) {
+  display: inline-block;
+  color: $erp-blue;
+  text-decoration: none;
+  &::after {
+    content: "";
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: $erp-blue;
+  }
+  &:hover::after {
+    width: 100%;
+    transition: width 0.75s;
+  }
+}
+
+footer a {
+  color: $erp-white !important;
+  &::after {
+    background: $erp-white !important;
+  }
+}

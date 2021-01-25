@@ -46,32 +46,5 @@ export class SignUpComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-
-  // mostrarPassword(password:string){
-  //   let cambio = (<HTMLDivElement>document.getElementById('show_password'));
-	// 	if(this.check_password === false){
-  //     cambio.classList.remove('fa-eye-slash');
-  //     cambio.classList.add('fa-eye');
-  //     this.check_password = true;
-	// 	}else{
-  //     cambio.classList.remove('fa-eye');
-  //     cambio.classList.add('fa-eye-slash');
-  //     this.check_password = false;
-	// 	}
-  // }
-
-  // mostrarPassword2(){
-  //   let cambio = (<HTMLDivElement>document.getElementById('show_password2'));
-	// 	if(this.check_password === false){
-  //     cambio.classList.remove('fa-eye-slash');
-  //     cambio.classList.add('fa-eye');
-	// 		this.check_password = true;
-	// 	}else{
-  //     cambio.classList.remove('fa-eye');
-  //     cambio.classList.add('fa-eye-slash');
-  //     this.check_password = false;
-	// 	}
-	// }
-
 }
 

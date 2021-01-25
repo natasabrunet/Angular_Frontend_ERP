@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserSignUp } from 'src/app/Models/newUser';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,8 +12,11 @@ export class SignUpComponent implements OnInit {
   public new_user:UserSignUp;
   public password_conf:string;
   public check_password:boolean;
+  public closeResult= '';
 
-  constructor() {
+  constructor(
+    private modalService: NgbModal
+  ) {
     this.new_user = new UserSignUp('', '', '','');
     this.check_password = false;
   }
@@ -20,11 +24,27 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //TODO: hacer pop up de registro correcto onSubmit
   onSubmit(form){
     console.log(this.new_user);
     form.reset();
-    setTimeout(()=> alert('Your registration was succesful!'), 1000);
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
   // mostrarPassword(password:string){

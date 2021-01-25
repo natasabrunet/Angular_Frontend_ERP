@@ -33,7 +33,7 @@ import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 //////////////////////////////////////////
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import { faUserPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
+import { faUserPlus, faSignInAlt,faCopyright } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
 @Component({
   selector: 'app-root',
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     //  FONT AWESOME ICONS add plugin  //
 
     // We are only using the user-astronaut icon
-    library.add(faUserPlus, faSignInAlt);
+    library.add(faUserPlus, faSignInAlt,faCopyright);
     // Replace any existing <i> tags with <svg> and set up a MutationObserver to
     // continue doing this as the DOM changes.
     dom.watch();

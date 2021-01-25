@@ -33,11 +33,12 @@ export class LoginComponent implements OnInit {
   // setup reactive form
   createForm(): void {
     const regexEmail =
-      '[a-z0-9]+([._-]?[a-z0-9]+)*' +
-      '@' +
-      '[a-z0-9]+([._-]?[a-z0-9]+)*.[a-z]{2,4}';
+      '^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$';
 
-    const regexPassword = '^(?=.d)(?=.[A-Z])(?=.[a-z])(?=.[^wds:])([^s]){8,}$';
+    const regexPassword =
+      '^(?=.*d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^wds:])([^s]){8,}$';
+    // const regexPassword =
+    //   '[a-zA-Z0-9ªº\\|!@"#·~$%&¬/()=?¡[`^*+¨´{}ç,.:;-_]{8,}';
 
     // FIXME: regex CIF
     const regexCIF = '^[a-zA-Z]{1}d{7}[a-zA-Z0-9]{1}$';

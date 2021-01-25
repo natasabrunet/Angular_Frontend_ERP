@@ -95,10 +95,10 @@
       />
       <!-- invalid-feedback -->
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 1">
-        input requirted
+        email required
       </small>
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 2">
-        wrong pattern
+        Enter a valid email pattern. Example: account@email.com
       </small>
     </div>
   </div>
@@ -116,10 +116,10 @@
       />
       <!-- invalid-feedback -->
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 1">
-        input requirted
+        password required
       </small>
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 2">
-        wrong pattern
+        The password must have minimum eight characters, including one uppercase letter, one lowercase letter, one special character and one number
       </small>
     </div>
   </div>
@@ -146,4 +146,13 @@
       <i class="fas fa-sign-in-alt"></i>
     </a>
   </button>
+
+  <!-- DEBUGG -->
+  <!-- FIXME: comment out debugging -->
+  <pre class="border border-danger p-3">
+      form.valid: {{ form.valid }}
+      form.status: {{ form.status }}
+      form.value: {{ form.value | json }}     
+  </pre
+  >
 </form>

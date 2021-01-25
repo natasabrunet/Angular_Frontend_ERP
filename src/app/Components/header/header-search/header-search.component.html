@@ -1,0 +1,18 @@
+<div class="d-flex align-items-center">
+  <div class="form-group search mb-0">
+    <span class="search__icon">
+      <fa-icon [icon]="faSearch" size="md"></fa-icon>
+    </span>
+
+    <input
+      class="search__input form-control mr-sm-2"
+      type="text"
+      name="navSearch"
+      [(ngModel)]="navSearch"
+      autocomplete="off"
+      placeholder="Search"
+      aria-label="Search"
+      (keyup.enter)="search()"
+    />
+  </div>
+</div>

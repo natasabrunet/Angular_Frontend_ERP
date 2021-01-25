@@ -24,6 +24,7 @@ $root-bg: papayawhip;
 // GLOBAL STYLING //
 ////////////////////
 
+<<<<<<< HEAD
 // FONTS //
 
 @font-face {
@@ -65,10 +66,33 @@ h6 {
 
 header {
   font-family: "Montserrat", sans-serif;
+=======
+// color variables
+// example:
+$gold: gold;
+
+/*Global tipography*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+/*Global font sizes & font families*/
+* {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header, nav, button {
+>>>>>>> d1fd7bf651f22a4c6bb60ba882e2068676b1c62a
   font-size: 16px;
   text-transform: uppercase;
 }
 
+<<<<<<< HEAD
 // .btn, .navbar --> _overrides.scss
 
 footer {
@@ -100,3 +124,25 @@ footer a {
     background: $erp-white !important;
   }
 }
+=======
+a, a:hover {
+  text-decoration: none;
+}
+
+body {
+  background-color: #F4F5F8;
+}
+ 
+.btn-erp-general, .btn-erp-delete {
+  color: #FFF;
+}
+
+.btn-erp-general {
+  background-color:#4E78BB;
+
+}
+
+.btn-erp-delete {
+  background-color: #DD5D56;
+}
+>>>>>>> d1fd7bf651f22a4c6bb60ba882e2068676b1c62a

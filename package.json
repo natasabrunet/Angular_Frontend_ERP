@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "~11.1.0",
     "@angular/common": "~11.1.0",
     "@angular/compiler": "~11.1.0",
@@ -23,6 +24,21 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
+=======
+    "@angular/animations": "~10.1.6",
+    "@angular/common": "~10.1.6",
+    "@angular/compiler": "~10.1.6",
+    "@angular/core": "~10.1.6",
+    "@angular/forms": "~10.1.6",
+    "@angular/platform-browser": "~10.1.6",
+    "@angular/platform-browser-dynamic": "~10.1.6",
+    "@angular/router": "~10.1.6",
+    "@fortawesome/angular-fontawesome": "^0.7.0",
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-regular-svg-icons": "^5.13.0",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+>>>>>>> d1fd7bf651f22a4c6bb60ba882e2068676b1c62a
     "@popperjs/core": "^2.6.0",
     "bootstrap": "^5.0.0-beta1",
     "rxjs": "~6.6.0",
@@ -30,12 +46,18 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@angular-devkit/build-angular": "^0.1101.1",
     "@angular/cli": "^11.1.1",
     "@angular/compiler-cli": "~11.1.0",
     "@fortawesome/angular-fontawesome": "^0.7.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
+=======
+    "@angular-devkit/build-angular": "^0.1100.7",
+    "@angular/cli": "~10.1.7",
+    "@angular/compiler-cli": "~10.1.6",
+>>>>>>> d1fd7bf651f22a4c6bb60ba882e2068676b1c62a
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.19.15",

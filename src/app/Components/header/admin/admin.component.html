@@ -1,0 +1,95 @@
+<ul class="navbar-nav d-flex">
+  <li class="nav-item nav-profile dropdown">
+    <a
+      class="nav-link text-decoration-none"
+      id="profileDropdown"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+    <div class="d-flex flex-row align-items-center">
+      <img
+        class="nav-profile-img"
+        src="assets/images/mockup-portrait.jpg"
+        alt="admin image"
+      />
+      <div class="ms-3">
+        <p class="nav-profile-name mb-0">{{ name }}</p>
+      </div>
+    </div>
+    </a>
+
+    <!-- Dropdown menu -->
+
+    <div
+      class="dropdown-menu dropdown-menu-end admin-menu"
+      aria-labelledby="profileDropdown"
+    >
+  
+      <a class="dropdown-item admin-menu__item">
+        <div
+          class="d-flex align-items-center"
+        >
+          <div class="admin-menu__item--thumbnail">
+            <fa-icon [icon]="faUserCircle" size="lg"></fa-icon>
+          </div>
+          <p class="admin-menu__item--text mb-0">
+            Profile
+          </p>
+        </div>
+      </a>
+
+      <a class="dropdown-item admin-menu__item">
+        <div
+          class="d-flex align-items-center"
+        >
+          <div class="admin-menu__item--thumbnail">
+            <fa-icon [icon]="faEnvelopeOpen" size="lg"></fa-icon>
+          </div>
+          <p class="admin-menu__item--text mb-0">
+            Inbox
+          </p>
+        </div>
+      </a>
+
+
+      <a class="dropdown-item admin-menu__item">
+        <div
+          class="d-flex align-items-center"
+        >
+          <div class="admin-menu__item--thumbnail">
+            <fa-icon [icon]="faCog" size="lg"></fa-icon>
+          </div>
+          <p class="admin-menu__item--text mb-0">
+            Settings
+          </p>
+        </div>
+      </a>
+
+
+      <a class="dropdown-item admin-menu__item">
+        <div
+          class="d-flex align-items-center"
+        >
+          <div class="admin-menu__item--thumbnail">
+            <fa-icon [icon]="faPowerOff" size="lg"></fa-icon>
+          </div>
+          <p class="admin-menu__item--text mb-0">
+            Logout
+          </p>
+        </div>
+      </a>
+
+
+      
+    </div>
+    <!-- <div class="dropdown-menu" aria-labelledby="profileDropdown">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div> -->
+  </li>
+  
+</ul>

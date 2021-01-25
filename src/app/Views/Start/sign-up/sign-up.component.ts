@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserSignUp } from 'src/app/Models/newUser';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
+import { UserSignUp } from 'src/app/Models/newUser';
 
 @Component({
   selector: 'app-sign-up',

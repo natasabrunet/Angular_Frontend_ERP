@@ -14,16 +14,18 @@ import { TogglerComponent } from './Components/header/toggler/toggler.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';
-// import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 // components (not modular)
 
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
+import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/single-product/single-product.component';
 
 @NgModule({
 
   declarations: [
     AppComponent,
+    NavbarClientComponent,
+    PageNotFoundComponent,
     HeaderComponent,
     AdminComponent,
     NotificationsComponent,
@@ -31,9 +33,8 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     TogglerComponent,
     FooterComponent,
     LicenceComponent,
-      // RecoverPasswordComponent
     NavbarClientComponent,
-      SingleProductComponent
+    SingleProductComponent
 
   ],
   imports: [

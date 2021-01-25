@@ -26,7 +26,7 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
   declarations: [
     AppComponent,
     NavbarClientComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
     HeaderComponent,
     AdminComponent,
     NotificationsComponent,

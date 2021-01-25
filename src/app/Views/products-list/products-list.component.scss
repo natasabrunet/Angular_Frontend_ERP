@@ -7,7 +7,34 @@ h2 {
     color: #242A32;
 }
 
+.appButton {
+    background-color: #4E78BB;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
 .table {
     font-family: 'Raleway', sans-serif;
     color: #242A32;
+}
+
+.product-img-thumb {
+    max-height: 60px;
+    width: auto;
+    clip-path: circle(20px at center);
+    overflow: hidden;
+}
+
+// .pr-td {
+//     max-height: 60px;
+// }
+
+.deleteIcon {
+    color: #DD5D56;
+}
+
+.deleteButton {
+    background-color: #DD5D56;
 }

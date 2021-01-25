@@ -8,13 +8,16 @@ import { StartModule } from './Views/Start/start.module';
 
 // components (not modular)
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
+import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarClientComponent
-      
+    NavbarClientComponent,
+    PageNotFoundComponent
+
   ],
   imports: [
     BrowserModule,

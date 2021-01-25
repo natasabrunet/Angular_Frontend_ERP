@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { UserSignUp } from 'src/app/Models/newUser';
@@ -17,7 +17,7 @@ export class SignUpComponent implements OnInit {
   public closeResult= '';
 
   constructor(
-    private modalService: NgbModal,
+    // private modalService: NgbModal,
     private route: ActivatedRoute
   ) {
     this.new_user = new UserSignUp('', '', '','');
@@ -36,21 +36,21 @@ export class SignUpComponent implements OnInit {
   }
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    // this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    //   this.closeResult = `Closed with: ${result}`;
+    // }, (reason) => {
+    //   this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    // });
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+  private getDismissReason(reason: any): any {
+    // if (reason === ModalDismissReasons.ESC) {
+    //   return 'by pressing ESC';
+    // } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+    //   return 'by clicking on a backdrop';
+    // } else {
+    //   return `with: ${reason}`;
+    // }
   }
 }
 

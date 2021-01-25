@@ -78,11 +78,13 @@
 
   <div class="row mb-3">
     <!-- FIXME: Clients can log in via email' or that must be via CIF? -->
-    <label for="inputEmail3" class="col-4 col-form-label">Email</label>
+    <label for="loginEmail" class="col-4 col-form-label">Email</label>
     <div class="col">
       <input
         #ref1
+        id="loginEmail"
         type="email"
+        formControlName="email"
         class="form-control bg-erp-silver"
         [class.is-invalid]="validateOnTouched(ref1) > 0"
       />
@@ -94,11 +96,13 @@
   </div>
 
   <div class="row mb-3">
-    <label for="inputPassword3" class="col-4 col-form-label">Password</label>
+    <label for="loginPassword" class="col-4 col-form-label">Password</label>
     <div class="col">
       <input
         #ref2
+        id="loginPassword"
         type="password"
+        formControlName="password"
         class="form-control bg-erp-silver"
         [class.is-invalid]="validateOnTouched(ref2) > 0"
         autocomplete="off"

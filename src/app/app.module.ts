@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 
-// import local modules
 import { StartModule } from './Views/Start/start.module';
 import { FormsModule } from '@angular/forms';
 
@@ -20,7 +20,6 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/single-product/single-product.component';
-
 
 @NgModule({
   declarations: [
@@ -47,6 +46,6 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     StartModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

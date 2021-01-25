@@ -1,1 +1,122 @@
-<p>login works!</p>
+<!-- MODAL -->
+<!-- Button trigger modal -->
+<!-- FIXME: programmatically trigger modal viaa JavaScript || via B5 "data-bs-toggle", "data-bs-target" -->
+<button
+  type="button"
+  class="btn btn-erp-red"
+  data-bs-toggle="modal"
+  data-bs-target="#staticBackdrop"
+>
+  replace button by programmatic call
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Invalid operation</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Please, try again or sing up before logging in
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-erp-black text-erp-white"
+          data-bs-dismiss="modal"
+        >
+          try again
+        </button>
+        <button type="button" class="btn btn-erp-blue text-erp-white">
+          <a routerlink="sign-up" class="text-erp-white">
+            sign up
+            <i class="fas fa-user-plus"></i>
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN NAVBAR -->
+<header class="d-flex justify-content-between p-2 mx-auto mb-3 bg-erp-silver">
+  <span>
+    header log in / sign up
+    <code>(F1.7 - working on it)</code>
+  </span>
+
+  <button type="submit" class="btn btn-erp-cyan">
+    <a routerLink="sign-up" class="text-erp-white">
+      sign up
+      <i class="fas fa-user-plus"></i>
+    </a>
+  </button>
+</header>
+
+<!-- FORM -->
+<form class="mx-auto p-4 bg-erp-white rounded-3">
+  <div class="row mb-3">
+    <h3 class="text-uppercase">log in</h3>
+  </div>
+
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-4 col-form-label">Email / CIF</label>
+    <div class="col">
+      <input
+        type="email"
+        class="form-control bg-erp-silver"
+        [class.is-invalid]="true"
+      />
+      <!-- invalid-feedback -->
+      <div class="invalid-feedback">inject textContent</div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="inputPassword3" class="col-4 col-form-label">Password</label>
+    <div class="col">
+      <input
+        type="password"
+        class="form-control bg-erp-silver"
+        [class.is-invalid]="true"
+        autocomplete="off"
+      />
+      <!-- invalid-feedback -->
+      <div class="invalid-feedback">inject textContent</div>
+    </div>
+  </div>
+
+  <a routerLink="recover-password" class="mb-3"
+    >Did you forget your password?</a
+  >
+
+  <button
+    type="submit"
+    class="btn btn-erp-blue w-100"
+    [ngStyle]="{ cursor: 'not-allowed' }"
+  >
+    <a
+      routerLink="home"
+      class="text-erp-white"
+      [ngStyle]="{ cursor: 'not-allowed' }"
+    >
+      log in
+      <i class="fas fa-sign-in-alt"></i>
+    </a>
+  </button>
+</form>

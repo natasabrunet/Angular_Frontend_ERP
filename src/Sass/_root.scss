@@ -27,3 +27,44 @@ $root-bg: papayawhip;
 // color variables
 // example:
 $gold: gold;
+
+/*Global tipography*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+/*Global font sizes & font families*/
+* {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header, nav, button {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+body {
+  background-color: #F4F5F8;
+}
+ 
+.btn-erp-general, .btn-erp-delete {
+  color: #FFF;
+}
+
+.btn-erp-general {
+  background-color:#4E78BB;
+
+}
+
+.btn-erp-delete {
+  background-color: #DD5D56;
+}

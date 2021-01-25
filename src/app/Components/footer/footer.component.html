@@ -1,0 +1,14 @@
+<footer class="container-fluid pt-3">
+     
+    <div class="row d-flex justify-content-end "> 
+        <div class="col-8 col-md-6 col-lg-8 d-flex flex-column justify-content-center align-items-center information">
+            <p><fa-icon class="pe-1" [icon]="iconCopyright" [rotate]="180" [fixedWidth]="true" size="sm"></fa-icon><a [routerLink]="['Licence']">Copyleft {{ currentDate | date:'y' }} Barcelona Activa</a></p> <!--This pipe will show the current year-->
+            <p>Developed by <a href="http:\\www.barcelonactiva.cat" target="blank">www.barcelonactiva.cat</a></p>
+        </div> 
+
+        <div class="col-4 col-lg-3 d-flex justify-content-end align-items-center">
+            <p>{{currentDate | date:'dd/MM/yyyy, HH:mm'}} (CET)</p>
+        </div>
+    </div>  
+    
+</footer>

@@ -4,7 +4,7 @@
     <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
       <h1 class="text-center pb-3">Sign up</h1>
       <div class="d-flex justify-content-between">
-        <a class="ps-2">Already a member?</a>
+        <a class="ps-2" [routerLink]="['/log-in']" routerLinkActive="router-link-active" >Already a member?</a>
     <!-- TODO: redireccionar a Log-in. Hacer git pull origin Dev antes para actualizar -->
       <button
         type="submit"
@@ -27,7 +27,8 @@
               name="businessName"
               class="form-control"
               [ngClass]="{'is-invalid': businessName.touched && !businessName.valid}"
-              #businessName="ngModel" [(ngModel)]="new_user.businessName"
+              #businessName="ngModel"
+              [(ngModel)]="new_user.businessName"
               required pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"
             >
             <div *ngIf="businessName.touched && !businessName.valid" class="invalid-feedback">
@@ -79,12 +80,11 @@
             <input
             type="text"
             name="password"
-            class="form-control fa"
+            class="form-control"
             [ngClass]="{'is-invalid': password.touched && !password.valid}"
             #password="ngModel"
             [(ngModel)]="new_user.password"
             required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
-            required
             >
             <div *ngIf="password.touched && !password.valid" class="invalid-feedback">
               This password does not match the required format!

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { UserSignUp } from 'src/app/Models/newUser';
 
@@ -16,13 +17,17 @@ export class SignUpComponent implements OnInit {
   public closeResult= '';
 
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private route: ActivatedRoute
   ) {
     this.new_user = new UserSignUp('', '', '','');
     this.check_password = false;
   }
 
   ngOnInit(): void {
+    // this.route.queryParams.subscribe(params => {
+    //   this.name = params['sign-up'];
+    // });
   }
 
   onSubmit(form){

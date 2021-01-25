@@ -21,7 +21,6 @@ import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.com
 import { SingleProductComponent } from './Views/single-product/single-product.component';
 
 @NgModule({
-
   declarations: [
     AppComponent,
     NavbarClientComponent,
@@ -44,7 +43,6 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     FormsModule,
     StartModule
   ],
-
   providers: [],
   bootstrap: [AppComponent],
 })

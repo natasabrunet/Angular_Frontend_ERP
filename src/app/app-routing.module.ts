@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
 
-import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
-import { LoginComponent } from './Views/Start/login/login.component';
-
-
-import { PageNotFoundComponent} from './Views/Page-not-found/page-not-found.component';
-import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
+import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';
-
+import { LoginComponent } from './Views/Start/login/login.component';
+import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
+import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: 'log-in', component: LoginComponent },

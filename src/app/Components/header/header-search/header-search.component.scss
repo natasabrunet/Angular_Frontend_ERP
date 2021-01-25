@@ -1,0 +1,23 @@
+.search {
+  position: relative;
+  width: 300px;
+
+  &__icon {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    z-index: 2;
+    display: block;
+    text-align: center;
+    pointer-events: none;
+    color: #242a32;
+  }
+
+  &__input {
+    background-color: #f4f5f8;
+    border: 1px solid #242a32;
+    border-radius: 7px;
+    height: 2rem;
+    padding-left: 2rem;
+  }
+}

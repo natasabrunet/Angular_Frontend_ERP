@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 
 import { StartModule } from './Views/Start/start.module';
@@ -14,9 +13,9 @@ import { HeaderSearchComponent } from './Components/header/header-search/header-
 import { TogglerComponent } from './Components/header/toggler/toggler.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './Components/footer/footer.component';
-import { LicenceComponent } from './Components/Footer/licence/licence.component'; 
-// import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
+import { LicenceComponent } from './Components/Footer/licence/licence.component';
 // components (not modular)
+
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/single-product/single-product.component';
@@ -33,10 +32,9 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     TogglerComponent,
     FooterComponent,
     LicenceComponent,
-      // RecoverPasswordComponent
     NavbarClientComponent,
     SingleProductComponent
- 
+
   ],
   imports: [
     BrowserModule,

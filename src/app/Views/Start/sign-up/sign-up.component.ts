@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-// import { UserSignUp } from 'src/app/Models/newUser';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
+import { UserSignUp } from 'src/app/Models/newUser';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -7,26 +11,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  // public new_user:UserSignUp;
+  public new_user:UserSignUp;
+  public password_conf:string;
+  public check_password:boolean;
+  public closeResult= '';
 
-  constructor() {
-    // this.new_user = new UserSignUp('', '', '','');
+  constructor(
+    private modalService: NgbModal,
+    private route: ActivatedRoute
+  ) {
+    this.new_user = new UserSignUp('', '', '','');
+    this.check_password = false;
   }
 
   ngOnInit(): void {
+    // this.route.queryParams.subscribe(params => {
+    //   this.name = params['sign-up'];
+    // });
   }
 
-  // onSubmit(form){
-  //   console.log(this.new_user);
-  //   form.reset();
-  //   this.enviarAlert();
-  // }
+  onSubmit(form){
+    console.log(this.new_user);
+    form.reset();
+  }
 
-  // enviarAlert (){
-  //   const editor: HTMLDivElement = (document.getElementById('alert') as HTMLDivElement);
-  //   editor.classList.remove('d-none');
-  //   setTimeout(()=> editor.classList.add('d-none'), 4000);
-  // }
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
 
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 }
 

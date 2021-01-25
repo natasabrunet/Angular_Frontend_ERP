@@ -7,9 +7,9 @@ import { faCopyright  } from '@fortawesome/free-regular-svg-icons';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  currentDate:Date = new Date(); 
-  iconCopyright = faCopyright; 
-  
+  currentDate:Date = new Date();
+  iconCopyright = faCopyright;
+
   constructor() { }
 
   ngOnInit(): void {

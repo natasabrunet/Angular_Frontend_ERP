@@ -133,12 +133,15 @@
     type="submit"
     name="submited"
     value="valid"
-    [disabled]="disabled && !submitable"
-    [class.btn-erp-red]="disabled && !submitable"
-    [class.cursor-not-allowed]="disabled && !submitable"
+    [ngClass]="{ 'btn-erp-red': disabled, disabled: disabled }"
+    [attr.aria-disabled]="disabled"
   >
-    <a routerLink="home" class="text-erp-white">
-      <!-- [ngStyle]="{ cursor: 'not-allowed' }" -->
+    <a
+      routerLink="home"
+      class="text-erp-white"
+      [class.disabled]="disabled"
+      [attr.aria-disabled]="disabled"
+    >
       log in
       <i class="fas fa-sign-in-alt"></i>
     </a>

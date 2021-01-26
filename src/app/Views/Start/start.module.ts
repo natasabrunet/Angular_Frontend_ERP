@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './../../app-routing.module';
 
 
@@ -20,7 +20,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
+    // NgbModule,
     AppRoutingModule
   ],
   exports: [

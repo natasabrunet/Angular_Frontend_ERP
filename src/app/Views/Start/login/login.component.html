@@ -69,35 +69,56 @@
 </header>
 
 <!-- FORM -->
-<form class="mx-auto p-4 bg-erp-white rounded-3">
+<form
+  [formGroup]="form"
+  (ngSubmit)="send()"
+  autocomplete="off"
+  class="mx-auto p-4 bg-erp-white rounded-3"
+>
   <div class="row mb-3">
     <h3 class="text-uppercase">log in</h3>
   </div>
 
   <div class="row mb-3">
-    <label for="inputEmail3" class="col-4 col-form-label">Email / CIF</label>
+    <!-- FIXME: Clients can log in via email' or that must be via CIF? -->
+    <label for="loginEmail" class="col-4 col-form-label">Email</label>
     <div class="col">
       <input
+        #ref1
+        id="loginEmail"
         type="email"
+        formControlName="email"
         class="form-control bg-erp-silver"
-        [class.is-invalid]="true"
+        [class.is-invalid]="validateOnTouched(ref1) > 0"
       />
       <!-- invalid-feedback -->
-      <div class="invalid-feedback">inject textContent</div>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 1">
+        email required
+      </small>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 2">
+        Enter a valid email pattern. Example: account@email.com
+      </small>
     </div>
   </div>
 
   <div class="row mb-3">
-    <label for="inputPassword3" class="col-4 col-form-label">Password</label>
+    <label for="loginPassword" class="col-4 col-form-label">Password</label>
     <div class="col">
       <input
+        #ref2
+        id="loginPassword"
         type="password"
+        formControlName="password"
         class="form-control bg-erp-silver"
-        [class.is-invalid]="true"
-        autocomplete="off"
+        [class.is-invalid]="validateOnTouched(ref2) > 0"
       />
       <!-- invalid-feedback -->
-      <div class="invalid-feedback">inject textContent</div>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 1">
+        password required
+      </small>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 2">
+        The password must have minimum eight characters, including one uppercase letter, one lowercase letter, one special character and one number
+      </small>
     </div>
   </div>
 
@@ -105,18 +126,32 @@
     >Did you forget your password?</a
   >
 
+  <!-- submit -->
   <button
-    type="submit"
     class="btn btn-erp-blue w-100"
-    [ngStyle]="{ cursor: 'not-allowed' }"
+    type="submit"
+    name="submited"
+    value="valid"
+    [ngClass]="{ 'btn-erp-red': disabled, disabled: disabled }"
+    [attr.aria-disabled]="disabled"
   >
     <a
       routerLink="home"
       class="text-erp-white"
-      [ngStyle]="{ cursor: 'not-allowed' }"
+      [class.disabled]="disabled"
+      [attr.aria-disabled]="disabled"
     >
       log in
       <i class="fas fa-sign-in-alt"></i>
     </a>
   </button>
+
+  <!-- DEBUGG -->
+  <!-- FIXME: comment out debugging -->
+  <pre class="border border-danger p-3">
+      form.valid: {{ form.valid }}
+      form.status: {{ form.status }}
+      form.value: {{ form.value | json }}     
+  </pre
+  >
 </form>

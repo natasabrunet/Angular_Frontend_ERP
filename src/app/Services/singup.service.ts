@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class SingupService {
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class SingupService {
 
-  constructor() { }
-}
+//   constructor() { }
+// }

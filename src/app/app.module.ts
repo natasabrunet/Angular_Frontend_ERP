@@ -3,27 +3,47 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// import local modules
 import { StartModule } from './Views/Start/start.module';
+import { FormsModule } from '@angular/forms';
 
-// components (not modular)
+import { HeaderComponent } from './Components/header/header.component';
+import { AdminComponent } from './Components/header/admin/admin.component';
+import { NotificationsComponent } from './Components/header/notifications/notifications.component';
+import { HeaderSearchComponent } from './Components/header/header-search/header-search.component';
+import { TogglerComponent } from './Components/header/toggler/toggler.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './Components/footer/footer.component';
+import { LicenceComponent } from './Components/Footer/licence/licence.component';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
-
+import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
+import { SingleProductComponent } from './Views/single-product/single-product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarClientComponent
-      
+    NavbarClientComponent,
+    PageNotFoundComponent,
+    HeaderComponent,
+    AdminComponent,
+    NotificationsComponent,
+    HeaderSearchComponent,
+    TogglerComponent,
+    FooterComponent,
+    LicenceComponent,
+    NavbarClientComponent,
+    SingleProductComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FontAwesomeModule,
+    FormsModule,
     StartModule
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

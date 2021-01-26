@@ -2,20 +2,19 @@
 // EXPAND B5 main color variables //
 ////////////////////////////////////
 
-// 1. Import global custom color variables if any
+// 1. Just add colors to whatever named variables in this $extra-colors map
+$extra-colors: (
+  "erp-black": $erp-black,
+  "erp-silver": $erp-silver,
+  "erp-gray": $erp-gray,
+  "erp-white": $erp-white,
+  "erp-cyan": $erp-cyan,
+  "erp-blue": $erp-blue,
+  "erp-red": $erp-red,
+);
 
-@import "../Sass/root"; // example: $gold
-
-// 2. Just add colors to whatever named variables in this $extra-colors map
-
-// Example: add purple to enable "text-example1", "bg-example1", "btn-example1", "border-example1" to be purple
-
-$extra-colors: (/* "example1": purple,*/ "gold": $gold);
-
-// 3. Previsous custom colors will be added top B5 palette.
+// 2. Previsous custom colors will be added top B5 palette.
 $theme-colors: map-merge($theme-colors, $extra-colors);
-
-// Don't remove the following line (which actually merges the new colors with the default ones)
 
 ////////////////////////////////////
 // REMOVE B5 main color variables //

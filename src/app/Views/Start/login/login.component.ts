@@ -35,10 +35,10 @@ export class LoginComponent implements OnInit {
     const regexEmail =
       '^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$';
 
-    const regexPassword =
-      '^(?=.*d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^wds:])([^s]){8,}$';
-    // const regexPassword =
-    //   '[a-zA-Z0-9ªº\\|!@"#·~$%&¬/()=?¡[`^*+¨´{}ç,.:;-_]{8,}';
+    let regexPassword =
+      '^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$';
+
+    regexPassword = 'hola';
 
     // FIXME: regex CIF
     const regexCIF = '^[a-zA-Z]{1}d{7}[a-zA-Z0-9]{1}$';
@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
   // validation feedback
   validateOnTouched(ref: HTMLElement): number {
     const alias = ref.getAttribute('formControlName');
+
     let errorType = 0; // counter
 
     // condition repertoire
@@ -79,6 +80,7 @@ export class LoginComponent implements OnInit {
       errorType += 1; // errorType 2
     }
 
+    console.log('controlRequired', controlRequired);
     return errorType;
   }
 

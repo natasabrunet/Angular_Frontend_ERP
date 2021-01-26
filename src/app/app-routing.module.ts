@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'pnf', component: PageNotFoundComponent },
   { path: 'log-in', component: LoginComponent },
-  { path: '**', component: LoginComponent }, // when wrong URL => go to login OR homepage
+  // { path: '**', component: LoginComponent }, // when wrong URL => go to login OR homepage
 ];
 
 @NgModule({

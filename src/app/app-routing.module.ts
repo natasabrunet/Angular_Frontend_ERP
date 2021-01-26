@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'Licence', component: LicenceComponent }, // FIXME: License should be "license"
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: '**', redirectTo: '404', pathMatch: 'full' }, 
   { path: '404', component: PageNotFoundComponent },
-  { path: '**', redirectTo: '404', pathMatch: 'full' }, // this must be the last line!
 ];
 
 @NgModule({

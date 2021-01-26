@@ -18,6 +18,9 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/single-product/single-product.component';
 
+// services
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +34,7 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     FooterComponent,
     LicenceComponent,
     NavbarClientComponent,
-    SingleProductComponent
-
+    SingleProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,9 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    StartModule
+    // Always import HttpClientModule after BrowserModule!
+    HttpClientModule,
+    StartModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { LoginService } from '../../../Services/login.service';
+import { LoginService } from '../../../Services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +12,7 @@ export class LoginComponent implements OnInit, DoCheck {
   submitable = false;
   form: FormGroup;
 
-  constructor(
-    // private loginService: LoginService,
-     private fb: FormBuilder) {}
+  constructor(private loginService: LoginService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     // TODO: modal after from sent and API token or body back
@@ -54,14 +52,12 @@ export class LoginComponent implements OnInit, DoCheck {
         this.form.value
       );
 
-      console.log(this.form)
-
       // TODO: POST + modal if API REST response !== 200
-      // this.loginService
-      //   .postOne(this.form.value)
-      //   .subscribe((user) =>
-      //     console.log('[disable.console.log in production] -> POSTED: ', user)
-      //   );
+      this.loginService
+        .postOne(this.form.value)
+        .subscribe((user) =>
+          console.log('[disable.console.log in production] -> POSTED: ', user)
+        );
 
       // then... clean form
       this.form.reset();

@@ -13,16 +13,12 @@ interface I_login {
   providedIn: 'root',
 })
 export class LoginService {
-  api = 'https://jsonplaceholder.typicode.com'; // Open Database
-  endpont = '/posts';
+  api = 'https://jsonplaceholder.typicode.com/posts'; // Open Database
 
   constructor(private http: HttpClient) {}
 
   // POST
   postOne(body: I_login): Observable<object> {
-    return this.http.post<I_login>(
-      this.api + this.endpont, // open API REST
-      body
-    );
+    return this.http.post<I_login>(this.api, body);
   }
 }

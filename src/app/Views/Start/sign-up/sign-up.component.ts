@@ -39,7 +39,7 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  private getDismissReason(reason: any): string {
+  private getDismissReason(reason: any): any {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {

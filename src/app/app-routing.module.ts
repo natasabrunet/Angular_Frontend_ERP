@@ -9,11 +9,12 @@ import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: 'log-in', component: LoginComponent },
-  {path: 'Licence', component: LicenceComponent},
+  { path: 'Licence', component: LicenceComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
-  // { path: '**', component: PageNotFoundComponent}, <- WILDCARD
-  { path: 'pnf', component: PageNotFoundComponent} // when we'll have the homepage we'll use the WILDCARD
+  { path: 'pnf', component: PageNotFoundComponent },
+  { path: 'log-in', component: LoginComponent },
+  { path: '**', component: LoginComponent }, // when wrong URL => go to login OR homepage
 ];
 
 @NgModule({

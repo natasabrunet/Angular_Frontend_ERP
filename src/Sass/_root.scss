@@ -24,6 +24,14 @@ $root-bg: papayawhip;
 // GLOBAL STYLING //
 ////////////////////
 
+// GLOBAL ROOT lEVEL defaults //
+body {
+  background-color: $erp-gray; // default bg-color.
+  // Default "gray" makes "forms" visble, coz they'r white.
+  // If default background is white... then we won't be able to see form's background
+  // when they start, and where they end, neither will we see their border or limit
+}
+
 // FONTS //
 
 @font-face {
@@ -43,7 +51,6 @@ $root-bg: papayawhip;
 // TYPOGRAPHY //
 
 body > * {
-  // color: $erp-black;
   font-family: "Raleway", sans-serif; // default font
   font-size: 16px;
 }
@@ -80,6 +87,8 @@ footer {
 
 // LINKS //
 
+// ALL <a> style is defined here (for normal, not-Bootrap links)
+// but also in override.scss (those belonging to B5 classes, like .navlink, etc)
 a:not(.navbar-brand):not(.nav-link):not(.dropdown-item) {
   cursor: pointer;
   display: inline-block;
@@ -103,4 +112,50 @@ footer a {
   &::after {
     background: $erp-white !important;
   }
+}
+a, a:hover {
+  text-decoration: none;
+}
+
+/*
+  IMPORTANT! --> READ THIS PLEASE!
+
+  1. Do you wanna use "gray" background?
+      Easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+
+      Just use "bg-erp-gray"
+
+  2. Do you wanna use "gray" as text color?
+      Sexy easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+
+      Just use "text-erp-gray"
+
+  3. Do you wanna use "gray" as border color?
+      Fuck easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+
+      Just use "border border-erp-gray"
+
+  4. Do you wanna use "gray" as color-solid button?
+      Super easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+
+      Just use "btn btn-erp-gray"
+
+  5. Do you wanna use "gray" as color-outlined button?
+      Easy easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+
+      Just use "btn btn-outline-erp-gray"
+
+
+  IMPORTANT! --> READ THIS PLEASE!
+
+  you DON'T NEED to create new classes like  .bg-erp-general { background-color. gray; }
+
+  This is nonsense for general styling, because themed variables already exist in in _theme-core.scss !!!
+
+  */
+
+
+
+.btn-erp-delete {
+  background-color: #DD5D56;
 }

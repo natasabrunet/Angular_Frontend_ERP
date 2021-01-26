@@ -21,7 +21,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    AppRoutingModule
+   AppRoutingModule
   ],
   exports: [
     RecoverPasswordComponent,

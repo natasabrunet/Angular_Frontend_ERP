@@ -1,22 +1,10 @@
-<!-- <div class="html"> -->
-<div class="container pt-5">
-  <div class="row mx-auto">
+<div class="body bg-erp-silver">
+<div class="container pb-5 pt-5">
+  <div class="row mx-auto mb-3">
     <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
       <h1 class="text-center pb-3">Sign up</h1>
-      <div class="d-flex justify-content-between">
-        <a
-          class="ps-2"
-          [routerLink]="['/log-in']"
-          routerLinkActive="router-link-active"
-          >Already a member?</a
-        >
-        <!-- TODO: redireccionar a Log-in. Hacer git pull origin Dev antes para
-        actualizar -->
-        <!-- FIXME: Jose, el button "BACK" ha de ser type "button", no "submit" -->
-        <!-- <button type="submit" class="btn">BACK</button> -->
-        <button type="button" class="btn">BACK</button>
-        <!-- TODO: redireccionar a Home. Hacer git pull origin Dev antes para
-        actualizar -->
+      <div class="text-center">
+        <a class="ps-2" [routerLink]="['/log-in']" routerLinkActive="router-link-active">Already a member?</a>
       </div>
     </div>
   </div>
@@ -24,17 +12,17 @@
   <form
     #formContacto="ngForm"
     (ngSubmit)="onSubmit(formContacto)"
-    class="mx-auto row pt-3 pb-4"
+    class="row mx-auto pt-3 pb-4 bg-erp-white"
   >
     <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 d-flex"
+      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
       <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
-      <div class="col-10">
+      <div class="ms-5 col-8">
         <input
           type="text"
           name="businessName"
-          class="form-control"
+          class="form-control bg-erp-silver"
           [ngClass]="{
             'is-invalid': businessName.touched && !businessName.valid
           }"
@@ -53,14 +41,14 @@
     </div>
 
     <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 d-flex"
+      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
       <label class="p-2 col-2" for="exampleInputEmail1">CIF: </label>
-      <div class="col-10">
+      <div class="ms-5 col-8">
         <input
           type="text"
           name="cif"
-          class="form-control"
+          class="form-control bg-erp-silver"
           [ngClass]="{ 'is-invalid': cif.touched && !cif.valid }"
           #cif="ngModel"
           [(ngModel)]="new_user.cif"
@@ -74,14 +62,14 @@
     </div>
 
     <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 d-flex"
+      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
       <label class="p-2 col-2" for="exampleInputEmail1">Email: </label>
-      <div class="col-10">
+      <div class="ms-5 col-8">
         <input
           type="email"
           name="email"
-          class="form-control"
+          class="form-control bg-erp-silver"
           [ngClass]="{ 'is-invalid': email.touched && !email.valid }"
           #email="ngModel"
           [(ngModel)]="new_user.email"
@@ -94,41 +82,33 @@
       </div>
     </div>
 
-    <!-- TODO: hacer popover de criterios password (hover) -->
-
-    <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 d-flex"
-    >
-      <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
-      <div class="col-10">
-        <input
-          type="text"
-          name="password"
-          class="form-control"
-          [ngClass]="{ 'is-invalid': password.touched && !password.valid }"
-          #password="ngModel"
-          [(ngModel)]="new_user.password"
-          required
-          pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
-        />
-        <div
-          *ngIf="password.touched && !password.valid"
-          class="invalid-feedback"
-        >
-          This password does not match the required format!
+      <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex">
+        <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
+        <div class="ms-5 col-8">
+            <input
+            type="text"
+            name="password"
+            class="form-control bg-erp-silver"
+            [ngClass]="{'is-invalid': password.touched && !password.valid}"
+            #password="ngModel"
+            [(ngModel)]="new_user.password"
+            required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
+            >
+            <div *ngIf="password.touched && !password.valid" class="invalid-feedback">
+              This password does not match the required format!
+            </div>
         </div>
       </div>
-    </div>
 
     <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 d-flex"
+      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
       <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
-      <div class="col-10">
+      <div class="ms-5 col-8">
         <input
           type="text"
           name="password-control"
-          class="form-control"
+          class="form-control bg-erp-silver"
           [ngClass]="{
             'is-invalid':
               password2.touched && !password2.valid && password !== password2
@@ -148,7 +128,7 @@
     </div>
 
     <div
-      class="form-group d-grid pt-2 mx-auto col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"
+      class="form-group d-grid pt-2 mx-auto col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10"
     >
       <button
         type="submit"
@@ -177,4 +157,4 @@
     </div>
   </ng-template>
 </div>
-<!-- </div> -->
+</div>

@@ -1,12 +1,18 @@
+<!-- FIXME: consider using Bootsrap 5 dropdown component
+https://getbootstrap.com/docs/5.0/components/dropdowns/
+you won't regret it! ;) -->
+
 <header>
-  <div class="navbar navbar-top navbar-expand-md header px-5 py-0">
+  <div class="navbar navbar-top navbar-expand-md header px-5 py-0 bg-erp-white">
     <div class="col-1">
       <fa-icon [icon]="faBars" size="lg"></fa-icon>
+      <!-- TODO: consider using classical syntax, like <i class="fas fa-copyright"></i>  -->
     </div>
 
     <div class="col">
       <app-header-search></app-header-search>
     </div>
+
     <!-- <div class="col-5"> </div> -->
     <div class="col d-flex justify-content-end align-items-center">
       <app-notifications class="ml-auto mr-5"></app-notifications>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCopyright  } from '@fortawesome/free-regular-svg-icons';
+// import { faCopyright  } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +8,7 @@ import { faCopyright  } from '@fortawesome/free-regular-svg-icons';
 })
 export class FooterComponent implements OnInit {
   currentDate:Date = new Date();
-  iconCopyright = faCopyright;
+  // iconCopyright = faCopyright;
 
   constructor() { }
 

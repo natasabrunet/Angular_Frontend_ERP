@@ -25,12 +25,6 @@ $root-bg: papayawhip;
 ////////////////////
 
 // GLOBAL ROOT lEVEL defaults //
-body {
-  background-color: $erp-gray; // default bg-color.
-  // Default "gray" makes "forms" visble, coz they'r white.
-  // If default background is white... then we won't be able to see form's background
-  // when they start, and where they end, neither will we see their border or limit
-}
 
 // FONTS //
 
@@ -53,11 +47,9 @@ body {
 body > * {
   font-family: "Raleway", sans-serif; // default font
   font-size: 16px;
-}
-
-body {
   background-color: $erp-silver; // default bg-color
 }
+
 
 // headings, header, footer
 h1,
@@ -74,8 +66,6 @@ header {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-transform: uppercase;
-  background-color: $erp-black; // default bg-color
-  color: $erp-white;
 }
 
 // .btn, .navbar --> _overrides.scss

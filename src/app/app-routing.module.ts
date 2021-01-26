@@ -8,14 +8,13 @@ import { RecoverPasswordComponent } from './Views/Start/recover-password/recover
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent }, // DON'T USE 'redirectTo' here!
   { path: 'log-in', component: LoginComponent },
-  { path: 'Licence', component: LicenceComponent },
+  { path: 'Licence', component: LicenceComponent }, // FIXME: License should be "license"
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: '404', component: PageNotFoundComponent },
-  // the last two lines:
-  { path: '', redirectTo: '/log-in', pathMatch: 'full' }, // homepage
-  { path: '**', redirectTo: '/404', pathMatch: 'full' } // this must be the last line!
+  { path: '**', redirectTo: '404', pathMatch: 'full' }, // this must be the last line!
 ];
 
 @NgModule({

@@ -3,13 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AbstractControl } from '@angular/forms';
 
-// FIXME: pROVISIONAL... to be substituded by Models class{}
-export interface IntContactForm {
-  submited: AbstractControl;
-  name: AbstractControl;
+// FIXME: PROVISIONAL... to be substituded by Models class{}
+interface I_login {
   email: AbstractControl;
-  msg: AbstractControl;
-  lgpd: AbstractControl;
+  password: AbstractControl;
 }
 
 @Injectable({
@@ -22,8 +19,8 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   // POST
-  postOne(body: IntContactForm): Observable<object> {
-    return this.http.post<IntContactForm>(
+  postOne(body: I_login): Observable<object> {
+    return this.http.post<I_login>(
       this.api + this.endpont, // open API REST
       body
     );

@@ -130,29 +130,26 @@
 
   <!-- submit -->
   <button
-    class="btn btn-erp-blue w-100"
+    class="btn text-erp-white w-100"
     type="submit"
     name="submited"
     value="valid"
-    [ngClass]="{ 'btn-erp-red': disabled, disabled: disabled }"
-    [attr.aria-disabled]="disabled"
+    [class.btn-erp-blue]="!disabled || submitable"
+    [class.btn-erp-red]="disabled && !submitable"
+    [disabled]="disabled && !submitable"
+    [attr.aria-disabled]="disabled && !submitable"
   >
-    <a
-      routerLink="home"
-      class="text-erp-white"
-      [class.disabled]="disabled"
-      [attr.aria-disabled]="disabled"
-    >
-      log in
-      <i class="fas fa-sign-in-alt"></i>
-    </a>
+    log in
+    <i class="fas fa-sign-in-alt"></i>
   </button>
 
   <!-- DEBUGG -->
-  <!-- FIXME: comment out debugging -->
-  <pre class="border border-danger p-3">
+  <!-- <pre class="border border-danger p-3">
       form.valid: {{ form.valid }}
       form.status: {{ form.status }}
-      form.value: {{ form.value | json }}     
-  </pre>
+      form.value:
+      {{ form.value | json }}
+      disabled: {{ disabled }}
+      submitable: {{ submitable }}      
+  </pre> -->
 </form>

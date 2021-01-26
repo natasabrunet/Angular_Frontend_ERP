@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { StartModule } from './Views/Start/start.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './Components/header/header.component';
 import { AdminComponent } from './Components/header/admin/admin.component';
@@ -39,6 +39,7 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule,
     StartModule
   ],
   providers: [],

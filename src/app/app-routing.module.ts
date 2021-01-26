@@ -12,9 +12,10 @@ const routes: Routes = [
   { path: 'Licence', component: LicenceComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'pnf', component: PageNotFoundComponent },
-  { path: 'log-in', component: LoginComponent },
-  // { path: '**', component: LoginComponent }, // when wrong URL => go to login OR homepage
+  { path: '404', component: PageNotFoundComponent },
+  // the last two lines:
+  { path: '', redirectTo: '/log-in', pathMatch: 'full' }, // homepage
+  { path: '**', redirectTo: '/404', pathMatch: 'full' } // this must be the last line!
 ];
 
 @NgModule({

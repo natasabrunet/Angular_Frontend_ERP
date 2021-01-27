@@ -6,6 +6,7 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { LoginComponent } from './Views/Start/login/login.component';
 import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
+import { ProductsListComponent } from './views/products-list/products-list.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent }, // DON'T USE 'redirectTo' here!
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'Licence', component: LicenceComponent }, // FIXME: License should be "license"
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: '**', redirectTo: '404', pathMatch: 'full' },
+  { path: 'products', component: ProductsListComponent },
   { path: '404', component: PageNotFoundComponent },
 ];
 

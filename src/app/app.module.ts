@@ -12,6 +12,9 @@ import { NotificationsComponent } from './Components/header/notifications/notifi
 import { HeaderSearchComponent } from './Components/header/header-search/header-search.component';
 import { TogglerComponent } from './Components/header/toggler/toggler.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
+import { ProductsListComponent } from './views/products-list/products-list.component';
+// import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
@@ -31,11 +34,16 @@ import { HttpClientModule } from '@angular/common/http';
     NotificationsComponent,
     HeaderSearchComponent,
     TogglerComponent,
+    NavbarClientComponent,
+    NavbarClientComponent,
+    ProductsListComponent,
+      // RecoverPasswordComponent
     FooterComponent,
     LicenceComponent,
     NavbarClientComponent,
     SingleProductComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

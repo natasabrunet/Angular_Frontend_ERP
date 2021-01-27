@@ -20,50 +20,131 @@ $root-bg: papayawhip;
 }
 */
 
-//////////////////////////////////////
-// ERP GLOBAL VARIABLES AND STYLING //
-//////////////////////////////////////
+////////////////////
+// GLOBAL STYLING //
+////////////////////
 
-// color variables
-// example:
-$gold: gold;
+// GLOBAL ROOT lEVEL defaults //
 
-/*Global tipography*/
+// FONTS //
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@font-face {
+  font-family: "Montserrat";
+  src: url(/assets/fonts/Montserrat/Montserrat-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
 
-/*Global font sizes & font families*/
-* {
-  font-family: 'Raleway', sans-serif;
+@font-face {
+  font-family: "Raleway";
+  src: url(/assets/fonts/Raleway/Raleway-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+// TYPOGRAPHY //
+
+body > * {
+  font-family: "Raleway", sans-serif; // default font
   font-size: 16px;
+  background-color: $erp-silver; // default bg-color
 }
 
-h1, h2, h3, h4, h5, h6, button {
-  font-family: 'Montserrat', sans-serif;
+
+// headings, header, footer
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
 }
 
-header, nav, button {
+header {
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-transform: uppercase;
 }
 
+// .btn, .navbar --> _overrides.scss
+
+footer {
+  font-size: 10px;
+  background-color: $erp-black; // default bg-color
+}
+
+// LINKS //
+
+// ALL <a> style is defined here (for normal, not-Bootrap links)
+// but also in override.scss (those belonging to B5 classes, like .navlink, etc)
+a:not(.navbar-brand):not(.nav-link):not(.dropdown-item) {
+  cursor: pointer;
+  display: inline-block;
+  color: $erp-blue;
+  text-decoration: none;
+  &::after {
+    content: "";
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: $erp-blue;
+  }
+  &:hover::after {
+    width: 100%;
+    transition: width 0.75s;
+  }
+}
+
+footer a {
+  color: $erp-white !important;
+  &::after {
+    background: $erp-white !important;
+  }
+}
 a, a:hover {
   text-decoration: none;
 }
 
-body {
-  background-color: #F4F5F8;
-}
- 
-.btn-erp-general, .btn-erp-delete {
-  color: #FFF;
-}
+/*
+  IMPORTANT! --> READ THIS PLEASE!
 
-.btn-erp-general {
-  background-color:#4E78BB;
+  1. Do you wanna use "gray" background?
+      Easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
 
-}
+      Just use "bg-erp-gray"
+
+  2. Do you wanna use "gray" as text color?
+      Sexy easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+
+      Just use "text-erp-gray"
+
+  3. Do you wanna use "gray" as border color?
+      Fuck easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+
+      Just use "border border-erp-gray"
+
+  4. Do you wanna use "gray" as color-solid button?
+      Super easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+
+      Just use "btn btn-erp-gray"
+
+  5. Do you wanna use "gray" as color-outlined button?
+      Easy easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+
+      Just use "btn btn-outline-erp-gray"
+
+
+  IMPORTANT! --> READ THIS PLEASE!
+
+  you DON'T NEED to create new classes like  .bg-erp-general { background-color. gray; }
+
+  This is nonsense for general styling, because themed variables already exist in in _theme-core.scss !!!
+
+  */
+
+
 
 .btn-erp-delete {
   background-color: #DD5D56;

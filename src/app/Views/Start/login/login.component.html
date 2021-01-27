@@ -1,1 +1,157 @@
-<p>login works!</p>
+<!-- MODAL -->
+<!-- Button trigger modal -->
+<!-- FIXME: programmatically trigger modal viaa JavaScript || via B5 "data-bs-toggle", "data-bs-target" -->
+<!-- <button
+  type="button"
+  class="btn btn-erp-red"
+  data-bs-toggle="modal"
+  data-bs-target="#staticBackdrop"
+>
+  replace button by programmatic call
+</button>
+
+<!-- Modal -->
+<!-- <div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Invalid operation</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Please, try again or sing up before logging in
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-erp-black text-erp-white"
+          data-bs-dismiss="modal"
+        >
+          try again
+        </button>
+        <button type="button" class="btn btn-erp-blue text-erp-white">
+          <a routerlink="sign-up" class="text-erp-white">
+            sign up
+            <i class="fas fa-user-plus"></i>
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- ADMIN NAVBAR -->
+<header class="d-flex justify-content-between align-items-center p-2 mx-auto mb-3 bg-erp-silver rounded-pill">
+  <span class="ps-2">
+    header log in / sign up
+    <code>(F1.7 - working on it)</code>
+  </span>
+
+  <button type="submit" class="btn btn-erp-cyan me-3">
+    <a routerLink="sign-up" class="text-erp-white">
+      sign up
+      <i class="fas fa-user-plus"></i>
+    </a>
+  </button>
+</header>
+
+<!-- FORM -->
+<form
+  [formGroup]="form"
+  (ngSubmit)="send()"
+  autocomplete="off"
+  class="mx-auto p-4 bg-erp-white rounded-3"
+>
+  <div class="row mb-3">
+    <h3 class="text-uppercase">log in</h3>
+  </div>
+
+  <div class="row mb-3">
+    <!-- FIXME: Clients can log in via email' or that must be via CIF? -->
+    <label for="loginEmail" class="col-4 col-form-label">Email</label>
+    <div class="col">
+      <input
+        #ref1
+        id="loginEmail"
+        type="email"
+        formControlName="email"
+        class="form-control bg-erp-silver"
+        [class.is-invalid]="validateOnTouched(ref1) > 0"
+      />
+      <!-- invalid-feedback -->
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 1">
+        email required
+      </small>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 2">
+        Enter a valid email pattern. Example: account@email.com
+      </small>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label for="loginPassword" class="col-4 col-form-label">Password</label>
+    <div class="col">
+      <input
+        #ref2
+        id="loginPassword"
+        type="password"
+        formControlName="password"
+        class="form-control bg-erp-silver"
+        [class.is-invalid]="validateOnTouched(ref2) > 0"
+      />
+      <!-- invalid-feedback -->
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 1">
+        password required
+      </small>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 2">
+        The password must have minimum eight characters, including one uppercase letter, one lowercase letter, one special character and one number
+      </small>
+    </div>
+  </div>
+
+  <a routerLink="recover-password" class="mb-3"
+    >Did you forget your password?</a
+  >
+
+  <!-- submit -->
+  <button
+    class="btn btn-erp-blue w-100"
+    type="submit"
+    name="submited"
+    value="valid"
+    [ngClass]="{ 'btn-erp-red': disabled, disabled: disabled }"
+    [attr.aria-disabled]="disabled"
+  >
+    <a
+      routerLink="home"
+      class="text-erp-white"
+      [class.disabled]="disabled"
+      [attr.aria-disabled]="disabled"
+    >
+      log in
+      <i class="fas fa-sign-in-alt"></i>
+    </a>
+  </button>
+
+  <!-- DEBUGG -->
+  <!-- FIXME: comment out debugging -->
+  <pre class="border border-danger p-3">
+      form.valid: {{ form.valid }}
+      form.status: {{ form.status }}
+      form.value: {{ form.value | json }}
+  </pre
+  >
+</form>

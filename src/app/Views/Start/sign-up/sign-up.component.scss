@@ -1,20 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-
-html{
-  min-height: 100vh;
-}
-
-html, .container{
-  background-color: #F4F5F8;
-  color:#242A32;
-  font-family: 'Raleway', sans-serif;
-  font-size: 16px;
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
+}
+
+form{
+  max-width: 576px;
 }
 
 .btn {

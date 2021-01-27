@@ -59,6 +59,27 @@ $utilities: map-merge(
 // CREATE NEW B5-syntaxed or MODIFY B5-ready CLASSES //
 ///////////////////////////////////////////////////////
 
-// Don't modify previuos commented exmaple lines!
+// Don't modify previuos commented example lines!
 
-// Write your code just below. 
+// Write your code just below.
+
+$utilities: map-merge(
+  $utilities,
+  (
+    // extend B5 text-...
+    "text-align":
+      map-merge(
+        map-get($utilities, "text-align"),
+        (
+          // add values
+          values:
+            map-merge(
+              map-get(map-get($utilities, "text-align"), "values"),
+              (
+                justify: justify,
+              )
+            )
+        )
+      )
+  )
+);

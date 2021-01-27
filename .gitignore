@@ -1,6 +1,9 @@
 # dependencies
 /node_modules
 
+# files
+package-lock.json
+
 # Compiled class file
 *.class
 

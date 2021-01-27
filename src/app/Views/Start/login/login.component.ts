@@ -79,12 +79,16 @@ export class LoginComponent implements OnInit, DoCheck {
     if (this.form.valid) {
       console.log(
         '[disable.console.log in production] -> SUBMITING to API REST...'
-        // this.form.value
       );
 
-      const body = this.form.value;
+      const body = {
+        username: this.form.value.get('nif'),
+        password: this.form.value.get('password')
+      }
 
-      this.loginService.loginUser(body).subscribe(
+      console.log(body);
+
+      this.loginService.loginUser(this.form.value).subscribe(
         (logedUser) =>
           console.log(
             '[disable.console.log in production] -> POSTED: ',

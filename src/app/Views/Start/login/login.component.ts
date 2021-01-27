@@ -2,6 +2,12 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../Services/login.service';
+import { AbstractControl } from '@angular/forms';
+
+interface I_login {
+  username: AbstractControl;
+  password: AbstractControl;
+}
 
 @Component({
   selector: 'app-login',
@@ -14,7 +20,11 @@ export class LoginComponent implements OnInit, DoCheck {
   NIF = false;
   form: FormGroup;
 
-  constructor(private loginService: LoginService, private fb: FormBuilder, router: Router) {}
+  constructor(
+    private loginService: LoginService,
+    private fb: FormBuilder,
+    router: Router
+  ) {}
 
   ngOnInit(): void {
     // TODO: modal after from sent and API token or body back
@@ -32,12 +42,14 @@ export class LoginComponent implements OnInit, DoCheck {
   }
   // setup form
   createForm(): void {
+    // FIXME: user <NIF|Email> has (3-12) chars
     const regexEmail = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
 
     const regexNIF =
       '^([ABCDEFGHJNPQRSUVW|abcdefghjnpqrsuvw])[\\d]{7}(\\w|\\d)$';
     // NOTE: NIF vs. CIF => https://getquipu.com/blog/diferencia-entre-el-cif-y-el-nif/
 
+    // FIXME: password has (8-12 chars)
     const regexPassword =
       '^(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[@$!%*#?&])[a-zA-Z0-9@$!%*#?&]{8,}$';
 
@@ -70,9 +82,14 @@ export class LoginComponent implements OnInit, DoCheck {
         // this.form.value
       );
 
-      this.loginService.loginUser(this.form.value).subscribe(
-        (user) =>
-          console.log('[disable.console.log in production] -> POSTED: ', user)
+      const body = this.form.value;
+
+      this.loginService.loginUser(body).subscribe(
+        (logedUser) =>
+          console.log(
+            '[disable.console.log in production] -> POSTED: ',
+            logedUser
+          )
         // TODO: POST + modal if API REST response !== 200
       );
 
@@ -110,5 +127,25 @@ export class LoginComponent implements OnInit, DoCheck {
     }
 
     return errorType;
+  }
+
+  // FIXME: PROVISIONAL DIRECT LOGIN: Front and Back should have same patterns
+  autoLogin() {
+    // TODO: this user already exists in DB => http://217.76.158.200:8080/api/login
+    const bodyTEST = {
+      username: 'D3831093R',
+      password: 'Dev@lop3rs',
+    };
+
+    fetch('http://217.76.158.200:8080/api/login', {
+      method: 'POST',
+      body: JSON.stringify(bodyTEST),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .catch((error) => console.error('Error:', error))
+      .then((response) => console.log('Success:', response));
   }
 }

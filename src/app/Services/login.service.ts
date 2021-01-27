@@ -20,6 +20,8 @@ export class LoginService {
 
   // POST
   loginUser(body: I_login): Observable<object> {
-    return this.http.post<I_login>(this.url + this.endpoint, body);
+    return this.http.post<I_login>(this.url + this.endpoint, body, {
+      responseType: 'json',
+    });
   }
 }

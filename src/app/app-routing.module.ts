@@ -7,17 +7,17 @@ import { LoginComponent } from './Views/Start/login/login.component';
 import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
 import { AdminViewComponent } from './Views/admin-view/admin-view.component';
+import { ProductsListComponent } from './views/products-list/products-list.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent }, // DON'T USE 'redirectTo' here!
   { path: 'log-in', component: LoginComponent },
   { path: 'admin', component: AdminViewComponent },
-  { path: 'Licence', component: LicenceComponent },
+  { path: 'Licence', component: LicenceComponent }, // FIXME: License should be "license"
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'products', component: ProductsListComponent },
   { path: '404', component: PageNotFoundComponent },
-  // the last two lines:
-  { path: '', redirectTo: '/log-in', pathMatch: 'full' }, // homepage
-  { path: '**', redirectTo: '/404', pathMatch: 'full' } // this must be the last line!
 ];
 
 

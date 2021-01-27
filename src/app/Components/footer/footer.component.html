@@ -3,15 +3,19 @@
     <div
       class="col-8 col-md-6 col-lg-8 d-flex flex-column justify-content-center align-items-center information"
     >
-      <!-- <p><fa-icon class="pe-1" [icon]="iconCopyright" [rotate]="180" [fixedWidth]="true" size="sm"></fa-icon><a [routerLink]="['Licence']">Copyleft {{ currentDate | date:'y' }} Barcelona Activa</a></p> This pipe will show the current year -->
-
       <p>
-        <i class="fas fa-copyright pe-1"></i>
-
+        <fa-icon
+          class="pe-1"
+          [icon]="iconCopyright"
+          [rotate]="180"
+          [fixedWidth]="true"
+          size="sm"
+        ></fa-icon>
         <a [routerLink]="['Licence']"
           >Copyleft {{ currentDate | date: "y" }} Barcelona Activa</a
         >
       </p>
+
       <!--This pipe will show the current year-->
       <p>
         Developed by

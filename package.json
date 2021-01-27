@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/localize": "~10.1.6",
     "@angular/animations": "~11.1.0",
     "@angular/common": "~11.1.0",
     "@angular/compiler": "~11.1.0",

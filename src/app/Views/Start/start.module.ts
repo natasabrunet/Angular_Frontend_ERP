@@ -9,6 +9,9 @@ import { RecoverPasswordComponent } from './recover-password/recover-password.co
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
+// services
+import { HttpClientModule } from '@angular/common/http';
+import { SignupService } from '../../Services/signup.service';
 @NgModule({
   declarations: [RecoverPasswordComponent, LoginComponent, SignUpComponent],
   imports: [
@@ -17,7 +20,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ReactiveFormsModule,
     NgbModule,
     AppRoutingModule,
+    HttpClientModule
   ],
+  providers: [SignupService],
   exports: [RecoverPasswordComponent, LoginComponent, SignUpComponent],
 })
 export class StartModule {}

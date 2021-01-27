@@ -37,7 +37,6 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarClientComponent,
     NavbarClientComponent,
     ProductsListComponent,
-      // RecoverPasswordComponent
     FooterComponent,
     LicenceComponent,
     NavbarClientComponent,

@@ -21,11 +21,8 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/single-product/single-product.component';
 
-<<<<<<< HEAD
-=======
 // services
 import { HttpClientModule } from '@angular/common/http';
->>>>>>> b149f9909c85b1513177cac2933e4cf6758daf0a
 
 @NgModule({
   declarations: [
@@ -52,15 +49,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-<<<<<<< HEAD
-    StartModule
-    
-=======
     ReactiveFormsModule,
     // Always import HttpClientModule after BrowserModule!
     HttpClientModule,
     StartModule,
->>>>>>> b149f9909c85b1513177cac2933e4cf6758daf0a
   ],
   providers: [],
   bootstrap: [AppComponent],

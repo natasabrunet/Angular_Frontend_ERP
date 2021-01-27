@@ -5,7 +5,7 @@ import { AbstractControl } from '@angular/forms';
 
 // FIXME: PROVISIONAL... to be substituded by Models class{}
 interface I_login {
-  email_or_NIF: AbstractControl;
+  username: AbstractControl;
   password: AbstractControl;
 }
 
@@ -13,12 +13,13 @@ interface I_login {
   providedIn: 'root',
 })
 export class LoginService {
-  api = 'https://jsonplaceholder.typicode.com/posts'; // Open Database
+  url = 'http://217.76.158.200:8080';
+  endpoint = '/api/login';
 
   constructor(private http: HttpClient) {}
 
   // POST
-  postOne(body: I_login): Observable<object> {
-    return this.http.post<I_login>(this.api, body);
+  loginUser(body: I_login): Observable<object> {
+    return this.http.post<I_login>(this.url + this.endpoint, body);
   }
 }

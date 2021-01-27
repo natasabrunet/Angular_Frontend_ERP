@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit, DoCheck {
         // this.form.value
       );
 
-      this.loginService.postOne(this.form.value).subscribe(
+      this.loginService.loginUser(this.form.value).subscribe(
         (user) =>
           console.log('[disable.console.log in production] -> POSTED: ', user)
         // TODO: POST + modal if API REST response !== 200

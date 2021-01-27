@@ -53,7 +53,7 @@
 
 <!-- ADMIN NAVBAR -->
 <header
-  class="d-flex justify-content-between align-items-center p-2 mx-auto mb-3 bg-erp-silver rounded-pill"
+  class="d-flex justify-content-between align-items-center p-2 mx-auto mb-3 bg-erp-white border rounded-pill"
 >
   <span class="ps-2">
     header log in / sign up
@@ -78,29 +78,66 @@
     <h3 class="text-uppercase">log in</h3>
   </div>
 
-  <div class="row mb-3">
-    <!-- FIXME: Clients can log in via email' or that must be via CIF? -->
-    <label for="loginEmail" class="col-4 col-form-label">Email</label>
+  <!-- TOGGLER input emaail vs NIF -->
+  <span class="d-block">
+    <small class="d-block"> You Log in by email or NIF</small>
+    <small>Select one:</small>
+    <nav class="nav">
+      <a href="javascript:void(0)" class="nav-link active" (click)="toggleNIF()">Email/NIF</a>
+      <!-- <a class="nav-link active" aria-current="page" href="#">Active</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+    </nav>
+  </span>
+
+  <!-- select -->
+
+  <!-- EMAIL -->
+  <div class="row mb-3" *ngIf="!NIF">
+    <!-- <label for="loginEmail" class="col-4 col-form-label">Email</label> -->
     <div class="col">
       <input
-        #ref1
+        #ref0
         id="loginEmail"
         type="email"
         formControlName="email"
         class="form-control bg-erp-silver"
-        [class.is-invalid]="validateOnTouched(ref1) > 0"
-        autocomplete="true"
+        [class.is-invalid]="validateOnTouched(ref0) > 0"
+        autocomplete="off"
       />
-      <!-- invalid-feedback -->
-      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 1">
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref0) === 1">
         email required
       </small>
-      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 2">
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref0) === 2">
         Enter a valid email pattern. Example: account@email.com
       </small>
     </div>
   </div>
 
+  <!-- NIF -->
+  <div class="row mb-3" *ngIf="NIF">
+    <label for="loginNIF" class="col-4 col-form-label">NIF</label>
+    <div class="col">
+      <input
+        #ref1
+        id="loginNIF"
+        type="text"
+        formControlName="nif"
+        class="form-control bg-erp-silver"
+        [class.is-invalid]="validateOnTouched(ref1) > 0"
+        autocomplete="off"
+      />
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 1">
+        NIF required
+      </small>
+      <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 2">
+        Enter a valid NIF pattern. Example: W1234567E
+      </small>
+    </div>
+  </div>
+
+  <!-- PASSWORD -->
   <div class="row mb-3">
     <label for="loginPassword" class="col-4 col-form-label">Password</label>
     <div class="col">
@@ -111,9 +148,8 @@
         formControlName="password"
         class="form-control bg-erp-silver"
         [class.is-invalid]="validateOnTouched(ref2) > 0"
-        autocomplete="true"
+        autocomplete="off"
       />
-      <!-- invalid-feedback -->
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 1">
         password required
       </small>
@@ -124,6 +160,7 @@
     </div>
   </div>
 
+  <!-- FORGOT PASSWORD? -->
   <a routerLink="recover-password" class="mb-3"
     >Did you forget your password?</a
   >
@@ -137,19 +174,19 @@
     [class.btn-erp-blue]="!disabled || submitable"
     [class.btn-erp-red]="disabled && !submitable"
     [disabled]="disabled && !submitable"
-    [attr.aria-disabled]="disabled && !submitable"
   >
+    <!-- [attr.aria-disabled]="disabled && !submitable" -->
     log in
     <i class="fas fa-sign-in-alt"></i>
   </button>
 
   <!-- DEBUGG -->
-  <!-- <pre class="border border-danger p-3">
+  <pre class="border border-danger p-3">
       form.valid: {{ form.valid }}
       form.status: {{ form.status }}
       form.value:
       {{ form.value | json }}
       disabled: {{ disabled }}
       submitable: {{ submitable }}      
-  </pre> -->
+  </pre>
 </form>

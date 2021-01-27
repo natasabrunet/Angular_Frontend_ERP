@@ -10,6 +10,7 @@ import { LoginService } from '../../../Services/login.service';
 export class LoginComponent implements OnInit, DoCheck {
   disabled = false;
   submitable = false;
+  NIF = false;
   form: FormGroup;
 
   constructor(private loginService: LoginService, private fb: FormBuilder) {}
@@ -20,44 +21,59 @@ export class LoginComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    // .btn style + form sendable or not
+    // .btn style + button@submit disabled
     this.submitable = this.form.valid ? true : false;
   }
 
+  toggleNIF() {
+    this.NIF = !this.NIF;
+    this.createForm(); //rebuild form with current NIF | email
+  }
   // setup form
   createForm(): void {
-    const regexEmail =
-      '^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$';
+    const regexEmail = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
+
+    const regexNIF =
+      '^([ABCDEFGHJNPQRSUVW|abcdefghjnpqrsuvw])[\\d]{7}(\\w|\\d)$';
+    // NOTE: IF vs CIF => https://getquipu.com/blog/diferencia-entre-el-cif-y-el-nif/
 
     const regexPassword =
-      '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*#?&])[a-zA-Z0-9@$!%*#?&]{8,}$';
+      '^(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[@$!%*#?&])[a-zA-Z0-9@$!%*#?&]{8,}$';
 
-    // FIXME: regex CIF
-    const regexCIF = '^[a-zA-Z]{1}d{7}[a-zA-Z0-9]{1}$';
-
-    this.form = this.fb.group({
-      // [def, sync, async]
-      email: ['', [Validators.required, Validators.pattern(regexEmail)]],
-      password: ['', [Validators.required, Validators.pattern(regexPassword)]],
-    });
+    if (this.NIF) {
+      this.form = this.fb.group({
+        nif: ['', [Validators.required, Validators.pattern(regexNIF)]],
+        password: [
+          '',
+          [Validators.required, Validators.pattern(regexPassword)],
+        ],
+      });
+    } else {
+      this.form = this.fb.group({
+        email: ['', [Validators.required, Validators.pattern(regexEmail)]],
+        password: [
+          '',
+          [Validators.required, Validators.pattern(regexPassword)],
+        ],
+      });
+    }
+    // NOTE: [def, [sync], [async]]
   }
 
   // before submit
   send(): void {
     // on submit
     if (this.form.valid) {
-      // FIXME: comment out console.log if fetch works
       console.log(
-        '[disable.console.log in production] -> SUBMITING to API REST...',
-        this.form.value
+        '[disable.console.log in production] -> SUBMITING to API REST...'
+        // this.form.value
       );
 
-      // TODO: POST + modal if API REST response !== 200
-      this.loginService
-        .postOne(this.form.value)
-        .subscribe((user) =>
+      this.loginService.postOne(this.form.value).subscribe(
+        (user) =>
           console.log('[disable.console.log in production] -> POSTED: ', user)
-        );
+        // TODO: POST + modal if API REST response !== 200
+      );
 
       // then... clean form
       this.form.reset();

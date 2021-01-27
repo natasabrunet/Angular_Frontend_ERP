@@ -5,7 +5,7 @@ import { AbstractControl } from '@angular/forms';
 
 // FIXME: PROVISIONAL... to be substituded by Models class{}
 interface I_login {
-  email: AbstractControl;
+  email_or_NIF: AbstractControl;
   password: AbstractControl;
 }
 

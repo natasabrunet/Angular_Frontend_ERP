@@ -75,27 +75,17 @@
   class="mx-auto p-4 bg-erp-white border rounded-3"
 >
   <div class="row mb-3">
-    <h3 class="text-uppercase">log in</h3>
+    <h2 class="text-uppercase">log in</h2>
   </div>
 
-  <!-- TOGGLER input emaail vs NIF -->
-  <span class="d-block">
-    <small class="d-block"> You Log in by email or NIF</small>
-    <small>Select one:</small>
-    <nav class="nav">
-      <a href="javascript:void(0)" class="nav-link active" (click)="toggleNIF()">Email/NIF</a>
-      <!-- <a class="nav-link active" aria-current="page" href="#">Active</a>
-      <a class="nav-link" href="#">Link</a>
-      <a class="nav-link" href="#">Link</a>
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-    </nav>
-  </span>
-
-  <!-- select -->
+  <!-- TOGGLER - Email vs. NIF -->
+  <a class="mb-4" (click)="toggleNIF()"
+    >Click to select <b>Email</b> or <b>NIF</b>
+  </a>
 
   <!-- EMAIL -->
   <div class="row mb-3" *ngIf="!NIF">
-    <!-- <label for="loginEmail" class="col-4 col-form-label">Email</label> -->
+    <label for="loginEmail" class="col-4 col-form-label">Email</label>
     <div class="col">
       <input
         #ref0
@@ -161,7 +151,7 @@
   </div>
 
   <!-- FORGOT PASSWORD? -->
-  <a routerLink="recover-password" class="mb-3"
+  <a routerLink="recover-password" class="my-3"
     >Did you forget your password?</a
   >
 

@@ -32,6 +32,8 @@ import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 // Font Awesome Single Icon npm Library //
 //////////////////////////////////////////
 
+// FIXME: remove global single-icon library
+
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import {
   faUserPlus,

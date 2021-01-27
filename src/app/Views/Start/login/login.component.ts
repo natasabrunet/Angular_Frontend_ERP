@@ -1,66 +1,96 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from '../../../Services/login.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, DoCheck {
   disabled = false;
+  submitable = false;
+  NIF = false;
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private loginService: LoginService, private fb: FormBuilder, router: Router) {}
 
-  // hooks
   ngOnInit(): void {
-    // to enable focus on modal if you need it //
-    // var myModal = document.getElementById('staticBackdrop');
-    // var myInput = document.getElementById('myInput');
-    // myModal.addEventListener('shown.bs.modal', function () {
-    //   myInput.focus();
-    // });
-    // TODO:
-    // - MockUp login (any data it's okay to login)
-    // -Validations (required + patterns)
-    // -Animations (animation css or B5 or NOTHING)
-    // -Lo que creais conveniente --oR NOTHING
-
-    /* reactive forms */
+    // TODO: modal after from sent and API token or body back
     this.createForm();
   }
 
-  // setup reactive form
+  ngDoCheck(): void {
+    // .btn style + button@submit disabled
+    this.submitable = this.form.valid ? true : false;
+  }
+
+  toggleNIF() {
+    this.NIF = !this.NIF;
+    this.createForm(); //rebuild form with current NIF | email
+  }
+  // setup form
   createForm(): void {
-    const regexEmail =
-      '^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$';
+    const regexEmail = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
+
+    const regexNIF =
+      '^([ABCDEFGHJNPQRSUVW|abcdefghjnpqrsuvw])[\\d]{7}(\\w|\\d)$';
+    // NOTE: NIF vs. CIF => https://getquipu.com/blog/diferencia-entre-el-cif-y-el-nif/
 
     const regexPassword =
-      '^(?=.*d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^wds:])([^s]){8,}$';
-    // const regexPassword =
-    //   '[a-zA-Z0-9ªº\\|!@"#·~$%&¬/()=?¡[`^*+¨´{}ç,.:;-_]{8,}';
+      '^(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[@$!%*#?&])[a-zA-Z0-9@$!%*#?&]{8,}$';
 
-    // FIXME: regex CIF
-    const regexCIF = '^[a-zA-Z]{1}d{7}[a-zA-Z0-9]{1}$';
+    if (this.NIF) {
+      this.form = this.fb.group({
+        nif: ['', [Validators.required, Validators.pattern(regexNIF)]],
+        password: [
+          '',
+          [Validators.required, Validators.pattern(regexPassword)],
+        ],
+      });
+    } else {
+      this.form = this.fb.group({
+        email: ['', [Validators.required, Validators.pattern(regexEmail)]],
+        password: [
+          '',
+          [Validators.required, Validators.pattern(regexPassword)],
+        ],
+      });
+    }
+    // NOTE: [def, [sync], [async]]
+  }
 
-    this.form = this.fb.group({
-      // [def, sync, async]
-      // prettier-ignore
-      email: ['', [
-        Validators.required,
-        Validators.pattern(regexEmail)
-      ]],
-      // prettier-ignore
-      password: ['', [
-        Validators.required,
-        Validators.pattern(regexPassword)
-      ]],
-    });
+  // before submit
+  send(): void {
+    // on submit
+    if (this.form.valid) {
+      console.log(
+        '[disable.console.log in production] -> SUBMITING to API REST...'
+        // this.form.value
+      );
+
+      this.loginService.postOne(this.form.value).subscribe(
+        (user) =>
+          console.log('[disable.console.log in production] -> POSTED: ', user)
+        // TODO: POST + modal if API REST response !== 200
+      );
+
+      // then... clean form
+      this.form.reset();
+      this.disabled = false; // !.btn-erp-red
+    } else {
+      this.disabled = true; // .btn-erp-red
+      return Object.values(this.form.controls).forEach((control) =>
+        control.markAsTouched()
+      );
+    }
   }
 
   // validation feedback
   validateOnTouched(ref: HTMLElement): number {
     const alias = ref.getAttribute('formControlName');
+
     let errorType = 0; // counter
 
     // condition repertoire
@@ -80,26 +110,5 @@ export class LoginComponent implements OnInit {
     }
 
     return errorType;
-  }
-
-  // before submit
-  send(): void {
-    // on submit
-    if (this.form.valid) {
-      // FIXME: remocve console log after test ok
-      console.log(
-        '[disable.console.log in production] -> SUBMITING to API REST...',
-        this.form.value
-      );
-
-      // then... clean form
-      this.form.reset();
-      this.disabled = false; // !.btn-erp-red
-    } else {
-      this.disabled = true; // .btn-erp-red
-      return Object.values(this.form.controls).forEach((control) =>
-        control.markAsTouched()
-      );
-    }
   }
 }

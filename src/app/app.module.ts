@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { StartModule } from './Views/Start/start.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './Components/header/header.component';
 import { AdminComponent } from './Components/header/admin/admin.component';
@@ -20,6 +20,9 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/single-product/single-product.component';
+
+// services
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,8 +41,7 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     FooterComponent,
     LicenceComponent,
     NavbarClientComponent,
-    SingleProductComponent
-
+    SingleProductComponent,
   ],
 
   imports: [
@@ -47,7 +49,10 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    StartModule
+    ReactiveFormsModule,
+    // Always import HttpClientModule after BrowserModule!
+    HttpClientModule,
+    StartModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

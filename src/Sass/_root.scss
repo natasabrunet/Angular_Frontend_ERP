@@ -47,9 +47,12 @@ $root-bg: papayawhip;
 body > * {
   font-family: "Raleway", sans-serif; // default font
   font-size: 16px;
-  background-color: $erp-silver; // default bg-color
 }
 
+body {
+  // DON'T REMOVE THIS CLASS!
+  background-color: $erp-silver; // default background for whole app
+}
 
 // headings, header, footer
 h1,
@@ -103,7 +106,8 @@ footer a {
     background: $erp-white !important;
   }
 }
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
 }
 
@@ -144,8 +148,6 @@ a, a:hover {
 
   */
 
-
-
 .btn-erp-delete {
-  background-color: #DD5D56;
+  background-color: #dd5d56;
 }

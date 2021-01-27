@@ -6,9 +6,11 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { LoginComponent } from './Views/Start/login/login.component';
 import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
+import { AdminViewComponent } from './Views/admin-view/admin-view.component';
 
 const routes: Routes = [
   { path: 'log-in', component: LoginComponent },
+  { path: 'admin', component: AdminViewComponent },
   { path: 'Licence', component: LicenceComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
@@ -17,6 +19,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/log-in', pathMatch: 'full' }, // homepage
   { path: '**', redirectTo: '/404', pathMatch: 'full' } // this must be the last line!
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

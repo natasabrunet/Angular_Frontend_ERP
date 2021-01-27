@@ -17,6 +17,7 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/single-product/single-product.component';
+import { AdminViewModule } from './Views/Admin-view/admin-view.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,6 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     TogglerComponent,
     FooterComponent,
     LicenceComponent,
-    NavbarClientComponent,
     SingleProductComponent
 
   ],
@@ -39,7 +39,8 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    StartModule
+    StartModule,
+    AdminViewModule
   ],
   providers: [],
   bootstrap: [AppComponent],

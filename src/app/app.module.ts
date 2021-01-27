@@ -35,15 +35,11 @@ import { HttpClientModule } from '@angular/common/http';
     NotificationsComponent,
     HeaderSearchComponent,
     TogglerComponent,
-    NavbarClientComponent,
-    NavbarClientComponent,
     ProductsListComponent,
       // RecoverPasswordComponent
     FooterComponent,
-    LicenceComponent,=
+    LicenceComponent,
     SingleProductComponent
-    NavbarClientComponent,
-    SingleProductComponent,
   ],
 
   imports: [
@@ -52,7 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     FormsModule,
     StartModule,
-    AdminViewModule
+    AdminViewModule,
     ReactiveFormsModule,
     // Always import HttpClientModule after BrowserModule!
     HttpClientModule,

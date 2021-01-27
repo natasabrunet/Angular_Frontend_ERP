@@ -34,13 +34,13 @@ import { HttpClientModule } from '@angular/common/http';
     NotificationsComponent,
     HeaderSearchComponent,
     TogglerComponent,
-    NavbarClientComponent,
-    NavbarClientComponent,
+    // NavbarClientComponent,
+    // NavbarClientComponent,
     ProductsListComponent,
       // RecoverPasswordComponent
     FooterComponent,
     LicenceComponent,
-    NavbarClientComponent,
+    // NavbarClientComponent,
     SingleProductComponent,
   ],
 

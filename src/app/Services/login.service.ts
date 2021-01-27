@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AbstractControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 // FIXME: PROVISIONAL... to be substituded by Models class{}
 interface I_login {
@@ -20,8 +20,12 @@ export class LoginService {
 
   // POST
   loginUser(body: I_login): Observable<object> {
-    return this.http.post<I_login>(this.url + this.endpoint, body, {
-      responseType: 'json',
-    });
+    return this.http.post<I_login>(
+      this.url + this.endpoint,
+      body
+      //   , {
+      //   responseType: 'json',
+      // }
+    );
   }
 }

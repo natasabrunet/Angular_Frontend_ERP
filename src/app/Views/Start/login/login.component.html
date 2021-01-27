@@ -61,7 +61,7 @@
   </span>
 
   <button type="submit" class="btn btn-erp-cyan me-3">
-    <a routerLink="sign-up" class="text-erp-white">
+    <a [routerLink]="['/sign-up']" class="text-erp-white">
       sign up
       <i class="fas fa-user-plus"></i>
     </a>
@@ -151,7 +151,7 @@
   </div>
 
   <!-- FORGOT PASSWORD? -->
-  <a routerLink="recover-password" class="my-3"
+  <a [routerLink]="['/recover-password']" class="my-3"
     >Did you forget your password?</a
   >
 
@@ -171,12 +171,12 @@
   </button>
 
   <!-- DEBUGG -->
-  <pre class="border border-danger p-3">
+  <!-- <pre class="border border-danger p-3">
       form.valid: {{ form.valid }}
       form.status: {{ form.status }}
       form.value:
       {{ form.value | json }}
       disabled: {{ disabled }}
       submitable: {{ submitable }}      
-  </pre>
+  </pre> -->
 </form>

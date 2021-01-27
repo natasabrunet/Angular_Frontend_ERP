@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'Licence', component: LicenceComponent }, // FIXME: License should be "license"
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: '**', redirectTo: '404', pathMatch: 'full' }, 
+  { path: '**', redirectTo: '404', pathMatch: 'full' },
   { path: '404', component: PageNotFoundComponent },
 ];
 

@@ -25,12 +25,6 @@ $root-bg: papayawhip;
 ////////////////////
 
 // GLOBAL ROOT lEVEL defaults //
-body {
-  background-color: $erp-gray; // default bg-color.
-  // Default "gray" makes "forms" visble, coz they'r white.
-  // If default background is white... then we won't be able to see form's background
-  // when they start, and where they end, neither will we see their border or limit
-}
 
 // FONTS //
 
@@ -55,6 +49,11 @@ body > * {
   font-size: 16px;
 }
 
+body {
+  // DON'T REMOVE THIS CLASS!
+  background-color: $erp-silver; // default background for whole app
+}
+
 // headings, header, footer
 h1,
 h2,
@@ -76,6 +75,7 @@ header {
 
 footer {
   font-size: 10px;
+  background-color: $erp-black; // default bg-color
 }
 
 // LINKS //
@@ -106,7 +106,8 @@ footer a {
     background: $erp-white !important;
   }
 }
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
 }
 
@@ -115,27 +116,27 @@ a, a:hover {
 
   1. Do you wanna use "gray" background?
       Easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
-  
+
       Just use "bg-erp-gray"
 
   2. Do you wanna use "gray" as text color?
       Sexy easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
-  
+
       Just use "text-erp-gray"
 
   3. Do you wanna use "gray" as border color?
       Fuck easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
-  
+
       Just use "border border-erp-gray"
 
   4. Do you wanna use "gray" as color-solid button?
       Super easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
-  
+
       Just use "btn btn-erp-gray"
 
   5. Do you wanna use "gray" as color-outlined button?
       Easy easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
-  
+
       Just use "btn btn-outline-erp-gray"
 
 
@@ -144,11 +145,9 @@ a, a:hover {
   you DON'T NEED to create new classes like  .bg-erp-general { background-color. gray; }
 
   This is nonsense for general styling, because themed variables already exist in in _theme-core.scss !!!
-  
+
   */
 
-
-
 .btn-erp-delete {
-  background-color: #DD5D56; 
+  background-color: #dd5d56;
 }

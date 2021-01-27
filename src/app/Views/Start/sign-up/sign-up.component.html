@@ -14,7 +14,7 @@
     (ngSubmit)="onSubmit(formContacto)"
     class="row mx-auto pt-3 pb-4 bg-erp-white"
   >
-
+  <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
   <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
       <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
@@ -26,6 +26,8 @@
         />
       </div>
     </div>
+
+    <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
     <!-- <div
       class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
@@ -64,8 +66,7 @@
           [ngClass]="{ 'is-invalid': cif.touched && !cif.valid }"
           #cif="ngModel"
           [(ngModel)]="new_user.username"
-          required
-          pattern="^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$"
+          required pattern="^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$"
         />
         <div *ngIf="cif.touched && !cif.valid" class="invalid-feedback">
           This CIF does not match the standard format!
@@ -73,6 +74,7 @@
       </div>
     </div>
 
+    <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
     <div
       class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
@@ -86,6 +88,7 @@
       </div>
     </div>
 
+    <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
     <!-- <div
       class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >

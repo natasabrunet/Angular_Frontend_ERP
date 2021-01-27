@@ -12,10 +12,9 @@ import { SignupService } from '../../../Services/signup.service';
 export class SignUpComponent implements OnInit {
 
   public new_user: UserSignUp;
-  //public user: User;
   public password_conf:string;
-  public email:string;
-  public bussinessName:string;
+  public email:string; // FIXME: Temporalmente creado hasta actualización de schema
+  public bussinessName:string; // FIXME: Temporalmente creado hasta actualización de schema
   public check_password:boolean;
   public closeResult= '';
 
@@ -23,7 +22,7 @@ export class SignUpComponent implements OnInit {
     private modalService: NgbModal,
     private signupService:SignupService
   ) {
-    this.new_user = new UserSignUp('', '');
+    this.new_user = new UserSignUp('', '');// FIXME: Temporalmente creado hasta actualización de schema
     this.check_password = false;
   }
 
@@ -37,6 +36,8 @@ export class SignUpComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp)
         })
+    this.email = '';// FIXME: Temporalmente fuera de form hasta actualización de schema
+    this.bussinessName = '';// FIXME: Temporalmente fuera de form hasta actualización de schema
     form.reset();
   }
 

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, DoCheck {
 
     const regexNIF =
       '^([ABCDEFGHJNPQRSUVW|abcdefghjnpqrsuvw])[\\d]{7}(\\w|\\d)$';
-    // NOTE: IF vs CIF => https://getquipu.com/blog/diferencia-entre-el-cif-y-el-nif/
+    // NOTE: NIF vs. CIF => https://getquipu.com/blog/diferencia-entre-el-cif-y-el-nif/
 
     const regexPassword =
       '^(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[@$!%*#?&])[a-zA-Z0-9@$!%*#?&]{8,}$';

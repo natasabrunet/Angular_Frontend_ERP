@@ -34,7 +34,14 @@ import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 //////////////////////////////////////////
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import { faUserPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
+import {
+  faUserPlus,
+  faSignInAlt,
+  faCopyright,
+  faEyeSlash,
+  faEye,
+  // faBars, // TODO: consider it
+} from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
 //////////////////////////////////////////
 // Imports for ngx-tranlate library     //
@@ -63,7 +70,19 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    library.add(faUserPlus, faSignInAlt);
+    //  FONT AWESOME ICONS add plugin  //
+
+    // We are only using the user-astronaut icon
+    library.add(
+      faUserPlus,
+      faSignInAlt,
+      faCopyright,
+      faEyeSlash,
+      faEye
+      // faBars // TODO: consider it
+    );
+    // Replace any existing <i> tags with <svg> and set up a MutationObserver to
+    // continue doing this as the DOM changes.
     dom.watch();
   }
 

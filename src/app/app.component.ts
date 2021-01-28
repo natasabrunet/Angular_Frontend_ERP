@@ -56,14 +56,12 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   // mode is the message that appears in the left top corner: Dev Mode
   mode = '';
-  constructor() {
-    this.mode = environment.mode;
-  }
+  
   title = 'ITProject-ERP-Frontend';
   langs: string[] = []; 
 
   constructor( private translateService: TranslateService ) {
-
+    this.mode = environment.mode;
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
     this.translateService.addLangs(['en', 'es', 'cat']);

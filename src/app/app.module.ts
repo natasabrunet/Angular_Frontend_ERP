@@ -42,7 +42,6 @@ import { Interpolation } from '@angular/compiler';
     NavbarClientComponent,
     NavbarClientComponent,
     ProductsListComponent,
-      // RecoverPasswordComponent
     FooterComponent,
     LicenceComponent,
     NavbarClientComponent,

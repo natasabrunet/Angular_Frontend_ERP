@@ -14,7 +14,21 @@
     (ngSubmit)="onSubmit(formContacto)"
     class="row mx-auto pt-3 pb-4 bg-erp-white"
   >
-    <div
+  <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
+  <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
+    >
+      <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
+      <div class="ms-5 col-8">
+        <input
+          type="text"
+          name="businessName"
+          class="form-control bg-erp-silver"
+        />
+      </div>
+    </div>
+
+    <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
+    <!-- <div
       class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
       <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
@@ -27,7 +41,7 @@
             'is-invalid': businessName.touched && !businessName.valid
           }"
           #businessName="ngModel"
-          [(ngModel)]="new_user.businessName"
+          [(ngModel)]="businessName"
           required
           pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"
         />
@@ -38,7 +52,7 @@
           This field is required!
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div
       class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
@@ -51,9 +65,8 @@
           class="form-control bg-erp-silver"
           [ngClass]="{ 'is-invalid': cif.touched && !cif.valid }"
           #cif="ngModel"
-          [(ngModel)]="new_user.cif"
-          required
-          pattern="^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$"
+          [(ngModel)]="new_user.username"
+          required pattern="^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$"
         />
         <div *ngIf="cif.touched && !cif.valid" class="invalid-feedback">
           This CIF does not match the standard format!
@@ -61,7 +74,22 @@
       </div>
     </div>
 
+    <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
     <div
+      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
+    >
+      <label class="p-2 col-2" for="exampleInputEmail1">Email: </label>
+      <div class="ms-5 col-8">
+        <input
+          type="email"
+          name="email"
+          class="form-control bg-erp-silver"
+        />
+      </div>
+    </div>
+
+    <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
+    <!-- <div
       class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
       <label class="p-2 col-2" for="exampleInputEmail1">Email: </label>
@@ -80,7 +108,7 @@
           This email does not match the standard format!
         </div>
       </div>
-    </div>
+    </div> -->
 
       <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex">
         <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>

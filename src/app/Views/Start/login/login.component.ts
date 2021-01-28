@@ -4,11 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../../Services/login.service';
 // import { AbstractControl } from '@angular/forms';
 
-interface I_logedUser {
-  username?: string;
-  password: string;
-}
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +14,7 @@ export class LoginComponent implements OnInit, DoCheck {
   disabled = false;
   submitable = false;
   NIF = false;
-  token?: object = {};
+  token?: object = {}; // FIXME: remove in production
 
   constructor(
     private loginService: LoginService,
@@ -32,24 +27,22 @@ export class LoginComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    // .btn style + button@submit disabled
-    this.submitable = this.form.valid ? true : false;
+    this.submitable = this.form.valid ? true : false; // .btn style + button@submit disabled
   }
 
   toggleNIF() {
-    this.NIF = !this.NIF;
-    this.createForm(); //rebuild form with current NIF | email
+    this.NIF = !this.NIF; //rebuild form with current NIF | email
+    this.createForm();
   }
   // setup form
   createForm(): void {
-    // FIXME: user <NIF|Email> has (3-12) chars
+    // FIXME: BACKEND user <NIF|Email> has (3-12) chars
     const regexEmail = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
 
     const regexNIF =
       '^([ABCDEFGHJNPQRSUVW|abcdefghjnpqrsuvw])[\\d]{7}(\\w|\\d)$';
-    // NOTE: NIF vs. CIF => https://getquipu.com/blog/diferencia-entre-el-cif-y-el-nif/
 
-    // FIXME: password has (8-12 chars)
+    // FIXME: BACKEND password has (8-12 chars)
     const regexPassword =
       '^(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[@$!%*#?&])[a-zA-Z0-9@$!%*#?&]{8,}$';
 
@@ -73,12 +66,9 @@ export class LoginComponent implements OnInit, DoCheck {
     // NOTE: [def, [sync], [async]]
   }
 
-  // before submit
+  // on submit
   send(): void {
-    // on submit
     if (this.form.valid) {
-      console.log('Form submited to REST API');
-
       let body = {
         password: this.form.value['password'],
       };
@@ -94,6 +84,7 @@ export class LoginComponent implements OnInit, DoCheck {
       this.loginService.loginUser(body).subscribe((token: any) => {
         this.token = JSON.parse(token);
         console.log(token);
+        console.log('Form submited to REST API');
       });
       // TODO: POST + modal if API REST response !== 200
 
@@ -136,8 +127,6 @@ export class LoginComponent implements OnInit, DoCheck {
   // FIXME: PROVISIONAL DIRECT LOGIN: Front and Back should have same patterns
   // TODO: this user already exists in DB => http://217.76.158.200:8080/api/login
   autoLogin() {
-    console.log('Form automatically submited to REST API');
-
     const bodyTEST = {
       username: 'D3831093R',
       password: 'Dev@lop3rs',
@@ -152,8 +141,8 @@ export class LoginComponent implements OnInit, DoCheck {
     })
       .then((res) => res.json())
       .then((token) => {
-        console.log(token);
         this.token = token;
+        console.log('Form automatically submited to REST API');
       })
       .catch((error) => console.error('Error:', error));
   }

@@ -1,18 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AbstractControl } from '@angular/forms';
+// import { AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
-// FIXME: PROVISIONAL... to be substituded by Models class{}
-// interface I_login {
-//   username: AbstractControl;
-//   password: AbstractControl;
-// }
-interface I_logedUser {
-  username?: string;
-  password: string;
-}
+import { I_logedUser } from '../Models/logedUser';
 
 @Injectable({
   providedIn: 'root',
@@ -24,19 +15,23 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   // POST
-  loginUser(body: any): Observable<any> {
+  loginUser(body: I_logedUser): Observable<I_logedUser> {
     return this.http
-      .post<any>(this.url + this.endpoint, body
-      //   , {
-      //   responseType: 'json',
-      // }
+      .post<I_logedUser>(
+        this.url + this.endpoint,
+        body
+          , {
+          responseType: 'json',
+        }
       )
       .pipe(
-        map((res: any) => (res
-        //   {
-        //   token: res.token,
-        // }
-        ))
+        map(
+          (res: I_logedUser) =>
+            res
+            //   {
+            //   token: res.token,
+            // }
+        )
       );
   }
   // TODO: error handling --> Modal

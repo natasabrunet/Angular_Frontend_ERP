@@ -1,0 +1,20 @@
+{
+    "btn":{
+        "add": "ADD",
+        "delete": "DELETE"
+    }, 
+
+    "footer":{
+        "developer": "Developed by"
+    }, 
+
+    "singleProd":{
+        "tittle": "NEW PRODUCT",
+        "name": "Name",
+        "namePlaceHolder": "Enter product name",
+        "stock": "Stock",
+        "stockPlaceHolder": "Enter products amount",
+        "price": "Price",
+        "pricePlaceHolder": "Enter price product"
+    }
+}

@@ -3,6 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// import ngx-translate and the http loader
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
 import { StartModule } from './Views/Start/start.module';
 import { FormsModule } from '@angular/forms';
 
@@ -16,7 +22,8 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
-import { SingleProductComponent } from './Views/single-product/single-product.component';
+import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
+import { Interpolation } from '@angular/compiler';
 
 @NgModule({
   declarations: [
@@ -39,9 +46,24 @@ import { SingleProductComponent } from './Views/single-product/single-product.co
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    StartModule
+    StartModule,
+    // ngx-translate and the loader module
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })    
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

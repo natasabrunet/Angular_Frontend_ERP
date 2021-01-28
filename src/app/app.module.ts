@@ -18,6 +18,7 @@ import { NotificationsComponent } from './Components/header/notifications/notifi
 import { HeaderSearchComponent } from './Components/header/header-search/header-search.component';
 import { TogglerComponent } from './Components/header/toggler/toggler.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 // import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { ProductsListComponent } from './views/products-list/products-list.component';
 // import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
@@ -62,7 +63,7 @@ import { Interpolation } from '@angular/compiler';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })    
+    })
   ],
   providers: [
   ],

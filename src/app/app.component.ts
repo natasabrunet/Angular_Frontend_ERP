@@ -40,6 +40,8 @@ import {
   faUserPlus,
   faSignInAlt,
   faCopyright,
+  faEyeSlash,
+  faEye,
   // faBars, // TODO: consider it
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
@@ -56,9 +58,9 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   // mode is the message that appears in the left top corner: Dev Mode
   mode = '';
-  
+
   title = 'ITProject-ERP-Frontend';
-  langs: string[] = []; 
+  langs: string[] = [];
 
   constructor( private translateService: TranslateService ) {
     this.mode = environment.mode;
@@ -76,6 +78,8 @@ export class AppComponent implements OnInit {
       faUserPlus,
       faSignInAlt,
       faCopyright,
+      faEyeSlash,
+      faEye
       // faBars // TODO: consider it
        );
     // Replace any existing <i> tags with <svg> and set up a MutationObserver to

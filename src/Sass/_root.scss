@@ -112,42 +112,41 @@ a:hover {
 }
 
 /*
-  IMPORTANT! --> READ THIS PLEASE!
+  READ THIS!
 
-  1. Do you wanna use "gray" background?
-      Easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+  1. Do you wanna use "#dd5d56" background?
+      Easy, Bootstrap is alreday configured and themed in _theme-core.scss!
 
-      Just use "bg-erp-gray"
+      Just use => "bg-erp-red"
 
-  2. Do you wanna use "gray" as text color?
-      Sexy easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+  2. Do you wanna use "#dd5d56" as text color?
+      Sexy easy, Bootstrap5 is alreday configured and themed in _theme-core.scss!
 
-      Just use "text-erp-gray"
+      Just use => "text-erp-red"
 
-  3. Do you wanna use "gray" as border color?
-      Fuck easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+  3. Do you wanna use "#dd5d56" as border color?
+      Fuck easy, Bootstrap5 is alreday configured and themed in _theme-core.scss!
 
-      Just use "border border-erp-gray"
+      Just use => "border border-erp-red"
 
-  4. Do you wanna use "gray" as color-solid button?
-      Super easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+  4. Do you wanna use "#dd5d56" as color-solid button?
+      Super easy, Bootstrap5 is alreday configured and themed in _theme-core.scss!
 
-      Just use "btn btn-erp-gray"
+      Just use => "btn btn-erp-red"
 
-  5. Do you wanna use "gray" as color-outlined button?
-      Easy easy, Bootstrap5 is alreday configured and themed in _theme-core.scss !!!
+  5. Do you wanna use "#dd5d56" as color-outlined button?
+      Yo easy, Bootstrap5 is alreday configured and themed in _theme-core.scss!
 
-      Just use "btn btn-outline-erp-gray"
+      Just use => "btn btn-outline-erp-red"
 
 
-  IMPORTANT! --> READ THIS PLEASE!
+  READ THIS!
 
-  you DON'T NEED to create new classes like  .bg-erp-general { background-color. gray; }
-
-  This is nonsense for general styling, because themed variables already exist in in _theme-core.scss !!!
+  You DON'T NEED to create new classes like  .bg-erp-delete { background-color: #dd5d56; }
+  because themed variables already exist in _theme-core.scss
 
   */
 
 .btn-erp-delete {
-  background-color: #dd5d56;
+  background-color: #dd5d56; // FIXME: This color already exists => "btn-erp-red"
 }

@@ -3,9 +3,13 @@ form {
   max-width: 576px; // xs
 }
 
+#token {
+  max-width: 576px; // xs
+  overflow-y: scroll;
+}
+
 button a {
   &::after {
     background: inherit !important;
   }
 }
-

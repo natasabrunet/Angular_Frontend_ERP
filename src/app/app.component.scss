@@ -1,6 +1,0 @@
-// example of loading global SASS color variables in components local scope
-@import "../Sass/theme-core";
-
-p {
-  color: $erp-cyan;
-}

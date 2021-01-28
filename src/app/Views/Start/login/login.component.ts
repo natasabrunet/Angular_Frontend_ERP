@@ -1,12 +1,12 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { LoginService } from '../../../Services/login.service';
-import { AbstractControl } from '@angular/forms';
+// import { AbstractControl } from '@angular/forms';
 
-interface I_login {
-  username: AbstractControl;
-  password: AbstractControl;
+interface I_logedUser {
+  username?: string;
+  password: string;
 }
 
 @Component({
@@ -15,15 +15,15 @@ interface I_login {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, DoCheck {
+  form: FormGroup;
   disabled = false;
   submitable = false;
   NIF = false;
-  form: FormGroup;
+  token?: object = {};
 
   constructor(
     private loginService: LoginService,
-    private fb: FormBuilder,
-    router: Router
+    private fb: FormBuilder // router: Router
   ) {}
 
   ngOnInit(): void {
@@ -77,25 +77,25 @@ export class LoginComponent implements OnInit, DoCheck {
   send(): void {
     // on submit
     if (this.form.valid) {
-      console.log(
-        '[disable.console.log in production] -> SUBMITING to API REST...'
-      );
+      console.log('Form submited to REST API');
 
-      // const body = {
-      //   username: this.form.value.get('nif'),
-      //   password: this.form.value.get('password')
-      // }
+      let body = {
+        password: this.form.value['password'],
+      };
 
-      // console.log(body);
+      // dynamics props
+      if (this.form.value['email']) {
+        body['username'] = this.form.value['email'];
+      }
+      if (this.form.value['nif']) {
+        body['username'] = this.form.value['nif'];
+      }
 
-      this.loginService.loginUser(this.form.value).subscribe(
-        (logedUser) =>
-          console.log(
-            '[disable.console.log in production] -> POSTED: ',
-            logedUser
-          )
-        // TODO: POST + modal if API REST response !== 200
-      );
+      this.loginService.loginUser(body).subscribe((token: any) => {
+        this.token = JSON.parse(token);
+        console.log(token);
+      });
+      // TODO: POST + modal if API REST response !== 200
 
       // then... clean form
       this.form.reset();
@@ -134,8 +134,10 @@ export class LoginComponent implements OnInit, DoCheck {
   }
 
   // FIXME: PROVISIONAL DIRECT LOGIN: Front and Back should have same patterns
+  // TODO: this user already exists in DB => http://217.76.158.200:8080/api/login
   autoLogin() {
-    // TODO: this user already exists in DB => http://217.76.158.200:8080/api/login
+    console.log('Form automatically submited to REST API');
+
     const bodyTEST = {
       username: 'D3831093R',
       password: 'Dev@lop3rs',
@@ -149,7 +151,10 @@ export class LoginComponent implements OnInit, DoCheck {
       },
     })
       .then((res) => res.json())
-      .catch((error) => console.error('Error:', error))
-      .then((response) => console.log('Success:', response));
+      .then((token) => {
+        console.log(token);
+        this.token = token;
+      })
+      .catch((error) => console.error('Error:', error));
   }
 }

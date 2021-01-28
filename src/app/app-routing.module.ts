@@ -11,7 +11,7 @@ import { ProductsListComponent } from './views/products-list/products-list.compo
 const routes: Routes = [
   { path: '', component: LoginComponent }, // DON'T USE 'redirectTo' here!
   { path: 'log-in', component: LoginComponent },
-  { path: 'Licence', component: LicenceComponent }, // FIXME: License should be "license"
+  { path: 'Licence', component: LicenceComponent }, // FIXME: might License be "license"?
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'products', component: ProductsListComponent },

@@ -1,27 +1,27 @@
 <!-- FIXME: programmatic MODAL : B5 "data-bs-toggle", "data-bs-target" -->
-<!-- <button
+<button
   type="button"
   class="btn btn-erp-red"
   data-bs-toggle="modal"
-  data-bs-target="#staticBackdrop"
+  data-bs-target="#loginWarnModal"
 >
   replace button by programmatic call
-</button> -->
+</button>
 
 <!-- FIXME: programmatic MODAL : B5 "data-bs-toggle", "data-bs-target" -->
-<!-- <div
+<div
   class="modal fade"
-  id="staticBackdrop"
+  id="loginWarnModal"
   data-bs-backdrop="static"
   data-bs-keyboard="false"
   tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
+  aria-labelledby="loginWarnModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Invalid operation</h5>
+        <h5 class="modal-title" id="loginWarnModalLabel">Invalid operation</h5>
         <button
           type="button"
           class="btn-close"
@@ -41,15 +41,15 @@
           try again
         </button>
         <button type="button" class="btn btn-erp-blue text-erp-white">
-          <a routerlink="sign-up" class="text-erp-white">
-            sign up
+          <a [routerLink]="['/sign-up']" class="text-erp-white">
+            sign up FIXME: remove FA ICONS
             <i class="fas fa-user-plus"></i>
           </a>
         </button>
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <!-- ADMIN NAVBAR -->
 <header
@@ -68,7 +68,7 @@
   </button>
 </header>
 
-<!-- FIXME: Remove in production! - PROVISIONAL DIRECT LOGIN-->
+<!-- FIXME: Remove in production! - PROVISIONAL DIRECT LOGIN -->
 <button
   class="d-block mb-4 mx-auto btn btn-erp-red text-erp-white"
   (click)="autoLogin()"
@@ -82,8 +82,11 @@
   password: 'Dev@lop3rs'
 </small>
 <h3 class="h5 d-block mx-auto text-center text-erp-purple">token</h3>
-<small id="token" class="d-block mx-auto text-justify text-erp-purple border border-purple">
-  {{ token["token"] }}
+<small
+  id="token"
+  class="d-block mx-auto text-justify text-erp-purple border border-purple"
+>
+  {{ token }}
 </small>
 
 <!-- FORM -->

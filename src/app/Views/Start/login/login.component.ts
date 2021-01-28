@@ -1,8 +1,8 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { Router } from '@angular/router';
-import { LoginService } from '../../../Services/login.service';
-// import { AbstractControl } from '@angular/forms';
+import { LoginService } from 'src/app/Services/login.service';
+import { I_logedUser } from 'src/app/Models/logedUser';
+import { I_token } from 'src/app/Models/token';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit, DoCheck {
   disabled = false;
   submitable = false;
   NIF = false;
-  token?: object = {}; // FIXME: remove in production
+  token: string; // FIXME: remove in production
 
   constructor(
     private loginService: LoginService,
@@ -81,11 +81,14 @@ export class LoginComponent implements OnInit, DoCheck {
         body['username'] = this.form.value['nif'];
       }
 
-      this.loginService.loginUser(body).subscribe((token: any) => {
-        this.token = JSON.parse(token);
-        console.log(token);
-        console.log('Form submited to REST API');
-      });
+      this.loginService.loginUser(<I_logedUser>body).subscribe(
+        (object: I_token) => {
+          this.token = object.token;
+          console.log('Form submited to REST API');
+        },
+        (error) => console.warn('oops', error.message)
+      );
+
       // TODO: POST + modal if API REST response !== 200
 
       // then... clean form
@@ -93,8 +96,8 @@ export class LoginComponent implements OnInit, DoCheck {
       this.disabled = false; // !.btn-erp-red
     } else {
       this.disabled = true; // .btn-erp-red
-      return Object.values(this.form.controls).forEach((control) =>
-        control.markAsTouched()
+      return Object.values(this.form.controls).forEach(
+        (control) => control.markAsTouched() // reset values
       );
     }
   }
@@ -124,13 +127,13 @@ export class LoginComponent implements OnInit, DoCheck {
     return errorType;
   }
 
-  // FIXME: PROVISIONAL DIRECT LOGIN: Front and Back should have same patterns
-  // TODO: this user already exists in DB => http://217.76.158.200:8080/api/login
+  // FIXME: Remove in production! - PROVISIONAL DIRECT LOGIN
   autoLogin() {
     const bodyTEST = {
       username: 'D3831093R',
       password: 'Dev@lop3rs',
     };
+    // This user already exists in DB => http://217.76.158.200:8080/api/login
 
     fetch('http://217.76.158.200:8080/api/login', {
       method: 'POST',
@@ -139,10 +142,10 @@ export class LoginComponent implements OnInit, DoCheck {
         'Content-Type': 'application/json',
       },
     })
-      .then((res) => res.json())
-      .then((token) => {
-        this.token = token;
-        console.log('Form automatically submited to REST API');
+      .then((res: any) => res.json())
+      .then((token: I_token) => {
+        this.token = token.token;
+        console.log('Form  submited to REST API automatically');
       })
       .catch((error) => console.error('Error:', error));
   }

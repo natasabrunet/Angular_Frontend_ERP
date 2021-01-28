@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-// import { AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { I_logedUser } from '../Models/logedUser';
+import { I_logedUser } from 'src/app/Models/logedUser';
 
 @Injectable({
   providedIn: 'root',
@@ -15,24 +14,12 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   // POST
-  loginUser(body: I_logedUser): Observable<I_logedUser> {
+  loginUser(body: I_logedUser): Observable<object> {
     return this.http
-      .post<I_logedUser>(
-        this.url + this.endpoint,
-        body
-          , {
-          responseType: 'json',
-        }
-      )
-      .pipe(
-        map(
-          (res: I_logedUser) =>
-            res
-            //   {
-            //   token: res.token,
-            // }
-        )
-      );
+      .post<I_logedUser>(this.url + this.endpoint, body, {
+        responseType: 'json',
+      })
+      .pipe(map((res: object) => res));
   }
   // TODO: error handling --> Modal
 }

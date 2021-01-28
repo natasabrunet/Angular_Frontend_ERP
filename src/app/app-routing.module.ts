@@ -7,9 +7,11 @@ import { LoginComponent } from './Views/Start/login/login.component';
 import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
 import { ProductsListComponent } from './views/products-list/products-list.component';
+import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent }, // DON'T USE 'redirectTo' here!
+  { path: 'admin', component: AdminViewComponent },
   { path: 'log-in', component: LoginComponent },
   { path: 'licence', component: LicenceComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },

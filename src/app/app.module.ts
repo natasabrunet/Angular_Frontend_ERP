@@ -21,12 +21,6 @@ import { AdminComponent } from './Components/header/admin/admin.component';
 import { NotificationsComponent } from './Components/header/notifications/notifications.component';
 import { HeaderSearchComponent } from './Components/header/header-search/header-search.component';
 import { TogglerComponent } from './Components/header/toggler/toggler.component';
-<<<<<<< HEAD
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-// import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
-=======
->>>>>>> db67cab7971031a95854e9cc921a49abbabd7551
 import { ProductsListComponent } from './views/products-list/products-list.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';

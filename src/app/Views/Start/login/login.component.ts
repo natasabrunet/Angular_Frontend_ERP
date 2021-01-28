@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { LoginService } from 'src/app/Services/login.service';
 import { I_logedUser } from 'src/app/Models/logedUser';
 import { I_token } from 'src/app/Models/token';
@@ -16,13 +17,9 @@ export class LoginComponent implements OnInit, DoCheck {
   NIF = false;
   token: string; // FIXME: remove in production
 
-  constructor(
-    private loginService: LoginService,
-    private fb: FormBuilder // router: Router
-  ) {}
+  constructor(private loginService: LoginService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    // TODO: modal after from sent and API token or body back
     this.createForm();
   }
 

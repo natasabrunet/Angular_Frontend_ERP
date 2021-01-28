@@ -113,24 +113,23 @@
       <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex">
         <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
         <div class="ms-5 col-8">
-          <div class="d-flex">
-            <input
-            id="password1"
-            type="password"
-            name="password"
-            class="form-control bg-erp-silver"
-            [ngClass]="{'is-invalid': password.touched && !password.valid}"
-            #password="ngModel"
-            [(ngModel)]="new_user.password"
-            required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
-            >
-            <button class="bg-erp-blue" type="button" (click)="verPassword1()"><i id="eye1" class="fas fa-eye-slash"></i></button>
+            <div class="d-flex">
+              <input
+                id="password1"
+                type="password"
+                name="password"
+                class="form-control bg-erp-silver"
+                [ngClass]="{'is-invalid': password.touched && !password.valid}"
+                #password="ngModel"
+                [(ngModel)]="new_user.password"
+                required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
+              >
+              <button class="bg-erp-blue" type="button" (click)="verPassword1()"><i id="eye1" class="fas fa-eye-slash"></i></button>
+            </div>
+            <div *ngIf="password.touched && !password.valid" class="invalid-feedback d-block">
+              This password does not match the required format!
+            </div>
           </div>
-          <div *ngIf="password.touched && !password.valid" class="invalid-feedback">
-            This password does not match the required format!
-          </div>
-
-        </div>
       </div>
 
     <div
@@ -157,7 +156,7 @@
         </div>
         <div
           *ngIf="password2.touched && !password2.valid"
-          class="invalid-feedback"
+          class="invalid-feedback d-block"
         >
           This password does not match the password written above!
         </div>

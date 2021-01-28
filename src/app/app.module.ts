@@ -3,6 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// import ngx-translate and the http loader
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
 import { StartModule } from './Views/Start/start.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -19,11 +25,9 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
-import { SingleProductComponent } from './Views/single-product/single-product.component';
-import { AdminViewModule } from './Views/Admin-view/admin-view.module';
+import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
+import { Interpolation } from '@angular/compiler';
 
-// services
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,11 +39,13 @@ import { HttpClientModule } from '@angular/common/http';
     NotificationsComponent,
     HeaderSearchComponent,
     TogglerComponent,
+    NavbarClientComponent,
+    NavbarClientComponent,
     ProductsListComponent,
-      // RecoverPasswordComponent
     FooterComponent,
     LicenceComponent,
-    SingleProductComponent
+    NavbarClientComponent,
+    SingleProductComponent,
   ],
 
   imports: [
@@ -48,13 +54,23 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     FormsModule,
     StartModule,
-    AdminViewModule,
-    ReactiveFormsModule,
-    // Always import HttpClientModule after BrowserModule!
+    // ngx-translate and the loader module
     HttpClientModule,
-    StartModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })    
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

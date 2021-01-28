@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../environments/environment';
 
 //////////////////////////
 // Bootstrap JS imports //
@@ -32,9 +33,14 @@ import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 // Font Awesome Single Icon npm Library //
 //////////////////////////////////////////
 
-// TODO: nEXT ITERAATION : remove global single-icon library
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { faUserPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
+
+//////////////////////////////////////////
+// Imports for ngx-tranlate library     //
+//////////////////////////////////////////
+
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -42,11 +48,26 @@ import { faUserPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons'; // 
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  // mode is the message that appears in the left top corner: Dev Mode
+  mode = '';
+
   title = 'ITProject-ERP-Frontend';
+  langs: string[] = [];
+
+  constructor(private translateService: TranslateService) {
+    this.mode = environment.mode;
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
+    this.translateService.addLangs(['en', 'es', 'cat']);
+    this.langs = this.translateService.getLangs();
+  }
 
   ngOnInit() {
-    // TODO: NEXT ITEREATION : remove global single-icon library
     library.add(faUserPlus, faSignInAlt);
     dom.watch();
+  }
+
+  changeLang(lang: string) {
+    this.translateService.use(lang);
   }
 }

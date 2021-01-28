@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'log-in', component: LoginComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
-  { path: 'Licence', component: LicenceComponent }, // FIXME: should License be "license"?
+  { path: 'licence', component: LicenceComponent }, 
   { path: 'products', component: ProductsListComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }, // USE 'redirectTo' here :)

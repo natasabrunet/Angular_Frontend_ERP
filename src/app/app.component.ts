@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../environments/environment';
 
 //////////////////////////
 // Bootstrap JS imports //
@@ -48,6 +49,11 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  // mode is the message that appears in the left top corner: Dev Mode
+  mode = '';
+  constructor() {
+    this.mode = environment.mode;
+  }
   title = 'ITProject-ERP-Frontend';
 
   ngOnInit() {
@@ -55,7 +61,7 @@ export class AppComponent implements OnInit {
 
     // We are only using the user-astronaut icon
     library.add(
-      faUserPlus, 
+      faUserPlus,
       faSignInAlt,
       faCopyright,
       // faBars // TODO: consider it

@@ -1,5 +1,32 @@
+<!-- FIXME: Remove in production! - PROVISIONAL DIRECT LOGIN -->
+<button
+  class="d-block mb-4 mx-auto btn btn-erp-red text-erp-white"
+  (click)="autoLogin()"
+>
+  dev log in
+</button>
+
+<!-- SERVER RESPONSE ALERT -->
+<div
+  *ngIf="showAlert"
+  id="loginAlert"
+  class="alert mx-auto"
+  role="alert"
+  [class.alert-danger]="!server"
+  [class.alert-success]="server"
+>
+  <small>
+    {{ msg }}
+  </small>
+  <!-- <a [routerLink]="['/home']" class="nav-link text-erp-white">
+  sign up
+  <i class="fas fa-user-plus"></i>
+</a> -->
+</div>
+
 <!-- ADMIN NAVBAR -->
 <section
+  id="adminNavbar"
   class="d-flex justify-content-between align-items-center p-2 mx-auto mb-3 bg-erp-white border rounded-pill"
 >
   <span class="ps-2">
@@ -14,62 +41,6 @@
     </a>
   </button>
 </section>
-
-<!-- FIXME: Remove in production! - PROVISIONAL DIRECT LOGIN -->
-<button
-  class="d-block mb-4 mx-auto btn btn-erp-red text-erp-white"
-  (click)="autoLogin()"
->
-  automatic log in
-</button>
-<small class="d-block mx-auto text-center text-erp-red">
-  username: 'D3831093R'
-</small>
-<small class="d-block mx-auto text-center text-erp-red">
-  password: 'Dev@lop3rs'
-</small>
-<h3 class="h5 d-block mx-auto text-center text-erp-purple">token</h3>
-<small
-  id="token"
-  class="d-block mx-auto text-justify text-erp-purple border border-purple"
->
-  {{ token }}
-</small>
-
-<!-- SERVER RESPONSE ALERT -->
-<div
-  *ngIf="showAlert"
-  id="loginAlert"
-  class="alert mx-auto"
-  role="alert"
-  [class.alert-danger]="!server"
-  [class.alert-success]="server"
->
-  <h4 class="alert-heading">{{ title }}</h4>
-  <p>
-    {{ msg }}
-  </p>
-  <hr />
-  <div class="d-flex justify-content-evenly">
-    <button
-      type="button"
-      class="btn btn-sm btn-erp-black text-erp-white"
-      (click)="showAlert = false"
-    >
-      close
-    </button>
-    <button
-      *ngIf="!server"
-      type="button"
-      class="btn btn-sm btn-erp-blue text-erp-white"
-    >
-      <a [routerLink]="['/sign-up']" class="nav-link text-erp-white">
-        sign up
-        <i class="fas fa-user-plus"></i>
-      </a>
-    </button>
-  </div>
-</div>
 
 <!-- FORM -->
 <form
@@ -103,7 +74,8 @@
         email required
       </small>
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref0) === 2">
-        Enter a valid email pattern. Example: account@email.com
+        <span class="d-block text-justify"> Enter a valid email pattern </span>
+        <span class="d-block"> Example: account@email.com </span>
       </small>
     </div>
   </div>
@@ -125,7 +97,8 @@
         NIF required
       </small>
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 2">
-        Enter a valid NIF pattern. Example: W1234567E
+        <span class="d-block text-justify"> Enter a valid NIF pattern </span>
+        <span class="d-block"> Example: W1234567E </span>
       </small>
     </div>
   </div>
@@ -137,18 +110,25 @@
       <input
         #ref2
         id="loginPassword"
-        type="password"
+        type="text"
         formControlName="password"
         class="form-control bg-erp-silver"
         [class.is-invalid]="validateOnTouched(ref2) > 0"
         autocomplete="off"
       />
-      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 1">
+      <small
+        class="invalid-feedback text-justify"
+        *ngIf="validateOnTouched(ref2) === 1"
+      >
         password required
       </small>
-      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 2">
-        The password must have minimum eight characters, including one uppercase
-        letter, one lowercase letter, one special character and one number
+      <small
+        class="invalid-feedback text-justify"
+        *ngIf="validateOnTouched(ref2) === 2"
+      >
+        The password must have between 8 and 12 characters, including one
+        uppercase letter, one lowercase letter, one special character and one
+        number
       </small>
     </div>
   </div>

@@ -37,15 +37,14 @@ export class LoginComponent implements OnInit, DoCheck {
   }
   // setup form
   createForm(): void {
-    // FIXME: BACKEND user <NIF|Email> has (3-12) chars
+    // FIXME: BACKEND user <NIF|Email> is beyond (3-12) chars range
     const regexEmail = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
 
     const regexNIF =
       '^([ABCDEFGHJNPQRSUVW|abcdefghjnpqrsuvw])[\\d]{7}(\\w|\\d)$';
 
-    // FIXME: BACKEND password has (8-12 chars)
     const regexPassword =
-      '^(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[@$!%*#?&])[a-zA-Z0-9@$!%*#?&]{8,}$';
+      '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ñÑçÇºª\\\\*+-/?{}[\\],.^|$=!():ºª"@·#~€%&¬/\'¿¡`¨´;_<>])[a-zA-Z0-9ñÑçÇºª\\\\*+-/?{}[\\],.^|$=!():ºª"@·#~€%&¬/\'¿¡`¨´;_<>]{8,}';
 
     if (this.NIF) {
       this.form = this.fb.group({

@@ -8,9 +8,16 @@ import { faCopyright  } from '@fortawesome/free-regular-svg-icons';
 })
 export class FooterComponent implements OnInit {
   currentDate:Date = new Date();
+  
   iconCopyright = faCopyright;
-
-  constructor() { }
+ 
+  constructor() { 
+    //This code is for updating the hour of footer without refresh the page
+    setInterval(() => {         
+      this.currentDate = new Date();
+    }, 1000);
+  }
+  
 
   ngOnInit(): void {
   }

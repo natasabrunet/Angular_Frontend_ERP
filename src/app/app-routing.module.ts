@@ -9,7 +9,7 @@ import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: 'log-in', component: LoginComponent },
-  { path: 'Licence', component: LicenceComponent },
+  { path: 'licence', component: LicenceComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: '404', component: PageNotFoundComponent },

@@ -1,0 +1,44 @@
+<section class="container-fluid">
+    
+<h3 class="text-center">{{ "singleProd.tittle" | translate }}</h3>
+    <div class="row d-flex justify-content-center">
+         
+        <div class="col-md-6">
+            <form id="singleProduct" action="">
+                    <div class="my-3 input-group">
+                        <label for="nameProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.name" | translate }}</label>
+                        <input type="text" class="form-control" id="nameProduct" placeholder="{{'singleProd.namePlaceHolder' | translate }}">
+                    </div> 
+
+                    <div class="mb-3 input-group">
+                        <label for="stockProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.stock" | translate }}</label>
+                        <input type="number" class="form-control" id="stockProduct" placeholder="{{'singleProd.stockPlaceHolder' | translate }}">
+                    </div>
+    
+                    <div class="input-group">
+                        <label for="priceProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.price" | translate }}</label>
+                        <input type="text" class="form-control" id="priceProduct" placeholder="{{'singleProd.pricePlaceHolder' | translate }}">
+                        <span class="input-group-text">€</span>             
+                    </div>
+                   
+            </form>
+        </div>
+
+        <div class="col-md-4 mt-3 d-flex justify-content-center">
+            <img src="../assets/images/img-sample-product_900x600.jpg" class="img rounded" alt="image of the product">
+            <a href=""><fa-icon [icon]="iconPenSquare" [fixedWidth]="true" size="2x"></fa-icon></a>
+        </div>
+
+         
+        <div form="singleProduct" class="col-md-6 d-flex justify-content-center pb-3 my-3">
+            <button class="col-6 btn btn-erp-general me-3" type="submit">{{ "btn.add" | translate }}</button>
+            <button class="col-6 btn btn-erp-delete" type="submit">{{ "btn.delete" | translate }}</button>
+        </div>
+        
+        <div class="col-md-4">
+            
+        </div>
+       
+    </div>
+
+</section>

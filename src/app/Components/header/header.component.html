@@ -13,11 +13,17 @@ you won't regret it! ;) -->
       <app-header-search></app-header-search>
     </div>
 
-    <!-- <div class="col-5"> </div> -->
     <div class="col d-flex justify-content-end align-items-center">
-      <app-notifications class="ml-auto mr-5"></app-notifications>
+      <app-notifications class="ms-auto me-3"></app-notifications>
 
       <app-admin></app-admin>
+    </div>
+
+    <div class="col-1 contenedor-botones d-flex justify-content-end">
+      <select #langSelect (change)="changeLanguage(langSelect.value)">
+        <option *ngFor="let lang of langs"> {{lang}} </option>
+      </select>
+
     </div>
   </div>
 </header>

@@ -11,6 +11,10 @@ import { I_token } from 'src/app/Models/token';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, DoCheck {
+  showAlert = false;
+  server = false;
+  title = 'Well done!';
+  msg = '';
   form: FormGroup;
   disabled = false;
   submitable = false;
@@ -82,11 +86,19 @@ export class LoginComponent implements OnInit, DoCheck {
         (object: I_token) => {
           this.token = object.token;
           console.log('Form submited to REST API');
+          // API REST response === 200 OK
+          this.showAlert = true;
+          this.server = true;
+          this.msg = 'Form submitted successfully!';
         },
-        (error) => console.warn('oops', error.message)
+        (error) => {
+          //  API REST response !== 200
+          console.warn('oops', error.message);
+          this.showAlert = true;
+          this.server = false;
+          this.msg = 'Log In failed. Try again or go Sign Up';
+        }
       );
-
-      // TODO: POST + modal if API REST response !== 200
 
       // then... clean form
       this.form.reset();
@@ -143,6 +155,11 @@ export class LoginComponent implements OnInit, DoCheck {
       .then((token: I_token) => {
         this.token = token.token;
         console.log('Form  submited to REST API automatically');
+
+        // API REST response === 200 OK
+        this.showAlert = true;
+        this.server = true;
+        this.msg = 'Form submitted successfully!';
       })
       .catch((error) => console.error('Error:', error));
   }

@@ -32,15 +32,9 @@ import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 // Font Awesome Single Icon npm Library //
 //////////////////////////////////////////
 
-// FIXME: remove global single-icon library
-
+// TODO: nEXT ITERAATION : remove global single-icon library
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
-import {
-  faUserPlus,
-  faSignInAlt,
-  faCopyright,
-  // faBars, // TODO: consider it
-} from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
+import { faUserPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
 @Component({
   selector: 'app-root',
@@ -51,17 +45,8 @@ export class AppComponent implements OnInit {
   title = 'ITProject-ERP-Frontend';
 
   ngOnInit() {
-    //  FONT AWESOME ICONS add plugin  //
-
-    // We are only using the user-astronaut icon
-    library.add(
-      faUserPlus, 
-      faSignInAlt,
-      faCopyright,
-      // faBars // TODO: consider it
-       );
-    // Replace any existing <i> tags with <svg> and set up a MutationObserver to
-    // continue doing this as the DOM changes.
+    // TODO: NEXT ITEREATION : remove global single-icon library
+    library.add(faUserPlus, faSignInAlt);
     dom.watch();
   }
 }

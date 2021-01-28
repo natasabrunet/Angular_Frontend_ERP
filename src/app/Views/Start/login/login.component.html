@@ -1,59 +1,5 @@
-<!-- FIXME: programmatic MODAL : B5 "data-bs-toggle", "data-bs-target" -->
-<button
-  type="button"
-  class="btn btn-erp-red"
-  data-bs-toggle="modal"
-  data-bs-target="#loginWarnModal"
->
-  replace button by programmatic call
-</button>
-
-<!-- FIXME: programmatic MODAL : B5 "data-bs-toggle", "data-bs-target" -->
-<div
-  class="modal fade"
-  id="loginWarnModal"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="loginWarnModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginWarnModalLabel">Invalid operation</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        Please, try again or sing up before logging in
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-erp-black text-erp-white"
-          data-bs-dismiss="modal"
-        >
-          try again
-        </button>
-        <button type="button" class="btn btn-erp-blue text-erp-white">
-          <a [routerLink]="['/sign-up']" class="text-erp-white">
-            sign up
-             <!-- FIXME: remove FA ICONS -->
-            <i class="fas fa-user-plus"></i>
-          </a>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ADMIN NAVBAR -->
-<header
+<section
   class="d-flex justify-content-between align-items-center p-2 mx-auto mb-3 bg-erp-white border rounded-pill"
 >
   <span class="ps-2">
@@ -67,7 +13,7 @@
       <i class="fas fa-user-plus"></i>
     </a>
   </button>
-</header>
+</section>
 
 <!-- FIXME: Remove in production! - PROVISIONAL DIRECT LOGIN -->
 <button
@@ -89,6 +35,41 @@
 >
   {{ token }}
 </small>
+
+<!-- SERVER RESPONSE ALERT -->
+<div
+  *ngIf="showAlert"
+  id="loginAlert"
+  class="alert mx-auto"
+  role="alert"
+  [class.alert-danger]="!server"
+  [class.alert-success]="server"
+>
+  <h4 class="alert-heading">{{ title }}</h4>
+  <p>
+    {{ msg }}
+  </p>
+  <hr />
+  <div class="d-flex justify-content-evenly">
+    <button
+      type="button"
+      class="btn btn-sm btn-erp-black text-erp-white"
+      (click)="showAlert = false"
+    >
+      close
+    </button>
+    <button
+      *ngIf="!server"
+      type="button"
+      class="btn btn-sm btn-erp-blue text-erp-white"
+    >
+      <a [routerLink]="['/sign-up']" class="nav-link text-erp-white">
+        sign up
+        <i class="fas fa-user-plus"></i>
+      </a>
+    </button>
+  </div>
+</div>
 
 <!-- FORM -->
 <form
@@ -187,6 +168,9 @@
     [class.btn-erp-red]="disabled && !submitable"
     [disabled]="disabled && !submitable"
   >
+    <!-- id="btnModal"
+    data-bs-toggle="modal"
+    data-bs-target="#loginModal" -->
     log in
     <i class="fas fa-sign-in-alt"></i>
   </button>

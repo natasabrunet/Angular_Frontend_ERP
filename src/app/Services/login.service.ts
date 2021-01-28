@@ -22,5 +22,4 @@ export class LoginService {
       })
       .pipe(map((res: object) => res));
   }
-  // TODO: error handling --> Modal
 }

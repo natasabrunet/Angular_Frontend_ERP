@@ -10,10 +10,10 @@ import { ProductsListComponent } from './views/products-list/products-list.compo
 
 const routes: Routes = [
   { path: '', component: LoginComponent }, // DON'T USE 'redirectTo' here!
-  { path: 'log-in', component: LoginComponent },
-  { path: 'Licence', component: LicenceComponent }, // FIXME: should License be "license"?
-  { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'log-in', component: LoginComponent },
+  { path: 'recover-password', component: RecoverPasswordComponent },
+  { path: 'Licence', component: LicenceComponent }, // FIXME: should License be "license"?
   { path: 'products', component: ProductsListComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }, // USE 'redirectTo' here :)

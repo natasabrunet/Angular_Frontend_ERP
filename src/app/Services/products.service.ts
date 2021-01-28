@@ -1,44 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/Models/newProduct';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  products: Product[] = [
-    {
-      name: "Product1",
-      stock: 7,
-      price: 13.15,
-      image: "assets/images/product1.jpg"
-    },
-    {
-      name: "Product2",
-      stock: 7,
-      price: 13.15,
-      image: "assets/images/product2.jpg"
-    },
-    {
-      name: "Product3",
-      stock: 7,
-      price: 13.15,
-      image: "assets/images/product3.jpg"
-    },
-    {
-      name: "Product4",
-      stock: 7,
-      price: 13.15,
-      image: "assets/images/product4.jpg"
-    }
-  ];
+  products;
+  baseUrl: string;
+ 
 
 
-  constructor() {
+  constructor( private httpClient: HttpClient ) {
     console.log('Service working');
+    this.baseUrl = 'http://217.76.158.200:8080';
    }
 
-   getProducts(): Product[] {
-     return this.products; 
+   getProducts() {
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvaWhvaWhvaWgiLCJleHAiOjE2MTE4ODgyOTQsImlhdCI6MTYxMTg3MDI5NH0._zBzI8F9Z4BZRs6FCon0ws9T4gutC6tPuqQJx67dYMfRMyFWxXfQqhxnt6Br_VW3NJlKunAOvKIW7BpDDUjYOg'
+    });
+
+     return this.httpClient.get( `${this.baseUrl}/api/products`, {headers});
    }
 }

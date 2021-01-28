@@ -18,12 +18,17 @@ export class ProductsListComponent implements OnInit {
   products: any[];
 
 
-  constructor( private productsService: ProductsService ) {  }
-
-  ngOnInit(): void {
-    this.products = this.productsService.getProducts();
+  constructor( private productsService: ProductsService ) { 
+    this.productsService.getProducts()
+      .subscribe( data => {
+      console.log(data);
+    });
 
     console.log(this.products);
+   }
+
+  ngOnInit(): void {
+    
   }
 
   delete( i: number ) {

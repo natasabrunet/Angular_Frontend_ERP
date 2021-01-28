@@ -20,11 +20,10 @@ export class ProductsListComponent implements OnInit {
 
   constructor( private productsService: ProductsService ) { 
     this.productsService.getProducts()
-      .subscribe( data => {
-      console.log(data);
+      .subscribe( (data: any) => {
+        this.products = data.products;
     });
 
-    console.log(this.products);
    }
 
   ngOnInit(): void {
@@ -32,7 +31,9 @@ export class ProductsListComponent implements OnInit {
   }
 
   delete( i: number ) {
-    console.log(i);
+    const id = this.products[i].id;
+
+    this.productsService.deleteProduct(id)
     this.products.splice(i,1);
     console.log(this.products);
   }

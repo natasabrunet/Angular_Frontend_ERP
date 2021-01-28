@@ -42,6 +42,11 @@ import {
   // faBars, // TODO: consider it
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
+//////////////////////////////////////////
+// Imports for ngx-tranlate library     //
+//////////////////////////////////////////
+import {TranslateService} from '@ngx-translate/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -49,6 +54,15 @@ import {
 })
 export class AppComponent implements OnInit {
   title = 'ITProject-ERP-Frontend';
+  langs: string[] = []; 
+
+  constructor( private translateService: TranslateService ) {
+
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
+    this.translateService.addLangs(['en', 'es', 'cat']);
+    this.langs = this.translateService.getLangs();
+  }
 
   ngOnInit() {
     //  FONT AWESOME ICONS add plugin  //
@@ -63,5 +77,9 @@ export class AppComponent implements OnInit {
     // Replace any existing <i> tags with <svg> and set up a MutationObserver to
     // continue doing this as the DOM changes.
     dom.watch();
+  }
+
+  changeLang( lang: string ) {
+    this.translateService.use(lang);
   }
 }

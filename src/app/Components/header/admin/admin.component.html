@@ -35,7 +35,7 @@
             <fa-icon [icon]="faUserCircle" size="lg"></fa-icon>
           </div>
           <p class="admin-menu__item--text mb-0">
-            Profile
+            {{ 'Admin.header.profile' | translate }}
           </p>
         </div>
       </a>
@@ -48,7 +48,7 @@
             <fa-icon [icon]="faEnvelopeOpen" size="lg"></fa-icon>
           </div>
           <p class="admin-menu__item--text mb-0">
-            Inbox
+            {{ 'Admin.header.inbox' | translate }}
           </p>
         </div>
       </a>
@@ -62,7 +62,7 @@
             <fa-icon [icon]="faCog" size="lg"></fa-icon>
           </div>
           <p class="admin-menu__item--text mb-0">
-            Settings
+            {{ 'Admin.header.settings' | translate }}
           </p>
         </div>
       </a>
@@ -76,20 +76,11 @@
             <fa-icon [icon]="faPowerOff" size="lg"></fa-icon>
           </div>
           <p class="admin-menu__item--text mb-0">
-            Logout
+            {{ 'Admin.header.logout' | translate }}
           </p>
         </div>
       </a>
-
-
       
     </div>
-    <!-- <div class="dropdown-menu" aria-labelledby="profileDropdown">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div> -->
-  </div>
-  
+  </div>  
 </div>

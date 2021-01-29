@@ -1,4 +1,26 @@
 {
+    "Search": {
+        "searchph": "cercar"
+    },
+
+    "Header": {
+        "notifications": {
+            "head": "Notificacions",
+            "event_head_today": "Esdeveniment avui",
+            "event_description": "Recordatori de l'esdeveniment d'avui"
+    
+        }
+      },
+    
+      "Admin": {
+        "header": {
+          "profile": "Perfil",
+          "inbox": "safata d'entrada",
+          "settings": "ajustos",
+          "logout": "sortir"
+        }
+      },
+
     "btn":{
         "add": "AFEGIR",
         "delete": "ESBORRAR"
@@ -16,5 +38,28 @@
         "stockPlaceHolder": "Introdueixi la quantitat de productes",
         "price": "Preu",
         "pricePlaceHolder": "Introdueixi el preu"
+    },
+
+    "Products-list": {
+        "page-head": "Lista de productes",
+        "list": {
+            "head-name": "Nom",
+            "head-stock": "Stock",
+            "head-price": "Preu",
+            "head-image": "Imatge",
+            "head-options": "Opcions"
+        },
+
+        "modal": {
+            "title": "Esborrant…",
+            "message": "Estàs segur que vols esborrar el producte ",
+            "button-no": "No",
+            "button-delete": "Esborrar"
+        },
+
+        "button": {
+            "new-product": "afegir producte"
+        }
     }
+    
 }

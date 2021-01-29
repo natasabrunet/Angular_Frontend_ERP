@@ -1,9 +1,13 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Interpolation } from '@angular/compiler';
+
+import localeESP from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+
 
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -30,8 +34,9 @@ import { SingleProductComponent } from './Views/Product/single-product/single-pr
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
+import localeES from '@angular/common/locales/es';
 
-
+registerLocaleData(localeESP)
 
 @NgModule({
   declarations: [
@@ -67,8 +72,10 @@ import { NoProductImagePipe } from './pipes/no-product-image.pipe';
       }
     })
   ],
-  providers: [
-  ],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'es-ES'
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -19,6 +19,8 @@ export class ProductsService {
     this.baseUrl = 'http://217.76.158.200:8080';
    }
 
+
+  //  TODO: Get token dynamically
    getProducts() {
     const headers = new HttpHeaders({
       Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvaWhvaWhvaWgiLCJleHAiOjE2MTE5MzE1NzUsImlhdCI6MTYxMTkxMzU3NX0.kxZsqSwCvKHWqTBlM2xO4tthKFXYeq-LoVYmbmLSTj6nZ2loaV_d7xsu_XJ6CdyEegNt_ilZPsw3-IFSuRXBIw'
@@ -29,7 +31,7 @@ export class ProductsService {
 
 
 
-
+  //  TODO: Get token dynamically
    deleteProduct(id: number) {
     const options ={ 
         headers: new HttpHeaders({

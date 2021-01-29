@@ -36,7 +36,6 @@ export class ProductsListComponent implements OnInit {
     this.productsService.deleteProduct(id)
       .subscribe();
     this.products.splice(i,1);
-    console.log(this.products);
   }
 
 

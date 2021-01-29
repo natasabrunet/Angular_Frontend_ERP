@@ -9,7 +9,7 @@ import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
 import { ProductsListComponent } from './views/products-list/products-list.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent }, // DON'T USE 'redirectTo' here!
+  { path: '', component: LoginComponent }, // TODO: to be substituded by 'home'
   { path: 'sign-up', component: SignUpComponent },
   { path: 'log-in', component: LoginComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },

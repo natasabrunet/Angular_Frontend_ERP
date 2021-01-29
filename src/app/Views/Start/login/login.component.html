@@ -48,7 +48,16 @@
   class="mx-auto p-4 bg-erp-white border rounded-3"
 >
   <div class="row mb-3">
-    <h2 class="text-uppercase">log in</h2>
+    <div class="col d-flex">
+      <h2 class="text-uppercase">log in</h2>
+
+      <!-- spiner -->
+      <div
+        class="spinner-grow text-erp-blue ms-4"
+        role="status"
+        [class.visually-hidden]="!server"
+      ></div>
+    </div>
   </div>
 
   <!-- TOGGLER - Email vs. NIF -->

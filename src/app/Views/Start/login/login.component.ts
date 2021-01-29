@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/Services/login.service';
 import { I_logedUser } from 'src/app/Models/logedUser';
 import { I_token } from 'src/app/Models/token';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,11 @@ export class LoginComponent implements OnInit, DoCheck {
   showAlert = false;
   token: string; // FIXME: remove in production if not needed
 
-  constructor(private loginService: LoginService, private fb: FormBuilder) {}
+  constructor(
+    private loginService: LoginService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -106,13 +111,65 @@ export class LoginComponent implements OnInit, DoCheck {
     return errorType;
   }
 
+  // on submit
+  send(): void {
+    if (this.form.valid) {
+      let body = {
+        password: this.form.value['password'],
+      };
+
+      // dynamics props
+      if (this.form.value['email']) {
+        body['username'] = this.form.value['email'];
+      }
+      if (this.form.value['nif']) {
+        body['username'] = this.form.value['nif'];
+      }
+
+      this.loginService.loginUser(<I_logedUser>body).subscribe(
+        (object: I_token) => {
+          console.log('Form submited to REST API');
+
+          // API REST response === 200 OK
+          this.showAlert = true;
+          this.server = true;
+          this.msg = 'Form submitted successfully!';
+
+          this.token = object.token;
+
+          // let alert show up + then redirect
+          setTimeout(() => {
+            this.router.navigateByUrl(''); // FIXME: change URL if needed
+          }, 2000);
+        },
+        (error) => {
+          console.warn(error.message);
+
+          //  API REST response !== 200
+          this.showAlert = true;
+          this.server = false;
+          this.msg = 'Log In failed. Try again or go Sign Up';
+        }
+      );
+
+      // then... clean form
+      this.form.reset();
+      this.disabled = false; // !.btn-erp-red
+    } else {
+      this.disabled = true; // .btn-erp-red
+      return Object.values(this.form.controls).forEach(
+        (control) => control.markAsTouched() // reset values
+      );
+    }
+  }
+
   // FIXME: Remove in production! - PROVISIONAL DIRECT LOGIN
   autoLogin() {
     const bodyTEST = {
       username: 'D3831093R',
       password: 'Dev@lop3rs',
     };
-    // This user already exists in DB => http://217.76.158.200:8080/api/login
+    // NOTE: This user works because it already exists in DB
 
     fetch('http://217.76.158.200:8080/api/login', {
       method: 'POST',
@@ -132,60 +189,10 @@ export class LoginComponent implements OnInit, DoCheck {
         this.msg = 'Form submitted successfully!';
 
         // let alert show up + then redirect
-        // setTimeout();
-        //           <a [routerLink]="['/home']" class="nav-link text-erp-white">
-        //   sign up
-        //   <i class="fas fa-user-plus"></i>
-        // </a>
+        setTimeout(() => {
+          this.router.navigateByUrl('');
+        }, 2000);
       })
-      .catch((error) => console.error('Error:', error));
-  }
-
-  // on submit
-  send(): void {
-    if (this.form.valid) {
-      let body = {
-        password: this.form.value['password'],
-      };
-
-      // dynamics props
-      if (this.form.value['email']) {
-        body['username'] = this.form.value['email'];
-      }
-      if (this.form.value['nif']) {
-        body['username'] = this.form.value['nif'];
-      }
-
-      this.loginService.loginUser(<I_logedUser>body).subscribe(
-        (object: I_token) => {
-          this.token = object.token;
-          console.log('Form submited to REST API');
-          // API REST response === 200 OK
-          this.showAlert = true;
-          this.server = true;
-          this.msg = 'Form submitted successfully!';
-          //           <a [routerLink]="['/home']" class="nav-link text-erp-white">
-          //   sign up
-          //   <i class="fas fa-user-plus"></i>
-          // </a>
-        },
-        (error) => {
-          //  API REST response !== 200
-          console.warn(error.message);
-          this.showAlert = true;
-          this.server = false;
-          this.msg = 'Log In failed. Try again or go Sign Up';
-        }
-      );
-
-      // then... clean form
-      this.form.reset();
-      this.disabled = false; // !.btn-erp-red
-    } else {
-      this.disabled = true; // .btn-erp-red
-      return Object.values(this.form.controls).forEach(
-        (control) => control.markAsTouched() // reset values
-      );
-    }
+      .catch((error) => console.error('DEV LOG IN error:', error));
   }
 }

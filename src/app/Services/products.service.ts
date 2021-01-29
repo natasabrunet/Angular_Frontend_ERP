@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ProductsService {
 
   products;
-  baseUrl: string;
+  private baseUrl: string;
  
 
 
@@ -20,19 +20,21 @@ export class ProductsService {
 
    getProducts() {
     const headers = new HttpHeaders({
-      Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbmFkbWluIiwiZXhwIjoxNjExODkyMjQzLCJpYXQiOjE2MTE4NzQyNDN9.IyV-qlmS6d0weaf69zoDliz5Hl8gCrQnzXBvOhWIhvxwd5DRCGUBe3TC95b9FPsOHgOGfCAqofwEoS53PStQiA'
+      Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvaWhvaWhvaWgiLCJleHAiOjE2MTE5MzE1NzUsImlhdCI6MTYxMTkxMzU3NX0.kxZsqSwCvKHWqTBlM2xO4tthKFXYeq-LoVYmbmLSTj6nZ2loaV_d7xsu_XJ6CdyEegNt_ilZPsw3-IFSuRXBIw'
     });
+
+    
 
      return this.httpClient.get( `${this.baseUrl}/api/products`, {headers});
    }
 
-   deleteProduct(id: number) {
+   deleteProduct(id) {
      console.log(id);
     const headers = new HttpHeaders({
-      Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbmFkbWluIiwiZXhwIjoxNjExODkyMjQzLCJpYXQiOjE2MTE4NzQyNDN9.IyV-qlmS6d0weaf69zoDliz5Hl8gCrQnzXBvOhWIhvxwd5DRCGUBe3TC95b9FPsOHgOGfCAqofwEoS53PStQiA'
+      Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvaWhvaWhvaWgiLCJleHAiOjE2MTE5MzE1NzUsImlhdCI6MTYxMTkxMzU3NX0.kxZsqSwCvKHWqTBlM2xO4tthKFXYeq-LoVYmbmLSTj6nZ2loaV_d7xsu_XJ6CdyEegNt_ilZPsw3-IFSuRXBIw'
     });
 
-    // return this.httpClient.delete( `${this.baseUrl}/api/products`, {headers});
+    return this.httpClient.delete( `${this.baseUrl}/api/products`, id);
    }
 
 }

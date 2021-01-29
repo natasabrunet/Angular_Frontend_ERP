@@ -23,7 +23,6 @@ export class ProductsListComponent implements OnInit {
       .subscribe( (data: any) => {
         this.products = data.products;
     });
-
    }
 
   ngOnInit(): void {
@@ -34,7 +33,8 @@ export class ProductsListComponent implements OnInit {
     const id = this.products[i].id;
 
     this.productsService.deleteProduct(id)
-    this.products.splice(i,1);
+      .subscribe();
+    // this.products.splice(i,1);
     console.log(this.products);
   }
 

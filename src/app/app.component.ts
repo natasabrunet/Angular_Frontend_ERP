@@ -40,7 +40,6 @@ import {
   faCopyright,
   faEyeSlash,
   faEye,
-  // faBars, // TODO: consider it
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
 //////////////////////////////////////////
@@ -57,7 +56,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   // mode is the message that appears in the left top corner: Dev Mode
   mode = '';
-
+  token: string; // FIXME: should probably be assignet value from @Output() in login.component.ts
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
 

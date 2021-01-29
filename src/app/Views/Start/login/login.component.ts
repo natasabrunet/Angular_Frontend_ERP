@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit, DoCheck {
   eye = false;
   server = false;
   showAlert = false;
-  token: string; // FIXME: remove in production if not needed
+  token: string; // FIXME: should probably be sent via @Output() to app.component.ts
 
   constructor(
     private loginService: LoginService,

@@ -5,8 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NoProductImagePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
-  }
+  transform(image: any): string {
 
+    if ( !image ) {
+      return 'assets/images/noimage.png';
+    } 
+
+    if (image.length > 0) {
+      return image;
+    }
+  }
 }

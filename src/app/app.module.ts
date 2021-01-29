@@ -27,6 +27,8 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
+
+// Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 
 

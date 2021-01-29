@@ -25,7 +25,7 @@
               <!-- Image -->
               <td class="text-center">
               <button type="button" class="btn p-0" data-bs-toggle="modal" [attr.data-bs-target]="'#'+product.name">
-                <img class="product-img-thumb" [src]="product.image" />
+                <img class="product-img-thumb" [src]="product.image | noProductImage" />
               </button>
               </td>
 

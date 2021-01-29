@@ -34,7 +34,6 @@ import { SingleProductComponent } from './Views/Product/single-product/single-pr
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
-import localeES from '@angular/common/locales/es';
 
 registerLocaleData(localeESP)
 

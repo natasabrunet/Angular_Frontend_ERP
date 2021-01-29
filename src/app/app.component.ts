@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../environments/environment';
 
 //////////////////////////
 // Bootstrap JS imports //
@@ -39,8 +40,15 @@ import {
   faUserPlus,
   faSignInAlt,
   faCopyright,
+  faEyeSlash,
+  faEye,
   // faBars, // TODO: consider it
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
+
+//////////////////////////////////////////
+// Imports for ngx-tranlate library     //
+//////////////////////////////////////////
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -48,20 +56,38 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  // mode is the message that appears in the left top corner: Dev Mode
+  mode = '';
+
   title = 'ITProject-ERP-Frontend';
+  langs: string[] = [];
+
+  constructor( private translateService: TranslateService ) {
+    this.mode = environment.mode;
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
+    this.translateService.addLangs(['en', 'es', 'cat']);
+    this.langs = this.translateService.getLangs();
+  }
 
   ngOnInit() {
     //  FONT AWESOME ICONS add plugin  //
 
     // We are only using the user-astronaut icon
     library.add(
-      faUserPlus, 
+      faUserPlus,
       faSignInAlt,
       faCopyright,
+      faEyeSlash,
+      faEye
       // faBars // TODO: consider it
        );
     // Replace any existing <i> tags with <svg> and set up a MutationObserver to
     // continue doing this as the DOM changes.
     dom.watch();
+  }
+
+  changeLang( lang: string ) {
+    this.translateService.use(lang);
   }
 }

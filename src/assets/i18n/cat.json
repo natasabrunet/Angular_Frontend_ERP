@@ -1,0 +1,20 @@
+{
+    "btn":{
+        "add": "AFEGIR",
+        "delete": "ESBORRAR"
+    }, 
+
+    "footer":{
+        "developer": "Desenvolupat per"
+    }, 
+
+    "singleProd":{
+        "tittle": "NOU PRODUCTE",
+        "name": "Nom",
+        "namePlaceHolder": "Introdueixi el nom del producte",
+        "stock": "Stock",
+        "stockPlaceHolder": "Introdueixi la quantitat de productes",
+        "price": "Preu",
+        "pricePlaceHolder": "Introdueixi el preu"
+    }
+}

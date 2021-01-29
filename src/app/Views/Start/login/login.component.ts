@@ -11,15 +11,15 @@ import { I_token } from 'src/app/Models/token';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, DoCheck {
-  showAlert = false;
-  server = false;
-  title = 'Well done!';
-  msg = '';
   form: FormGroup;
   disabled = false;
   submitable = false;
+  msg = '';
   NIF = false;
-  token: string; // FIXME: remove in production
+  eye = false;
+  server = false;
+  showAlert = false;
+  token: string; // FIXME: remove in production if not needed
 
   constructor(private loginService: LoginService, private fb: FormBuilder) {}
 
@@ -66,47 +66,18 @@ export class LoginComponent implements OnInit, DoCheck {
     // NOTE: [def, [sync], [async]]
   }
 
-  // on submit
-  send(): void {
-    if (this.form.valid) {
-      let body = {
-        password: this.form.value['password'],
-      };
+  // show/hide password
+  toggleEye(eye: HTMLInputElement, password: HTMLInputElement) {
+    this.eye = !this.eye;
 
-      // dynamics props
-      if (this.form.value['email']) {
-        body['username'] = this.form.value['email'];
-      }
-      if (this.form.value['nif']) {
-        body['username'] = this.form.value['nif'];
-      }
+    password.type = this.eye ? 'text' : 'password';
 
-      this.loginService.loginUser(<I_logedUser>body).subscribe(
-        (object: I_token) => {
-          this.token = object.token;
-          console.log('Form submited to REST API');
-          // API REST response === 200 OK
-          this.showAlert = true;
-          this.server = true;
-          this.msg = 'Form submitted successfully!';
-        },
-        (error) => {
-          //  API REST response !== 200
-          console.warn('oops', error.message);
-          this.showAlert = true;
-          this.server = false;
-          this.msg = 'Log In failed. Try again or go Sign Up';
-        }
-      );
-
-      // then... clean form
-      this.form.reset();
-      this.disabled = false; // !.btn-erp-red
+    if (this.eye) {
+      eye.children[0].classList.remove('fa-eye-slash');
+      eye.children[0].classList.add('fa-eye');
     } else {
-      this.disabled = true; // .btn-erp-red
-      return Object.values(this.form.controls).forEach(
-        (control) => control.markAsTouched() // reset values
-      );
+      eye.children[0].classList.remove('fa-eye');
+      eye.children[0].classList.add('fa-eye-slash');
     }
   }
 
@@ -159,7 +130,62 @@ export class LoginComponent implements OnInit, DoCheck {
         this.showAlert = true;
         this.server = true;
         this.msg = 'Form submitted successfully!';
+
+        // let alert show up + then redirect
+        // setTimeout();
+        //           <a [routerLink]="['/home']" class="nav-link text-erp-white">
+        //   sign up
+        //   <i class="fas fa-user-plus"></i>
+        // </a>
       })
       .catch((error) => console.error('Error:', error));
+  }
+
+  // on submit
+  send(): void {
+    if (this.form.valid) {
+      let body = {
+        password: this.form.value['password'],
+      };
+
+      // dynamics props
+      if (this.form.value['email']) {
+        body['username'] = this.form.value['email'];
+      }
+      if (this.form.value['nif']) {
+        body['username'] = this.form.value['nif'];
+      }
+
+      this.loginService.loginUser(<I_logedUser>body).subscribe(
+        (object: I_token) => {
+          this.token = object.token;
+          console.log('Form submited to REST API');
+          // API REST response === 200 OK
+          this.showAlert = true;
+          this.server = true;
+          this.msg = 'Form submitted successfully!';
+          //           <a [routerLink]="['/home']" class="nav-link text-erp-white">
+          //   sign up
+          //   <i class="fas fa-user-plus"></i>
+          // </a>
+        },
+        (error) => {
+          //  API REST response !== 200
+          console.warn(error.message);
+          this.showAlert = true;
+          this.server = false;
+          this.msg = 'Log In failed. Try again or go Sign Up';
+        }
+      );
+
+      // then... clean form
+      this.form.reset();
+      this.disabled = false; // !.btn-erp-red
+    } else {
+      this.disabled = true; // .btn-erp-red
+      return Object.values(this.form.controls).forEach(
+        (control) => control.markAsTouched() // reset values
+      );
+    }
   }
 }

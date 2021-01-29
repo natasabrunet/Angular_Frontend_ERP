@@ -21,7 +21,7 @@
             <tr *ngFor="let product of products; let i = index">
               <td class="pr-td">{{ product.name }}</td>
               <td class="pr-td">{{ product.stock }}</td>
-              <td class="pr-td">{{ product.price }}</td>
+              <td class="pr-td">{{ product.price | currency }}</td>
               <!-- Image -->
               <td class="text-center">
               <button type="button" class="btn p-0" data-bs-toggle="modal" [attr.data-bs-target]="'#'+product.name">

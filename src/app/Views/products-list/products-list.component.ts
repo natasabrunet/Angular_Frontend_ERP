@@ -19,13 +19,14 @@ export class ProductsListComponent implements OnInit {
 
 
   constructor( private productsService: ProductsService ) { 
+    
+   }
+
+  ngOnInit(): void {
     this.productsService.getProducts()
       .subscribe( (data: any) => {
         this.products = data.products;
     });
-   }
-
-  ngOnInit(): void {
     
   }
 
@@ -34,7 +35,7 @@ export class ProductsListComponent implements OnInit {
 
     this.productsService.deleteProduct(id)
       .subscribe();
-    // this.products.splice(i,1);
+    this.products.splice(i,1);
     console.log(this.products);
   }
 

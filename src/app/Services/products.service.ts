@@ -10,6 +10,7 @@ export class ProductsService {
 
   products;
   private baseUrl: string;
+
  
 
 
@@ -23,18 +24,22 @@ export class ProductsService {
       Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvaWhvaWhvaWgiLCJleHAiOjE2MTE5MzE1NzUsImlhdCI6MTYxMTkxMzU3NX0.kxZsqSwCvKHWqTBlM2xO4tthKFXYeq-LoVYmbmLSTj6nZ2loaV_d7xsu_XJ6CdyEegNt_ilZPsw3-IFSuRXBIw'
     });
 
-    
-
      return this.httpClient.get( `${this.baseUrl}/api/products`, {headers});
    }
 
-   deleteProduct(id) {
-     console.log(id);
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvaWhvaWhvaWgiLCJleHAiOjE2MTE5MzE1NzUsImlhdCI6MTYxMTkxMzU3NX0.kxZsqSwCvKHWqTBlM2xO4tthKFXYeq-LoVYmbmLSTj6nZ2loaV_d7xsu_XJ6CdyEegNt_ilZPsw3-IFSuRXBIw'
-    });
 
-    return this.httpClient.delete( `${this.baseUrl}/api/products`, id);
+
+
+   deleteProduct(id: number) {
+    const options ={ 
+        headers: new HttpHeaders({
+          Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvaWhvaWhvaWgiLCJleHAiOjE2MTE5MjkzMDAsImlhdCI6MTYxMTkxMTMwMH0.PrD1e74OPngIAEvt3DHg4GAOMNfQCaM0XhRreo1hAHtf9cTm8mzlfJR13KaCSiTvpyLKVrAOEaAovoPHvKT7ew'
+        }),
+        body: {
+          id: id
+        }};
+
+    return this.httpClient.delete( `${this.baseUrl}/api/products`, options);
    }
 
 }

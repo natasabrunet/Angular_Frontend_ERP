@@ -137,9 +137,12 @@ export class LoginComponent implements OnInit, DoCheck {
 
           this.token = object.token;
 
-          // let alert show up + then redirect
+          // let alert show up and then redirect
           setTimeout(() => {
             this.router.navigateByUrl(''); // FIXME: change URL if needed
+            // + clean form CSS
+            this.showAlert = false;
+            this.server = false;
           }, 2000);
         },
         (error) => {
@@ -191,6 +194,9 @@ export class LoginComponent implements OnInit, DoCheck {
         // let alert show up + then redirect
         setTimeout(() => {
           this.router.navigateByUrl('');
+          // + clean form CSS
+          this.showAlert = false;
+          this.server = false;
         }, 2000);
       })
       .catch((error) => console.error('DEV LOG IN error:', error));

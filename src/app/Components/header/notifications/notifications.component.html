@@ -1,5 +1,5 @@
-<ul class="navbar-nav d-flex">
-  <li class="nav-item dropdown me-5">
+<div class="d-flex align-items-center">
+  <div class="dropdown me-5">
     <a
       class="nav-link counter"
       id="notificationDropdown"
@@ -17,7 +17,7 @@
       class="dropdown-menu dropdown-menu-end menu-box"
       aria-labelledby="notificationDropdown"
     >
-      <h6 class="p-3">Notifications</h6>
+      <h6 class="p-3">{{ 'Header.notifications.head' | translate }}</h6>
       <div class="dropdown-divider"></div>
 
       <!-- Call to see last notifications (NgFor) -->
@@ -32,9 +32,9 @@
         <div
           class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3"
         >
-          <h6 class="notification__item--content-title mb-1">Event today</h6>
+          <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' | translate }}</h6>
           <p class="notification__item--content-text mb-0">
-            Just a reminder that you have an event today
+            {{ 'Header.notifications.event_description' | translate }}
           </p>
         </div>
       </a>
@@ -53,9 +53,9 @@
         <div
           class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3"
         >
-          <h6 class="notification__item--content-title mb-1">Event today</h6>
+          <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' | translate }}</h6>
           <p class="notification__item--content-text mb-0">
-            Just a reminder that you have an event today
+            {{ 'Header.notifications.event_description' | translate }}
           </p>
         </div>
       </a>
@@ -74,12 +74,13 @@
         <div
           class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3"
         >
-          <h6 class="notification__item--content-title mb-1">Event today</h6>
+          <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' | translate }}</h6>
           <p class="notification__item--content-text mb-0">
-            Just a reminder that you have an event today
+            {{ 'Header.notifications.event_description' | translate }}
           </p>
         </div>
       </a>
       
     </ul>
-  </li>
+  </div>
+</div>

@@ -1,9 +1,13 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Interpolation } from '@angular/compiler'; // FIXME: CAN WE REMOVE IT?
+
+import localeESP from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+
 
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -28,6 +32,11 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
 
+// Pipes
+import { NoProductImagePipe } from './pipes/no-product-image.pipe';
+
+registerLocaleData(localeESP)
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +51,7 @@ import { SingleProductComponent } from './Views/Product/single-product/single-pr
     FooterComponent,
     LicenceComponent,
     SingleProductComponent,
+    NoProductImagePipe,
   ],
 
   imports: [
@@ -58,11 +68,14 @@ import { SingleProductComponent } from './Views/Product/single-product/single-pr
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-    }),
+        deps: [HttpClient]
+      }
+    })
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'es-ES'
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

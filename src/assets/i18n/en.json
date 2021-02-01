@@ -1,4 +1,25 @@
 {
+    "Search": {
+        "searchph": "search"
+    },
+
+    "Header": {
+        "notifications": {
+            "head": "Notifications",
+            "event_head_today": "Event today",
+            "event_description": "Just a reminder that you have an event today"
+        }
+      },
+  
+    "Admin": {
+      "header": {
+        "profile": "Profile",
+        "inbox": "Inbox",
+        "settings": "Settings",
+        "logout": "Logout"
+      }
+    },
+
     "btn":{
         "add": "ADD",
         "delete": "DELETE"
@@ -16,5 +37,27 @@
         "stockPlaceHolder": "Enter products amount",
         "price": "Price",
         "pricePlaceHolder": "Enter price product"
+    },
+
+    "Products-list": {
+        "page-head": "Products list",
+        "list": {
+            "head-name": "Name",
+            "head-stock": "Stock",
+            "head-price": "Price",
+            "head-image": "Image",
+            "head-options": "Options"
+        },
+
+        "modal": {
+            "title": "Deleting…",
+            "message": "Are you sure you want to delete ",
+            "button-no": "No",
+            "button-delete": "Delete"
+        },
+
+        "button": {
+            "new-product": "New product"
+        }
     }
 }

@@ -18,18 +18,24 @@ export class ProductsListComponent implements OnInit {
   products: any[];
 
 
-  constructor( private productsService: ProductsService ) {  }
+  constructor( private productsService: ProductsService ) { 
+    
+   }
 
   ngOnInit(): void {
-    this.products = this.productsService.getProducts();
-
-    console.log(this.products);
+    this.productsService.getProducts()
+      .subscribe( (data: any) => {
+        this.products = data.products;
+    });
+    
   }
 
   delete( i: number ) {
-    console.log(i);
+    const id = this.products[i].id;
+
+    this.productsService.deleteProduct(id)
+      .subscribe();
     this.products.splice(i,1);
-    console.log(this.products);
   }
 
 

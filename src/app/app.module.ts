@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { Interpolation } from '@angular/compiler';
+import { Interpolation } from '@angular/compiler'; // FIXME: CAN WE REMOVE IT?
 
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -28,8 +28,6 @@ import { NavbarClientComponent } from './Components/navbar-client/navbar-client.
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +49,7 @@ import { SingleProductComponent } from './Views/Product/single-product/single-pr
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule, // don't remove this
     StartModule,
     AdminViewModule,
     // ngx-translate and the loader module
@@ -59,12 +58,11 @@ import { SingleProductComponent } from './Views/Product/single-product/single-pr
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
-  providers: [
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

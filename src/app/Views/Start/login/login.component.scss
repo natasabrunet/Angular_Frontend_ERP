@@ -1,6 +1,10 @@
-header,
+#adminNavbar,
 form {
   max-width: 576px; // xs
+}
+
+#loginAlert {
+  max-width: 320px; // xxs
 }
 
 button a {
@@ -8,4 +12,3 @@ button a {
     background: inherit !important;
   }
 }
-

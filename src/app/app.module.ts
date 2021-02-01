@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { Interpolation } from '@angular/compiler';
+import { Interpolation } from '@angular/compiler'; // FIXME: CAN WE REMOVE IT?
 
 import localeESP from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
@@ -59,6 +59,7 @@ registerLocaleData(localeESP)
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule, // don't remove this
     StartModule,
     AdminViewModule,
     // ngx-translate and the loader module

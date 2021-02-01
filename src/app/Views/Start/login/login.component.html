@@ -1,59 +1,32 @@
-<!-- FIXME: programmatic MODAL : B5 "data-bs-toggle", "data-bs-target" -->
-<!-- <button
-  type="button"
-  class="btn btn-erp-red"
-  data-bs-toggle="modal"
-  data-bs-target="#staticBackdrop"
+<!-- FIXME: Remove in production! - DEVELOPMENT MODE LOG IN -->
+<button
+  class="d-block mb-3 mx-auto btn btn-outline-erp-purple btn-sm"
+  (click)="autoLogin()"
 >
-  replace button by programmatic call
-</button> -->
+  dev log in
+</button>
 
-<!-- FIXME: programmatic MODAL : B5 "data-bs-toggle", "data-bs-target" -->
-<!-- <div
-  class="modal fade"
-  id="staticBackdrop"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
+<!-- SERVER RESPONSE ALERT -->
+<div
+  *ngIf="showAlert"
+  id="loginAlert"
+  class="mb-3 mx-auto text-center border rounded-3"
+  [ngClass]="{
+    'border-erp-darkgreen': server,
+    'text-erp-darkgreen': server,
+    'bg-erp-palegreen': server,
+    'border-erp-firebrick ': !server,
+    'text-erp-firebrick ': !server,
+    'bg-erp-pink': !server
+  }"
 >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Invalid operation</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        Please, try again or sing up before logging in
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-erp-black text-erp-white"
-          data-bs-dismiss="modal"
-        >
-          try again
-        </button>
-        <button type="button" class="btn btn-erp-blue text-erp-white">
-          <a routerlink="sign-up" class="text-erp-white">
-            sign up
-            <i class="fas fa-user-plus"></i>
-          </a>
-        </button>
-      </div>
-    </div>
-  </div>
-</div> -->
+  <small>{{ msg }}</small>
+</div>
 
 <!-- ADMIN NAVBAR -->
-<header
-  class="d-flex justify-content-between align-items-center p-2 mx-auto mb-3 bg-erp-white border rounded-pill"
+<section
+  id="adminNavbar"
+  class="d-flex mb-1 justify-content-between align-items-center p-2 mx-auto bg-erp-white border rounded-pill"
 >
   <span class="ps-2">
     header log in / sign up
@@ -66,7 +39,7 @@
       <i class="fas fa-user-plus"></i>
     </a>
   </button>
-</header>
+</section>
 
 <!-- FORM -->
 <form
@@ -75,7 +48,16 @@
   class="mx-auto p-4 bg-erp-white border rounded-3"
 >
   <div class="row mb-3">
-    <h2 class="text-uppercase">log in</h2>
+    <div class="col d-flex">
+      <h2 class="text-uppercase">log in</h2>
+
+      <!-- spiner -->
+      <div
+        class="spinner-grow text-erp-blue ms-4"
+        role="status"
+        [class.visually-hidden]="!server"
+      ></div>
+    </div>
   </div>
 
   <!-- TOGGLER - Email vs. NIF -->
@@ -100,7 +82,8 @@
         email required
       </small>
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref0) === 2">
-        Enter a valid email pattern. Example: account@email.com
+        <span class="d-block text-justify"> Enter a valid email pattern </span>
+        <span class="d-block"> Example: account@email.com </span>
       </small>
     </div>
   </div>
@@ -122,7 +105,8 @@
         NIF required
       </small>
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 2">
-        Enter a valid NIF pattern. Example: W1234567E
+        <span class="d-block text-justify"> Enter a valid NIF pattern </span>
+        <span class="d-block"> Example: W1234567E </span>
       </small>
     </div>
   </div>
@@ -131,21 +115,40 @@
   <div class="row mb-3">
     <label for="loginPassword" class="col-4 col-form-label">Password</label>
     <div class="col">
-      <input
-        #ref2
-        id="loginPassword"
-        type="password"
-        formControlName="password"
-        class="form-control bg-erp-silver"
-        [class.is-invalid]="validateOnTouched(ref2) > 0"
-        autocomplete="off"
-      />
-      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 1">
+      <div class="d-flex">
+        <input
+          #ref2
+          id="loginPassword"
+          type="password"
+          formControlName="password"
+          class="form-control bg-erp-silver"
+          [class.is-invalid]="validateOnTouched(ref2) > 0"
+          autocomplete="off"
+        />
+        <button
+          #eye
+          class="bg-erp-blue text-erp-silver"
+          type="button"
+          (click)="toggleEye(eye, ref2)"
+        >
+          <!-- icon : eye -->
+          <i class="fas fa-eye-slash"></i>
+        </button>
+      </div>
+
+      <small
+        class="invalid-feedback text-justify"
+        *ngIf="validateOnTouched(ref2) === 1"
+      >
         password required
       </small>
-      <small class="invalid-feedback" *ngIf="validateOnTouched(ref2) === 2">
-        The password must have minimum eight characters, including one uppercase
-        letter, one lowercase letter, one special character and one number
+      <small
+        class="invalid-feedback text-justify"
+        *ngIf="validateOnTouched(ref2) === 2"
+      >
+        The password must have between 8 and 12 characters, including one
+        uppercase letter, one lowercase letter, one special character and one
+        number
       </small>
     </div>
   </div>
@@ -165,7 +168,6 @@
     [class.btn-erp-red]="disabled && !submitable"
     [disabled]="disabled && !submitable"
   >
-    <!-- [attr.aria-disabled]="disabled && !submitable" -->
     log in
     <i class="fas fa-sign-in-alt"></i>
   </button>

@@ -1,4 +1,25 @@
 {
+    "Search": {
+        "searchph": "buscar"
+    },
+
+    "Header": {
+        "notifications": {
+            "head": "Notificaciones",
+            "event_head_today": "Evento de hoy",
+            "event_description": "Recordatorio de un evento de hoy"
+        }
+      },
+  
+    "Admin": {
+      "header": {
+        "profile": "Perfil",
+        "inbox": "Bandeja de entrada",
+        "settings": "Ajustes",
+        "logout": "Salir"
+      }
+    },
+
     "btn":{
         "add": "AÑADIR",
         "delete": "BORRAR"
@@ -16,5 +37,28 @@
         "stockPlaceHolder": "Introduzca la cantidad del producto",
         "price": "Precio",
         "pricePlaceHolder": "Introduzca el precio"
+    },
+
+    "Products-list": {
+        "page-head": "Lista de productos",
+        "list": {
+            "head-name": "Nombre",
+            "head-stock": "Stock",
+            "head-price": "Precio",
+            "head-image": "Imagen",
+            "head-options": "Opciones"
+        },
+
+        "modal": {
+            "title": "Borrando…",
+            "message": "¿Estás seguro que quieres borrar el producto ",
+            "button-no": "No",
+            "button-delete": "Borrar"
+        },
+
+        "button": {
+            "new-product": "añadir producto"
+        }
     }
+    
 }

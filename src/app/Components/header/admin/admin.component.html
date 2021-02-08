@@ -1,5 +1,5 @@
-<ul class="navbar-nav d-flex">
-  <li class="nav-item nav-profile dropdown">
+<div class="d-flex align-items-center">
+  <div class="nav-profile dropdown">
     <a
       class="nav-link text-decoration-none"
       id="profileDropdown"
@@ -15,7 +15,7 @@
         alt="admin image"
       />
       <div class="ms-3">
-        <p class="nav-profile-name mb-0">{{ name }}</p>
+        <a class="nav-profile-name mb-0 text-erp-black">{{ name }}</a>
       </div>
     </div>
     </a>
@@ -23,7 +23,7 @@
     <!-- Dropdown menu -->
 
     <div
-      class="dropdown-menu dropdown-menu-end admin-menu"
+      class="dropdown-menu dropdown-menu-end admin-menu mt-4"
       aria-labelledby="profileDropdown"
     >
   
@@ -35,7 +35,7 @@
             <fa-icon [icon]="faUserCircle" size="lg"></fa-icon>
           </div>
           <p class="admin-menu__item--text mb-0">
-            Profile
+            {{ 'Admin.header.profile' | translate }}
           </p>
         </div>
       </a>
@@ -48,7 +48,7 @@
             <fa-icon [icon]="faEnvelopeOpen" size="lg"></fa-icon>
           </div>
           <p class="admin-menu__item--text mb-0">
-            Inbox
+            {{ 'Admin.header.inbox' | translate }}
           </p>
         </div>
       </a>
@@ -62,7 +62,7 @@
             <fa-icon [icon]="faCog" size="lg"></fa-icon>
           </div>
           <p class="admin-menu__item--text mb-0">
-            Settings
+            {{ 'Admin.header.settings' | translate }}
           </p>
         </div>
       </a>
@@ -76,20 +76,11 @@
             <fa-icon [icon]="faPowerOff" size="lg"></fa-icon>
           </div>
           <p class="admin-menu__item--text mb-0">
-            Logout
+            {{ 'Admin.header.logout' | translate }}
           </p>
         </div>
       </a>
-
-
       
     </div>
-    <!-- <div class="dropdown-menu" aria-labelledby="profileDropdown">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </div> -->
-  </li>
-  
-</ul>
+  </div>  
+</div>

@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { Interpolation } from '@angular/compiler';
+import { Interpolation } from '@angular/compiler'; // FIXME: CAN WE REMOVE IT?
+
+import localeESP from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
 
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -29,7 +32,10 @@ import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.com
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
 import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component';
 
+// Pipes
+import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 
+registerLocaleData(localeESP);
 
 @NgModule({
   declarations: [
@@ -46,6 +52,7 @@ import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component
     LicenceComponent,
     SingleProductComponent,
     DevNavbarComponent,
+    NoProductImagePipe,
   ],
 
   imports: [
@@ -53,6 +60,7 @@ import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule, // don't remove this
     StartModule,
     AdminViewModule,
     // ngx-translate and the loader module
@@ -61,11 +69,15 @@ import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'es-ES',
+    },
   ],
   bootstrap: [AppComponent],
 })

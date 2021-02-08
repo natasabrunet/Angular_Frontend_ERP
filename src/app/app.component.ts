@@ -33,8 +33,6 @@ import 'bootstrap/js/dist/tab'; // tabbable panes of local content
 // Font Awesome Single Icon npm Library //
 //////////////////////////////////////////
 
-// FIXME: remove global single-icon library
-
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import {
   faUserPlus,
@@ -42,13 +40,13 @@ import {
   faCopyright,
   faEyeSlash,
   faEye,
-  // faBars, // TODO: consider it
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
 //////////////////////////////////////////
 // Imports for ngx-tranlate library     //
 //////////////////////////////////////////
-import {TranslateService} from '@ngx-translate/core';
+
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -58,11 +56,11 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   // mode is the message that appears in the left top corner: Dev Mode
   mode = '';
-
+  token: string; // FIXME: should probably be assignet value from @Output() in login.component.ts
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
 
-  constructor( private translateService: TranslateService ) {
+  constructor(private translateService: TranslateService) {
     this.mode = environment.mode;
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
@@ -81,13 +79,13 @@ export class AppComponent implements OnInit {
       faEyeSlash,
       faEye
       // faBars // TODO: consider it
-       );
+    );
     // Replace any existing <i> tags with <svg> and set up a MutationObserver to
     // continue doing this as the DOM changes.
     dom.watch();
   }
 
-  changeLang( lang: string ) {
+  changeLang(lang: string) {
     this.translateService.use(lang);
   }
 }

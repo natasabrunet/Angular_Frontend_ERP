@@ -18,8 +18,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, DoCheck {
-  // @Output() loginEmits = new EventEmitter<string>()!;
-  // token: string;
   form: FormGroup;
   disabled = false;
   submitable = false;

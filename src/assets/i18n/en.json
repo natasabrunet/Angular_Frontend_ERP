@@ -22,7 +22,8 @@
 
     "btn":{
         "add": "ADD",
-        "delete": "DELETE"
+        "delete": "DELETE",
+        "update": "UPDATE"
     }, 
 
     "footer":{
@@ -30,7 +31,8 @@
     }, 
 
     "singleProd":{
-        "tittle": "NEW PRODUCT",
+        "tittleNew": "NEW PRODUCT",
+        "tittleUpdate": "UPDATE PRODUCTE",
         "name": "Name",
         "namePlaceHolder": "Enter product name",
         "stock": "Stock",

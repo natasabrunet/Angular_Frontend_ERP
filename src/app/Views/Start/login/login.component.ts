@@ -216,5 +216,11 @@ export class LoginComponent implements OnInit, DoCheck {
 
     // use token
     // sessionStorage.getItem('erpToken');
+
+    // remove token
+    // sessionStorage.removeItem('erpToken');
+
+    // Remove all saved data from sessionStorage
+    // sessionStorage.clear();
   }
 }

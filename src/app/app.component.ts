@@ -50,6 +50,8 @@ import {
 
 import { TranslateService } from '@ngx-translate/core';
 
+// @ts-ignore
+// @ts-ignore
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -63,6 +65,9 @@ export class AppComponent implements OnInit {
 
   // NOTE: how to get token? Login Component wil save it in sessionStorage ES6 object
   // Use sessionStorage.getItem('loginToken') to acces saved token ;)
+
+  // created a local variable to get the login token and use it for the navbar
+  loggedToken = sessionStorage.getItem('loginToken');
 
   constructor(private translateService: TranslateService) {
     this.mode = environment.mode;

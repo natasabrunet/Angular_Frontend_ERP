@@ -6,13 +6,13 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { LoginComponent } from './Views/Start/login/login.component';
 import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
-import { ProductsListComponent } from './views/products-list/products-list.component';
+import { ProductsListComponent } from './views/product/products-list/products-list.component';
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
-
 import { HomepageComponent } from './Views/Homepage/homepage.component';
 import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
 import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'licence', component: LicenceComponent },
   { path: 'products', component: ProductsListComponent },
   { path: '404', component: PageNotFoundComponent },
+  { path: 'single-product/:id', component: SingleProductComponent },
   // developers views
   { path: 'dev/404', component: PageNotFoundComponent },
   { path: 'dev/log-in', component: LoginComponent },

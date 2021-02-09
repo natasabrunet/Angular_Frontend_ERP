@@ -24,8 +24,7 @@ const routes: Routes = [
   { path: 'licence', component: LicenceComponent },
   { path: 'products', component: ProductsListComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
-  { path: '404', component: PageNotFoundComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }, // USE 'redirectTo' here :)
+
   // developers views
   { path: 'dev/404', component: PageNotFoundComponent },
   { path: 'dev/log-in', component: LoginComponent },

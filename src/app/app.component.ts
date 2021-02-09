@@ -56,9 +56,11 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   // mode is the message that appears in the left top corner: Dev Mode
   mode = '';
-  token: string; // FIXME: should probably be assignet value from @Output() in login.component.ts
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
+
+  // NOTE: how to get token? Login Component wil save it in sessionStorage ES6 object
+  // Use sessionStorage.getItem('loginToken') to acces saved token ;)
 
   constructor(private translateService: TranslateService) {
     this.mode = environment.mode;
@@ -69,17 +71,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    //  FONT AWESOME ICONS add plugin  //
-
-    // We are only using the user-astronaut icon
-    library.add(
-      faUserPlus,
-      faSignInAlt,
-      faCopyright,
-      faEyeSlash,
-      faEye
-      // faBars // TODO: consider it
-    );
+    //  FA Icons added to library
+    library.add(faUserPlus, faSignInAlt, faCopyright, faEyeSlash, faEye);
     // Replace any existing <i> tags with <svg> and set up a MutationObserver to
     // continue doing this as the DOM changes.
     dom.watch();

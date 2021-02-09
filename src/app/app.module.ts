@@ -8,7 +8,6 @@ import { Interpolation } from '@angular/compiler'; // FIXME: CAN WE REMOVE IT?
 import localeESP from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 
-
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -31,11 +30,12 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
+import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component';
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 
-registerLocaleData(localeESP)
+registerLocaleData(localeESP);
 
 @NgModule({
   declarations: [
@@ -51,6 +51,7 @@ registerLocaleData(localeESP)
     FooterComponent,
     LicenceComponent,
     SingleProductComponent,
+    DevNavbarComponent,
     NoProductImagePipe,
   ],
 
@@ -68,14 +69,16 @@ registerLocaleData(localeESP)
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
-  providers: [{
-    provide: LOCALE_ID,
-    useValue: 'es-ES'
-  }],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'es-ES',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

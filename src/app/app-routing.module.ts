@@ -9,17 +9,34 @@ import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
 import { ProductsListComponent } from './views/product/products-list/products-list.component';
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
 
+import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
+// import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
+
 
 const routes: Routes = [
-  { path: '', component: LoginComponent }, // TODO: to be substituded by 'home'
-  { path: 'sign-up', component: SignUpComponent },
+  // TODO: '' as LoginComponent to be substituded by 'HomeComponent'
+  { path: '', component: LoginComponent },
+  // pages
+  { path: '404', component: PageNotFoundComponent },
   { path: 'log-in', component: LoginComponent },
+  { path: 'sign-up', component: SignUpComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
-  { path: 'licence', component: LicenceComponent }, 
+  { path: 'licence', component: LicenceComponent },
   { path: 'products', component: ProductsListComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }, // USE 'redirectTo' here :)
+  // developers views
+  { path: 'dev/404', component: PageNotFoundComponent },
+  { path: 'dev/log-in', component: LoginComponent },
+  { path: 'dev/sign-up', component: SignUpComponent },
+  { path: 'dev/recover-pass', component: RecoverPasswordComponent },
+  { path: 'dev/licence', component: LicenceComponent },
+  { path: 'dev/product-list', component: ProductsListComponent },
+  { path: 'dev/single-product', component: SingleProductComponent },
+  { path: 'dev/admin', component: AdminViewComponent },
+  // Path ** MUST be always the last route
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

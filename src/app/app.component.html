@@ -1,9 +1,15 @@
-<!-- DON'T REMOVE THE MODE -->
-<h5 class="text-erp-red">{{ mode }}</h5>
+<div class="container-fluid p-0">
 
-<app-header></app-header>
+  <!-- DON'T REMOVE THE MODE -->
+  <h5 class="text-erp-red">{{ mode }}</h5>
 
-<!-- ROUTES -->
-<router-outlet></router-outlet>
+  <!-- HEADER -->
+  <div class="container-fluid p-0" *ngIf="token === ''; else adminNavbar"><app-header></app-header></div>
+  <ng-template #adminNavbar><app-navbar-client></app-navbar-client></ng-template>
 
-<app-footer></app-footer>
+  <!-- ROUTES -->
+  <router-outlet></router-outlet>
+
+  <app-footer></app-footer>
+
+</div>

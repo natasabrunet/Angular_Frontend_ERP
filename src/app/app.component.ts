@@ -40,6 +40,8 @@ import {
   faCopyright,
   faEyeSlash,
   faEye,
+  faMapMarkerAlt,
+  faBuilding,
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
 //////////////////////////////////////////
@@ -77,7 +79,9 @@ export class AppComponent implements OnInit {
       faSignInAlt,
       faCopyright,
       faEyeSlash,
-      faEye
+      faEye,
+      faMapMarkerAlt,
+      faBuilding
       // faBars // TODO: consider it
     );
     // Replace any existing <i> tags with <svg> and set up a MutationObserver to

@@ -57,9 +57,9 @@
               <!-- Edit/Delete -->
               <td class="pr-td">
                 <div class="d-flex justify-content-center align-items-center">
-                <!-- TODO: add routerLink to new product page to edit product and product index (?) is index ok?-->
+                
                 <!-- Edit -->
-                <fa-icon class="mx-md-3" [icon]="faEdit" size="lg" role="button" [routerLink]="['', i]"></fa-icon>
+                <button (click)="goSingleProduct(product.id)" class="btn"><fa-icon class="mx-md-3" [icon]="faEdit" size="lg" role="button" ></fa-icon></button> 
 
                 <!-- Delete -->
                 <button type="button" class="btn" data-bs-toggle="modal" [attr.data-bs-target]="'#delete'+i" >
@@ -101,8 +101,9 @@
 
       <div class="row my-5">
         <div class="col text-end">
-          <!-- TODO: add routerLink to new product page -->
-          <button class="btn appButton" routerLink="">{{ 'Products-list.button.new-product' | translate }}</button>
+            <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD, para 
+            que la página de single product sepa si está en modo alta o mantenimiento  -->
+            <button (click)="goSingleProduct(0)" class="btn appButton">{{ 'Products-list.button.new-product' | translate }}</button>
         </div>
       </div>
     </div>

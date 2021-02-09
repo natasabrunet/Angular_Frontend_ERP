@@ -6,10 +6,12 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { LoginComponent } from './Views/Start/login/login.component';
 import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
-import { ProductsListComponent } from './views/products-list/products-list.component';
+import { ProductsListComponent } from './views/product/products-list/products-list.component';
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
+
 import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
 // import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
+
 
 const routes: Routes = [
   // TODO: '' as LoginComponent to be substituded by 'HomeComponent'
@@ -21,6 +23,9 @@ const routes: Routes = [
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'licence', component: LicenceComponent },
   { path: 'products', component: ProductsListComponent },
+  { path: 'single-product/:id', component: SingleProductComponent },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }, // USE 'redirectTo' here :)
   // developers views
   { path: 'dev/404', component: PageNotFoundComponent },
   { path: 'dev/log-in', component: LoginComponent },

@@ -1,4 +1,10 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  // EventEmitter,
+  OnInit,
+  // Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { LoginService } from 'src/app/Services/login.service';
@@ -20,7 +26,6 @@ export class LoginComponent implements OnInit, DoCheck {
   eye = false;
   server = false;
   showAlert = false;
-  token: string; // FIXME: should probably be sent via @Output() to app.component.ts
 
   constructor(
     private loginService: LoginService,
@@ -135,7 +140,8 @@ export class LoginComponent implements OnInit, DoCheck {
           this.server = true;
           this.msg = 'Form submitted successfully!';
 
-          this.token = object.token;
+          // save token in localStorage
+          this.openSession(object.token);
 
           // let alert show up and then redirect
           setTimeout(() => {
@@ -166,7 +172,7 @@ export class LoginComponent implements OnInit, DoCheck {
     }
   }
 
-  // FIXME: Remove in production! - PROVISIONAL DIRECT LOGIN
+  // TODO: Remove in production!
   autoLogin() {
     const bodyTEST = {
       username: 'D3831093R',
@@ -182,8 +188,10 @@ export class LoginComponent implements OnInit, DoCheck {
       },
     })
       .then((res: any) => res.json())
-      .then((token: I_token) => {
-        this.token = token.token;
+      .then((object: I_token) => {
+        // save token in localStorage
+        this.openSession(object.token);
+
         console.log('Form  submited to REST API automatically');
 
         // API REST response === 200 OK
@@ -200,5 +208,19 @@ export class LoginComponent implements OnInit, DoCheck {
         }, 2000);
       })
       .catch((error) => console.error('DEV LOG IN error:', error));
+  }
+
+  openSession(token: string) {
+    // save token
+    sessionStorage.setItem('erpToken', token);
+
+    // use token
+    // sessionStorage.getItem('erpToken');
+
+    // remove token
+    // sessionStorage.removeItem('erpToken');
+
+    // Remove all saved data from sessionStorage
+    // sessionStorage.clear();
   }
 }

@@ -39,6 +39,8 @@ import {
   faCopyright,
   faEyeSlash,
   faEye,
+  faMapMarkerAlt,
+  faBuilding,
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
 ////////////////////////////////////////
@@ -47,6 +49,8 @@ import {
 
 import { TranslateService } from '@ngx-translate/core';
 
+// @ts-ignore
+// @ts-ignore
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -57,6 +61,9 @@ export class AppComponent implements OnInit, DoCheck {
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
   APIres = {}; // API response
+
+  // NOTE: how to get token? Login Component wil save it in sessionStorage ES6 object
+  // Use sessionStorage.getItem('loginToken') to acces saved token ;)
 
   constructor(
     private loginService: LoginService,
@@ -69,10 +76,22 @@ export class AppComponent implements OnInit, DoCheck {
     this.langs = this.translateService.getLangs();
   }
 
-  ngOnInit(): void {
-    //  Font Awesome Icons - Optimized Library  //
-    library.add(faUserPlus, faSignInAlt, faCopyright, faEyeSlash, faEye);
-    dom.watch(); // inject SVG in <i> icons + watch DOM to update.
+  ngOnInit() {
+    //  FONT AWESOME ICONS add plugin  //
+
+    // We are only using the user-astronaut icon
+    library.add(
+      faUserPlus,
+      faSignInAlt,
+      faCopyright,
+      faEyeSlash,
+      faEye,
+      faMapMarkerAlt,
+      faBuilding
+    );
+    // Replace any existing <i> tags with <svg> and set up a MutationObserver to
+    // continue doing this as the DOM changes.
+    dom.watch();
 
     this.loginService.clearToken(); // clear API res on refresh
   }

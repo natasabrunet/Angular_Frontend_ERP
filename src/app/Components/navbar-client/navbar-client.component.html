@@ -1,8 +1,16 @@
 <!-- links and routerLinkActive needs to be added -->
-<div class="container-fluid p-0">
-	<nav class="navbar nav-color navbar-expand-md">
-	  <div class="container-fluid">
-      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-client" aria-controls="navbar-client" aria-expanded="false" aria-label="Toggle navigation">
+<div class="container-fluid p-0 position-sticky top-0" id="nav-client">
+  <nav class="navbar nav-color navbar-expand-md">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler navbar-dark"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbar-client"
+        aria-controls="navbar-client"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar-client">
@@ -14,7 +22,9 @@
             <a class="nav-link" role="button" routerLink="/about">About</a>
           </li>
           <li class="nav-item mb-1 mb-md-0">
-            <a class="nav-link" role="button" routerLink="/products">Products</a>
+            <a class="nav-link" role="button" routerLink="/products"
+              >Products</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" role="button" routerLink="/contact">Contact</a>
@@ -24,6 +34,7 @@
           <button type="submit" class="btn btn-erp-blue me-3">
             <a routerLink="/log-in" class="text-erp-white">
               Log In
+              <i class="fas fa-sign-in-alt"></i>
             </a>
           </button>
           <button type="submit" class="btn btn-erp-blue me-3">
@@ -33,7 +44,7 @@
             </a>
           </button>
         </div>
-		  </div>
-	  </div>
-	</nav>
+      </div>
+    </div>
+  </nav>
 </div>

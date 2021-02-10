@@ -5,7 +5,7 @@
 
   <!-- HEADER -->
   <!-- If the user is logged in show a navbar - if not show another navbar -->
-  <div class="container-fluid p-0" *ngIf="loggedToken; else adminNavbar"><app-header></app-header></div>
+  <div class="container-fluid p-0" *ngIf="loggedToken ; else adminNavbar"><app-header></app-header></div>
   <ng-template #adminNavbar><app-navbar-client></app-navbar-client></ng-template>
 
 

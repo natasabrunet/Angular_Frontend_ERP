@@ -8,7 +8,6 @@ import { Interpolation } from '@angular/compiler'; // FIXME: CAN WE REMOVE IT?
 import localeESP from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 
-
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -25,7 +24,7 @@ import { AdminComponent } from './Components/header/admin/admin.component';
 import { NotificationsComponent } from './Components/header/notifications/notifications.component';
 import { HeaderSearchComponent } from './Components/header/header-search/header-search.component';
 import { TogglerComponent } from './Components/header/toggler/toggler.component';
-import { ProductsListComponent } from './views/products-list/products-list.component';
+import { ProductsListComponent } from './Views/Product/products-list/products-list.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
@@ -75,7 +74,9 @@ registerLocaleData(localeESP)
   providers: [{
     provide: LOCALE_ID,
     useValue: 'es-ES'
-  }],
+  }
+  ],
+  
   bootstrap: [AppComponent],
 })
 export class AppModule {}

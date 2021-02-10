@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Product } from 'src/app/Models/newProduct';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { setTokenSourceMapRange } from 'typescript';
+import { Product } from '../Models/newProduct';
 
 
 @Injectable({
@@ -8,40 +10,60 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ProductsService {
 
-  products;
-  private baseUrl: string;
+  url: string = 'http://217.76.158.200:8080';
+  endPoint: string = '/api/products';
+  token: string = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwbG9za3kyMUBob3RtYWlsLmNvbSIsImV4cCI6MTYxMjk1OTQ4OCwiaWF0IjoxNjEyOTQxNDg4fQ.N2Cvfaq70JifmC7ui41I53nhjsGImfskRYNjiAcKwAJqWvxTfndWnGl0AjXOpZaG7yfmqATnNNXFVEbhV5Kbog'
 
- 
-
-
-  constructor( private httpClient: HttpClient ) {
-
-    this.baseUrl = 'http://217.76.158.200:8080';
-   }
+  constructor( private httpClient: HttpClient ) { }
 
 
-  //  TODO: Get token dynamically
-   getProducts() {
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvaWhvaWhvaWgiLCJleHAiOjE2MTE5MzE1NzUsImlhdCI6MTYxMTkxMzU3NX0.kxZsqSwCvKHWqTBlM2xO4tthKFXYeq-LoVYmbmLSTj6nZ2loaV_d7xsu_XJ6CdyEegNt_ilZPsw3-IFSuRXBIw'
+  getProducts() {
+   const headers = new HttpHeaders({
+     Authorization: this.token
     });
+    return this.httpClient.get( `${this.url}${this.endPoint}`, {headers});
+  }
 
-     return this.httpClient.get( `${this.baseUrl}/api/products`, {headers});
-   }
+  deleteProduct(id: number) {
+   const options ={ 
+       headers: new HttpHeaders({
+         Authorization: this.token
+       }),
+       body: {
+         id: id
+       }};
+   return this.httpClient.delete( `${this.url}${this.endPoint}`, options);
+  }
 
-
-
-  //  TODO: Get token dynamically
-   deleteProduct(id: number) {
+  getProduct(id: number) {
+    const headers = new HttpHeaders({
+      Authorization: this.token
+    });
+    return this.httpClient.get( `${this.url}${this.endPoint}/${id}`, {headers});
+  }
+ 
+  updateProduct(id:number, name:string, stock:number, image:string, price:number) {
+    let body= new Product(name, stock, price, image);
+    
     const options ={ 
-        headers: new HttpHeaders({
-          Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvaWhvaWhvaWgiLCJleHAiOjE2MTE5MjkzMDAsImlhdCI6MTYxMTkxMTMwMH0.PrD1e74OPngIAEvt3DHg4GAOMNfQCaM0XhRreo1hAHtf9cTm8mzlfJR13KaCSiTvpyLKVrAOEaAovoPHvKT7ew'
-        }),
-        body: {
-          id: id
-        }};
+      headers: new HttpHeaders({
+       Authorization: this.token
+      }),
+      body: {
+        id: id
+      }
+    }; 
+    return this.httpClient.put( `${this.url}${this.endPoint}`, options);
+  }
 
-    return this.httpClient.delete( `${this.baseUrl}/api/products`, options);
-   }
+  addProduct(name:string, stock:number, image:string,  price:number) {
+    let body= new Product(name, stock, price, image);
 
+    const options ={ 
+      headers: new HttpHeaders({
+       Authorization: this.token
+      })
+    }; 
+    return this.httpClient.post(`${this.url}${this.endPoint}`, body, options) ;
+  }
 }

@@ -1,38 +1,63 @@
-<section class="container-fluid">
+<section class="container-fluid m-5">
     
-<h3 class="text-center">{{ "singleProd.tittle" | translate }}</h3>
+<h3 class="text-center" *ngIf="idProduct==0; else updateProduct">{{ "singleProd.tittleNew" | translate }}</h3>
+<ng-template #updateProduct><h3 class="text-center">{{ "singleProd.tittleUpdate" | translate }}</h3></ng-template>
     <div class="row d-flex justify-content-center">
-         
+        
         <div class="col-md-6">
             <form id="singleProduct" action="">
                     <div class="my-3 input-group">
                         <label for="nameProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.name" | translate }}</label>
-                        <input type="text" class="form-control" id="nameProduct" placeholder="{{'singleProd.namePlaceHolder' | translate }}">
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="nameProduct" 
+                            placeholder="{{'singleProd.namePlaceHolder' | translate }}"
+                            name = "name" 
+                            [(ngModel)] = "product.name"
+                        > 
                     </div> 
 
                     <div class="mb-3 input-group">
                         <label for="stockProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.stock" | translate }}</label>
-                        <input type="number" class="form-control" id="stockProduct" placeholder="{{'singleProd.stockPlaceHolder' | translate }}">
+                        <input 
+                            type="number" 
+                            class="form-control" 
+                            id="stockProduct" 
+                            placeholder="{{'singleProd.stockPlaceHolder' | translate }}"     
+                            name = "stock" 
+                            [(ngModel)] = "product.stock"
+                        >
                     </div>
     
                     <div class="input-group">
                         <label for="priceProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.price" | translate }}</label>
-                        <input type="text" class="form-control" id="priceProduct" placeholder="{{'singleProd.pricePlaceHolder' | translate }}">
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="priceProduct" 
+                            placeholder="{{'singleProd.pricePlaceHolder' | translate }}" 
+                            name = "price" 
+                            [(ngModel)] = "product.price"
+                        >
                         <span class="input-group-text">€</span>             
                     </div>
                    
             </form>
         </div>
 
-        <div class="col-md-4 mt-3 d-flex justify-content-center">
-            <img src="../assets/images/img-sample-product_900x600.jpg" class="img rounded" alt="image of the product">
-            <a href=""><fa-icon [icon]="iconPenSquare" [fixedWidth]="true" size="2x"></fa-icon></a>
-        </div>
+        <div form ="singleProduct" class="col-md-4 mt-3  position-relative">
+            <img [src]="product.image" class="img rounded" alt="image of the product">
+            <fa-icon class="buttonIcon" [icon]="iconPenSquare" [fixedWidth]="true" size="2x"></fa-icon> 
+        </div> 
 
          
         <div form="singleProduct" class="col-md-6 d-flex justify-content-center pb-3 my-3">
-            <button class="col-6 btn btn-erp-general me-3" type="submit">{{ "btn.add" | translate }}</button>
-            <button class="col-6 btn btn-erp-delete" type="submit">{{ "btn.delete" | translate }}</button>
+            <button  form ="singleProduct" class="col-6 btn btn-erp-general me-3" type="submit" *ngIf="idProduct==0; else updateBtn" (click)="add(name, stock, image, price)">{{ "btn.add" | translate }}</button>
+            <ng-template #updateBtn><button form ="singleProduct" class="col-6 btn btn-erp-general me-3" type="submit" (click)="update(id, name, stock, image, price)">{{ "btn.update" | translate }}</button></ng-template>
+
+            <button form ="singleProduct" class="col-6 btn btn-erp-delete" type="button" (click)="delete(idProduct)">{{ "btn.delete" | translate }}</button>
+                            
         </div>
         
         <div class="col-md-4">

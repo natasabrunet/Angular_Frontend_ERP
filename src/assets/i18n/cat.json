@@ -23,7 +23,8 @@
 
     "btn":{
         "add": "AFEGIR",
-        "delete": "ESBORRAR"
+        "delete": "ESBORRAR",
+        "update": "MODIFICAR"
     }, 
 
     "footer":{
@@ -31,7 +32,8 @@
     }, 
 
     "singleProd":{
-        "tittle": "NOU PRODUCTE",
+        "tittleNew": "NOU PRODUCTE",
+        "tittleUpdate": "MODIFICAR PRODUCTE",
         "name": "Nom",
         "namePlaceHolder": "Introdueixi el nom del producte",
         "stock": "Stock",

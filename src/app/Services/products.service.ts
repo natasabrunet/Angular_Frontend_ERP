@@ -48,10 +48,7 @@ export class ProductsService {
     const options ={ 
       headers: new HttpHeaders({
        Authorization: this.token
-      }),
-      body: {
-        id: id
-      }
+      })
     }; 
     return this.httpClient.put( `${this.url}${this.endPoint}`, options);
   }

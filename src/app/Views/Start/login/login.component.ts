@@ -1,10 +1,10 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { LoginService } from 'src/app/Services/login.service';
 import { I_logedUser } from 'src/app/Models/logedUser';
-import { I_token } from 'src/app/Models/token';
-import { Router } from '@angular/router';
+import { I_loginAPIres } from 'src/app/Models/loginAPIres';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit, DoCheck {
     this.submitable = this.form.valid ? true : false; // .btn style + button@submit disabled
   }
 
-  toggleNIF() {
+  toggleNIF(): void {
     this.NIF = !this.NIF; //rebuild form with current NIF | email
     this.createForm();
   }
@@ -126,9 +126,9 @@ export class LoginComponent implements OnInit, DoCheck {
       }
 
       this.loginService.loginUser(<I_logedUser>body).subscribe(
-        (object: I_token) => {
+        (APIres: I_loginAPIres) => {
           // API REST == 200 OK
-          this.openSession(object.token); // save API res
+          this.openSession(APIres); // save API res
           this.showAlert = true;
           this.server = true;
           this.msg = 'Form successfully submitted';
@@ -162,9 +162,9 @@ export class LoginComponent implements OnInit, DoCheck {
     }
   }
 
-  // TODO: Remove in production!
-  autoLogin() {
-    const bodyTEST = {
+  // TODO: Remove autoLogin() in production!
+  autoLogin(): void {
+    const bodyTEST: I_logedUser = {
       username: 'D3831093R',
       password: 'Dev@lop3rs',
     };
@@ -179,13 +179,9 @@ export class LoginComponent implements OnInit, DoCheck {
       },
     })
       .then((res: any) => res.json())
-      .then((object: I_token) => {
-        // FIXME: interface update token + pipe response
-
-
-
+      .then((APIres: I_loginAPIres) => {
         // API REST == 200 OK
-        this.openSession(object.token); // save API res
+        this.openSession(APIres); // save API res
         this.showAlert = true;
         this.server = true;
         this.msg = 'Form successfully submitted';
@@ -200,7 +196,7 @@ export class LoginComponent implements OnInit, DoCheck {
       .catch((error) => console.error('DEV LOG IN error:', error));
   }
 
-  openSession(APIres: string) {
+  openSession(APIres: I_loginAPIres): void {
     this.loginService.saveToken(APIres);
   }
 }

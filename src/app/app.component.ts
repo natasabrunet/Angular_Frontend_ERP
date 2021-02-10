@@ -56,7 +56,7 @@ export class AppComponent implements OnInit, DoCheck {
   mode = ''; // environment mode msg
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
-  APIres = {};
+  APIres = {}; // API response
 
   constructor(
     private loginService: LoginService,
@@ -69,7 +69,7 @@ export class AppComponent implements OnInit, DoCheck {
     this.langs = this.translateService.getLangs();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     //  Font Awesome Icons - Optimized Library  //
     library.add(faUserPlus, faSignInAlt, faCopyright, faEyeSlash, faEye);
     dom.watch(); // inject SVG in <i> icons + watch DOM to update.

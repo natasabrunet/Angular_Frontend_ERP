@@ -4,7 +4,7 @@ export interface I_loginAPIres {
   nombreUsuario: string;
   authorities: [
     {
-      authority: string;
+      authority: string; // ROLE: Admin, CLient, Employee
     }
   ];
 }

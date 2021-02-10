@@ -18,9 +18,18 @@ export class LoginService {
 
   // POST
   loginUser(body: I_logedUser): Observable<I_loginAPIres> {
+
+
+
+    
+
     return this.http.post<I_loginAPIres>(this.url + this.endpoint, body, {
       responseType: 'json',
     });
+
+
+
+
     // .pipe(map((res: I_loginAPIres): string => res.token));
   }
 

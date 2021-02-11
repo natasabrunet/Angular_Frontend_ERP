@@ -1,12 +1,25 @@
-<!-- DON'T REMOVE THE MODE -->
-<h5 class="text-erp-red">{{ mode }}</h5>
+<div class="container-fluid p-0">
+  <!-- DON'T REMOVE THE MODE -->
+  <h5 class="text-erp-red">{{ mode }}</h5>
 
-<app-header></app-header>
+  <!-- HEADER -->
+  <!-- If the user is logged in show a navbar - if not show another navbar -->
+  <div class="container-fluid p-0 position-sticky top-0 z-2000" *ngIf="APIres; else adminNavbar">
+    <app-header></app-header>
+  </div>
+  <ng-template #adminNavbar>
+    <app-navbar-client></app-navbar-client>
+  </ng-template>
 
-<!-- ROUTES -->
-<router-outlet></router-outlet>
+  <!-- uncomment to get API res feedback check -->
+  <!-- {{ APIres }} -->
 
-<app-footer></app-footer>
+  <!-- ROUTES -->
+  <router-outlet></router-outlet>
 
-<!-- DEVELOPERS VIEWS -->
-<app-dev-navbar></app-dev-navbar>
+  <!-- FOOTER -->
+  <app-footer></app-footer>
+
+  <!-- TODO: to be removed in production - DEVELOPERS VIEWS -->
+  <app-dev-navbar></app-dev-navbar>
+</div>

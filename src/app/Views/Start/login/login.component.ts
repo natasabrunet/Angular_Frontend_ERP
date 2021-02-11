@@ -1,16 +1,10 @@
-import {
-  Component,
-  DoCheck,
-  // EventEmitter,
-  OnInit,
-  // Output,
-} from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { LoginService } from 'src/app/Services/login.service';
 import { I_logedUser } from 'src/app/Models/logedUser';
-import { I_token } from 'src/app/Models/token';
-import { Router } from '@angular/router';
+import { I_loginAPIres } from 'src/app/Models/loginAPIres';
 
 @Component({
   selector: 'app-login',
@@ -41,7 +35,7 @@ export class LoginComponent implements OnInit, DoCheck {
     this.submitable = this.form.valid ? true : false; // .btn style + button@submit disabled
   }
 
-  toggleNIF() {
+  toggleNIF(): void {
     this.NIF = !this.NIF; //rebuild form with current NIF | email
     this.createForm();
   }
@@ -132,32 +126,28 @@ export class LoginComponent implements OnInit, DoCheck {
       }
 
       this.loginService.loginUser(<I_logedUser>body).subscribe(
-        (object: I_token) => {
-          console.log('Form submited to REST API');
-
-          // API REST response === 200 OK
+        (APIres: I_loginAPIres) => {
+          // API REST == 200 OK
+          this.openSession(APIres); // save API res
           this.showAlert = true;
           this.server = true;
-          this.msg = 'Form submitted successfully!';
-
-          // save token in localStorage
-          this.openSession(object.token);
+          this.msg = 'Form successfully submitted';
+          console.log('Form successfully submited to REST API');
 
           // let alert show up and then redirect
           setTimeout(() => {
-            this.router.navigateByUrl(''); // FIXME: change URL if needed
-            // + clean form CSS
-            this.showAlert = false;
-            this.server = false;
+            this.showAlert = false; // alert OK
+            this.server = false; // spinner out
+            this.router.navigateByUrl(''); // redirect to Shell
           }, 2000);
         },
         (error) => {
           console.warn(error.message);
-
-          //  API REST response !== 200
-          this.showAlert = true;
-          this.server = false;
+          //  API REST != 200
+          this.showAlert = true; // alert ERROR
+          this.server = false; // spinner out
           this.msg = 'Log In failed. Try again or go Sign Up';
+          console.error('Log In failed. Try again or go Sign Up');
         }
       );
 
@@ -172,14 +162,15 @@ export class LoginComponent implements OnInit, DoCheck {
     }
   }
 
-  // TODO: Remove in production!
-  autoLogin() {
-    const bodyTEST = {
+  // TODO: Remove autoLogin() in production!
+  autoLogin(): void {
+    const bodyTEST: I_logedUser = {
       username: 'D3831093R',
       password: 'Dev@lop3rs',
     };
     // NOTE: This user works because it already exists in DB
 
+    // Automatic Log In
     fetch('http://217.76.158.200:8080/api/login', {
       method: 'POST',
       body: JSON.stringify(bodyTEST),
@@ -188,39 +179,24 @@ export class LoginComponent implements OnInit, DoCheck {
       },
     })
       .then((res: any) => res.json())
-      .then((object: I_token) => {
-        // save token in localStorage
-        this.openSession(object.token);
-
-        console.log('Form  submited to REST API automatically');
-
-        // API REST response === 200 OK
+      .then((APIres: I_loginAPIres) => {
+        // API REST == 200 OK
+        this.openSession(APIres); // save API res
         this.showAlert = true;
         this.server = true;
-        this.msg = 'Form submitted successfully!';
+        this.msg = 'Form successfully submitted';
+        console.log('Form automatically submited to REST API');
 
-        // let alert show up + then redirect
         setTimeout(() => {
-          this.router.navigateByUrl('');
-          // + clean form CSS
-          this.showAlert = false;
-          this.server = false;
+          this.showAlert = false; // alert OK
+          this.server = false; // spinner out
+          this.router.navigateByUrl(''); // redirect to Shell
         }, 2000);
       })
       .catch((error) => console.error('DEV LOG IN error:', error));
   }
 
-  openSession(token: string) {
-    // save token
-    sessionStorage.setItem('erpToken', token);
-
-    // use token
-    // sessionStorage.getItem('erpToken');
-
-    // remove token
-    // sessionStorage.removeItem('erpToken');
-
-    // Remove all saved data from sessionStorage
-    // sessionStorage.clear();
+  openSession(APIres: I_loginAPIres): void {
+    this.loginService.saveToken(APIres);
   }
 }

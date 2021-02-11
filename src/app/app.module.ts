@@ -30,13 +30,21 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
+import { HomepageComponent } from './Views/Homepage/homepage.component';
+import { AboutPageComponent } from './Views/about-page/about-page.component';
+import { ContactPageComponent } from './Views/contact-page/contact-page.component';
+
 import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component';
+
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 
 registerLocaleData(localeESP);
 
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +61,9 @@ registerLocaleData(localeESP);
     SingleProductComponent,
     DevNavbarComponent,
     NoProductImagePipe,
+    HomepageComponent,
+    AboutPageComponent,
+    ContactPageComponent
   ],
 
   imports: [

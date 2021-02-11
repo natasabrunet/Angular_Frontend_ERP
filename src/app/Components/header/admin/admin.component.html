@@ -26,7 +26,7 @@
       class="dropdown-menu dropdown-menu-end admin-menu mt-4"
       aria-labelledby="profileDropdown"
     >
-  
+
       <a class="dropdown-item admin-menu__item">
         <div
           class="d-flex align-items-center"
@@ -75,12 +75,12 @@
           <div class="admin-menu__item--thumbnail">
             <fa-icon [icon]="faPowerOff" size="lg"></fa-icon>
           </div>
-          <p class="admin-menu__item--text mb-0">
+          <p (click)="logout()" class="admin-menu__item--text mb-0">
             {{ 'Admin.header.logout' | translate }}
           </p>
         </div>
       </a>
-      
+
     </div>
-  </div>  
+  </div>
 </div>

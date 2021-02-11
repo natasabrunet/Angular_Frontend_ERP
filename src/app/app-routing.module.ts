@@ -6,7 +6,7 @@ import { LicenceComponent } from './Components/Footer/licence/licence.component'
 import { LoginComponent } from './Views/Start/login/login.component';
 import { RecoverPasswordComponent } from './Views/Start/recover-password/recover-password.component';
 import { SignUpComponent } from './Views/Start/sign-up/sign-up.component';
-import { ProductsListComponent } from './views/product/products-list/products-list.component';
+import { ProductsListComponent } from './Views/Product/products-list/products-list.component';
 import { SingleProductComponent } from './Views/Product/single-product/single-product.component';
 import { HomepageComponent } from './Views/Homepage/homepage.component';
 import { AdminViewComponent } from './Views/Admin-view/admin-view.component';

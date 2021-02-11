@@ -60,10 +60,7 @@ export class AppComponent implements OnInit, DoCheck {
   mode = ''; // environment mode msg
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
-  APIres = {}; // API response
-
-  // NOTE: how to get token? Login Component wil save it in sessionStorage ES6 object
-  // Use sessionStorage.getItem('loginToken') to acces saved token ;)
+  token = ''; // <-- log in OK
 
   constructor(
     private loginService: LoginService,
@@ -78,8 +75,6 @@ export class AppComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     //  FONT AWESOME ICONS add plugin  //
-
-    // We are only using the user-astronaut icon
     library.add(
       faUserPlus,
       faSignInAlt,
@@ -89,15 +84,13 @@ export class AppComponent implements OnInit, DoCheck {
       faMapMarkerAlt,
       faBuilding
     );
-    // Replace any existing <i> tags with <svg> and set up a MutationObserver to
-    // continue doing this as the DOM changes.
-    dom.watch();
+    dom.watch(); // Replace any existing <i> tags with <svg> icon
 
-    this.loginService.clearToken(); // clear API res on refresh
+    this.loginService.clearSession(); // clear previous sessionStorage
   }
 
   ngDoCheck(): void {
-    this.APIres = this.loginService.getToken(); // save API res <-- log in
+    this.token = this.loginService.getToken; // <-- log in
   }
 
   changeLang(lang: string) {

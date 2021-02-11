@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faUserCircle, faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
 import { faCog, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/Services/login.service';
 
 
 @Component({
@@ -17,9 +18,11 @@ export class AdminComponent implements OnInit {
   faCog = faCog;
   faPowerOff = faPowerOff;
 
-  constructor() { }
+  constructor( private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
-
+  logout() {
+    this.loginService.clearToken();
+  }
 }

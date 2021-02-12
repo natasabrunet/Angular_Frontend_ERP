@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/Services/products.service';
 
 
+
 @Component({
   selector: 'app-single-product',
   templateUrl: './single-product.component.html',
@@ -12,59 +13,28 @@ import { ProductsService } from 'src/app/Services/products.service';
 export class SingleProductComponent implements OnInit {
 
   iconPenSquare = faPenSquare; 
-
-  product:any = {
-    "id": 22, 
-    "name": "Cervezas", 
-    "stock": 148, 
-    "image": "assets/images/img-sample-product_900x600.jpg", 
-    "family": "ejemplo familia",
-    "price": 5,
-    "vat": 21,
-    "wholesale_price": 2.50,
-    "wholesale_quantity": 500
-  };
-
+  product:any = [];
   idProduct:number; 
  
   constructor(
     private productsService: ProductsService,
     private _router: ActivatedRoute) 
+
   {
-    /*Con este código recupero el parámetro con el que se llama*/
+    //Recuperamos el parámetro (id) con el que se llama desde la lista de productos y 
     this._router.params.subscribe( params => {
-      this.getProduct( params ['id'] );
-      this.idProduct = params['id'];
+      this.productsService.getProduct( params ['id'] )
+        .subscribe( (data:any) => {
+          this.product = data.product;
+      }) //Llamamos al servicio que accede a la API para recuperar la info del producto y lo movemos a la propiedad product para que se cargue en la vista
+      
+      this.idProduct = params['id']; //Guardamos el ID para poder usarlo en todo el componente (necesario para update y delete)
+       
     })
-  } 
-   
-  /*Con esta función llamo al servicio que accede a la API para que me devuelva los datos de un producto por ID*/
-  getProduct( id: number ){
-    this.productsService.getProduct ( id )
-      .subscribe(producto => {
-        console.log( producto );
-      })
   }
 
 
-  /*Con esta función llamo al servicio que accede a la API para eliminar un producto por ID */
-  delete( id: number ) {
-    this.productsService.deleteProduct( id )
-      .subscribe();
-  }
-
-  /*Con esta función llamo al servicio que accede a la API para modificar un producto por ID */
-    update( id: number, name: string, stock:number, image: string, price:number ) {
-      this.productsService.updateProduct( this.product.id, this.product.name, this.product.stock, this.product.image, this.product.price )
-        .subscribe();
-  }
-
-  /*Con esta función llamo al servicio que accede a la API para modificar un producto por ID */
-/*   add( name: string, stock:number, image: string, price:number ) {
-    this.productsService.addProduct( this.product.name, this.product.stock, this.product.image, this.product.price )
-      .subscribe();
-  } */
-
+  //Llamamos al servicio que accede a la API para añadir un nuevo producto
   add( ){
     this.productsService.addProduct ( this.product.name, this.product.stock, this.product.image, this.product.price )
       .subscribe(producto => {
@@ -72,7 +42,22 @@ export class SingleProductComponent implements OnInit {
       })
   }
 
-  ngOnInit(): void {}
+  //Llamamos al servicio que accede a la API para modificar un producto por ID
+  update( id: number, name: string, stock:number, image: string, price:number ) {
+    this.productsService.updateProduct( id, this.product.name, this.product.stock, this.product.image, this.product.price )
+      .subscribe();
+  }  
+  
+  //Llamamos al servicio que accede a la API para eliminar un producto por ID
+  delete( id: number ) {
+    this.productsService.deleteProduct( id )
+      .subscribe();
+  }
+  ngOnInit(): void {
+
+  }
+
 
 
 }
+

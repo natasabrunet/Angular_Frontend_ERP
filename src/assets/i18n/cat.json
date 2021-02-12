@@ -39,7 +39,12 @@
         "stock": "Stock",
         "stockPlaceHolder": "Introdueixi la quantitat de productes",
         "price": "Preu",
-        "pricePlaceHolder": "Introdueixi el preu"
+        "pricePlaceHolder": "Introdueixi el preu",
+        "addOkMessage": "El producte ha sigut afegit correctament.",
+        "addErrorMessage": "No s'ha pogut donar d'alta el producte. Si us plau, contacte amb el equip IT.",
+        "updateOkMessage": "El producte ha sigut actualitzat correctament.",
+        "updateErrorMessage": "No s'ha pogut actualitzar el producte. Si us plau, contacte amb el equip IT."
+
     },
 
     "Products-list": {

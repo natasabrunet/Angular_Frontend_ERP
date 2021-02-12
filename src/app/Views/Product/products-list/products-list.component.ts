@@ -17,12 +17,11 @@ export class ProductsListComponent implements OnInit {
   products: any[];
  
 
+
   constructor( 
     private productsService: ProductsService,
     private router:Router ) 
-    { 
-    
-  }
+  { }
 
   ngOnInit(): void {
     this.productsService.getProducts()

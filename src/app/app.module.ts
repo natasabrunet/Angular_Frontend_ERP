@@ -24,7 +24,7 @@ import { AdminComponent } from './Components/header/admin/admin.component';
 import { NotificationsComponent } from './Components/header/notifications/notifications.component';
 import { HeaderSearchComponent } from './Components/header/header-search/header-search.component';
 import { TogglerComponent } from './Components/header/toggler/toggler.component';
-import { ProductsListComponent } from './views/Product/products-list/products-list.component';
+import { ProductsListComponent } from './Views/Product/products-list/products-list.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';
 import { NavbarClientComponent } from './Components/navbar-client/navbar-client.component';

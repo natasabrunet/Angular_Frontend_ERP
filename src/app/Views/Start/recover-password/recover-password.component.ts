@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { debounceTime } from 'rxjs/operators';
+// import { debounceTime } from 'rxjs/operators';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { RecoverService } from 'src/app/Services/recover.service';
 
 @Component({
   selector: 'app-recover-password',
@@ -13,13 +14,7 @@ export class RecoverPasswordComponent implements OnInit {
 	closeResult = '';
 	emailCtrl = new FormControl('',[Validators.required, Validators.pattern(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)]);
 
-  constructor(private modalService: NgbModal) { 
-	  this.emailCtrl.valueChanges
-	  .pipe(
-		  debounceTime(500)
-		  )
-	  .subscribe( value =>{console.log(value);
-	})
+  constructor(private modalService: NgbModal, private recoverService:RecoverService) { 
   }
 
   ngOnInit(): void {
@@ -30,7 +25,17 @@ export class RecoverPasswordComponent implements OnInit {
 	console.log(this.emailCtrl.value);
 }
 
+
 open(content) {
+  //onSubmit
+  console.log("hola");
+  const user = (<HTMLInputElement>document.getElementById('email')).value;
+  this.recoverService.editUser(user);
+
+
+
+
+  //popUp email sent
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -47,19 +52,10 @@ open(content) {
       return `with: ${reason}`;
     }
   }
-
+ 
 
 }
 
 
-// function validate(){
-// 	var errorEmail, emailField;
-// 	var emailTest = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-// 	errorEmail = document.getElementById("emailError");
-// 	errorEmail.innerHTML = "";
-// 	emailField = document.getElementById("email").value;
 
-// if(emailTest.test(emailField)==false){
-// 	errorEmail.innerHTML = "Please, enter a valid e-mail";
-// 	}
-// }
+

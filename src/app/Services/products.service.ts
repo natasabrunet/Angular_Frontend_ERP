@@ -21,7 +21,6 @@ export class ProductsService {
   ) 
   {   
     this.token = this.loginService.getBearerToken;  //Accedemos al servicio de login para recuperar el token que se ha guardado
-    this.token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwbG9za3kyMUBob3RtYWlsLmNvbSIsImV4cCI6MTYxMzQyNzQ5MiwiaWF0IjoxNjEzNDA5NDkyfQ.GtG8Rpb_H4u6JMu39pY5jNZ2_cNgq8_HJjqzrvxb2mY1NCc_ekO2lIabcx5FIDE8GTJSe3cW_6neoNqmNtQ8Hw";
   }
 
   getProducts() {

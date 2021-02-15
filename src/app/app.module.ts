@@ -17,6 +17,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { StartModule } from './Views/Start/start.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminViewModule } from './Views/Admin-view/admin-view.module';
+import { ClientModule } from './Views/Client/client.module';
 
 // import components
 import { HeaderComponent } from './Components/header/header.component';
@@ -73,6 +74,7 @@ registerLocaleData(localeESP);
     FormsModule,
     ReactiveFormsModule, // don't remove this
     StartModule,
+    ClientModule,
     AdminViewModule,
     // ngx-translate and the loader module
     HttpClientModule,

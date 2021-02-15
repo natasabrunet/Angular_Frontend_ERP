@@ -3,28 +3,21 @@
   <h5 class="text-erp-red">{{ mode }}</h5>
 
   <!-- HEADER -->
-  <!-- If the user is logged in show a navbar - if not show another navbar -->
-
-  <!-- FIXME: header dissabled: undo -->
-  <!-- <div
+  <div
     class="container-fluid p-0 position-sticky top-0 z-2000"
-    *ngIf="token; else adminNavbar"
+    *ngIf="!token; else adminNavbar"
   >
+    <!-- FIXME: header rollback *ngIf -->
     <nav class="position-sticky top-0 z-2000">
-      <app-header></app-header>
       <app-role-sidebar></app-role-sidebar>
+      <app-header></app-header>
     </nav>
   </div>
 
   <ng-template #adminNavbar>
     <app-navbar-client></app-navbar-client>
-  </ng-template> -->
-
-  <!-- FIXME: header direct: insert in *ngIf <div> -->
-  <nav class="position-sticky top-0 z-2000">
-    <app-header></app-header>
-    <app-role-sidebar></app-role-sidebar>
-  </nav>
+  </ng-template>
+  
 
   <!-- ROUTES -->
   <router-outlet></router-outlet>

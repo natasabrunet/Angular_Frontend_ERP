@@ -9,14 +9,18 @@
   <!-- <div
     class="container-fluid p-0 position-sticky top-0 z-2000"
     *ngIf="token; else adminNavbar"
-    >
-    <app-header></app-header>
+  >
+    <nav class="position-sticky top-0 z-2000">
+      <app-header></app-header>
+      <app-role-sidebar></app-role-sidebar>
+    </nav>
   </div>
+
   <ng-template #adminNavbar>
     <app-navbar-client></app-navbar-client>
   </ng-template> -->
 
-  <!-- FIXME: header direct: remove -->
+  <!-- FIXME: header direct: insert in *ngIf <div> -->
   <nav class="position-sticky top-0 z-2000">
     <app-header></app-header>
     <app-role-sidebar></app-role-sidebar>

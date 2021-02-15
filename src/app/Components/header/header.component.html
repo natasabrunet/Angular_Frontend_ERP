@@ -1,5 +1,5 @@
 <header>
-  <div class="navbar navbar-top navbar-expand-md header px-5 py-3 bg-erp-white">
+  <div class="navbar navbar-top navbar-expand-md header py-2 px-3 bg-erp-white">
     <!-- <div class="col-1">
       <fa-icon [icon]="faBars" size="lg"></fa-icon>
       <app-toggler></app-toggler>
@@ -10,16 +10,15 @@
     </div>
 
     <div class="col d-flex justify-content-end align-items-center">
-      <app-notifications class="ms-auto me-3"></app-notifications>
+      <app-notifications></app-notifications>
 
       <app-admin></app-admin>
     </div>
 
-    <div class="col-1 contenedor-botones d-flex justify-content-end">
+    <!-- <div class=" d-flex justify-content-end"> -->
       <select #langSelect (change)="changeLanguage(langSelect.value)">
-        <option *ngFor="let lang of langs"> {{lang}} </option>
+        <option *ngFor="let lang of langs">{{ lang }}</option>
       </select>
-
-    </div>
+    <!-- </div> -->
   </div>
 </header>

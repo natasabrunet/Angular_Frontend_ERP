@@ -4,15 +4,15 @@
 
   <!-- HEADER -->
   <!-- If the user is logged in show a navbar - if not show another navbar -->
-  <div class="container-fluid p-0 position-sticky top-0 z-2000" *ngIf="APIres; else adminNavbar">
+  <div
+    class="container-fluid p-0 position-sticky top-0 z-2000"
+    *ngIf="token; else adminNavbar"
+  >
     <app-header></app-header>
   </div>
   <ng-template #adminNavbar>
     <app-navbar-client></app-navbar-client>
   </ng-template>
-
-  <!-- uncomment to get API res feedback check -->
-  <!-- {{ APIres }} -->
 
   <!-- ROUTES -->
   <router-outlet></router-outlet>

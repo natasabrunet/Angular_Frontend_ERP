@@ -197,6 +197,6 @@ export class LoginComponent implements OnInit, DoCheck {
   }
 
   openSession(APIres: I_loginAPIres): void {
-    this.loginService.saveToken(APIres);
+    this.loginService.saveSession(APIres);
   }
 }

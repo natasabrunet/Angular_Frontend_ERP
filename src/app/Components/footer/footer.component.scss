@@ -20,3 +20,7 @@ footer, a {
 .information a:hover { 
     background-size: 100% 1px;
 }
+
+footer {
+    z-index: 2050;
+}

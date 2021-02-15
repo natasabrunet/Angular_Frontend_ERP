@@ -1,34 +1,40 @@
 <div class="body bg-erp-silver">
-<div class="container pb-5 pt-5">
-  <div class="row mx-auto mb-3">
-    <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
-      <h1 class="text-center pb-3">Sign up</h1>
-      <div class="text-center">
-        <a class="ps-2" [routerLink]="['/log-in']" routerLinkActive="router-link-active">Already a member?</a>
+  <div class="container pb-5 pt-5">
+    <div class="row mx-auto mb-3">
+      <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
+        <h1 class="text-center pb-3">Sign up</h1>
+        <div class="text-center">
+          <a
+            class="ps-2"
+            [routerLink]="['/log-in']"
+            routerLinkActive="router-link-active"
+            >Already a member?</a
+          >
+        </div>
       </div>
     </div>
-  </div>
 
-  <form
-    #formContacto="ngForm"
-    (ngSubmit)="onSubmit(formContacto)"
-    class="row mx-auto pt-3 pb-4 bg-erp-white"
-  >
-  <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
-  <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
+    <form
+      #formContacto="ngForm"
+      (ngSubmit)="onSubmit(formContacto)"
+      class="row mx-auto pt-3 pb-4 bg-erp-white"
     >
-      <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
-      <div class="ms-5 col-8">
-        <input
-          type="text"
-          name="businessName"
-          class="form-control bg-erp-silver"
-        />
+      <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
+      <div
+        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
+      >
+        <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
+        <div class="ms-5 col-8">
+          <input
+            type="text"
+            name="businessName"
+            class="form-control bg-erp-silver"
+          />
+        </div>
       </div>
-    </div>
 
-    <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
-    <!-- <div
+      <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
+      <!-- <div
       class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
       <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
@@ -54,42 +60,39 @@
       </div>
     </div> -->
 
-    <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-    >
-      <label class="p-2 col-2" for="exampleInputEmail1">CIF: </label>
-      <div class="ms-5 col-8">
-        <input
-          type="text"
-          name="cif"
-          class="form-control bg-erp-silver"
-          [ngClass]="{ 'is-invalid': cif.touched && !cif.valid }"
-          #cif="ngModel"
-          [(ngModel)]="new_user.username"
-          required pattern="^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$"
-        />
-        <div *ngIf="cif.touched && !cif.valid" class="invalid-feedback">
-          This CIF does not match the standard format!
+      <div
+        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
+      >
+        <label class="p-2 col-2" for="exampleInputEmail1">CIF: </label>
+        <div class="ms-5 col-8">
+          <input
+            type="text"
+            name="cif"
+            class="form-control bg-erp-silver"
+            [ngClass]="{ 'is-invalid': cif.touched && !cif.valid }"
+            #cif="ngModel"
+            [(ngModel)]="new_user.username"
+            required
+            pattern="^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$"
+          />
+          <div *ngIf="cif.touched && !cif.valid" class="invalid-feedback">
+            This CIF does not match the standard format!
+          </div>
         </div>
       </div>
-    </div>
 
-    <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
-    <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-    >
-      <label class="p-2 col-2" for="exampleInputEmail1">Email: </label>
-      <div class="ms-5 col-8">
-        <input
-          type="email"
-          name="email"
-          class="form-control bg-erp-silver"
-        />
+      <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
+      <div
+        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
+      >
+        <label class="p-2 col-2" for="exampleInputEmail1">Email: </label>
+        <div class="ms-5 col-8">
+          <input type="email" name="email" class="form-control bg-erp-silver" />
+        </div>
       </div>
-    </div>
 
-    <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
-    <!-- <div
+      <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
+      <!-- <div
       class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
     >
       <label class="p-2 col-2" for="exampleInputEmail1">Email: </label>
@@ -110,87 +113,103 @@
       </div>
     </div> -->
 
-      <div class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex">
+      <div
+        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
+      >
         <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
         <div class="ms-5 col-8">
-            <div class="d-flex">
-              <input
-                id="password1"
-                type="password"
-                name="password"
-                class="form-control bg-erp-silver"
-                [ngClass]="{'is-invalid': password.touched && !password.valid}"
-                #password="ngModel"
-                [(ngModel)]="new_user.password"
-                required pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
-              >
-              <button class="bg-erp-blue" type="button" (click)="verPassword1()"><i id="eye1" class="fas fa-eye-slash"></i></button>
-            </div>
-            <div *ngIf="password.touched && !password.valid" class="invalid-feedback d-block">
-              This password does not match the required format!
-            </div>
+          <div class="d-flex">
+            <input
+              id="password1"
+              type="password"
+              name="password"
+              class="form-control bg-erp-silver"
+              [ngClass]="{ 'is-invalid': password.touched && !password.valid }"
+              #password="ngModel"
+              [(ngModel)]="new_user.password"
+              required
+              pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
+              autocomplete="off"
+            />
+            <button class="bg-erp-blue" type="button" (click)="verPassword1()">
+              <i id="eye1" class="fas fa-eye-slash"></i>
+            </button>
           </div>
+          <div
+            *ngIf="password.touched && !password.valid"
+            class="invalid-feedback d-block"
+          >
+            This password does not match the required format!
+          </div>
+        </div>
       </div>
 
-    <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-    >
-      <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
-      <div class="ms-5 col-8">
-        <div class="d-flex">
-          <input
-          id="password_see"
-          type="password"
-          name="password-control"
-          class="form-control bg-erp-silver"
-          [ngClass]="{
-            'is-invalid':
-              password2.touched && !password2.valid && password !== password2
-          }"
-          #password2="ngModel"
-          [(ngModel)]="password_conf"
-          required
-          pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
-          />
-          <button class="bg-erp-blue" type="button" (click)="verPassword2()"><i id="eye2" class="fas fa-eye-slash"></i></button>
+      <div
+        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
+      >
+        <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
+        <div class="ms-5 col-8">
+          <div class="d-flex">
+            <input
+              id="password_see"
+              type="password"
+              name="password-control"
+              class="form-control bg-erp-silver"
+              [ngClass]="{
+                'is-invalid':
+                  password2.touched &&
+                  !password2.valid &&
+                  password !== password2
+              }"
+              #password2="ngModel"
+              [(ngModel)]="password_conf"
+              required
+              pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
+              autocomplete="off"
+            />
+            <button class="bg-erp-blue" type="button" (click)="verPassword2()">
+              <i id="eye2" class="fas fa-eye-slash"></i>
+            </button>
+          </div>
+          <div
+            *ngIf="password2.touched && !password2.valid"
+            class="invalid-feedback d-block"
+          >
+            This password does not match the password written above!
+          </div>
         </div>
-        <div
-          *ngIf="password2.touched && !password2.valid"
-          class="invalid-feedback d-block"
+      </div>
+
+      <div
+        class="form-group d-grid pt-2 mx-auto col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10"
+      >
+        <button
+          type="submit"
+          class="btn"
+          [disabled]="!formContacto.form.valid"
+          (click)="open(content)"
         >
-          This password does not match the password written above!
-        </div>
+          SUBMIT
+        </button>
       </div>
-    </div>
+    </form>
 
-    <div
-      class="form-group d-grid pt-2 mx-auto col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10"
-    >
-      <button
-        type="submit"
-        class="btn"
-        [disabled]="!formContacto.form.valid"
-        (click)="open(content)"
-      >
-        SUBMIT
-      </button>
-    </div>
-  </form>
-
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <h5 class="modal-title">Succesful Registration!</h5>
-    </div>
-    <div class="modal-body">You will be redirect to your company account.</div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-outline-dark"
-        (click)="modal.close('Save click')"
-      >
-        ACCEPT
-      </button>
-    </div>
-  </ng-template>
-</div>
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h5 class="modal-title">Succesful Registration!</h5>
+      </div>
+      <div class="modal-body">
+        You will be redirect to your company account.
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="modal.close('Save click')"
+        >
+          ACCEPT
+        </button>
+      </div>
+    </ng-template>
+  </div>
 </div>

@@ -29,14 +29,16 @@ export class RecoverPasswordComponent implements OnInit {
 open(content) {
   //onSubmit
   console.log("hola");
+  
   const user = (<HTMLInputElement>document.getElementById('email')).value;
   this.recoverService.editUser(user);
+  console.log(user);
 
 
 
 
   //popUp email sent
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content,{ centered: true, ariaLabelledBy: 'modal-basic-title'  } ).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

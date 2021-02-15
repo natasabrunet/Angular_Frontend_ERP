@@ -3,26 +3,29 @@
     <div
       class="col-8 col-md-6 col-lg-8 d-flex flex-column justify-content-center align-items-center information"
     >
-      <p>
+      <p class="mb-0 mb-sm-2">
         <fa-icon
           class="pe-1"
           [icon]="iconCopyright"
           [rotate]="180"
           [fixedWidth]="true"
           size="sm"
-        ></fa-icon
-        ><a [routerLink]="['licence']"
-          >Copyleft {{ currentDate | date: "y" }} Barcelona Activa</a
         >
+        </fa-icon>
+        <a [routerLink]="['licence']">
+          Copyleft {{ currentDate | date: "y" }} Barcelona Activa
+        </a>
       </p>
+
       <!--This pipe will show the current year-->
       <p>
         {{ "footer.developer" | translate }}
-        <a href="http:\\www.barcelonactiva.cat" target="blank"
-          >www.barcelonactiva.cat</a
-        >
+        <a href="http:\\www.barcelonactiva.cat" target="blank">
+          www.barcelonactiva.cat
+        </a>
       </p>
     </div>
+
     <div class="col-4 col-lg-3 d-flex justify-content-end align-items-center">
       <p>{{ currentDate | date: "dd/MM/yyyy, HH:mm" }} (CET)</p>
     </div>

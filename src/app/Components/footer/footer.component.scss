@@ -18,10 +18,6 @@ a {
   transition: background-size 0.5s;
 }
 
-.information a:hover { 
-    background-size: 100% 1px;
-}
-
-footer {
-    z-index: 2050;
+.information a:hover {
+  background-size: 100% 1px;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+// import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { AppComponent } from '../../app.component';
 
 // TODO: cosider importing + ngOnInit()-registering ICON { faBars } in APP.COMPONENT.TS
@@ -10,7 +10,7 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  faBars = faBars; 
+  // faBars = faBars; 
 
   selectedLanguage = 'en';
   langs: string[] = [];

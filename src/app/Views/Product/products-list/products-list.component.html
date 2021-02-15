@@ -29,7 +29,7 @@
               </button>
               </td>
 
-              <div class="modal fade" [id]="product.name" tabindex="-1" [attr.aria-labelledby]="'image of '+product.name" aria-hidden="true">
+              <div class="modal fade modalMessage" [id]="product.name" tabindex="-1" [attr.aria-labelledby]="'image of '+product.name" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -67,7 +67,7 @@
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" [id]="'delete'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade modalMessage" [id]="'delete'+i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">

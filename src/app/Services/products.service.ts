@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { DoCheck } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../Models/newProduct';
 import { updateProduct } from '../Models/updateProduct';
@@ -13,15 +12,16 @@ export class ProductsService {
 
   url: string = 'http://217.76.158.200:8080';
   endPoint: string = '/api/products';
-  token: string = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwbG9za3kyMUBob3RtYWlsLmNvbSIsImV4cCI6MTYxMzA3ODQ3NSwiaWF0IjoxNjEzMDYwNDc1fQ.oObrjw3EwElaE88wYzIvDt23kFq4uN1mEXLmNZ4jCTlFanSj5l1N0jkapUEBjhOygP2Q5xJE_QaCrYx9NZZN6w'
-  allAPIres = {};
+  token: string; 
 
 
   constructor( 
     private httpClient: HttpClient,
     private loginService: LoginService
-  ) {    
-    this.allAPIres = this.loginService.getToken();  //Accedemos al servicio de login para recuperar el token que se ha guardado
+  ) 
+  {   
+    this.token = this.loginService.getBearerToken;  //Accedemos al servicio de login para recuperar el token que se ha guardado
+    this.token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwbG9za3kyMUBob3RtYWlsLmNvbSIsImV4cCI6MTYxMzQyNzQ5MiwiaWF0IjoxNjEzNDA5NDkyfQ.GtG8Rpb_H4u6JMu39pY5jNZ2_cNgq8_HJjqzrvxb2mY1NCc_ekO2lIabcx5FIDE8GTJSe3cW_6neoNqmNtQ8Hw";
   }
 
   getProducts() {
@@ -44,7 +44,6 @@ export class ProductsService {
 
   
   getProduct(id: number) {
-    console.log(`Estoy mostrando el id ${id} desde getProduct`);
     const headers = new HttpHeaders({
       Authorization: this.token
     });
@@ -52,7 +51,6 @@ export class ProductsService {
   }
  
   updateProduct(id:number, name:string, stock:number, image:string, price:number) {
-    console.log(`ID: ${id} Nombre: ${name} Stock: ${stock} Imagen: ${image} Precio: ${price} `);
     let body= new updateProduct(id, name, stock, price, image);
     
     const options ={ 
@@ -74,4 +72,6 @@ export class ProductsService {
     return this.httpClient.post(`${this.url}${this.endPoint}`, body, options) ;
   }  
 
+
 }
+

@@ -29,12 +29,11 @@ button:hover {
     background-color: #dd5d56;
   }
   
-  .btn-erp-general {
+.btn-erp-general {
     background-color:#4E78BB;
 }
 
-.message{
-    z-index:100;
-    margin-left: auto;
-    margin-right: auto;
-}
+.modalMessage {
+    position: absolute;
+    z-index: 15000;
+  }

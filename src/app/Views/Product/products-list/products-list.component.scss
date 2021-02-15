@@ -38,3 +38,8 @@ h2 {
 .deleteButton {
     background-color: #DD5D56;
 }
+
+.modalMessage {
+    position: absolute;
+    z-index: 150000;
+  }

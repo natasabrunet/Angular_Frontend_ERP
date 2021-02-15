@@ -42,7 +42,9 @@
         "addOkMessage": "El producto ha sido añadido con éxito.",
         "addErrorMessage": "No se ha podido dar de alta el producto. Por favor, contacte con el equipo IT.",
         "updateOkMessage": "El producto ha sido actualizado correctamente.",
-        "updateErrorMessage": "No se ha podigo actualizar el producto. Por favor, contacte con el equipo IT."
+        "updateErrorMessage": "No se ha podigo actualizar el producto. Por favor, contacte con el equipo IT.",
+        "deleteOkMessage": "El producto ha sido borrado correctamente.",
+        "deleteErrorMessage": "No se ha podido borrar el producto. Por favor, contacte con el equipo IT."
     },
 
     "Products-list": {

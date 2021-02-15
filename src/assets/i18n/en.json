@@ -42,7 +42,9 @@
         "addOkMessage": "Product has been added successfully.",
         "addErrorMessage": "Product has not been added correctly. Please, contact with IT team.",
         "updateOkMessage": "Product has been updated correclty.",
-        "updateErrorMessage": "Product has not been updated. Please, contact with IT team."
+        "updateErrorMessage": "Product has not been updated. Please, contact with IT team.",
+        "deleteOkMessage": "Product has been deleted correclty.",
+        "deleteErrorMessage": "Product has not been deleted. Please, contact with IT team."
     },
 
     "Products-list": {

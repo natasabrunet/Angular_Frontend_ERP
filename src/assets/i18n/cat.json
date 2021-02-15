@@ -43,7 +43,9 @@
         "addOkMessage": "El producte ha sigut afegit correctament.",
         "addErrorMessage": "No s'ha pogut donar d'alta el producte. Si us plau, contacte amb el equip IT.",
         "updateOkMessage": "El producte ha sigut actualitzat correctament.",
-        "updateErrorMessage": "No s'ha pogut actualitzar el producte. Si us plau, contacte amb el equip IT."
+        "updateErrorMessage": "No s'ha pogut actualitzar el producte. Si us plau, contacte amb el equip IT.",
+        "deleteOkMessage": "El producte ha sigut borrat correctament.",
+        "deleteErrorMessage": "No s'ha pogut esborrar el producte. Si us plau, contacte amb el equip IT."
 
     },
 

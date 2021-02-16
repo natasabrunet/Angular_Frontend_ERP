@@ -3,7 +3,6 @@ import { ProductsService } from 'src/app/Services/products.service';
 import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
@@ -16,6 +15,7 @@ export class ProductsListComponent implements OnInit {
 
 
   products: any[];
+ 
 
 
   constructor( 

@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'licence', component: LicenceComponent },
   { path: 'products', component: ProductsListComponent },
+  { path: 'single-product/:id', component: SingleProductComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
   { path: 'client-list', component: ClientListComponent },

@@ -14,23 +14,16 @@
 
   <ul class="list-unstyled position-relative top-custom">
     <li class="overflow-hidden py-1">
-      <h3 class="h6 sidebar-role mx-3">
-        <i class="{{ admin.role[0] }} me-3"></i>
-        <span class="text-capitalize"> {{ admin.role[1] }} </span>
-      </h3>
+      <span class="h6 sidebar-role mx-3">
+        <i class="{{ userType.role[0] }} me-3"></i>
+        <span class="text-capitalize"> {{ userType.role[1] }} </span>
+      </span>
     </li>
 
-    <li class="overflow-hidden py-1">
-      <a class="sidebar-link mx-3" routerLink="{{ admin.funcions[0][2] }}">
-        <i class="{{ admin.funcions[0][0] }} me-3"></i>
-        <span class="ms-1 text-lowercase"> {{ admin.funcions[0][1] }} </span>
-      </a>
-    </li>
-
-    <li class="overflow-hidden py-1">
-      <a class="sidebar-link mx-3" routerLink="{{ admin.funcions[1][2] }}">
-        <i class="{{ admin.funcions[1][0] }} me-3"></i>
-        <span class="ms-1 text-lowercase"> {{ admin.funcions[1][1] }} </span>
+    <li *ngFor="let fn of userType.operations" class="overflow-hidden py-1">
+      <a class="sidebar-link mx-3" routerLink="{{ fn[2] }}">
+        <i class="{{ fn[0] }} me-3"></i>
+        <span class="ms-1 text-lowercase"> {{ fn[1] }} </span>
       </a>
     </li>
   </ul>

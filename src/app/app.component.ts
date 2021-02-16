@@ -46,7 +46,7 @@ import {
   faShoppingBasket,
   faUsers,
   faListAlt,
-  faIdCard,
+  faIdCardAlt,
   faChartLine,
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
@@ -96,7 +96,7 @@ export class AppComponent implements OnInit, DoCheck {
       faShoppingBasket,
       faUsers,
       faListAlt,
-      faIdCard,
+      faIdCardAlt,
       faChartLine
     );
     dom.watch(); // Replace any existing <i> tags with <svg> icon

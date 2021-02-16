@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { I_userType } from 'src/app/Models/userType';
 
 @Component({
   selector: 'app-role-sidebar',
@@ -6,22 +7,26 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./role-sidebar.component.scss'],
 })
 export class RoleSidebarComponent implements OnInit {
+  userType: I_userType;
   toggle = false;
   @Output() stateSidebar = new EventEmitter<boolean>();
-  admin = {
-    role: ['fas fa-user-cog', 'Admin'],
-    funcions: [
-      ['fas fa-shopping-basket', 'products', 'dev/product-list'],
-      ['fas fa-users', 'clients', 'dev/clients'],
-      ['fas list-alt', 'orders', 'dev/orders'],
-      ['far id-card', 'employees', 'dev/employees'],
-      ['fas chart-line', 'stats', 'dev/stats'],
-    ],
-  };
 
   constructor() {}
 
   ngOnInit(): void {
+    // FIXME: service switch-case ROLE
+    if (true) {
+      this.userType = {
+        role: ['fas fa-user-cog', 'Admin'],
+        operations: [
+          ['fas fa-shopping-basket', 'products', 'dev/product-list'],
+          ['fas fa-users', 'clients', 'dev/clients'],
+          ['fas fa-list-alt', 'orders', 'dev/orders'],
+          ['fas fa-id-card-alt', 'employees', 'dev/employees'],
+          ['fas fa-chart-line', 'stats', 'dev/stats'],
+        ],
+      };
+    }
     this.toggleSidebar();
   }
 

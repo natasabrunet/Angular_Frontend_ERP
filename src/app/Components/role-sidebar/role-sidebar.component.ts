@@ -15,22 +15,26 @@ export class RoleSidebarComponent implements OnInit {
 
   ngOnInit(): void {
     // FIXME: service switch-case ROLE
+
+    // reactive role functionality
     if (true) {
       this.userType = {
         role: ['fas fa-user-cog', 'Admin'],
         operations: [
-          ['fas fa-shopping-basket', 'products', 'dev/product-list'],
-          ['fas fa-users', 'clients', 'dev/clients'],
-          ['fas fa-list-alt', 'orders', 'dev/orders'],
-          ['fas fa-id-card-alt', 'employees', 'dev/employees'],
-          ['fas fa-chart-line', 'stats', 'dev/stats'],
+          ['fas fa-shopping-basket', 'products', 'product-list'],
+          ['fas fa-users', 'clients', 'clients'],
+          ['fas fa-list-alt', 'orders', 'orders'],
+          ['fas fa-id-card-alt', 'employees', 'employees'],
+          ['fas fa-chart-line', 'stats', 'stats'],
         ],
       };
     }
-    this.toggleSidebar();
+
+    // default toggle off
+    this._toggleSidebar();
   }
 
-  toggleSidebar() {
+  _toggleSidebar() {
     this.toggle = !this.toggle;
     this.stateSidebar.emit(this.toggle);
   }

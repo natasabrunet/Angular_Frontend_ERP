@@ -112,7 +112,7 @@ export class AppComponent implements OnInit, DoCheck {
     this.translateService.use(lang);
   }
 
-  stateSidebar(e: boolean) {
+  toggleSidebar(e: boolean) {
     this.sidebar = e;
   }
 }

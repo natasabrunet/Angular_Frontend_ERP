@@ -11,19 +11,16 @@
         'w-sidebar-open': !sidebar
       }"
     >
-      <app-role-sidebar (stateSidebar)="toggleSidebar($event)">
+      <app-role-sidebar [_role]="role" (stateSidebar)="toggleSidebar($event)">
       </app-role-sidebar>
     </aside>
-
-    <!-- <div class="bg-erp-cyan fw-bolder w-100">B</div> -->
 
     <main class="w-100">
       <!-- HEADER -->
       <div
         class="container-fluid p-0 position-sticky top-0 z-2000"
-        *ngIf="!token; else adminNavbar"
+        *ngIf="token; else adminNavbar"
       >
-        <!-- FIXME: header rollback *ngIf -->
         <app-header></app-header>
       </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 
 import { environment } from '../environments/environment';
 import { LoginService } from './Services/login.service';
+import { I_loginAPIres } from './Models/loginAPIres';
 
 ////////////////////////////
 //  Bootstrap JS imports  //
@@ -75,8 +76,9 @@ export class AppComponent implements OnInit, DoCheck {
   mode = ''; // environment mode msg
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
-  token = ''; // <-- log in OK
   sidebar = true;
+  token = ''; // <-- log in OK
+  role = ''; // <-- log in OK
 
   constructor(
     private loginService: LoginService,
@@ -115,11 +117,15 @@ export class AppComponent implements OnInit, DoCheck {
     );
     dom.watch(); // Replace any existing <i> tags with <svg> icon
 
-    this.loginService.clearSession(); // clear previous sessionStorage
+    // clear previous sessionStorage
+    if (sessionStorage.length > 0) this.loginService.clearSession();
   }
 
   ngDoCheck(): void {
-    this.token = this.loginService.getToken; // <-- log in
+    if (sessionStorage.length > 0) {
+      this.token = this.loginService.getToken; // <-- log in
+      this.role = this.loginService.getUserRole; // <-- log in
+    }
   }
 
   changeLang(lang: string) {

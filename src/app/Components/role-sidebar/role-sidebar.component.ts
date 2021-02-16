@@ -8,7 +8,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class RoleSidebarComponent implements OnInit {
   toggle = false;
   @Output() stateSidebar = new EventEmitter<boolean>();
-  admin = {};
+  admin = {
+    role: ['fas fa-user-cog', 'Admin'],
+    funcions: [
+      ['fas fa-shopping-basket', 'products', 'dev/product-list'],
+      ['fas fa-users', 'clients', 'dev/clients'],
+      ['fas list-alt', 'orders', 'dev/orders'],
+      ['far id-card', 'employees', 'dev/employees'],
+      ['fas chart-line', 'stats', 'dev/stats'],
+    ],
+  };
 
   constructor() {}
 

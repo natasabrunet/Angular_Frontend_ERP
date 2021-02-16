@@ -16,7 +16,7 @@ a.sidebar-link {
   text-decoration: none;
 
   svg:hover {
-    color: $erp-cyan;
+    color: $erp-blue;
   }
 
   span {
@@ -25,7 +25,7 @@ a.sidebar-link {
       width: 0px;
       height: 1px;
       display: block;
-      background: $erp-silver;
+      background: $erp-blue;
     }
     &:hover::after {
       width: 100%;

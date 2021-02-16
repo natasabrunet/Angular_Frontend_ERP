@@ -42,6 +42,12 @@ import {
   faMapMarkerAlt,
   faBuilding,
   faBars,
+  faUserCog,
+  faShoppingBasket,
+  faUsers,
+  faListAlt,
+  faIdCard,
+  faChartLine,
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
 ////////////////////////////////////////
@@ -85,7 +91,13 @@ export class AppComponent implements OnInit, DoCheck {
       faEye,
       faMapMarkerAlt,
       faBuilding,
-      faBars
+      faBars,
+      faUserCog,
+      faShoppingBasket,
+      faUsers,
+      faListAlt,
+      faIdCard,
+      faChartLine
     );
     dom.watch(); // Replace any existing <i> tags with <svg> icon
 

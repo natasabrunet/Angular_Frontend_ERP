@@ -22,7 +22,6 @@ export class LoginService {
     return this.http.post<I_loginAPIres>(this.url + this.endpoint, body, {
       responseType: 'json',
     });
-
     // .pipe(map((res: I_loginAPIres): string => res.token));
   }
 
@@ -49,28 +48,50 @@ export class LoginService {
 
   // getters
   get getAPIres(): I_loginAPIres {
-    if (sessionStorage.length > 0) return this.APIres;
+    if (sessionStorage.getItem(this.APIresName) === JSON.stringify(this.APIres))
+      return this.APIres;
   }
 
   get getToken(): string {
-    if (sessionStorage.length > 0) return this.APIres.token;
+    if (
+      JSON.parse(sessionStorage.getItem(this.APIresName)).token ===
+      this.APIres.token
+    )
+      return this.APIres.token;
   }
 
   get getBearer(): string {
-    if (sessionStorage.length > 0) return this.APIres.bearer;
+    if (
+      JSON.parse(sessionStorage.getItem(this.APIresName)).bearer ===
+      this.APIres.bearer
+    )
+      return this.APIres.bearer;
   }
 
   get getBearerToken(): string {
-    if (sessionStorage.length > 0)
+    if (
+      JSON.parse(sessionStorage.getItem(this.APIresName)).token ===
+        this.APIres.token &&
+      JSON.parse(sessionStorage.getItem(this.APIresName)).bearer ===
+        this.APIres.bearer
+    )
       return `${this.APIres.bearer} ${this.APIres.token}`;
   }
 
   get getUserName(): string {
-    if (sessionStorage.length > 0) return this.APIres.nombreUsuario;
+    if (
+      JSON.parse(sessionStorage.getItem(this.APIresName)).nombreUsuario ===
+      this.APIres.nombreUsuario
+    )
+      return this.APIres.nombreUsuario;
   }
 
   get getUserRole(): string {
-    if (sessionStorage.length > 0) return this.APIres.authorities[0].authority;
+    if (
+      JSON.parse(sessionStorage.getItem(this.APIresName)).authorities[0]
+        .authority === this.APIres.authorities[0].authority
+    )
+      return this.APIres.authorities[0].authority;
   }
 }
 

@@ -4,13 +4,14 @@ import { AppRoutingModule } from './../../app-routing.module';
 
 //import components
 import { NewClientComponent } from './new-client/new-client.component';
+import { ClientListComponent } from './client-list/client-list.component';
 
 // services
 import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [NewClientComponent],
+  declarations: [NewClientComponent, ClientListComponent],
   imports: [
     CommonModule,
     AppRoutingModule,

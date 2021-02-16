@@ -15,6 +15,7 @@ import { ContactPageComponent } from './Views/contact-page/contact-page.componen
 
 //Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
+import { ClientListComponent } from './Views/Client/client-list/client-list.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'single-product/:id', component: SingleProductComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
+  { path: 'client-list', component: ClientListComponent },
   { path: 'new-client', component: NewClientComponent },
   // developers views
   { path: 'dev/404', component: PageNotFoundComponent },
@@ -42,6 +44,7 @@ const routes: Routes = [
   { path: 'dev/single-product', component: SingleProductComponent },
   { path: 'dev/admin', component: AdminViewComponent },
   { path: 'dev/new-client', component: NewClientComponent },
+  { path: 'dev/client-list', component: ClientListComponent },
   // Path ** MUST be always the last route
   { path: '**', redirectTo: '404', pathMatch: 'full' },
 ];

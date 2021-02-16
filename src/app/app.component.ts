@@ -41,6 +41,7 @@ import {
   faEye,
   faMapMarkerAlt,
   faBuilding,
+  faSearch,
 } from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
 
 ////////////////////////////////////////
@@ -82,7 +83,8 @@ export class AppComponent implements OnInit, DoCheck {
       faEyeSlash,
       faEye,
       faMapMarkerAlt,
-      faBuilding
+      faBuilding,
+      faSearch
     );
     dom.watch(); // Replace any existing <i> tags with <svg> icon
 

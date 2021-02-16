@@ -118,11 +118,11 @@ export class AppComponent implements OnInit, DoCheck {
     dom.watch(); // Replace any existing <i> tags with <svg> icon
 
     // clear previous sessionStorage
-    if (sessionStorage.length > 0) this.loginService.clearSession();
+    this.loginService.clearSession();
   }
 
   ngDoCheck(): void {
-    if (sessionStorage.length > 0) {
+    if (this.loginService.getToken) {
       this.token = this.loginService.getToken; // <-- log in
       this.role = this.loginService.getUserRole; // <-- log in
     }

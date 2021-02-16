@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import { I_userType } from 'src/app/Models/userType';
+import { LoginService } from 'src/app/Services/login.service';
 @Component({
   selector: 'app-role-sidebar',
   templateUrl: './role-sidebar.component.html',
@@ -21,7 +22,7 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
 
   toggle = false;
 
-  constructor() {}
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
     this._toggleSidebar(); // default off
@@ -29,7 +30,7 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    if (sessionStorage.length > 0) {
+    if (this.loginService.getToken) {
       setTimeout(() => this.loadRole(this._role), 2000); // <-- log in + mimic loading time
     }
   }

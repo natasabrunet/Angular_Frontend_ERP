@@ -28,19 +28,18 @@ export class LoginService {
   // API REST response - persisted in localStorage
   saveSession(APIres: I_loginAPIres): void {
     // save in Browser
-    sessionStorage.setItem(this.APIresName, <string>JSON.stringify(APIres));
+    // sessionStorage.setItem(this.APIresName, <string>JSON.stringify(APIres));
 
     // save in App
-    if (sessionStorage.length > 0) {
-      this.APIres = <I_loginAPIres>(
-        JSON.parse(sessionStorage.getItem(this.APIresName))
-      );
-    }
+    this.APIres = <I_loginAPIres>(
+      // JSON.parse(sessionStorage.getItem(this.APIresName))
+      APIres
+    );
   }
 
   clearSession(): void {
     // remove in Browser
-    sessionStorage.removeItem(this.APIresName);
+    // sessionStorage.removeItem(this.APIresName);
 
     // remove in App
     this.APIres = {} as I_loginAPIres;
@@ -48,49 +47,28 @@ export class LoginService {
 
   // getters
   get getAPIres(): I_loginAPIres {
-    if (sessionStorage.getItem(this.APIresName) === JSON.stringify(this.APIres))
-      return this.APIres;
+    if (this.APIres) return this.APIres;
   }
 
   get getToken(): string {
-    if (
-      JSON.parse(sessionStorage.getItem(this.APIresName)).token ===
-      this.APIres.token
-    )
-      return this.APIres.token;
+    if (this.APIres.token) return this.APIres.token;
   }
 
   get getBearer(): string {
-    if (
-      JSON.parse(sessionStorage.getItem(this.APIresName)).bearer ===
-      this.APIres.bearer
-    )
-      return this.APIres.bearer;
+    if (this.APIres.bearer) return this.APIres.bearer;
   }
 
   get getBearerToken(): string {
-    if (
-      JSON.parse(sessionStorage.getItem(this.APIresName)).token ===
-        this.APIres.token &&
-      JSON.parse(sessionStorage.getItem(this.APIresName)).bearer ===
-        this.APIres.bearer
-    )
+    if (this.APIres.token && this.APIres.bearer)
       return `${this.APIres.bearer} ${this.APIres.token}`;
   }
 
   get getUserName(): string {
-    if (
-      JSON.parse(sessionStorage.getItem(this.APIresName)).nombreUsuario ===
-      this.APIres.nombreUsuario
-    )
-      return this.APIres.nombreUsuario;
+    if (this.APIres.nombreUsuario) return this.APIres.nombreUsuario;
   }
 
   get getUserRole(): string {
-    if (
-      JSON.parse(sessionStorage.getItem(this.APIresName)).authorities[0]
-        .authority === this.APIres.authorities[0].authority
-    )
+    if (this.APIres.authorities[0].authority)
       return this.APIres.authorities[0].authority;
   }
 }

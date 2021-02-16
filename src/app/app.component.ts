@@ -43,12 +43,20 @@ import {
   faBuilding,
   faBars,
   faUserCog,
+  faUser,
+  faUserTie,
   faShoppingBasket,
   faUsers,
   faListAlt,
   faIdCardAlt,
   faChartLine,
-} from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
+  faClock,
+} from '@fortawesome/free-solid-svg-icons'; // solids
+import {
+  faPaperPlane,
+  faTrashAlt,
+  faAddressCard,
+} from '@fortawesome/free-regular-svg-icons'; // regular
 
 ////////////////////////////////////////
 //  Imports for ngx-tranlate library  //
@@ -93,11 +101,17 @@ export class AppComponent implements OnInit, DoCheck {
       faBuilding,
       faBars,
       faUserCog,
+      faUser,
+      faUserTie,
       faShoppingBasket,
       faUsers,
       faListAlt,
       faIdCardAlt,
-      faChartLine
+      faChartLine,
+      faClock,
+      faPaperPlane,
+      faTrashAlt,
+      faAddressCard
     );
     dom.watch(); // Replace any existing <i> tags with <svg> icon
 

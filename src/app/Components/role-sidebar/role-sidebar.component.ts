@@ -7,25 +7,51 @@ import { I_userType } from 'src/app/Models/userType';
   styleUrls: ['./role-sidebar.component.scss'],
 })
 export class RoleSidebarComponent implements OnInit {
+  brand = 'erp';
   userType: I_userType;
-  toggle = false;
   @Output() stateSidebar = new EventEmitter<boolean>();
+  toggle = false;
 
   constructor() {}
 
   ngOnInit(): void {
-    // FIXME: service switch-case ROLE
+    // FIXME: TO DELETE (if saved in DB)
+
+    // TODO: service switch-case:()=>{}
+    let authority = 'ROLE_CLIENT';
 
     // reactive role functionality
-    if (true) {
+    if (authority === 'ROLE_CLIENT') {
       this.userType = {
-        role: ['fas fa-user-cog', 'Admin'],
+        role: ['fas fa-user-tie', 'client'],
+        operations: [
+          ['fas fa-eye', 'view', 'client-view'], // TODO: app-routing.module.ts
+          ['fas fa-list-alt', 'orders', 'orders'], // TODO: app-routing.module.ts
+          ['far fa-paper-plane', 'contact', 'contact-client'], // TODO: app-routing.module.ts
+          ['far fa-trash-alt', 'delete', 'delete-account'], // TODO: app-routing.module.ts
+          ['far fa-address-card', 'profile', 'profile'], // TODO: app-routing.module.ts
+          ['fas fa-chart-line', 'stats', 'stats'], // TODO: app-routing.module.ts
+        ],
+      };
+    }
+    if (authority === 'ROLE_EMPLOYEE') {
+      this.userType = {
+        role: ['fas fa-user', 'employee'],
+        operations: [
+          ['fas fa-list-alt', 'orders', 'orders'], // TODO: app-routing.module.ts
+          ['fas fa-clock', 'clock', 'clock'], // TODO: app-routing.module.ts
+        ],
+      };
+    }
+    if (authority === 'ROLE_ADMIN') {
+      this.userType = {
+        role: ['fas fa-user-cog', 'admin'],
         operations: [
           ['fas fa-shopping-basket', 'products', 'product-list'],
-          ['fas fa-users', 'clients', 'clients'],
-          ['fas fa-list-alt', 'orders', 'orders'],
-          ['fas fa-id-card-alt', 'employees', 'employees'],
-          ['fas fa-chart-line', 'stats', 'stats'],
+          ['fas fa-users', 'clients', 'new-client'],
+          ['fas fa-list-alt', 'orders', 'orders'], // TODO: app-routing.module.ts
+          ['fas fa-id-card-alt', 'employees', 'employees'], // TODO: app-routing.module.ts
+          ['fas fa-chart-line', 'stats', 'stats'], // TODO: app-routing.module.ts
         ],
       };
     }

@@ -1,21 +1,15 @@
 <nav class="bg-erp-black p-2 vh-100">
   <button
-    class="btn btn-sm btn-outline-erp-cyan fw-bold mt-2"
+    class="btn btn-sm btn-erp-black text-erp-cyan fw-bold mt-2"
     (click)="_toggleSidebar()"
   >
-    ERP
+    {{ brand }}
   </button>
-
-  <!-- <small
-    class="d-block text-erp-cyan position-relative top-custom ms-5 overflow-hidden"
-  >
-    Employee
-  </small> -->
 
   <ul class="list-unstyled position-relative top-custom">
     <li class="overflow-hidden py-1">
-      <span class="h6 sidebar-role mx-3">
-        <i class="{{ userType.role[0] }} me-3"></i>
+      <span class="sidebar-role h6 mx-3" (click)="_toggleSidebar()">
+        <i class="{{ userType.role[0] }} me-4"></i>
         <span class="text-capitalize"> {{ userType.role[1] }} </span>
       </span>
     </li>

@@ -2,25 +2,39 @@
   <!-- DON'T REMOVE THE MODE -->
   <h5 class="text-erp-red">{{ mode }}</h5>
 
-  <!-- HEADER -->
-  <div
-    class="container-fluid p-0 position-sticky top-0 z-2000"
-    *ngIf="!token; else adminNavbar"
-  >
-    <!-- FIXME: header rollback *ngIf -->
-    <nav class="position-sticky top-0 z-2000">
-      <app-role-sidebar></app-role-sidebar>
-      <app-header></app-header>
-    </nav>
+  <!-- SIDEBAR -->
+  <div class="position-sticky top-0 d-flex">
+    <aside
+      [ngClass]="{
+        'bg-erp-black': true,
+        'w-sidebar-collapsed': true,
+        'w-sidebar-open': !sidebar
+      }"
+    >
+      <app-role-sidebar (stateSidebar)="stateSidebar($event)">
+      </app-role-sidebar>
+    </aside>
+
+    <!-- <div class="bg-erp-cyan fw-bolder w-100">B</div> -->
+
+    <main class="w-100">
+      <!-- HEADER -->
+      <div
+        class="container-fluid p-0 position-sticky top-0 z-2000"
+        *ngIf="!token; else adminNavbar"
+      >
+        <!-- FIXME: header rollback *ngIf -->
+        <app-header></app-header>
+      </div>
+
+      <ng-template #adminNavbar>
+        <app-navbar-client></app-navbar-client>
+      </ng-template>
+
+      <!-- ROUTES -->
+      <router-outlet></router-outlet>
+    </main>
   </div>
-
-  <ng-template #adminNavbar>
-    <app-navbar-client></app-navbar-client>
-  </ng-template>
-  
-
-  <!-- ROUTES -->
-  <router-outlet></router-outlet>
 
   <!-- FOOTER -->
   <app-footer></app-footer>

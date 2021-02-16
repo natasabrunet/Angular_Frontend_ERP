@@ -62,6 +62,7 @@ export class AppComponent implements OnInit, DoCheck {
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
   token = ''; // <-- log in OK
+  sidebar = true;
 
   constructor(
     private loginService: LoginService,
@@ -97,5 +98,9 @@ export class AppComponent implements OnInit, DoCheck {
 
   changeLang(lang: string) {
     this.translateService.use(lang);
+  }
+
+  stateSidebar(e: boolean) {
+    this.sidebar = e;
   }
 }

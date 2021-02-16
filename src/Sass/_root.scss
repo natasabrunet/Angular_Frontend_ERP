@@ -81,7 +81,7 @@ footer {
 
 // ALL <a> style is defined here (for normal, not-Bootrap links)
 // but also in override.scss (those belonging to B5 classes, like .navlink, etc)
-a:not(.navbar-brand):not(.nav-link):not(.dropdown-item) {
+a:not(.navbar-brand):not(.nav-link):not(.dropdown-item):not(.sidebar-link) {
   cursor: pointer;
   display: inline-block;
   color: $erp-blue;

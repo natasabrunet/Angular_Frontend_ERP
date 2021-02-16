@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-role-sidebar',
@@ -6,14 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./role-sidebar.component.scss'],
 })
 export class RoleSidebarComponent implements OnInit {
-  toggleState = false;
+  toggle = false;
+  @Output() stateSidebar = new EventEmitter<boolean>();
+  admin = {};
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.toggleSidebar();
+  }
 
   toggleSidebar() {
-    this.toggleState = !this.toggleState;
-    console.log(this.toggleState);
+    this.toggle = !this.toggle;
+    this.stateSidebar.emit(this.toggle);
   }
 }

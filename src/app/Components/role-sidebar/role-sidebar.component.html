@@ -1,30 +1,43 @@
-<nav class="bg-erp-black p-2">
-  <button class="btn btn-outline-erp-cyan fw-bold" (click)="toggleSidebar()">
+<nav class="bg-erp-black p-2 vh-100">
+  <button
+    class="btn btn-sm btn-outline-erp-cyan fw-bold mt-2"
+    (click)="toggleSidebar()"
+  >
     ERP
   </button>
 
-  <ul class="list-unstyled text-erp-white w-100">
-    <li class="d-flex align-items-center bg-erp-purple my-2 p-2">
-      <i class="mx-3 fa fa-sign-in-alt"></i>
-      <span class="ms-3"> qqeqwewqewq </span>
+  <!-- <small
+    class="d-block text-erp-cyan position-relative top-custom ms-5 overflow-hidden"
+  >
+    Employee
+  </small> -->
+
+  <ul class="list-unstyled position-relative top-custom">
+    <li class="overflow-hidden py-1">
+      <h3 class="h6 sidebar-role mx-3">
+        <i class="fa fa-eye me-3"></i>
+        <span class="text-capitalize"> role </span>
+      </h3>
     </li>
 
-    <li class="d-flex align-items-center bg-erp-purple my-2 p-2">
-      <i class="mx-3 fa fa-sign-in-alt"></i>
-      <span class="ms-3"> weqwewqeqwe </span>
+    <li class="overflow-hidden py-1">
+      <a class="sidebar-link mx-3" routerLink="login">
+        <i class="fa fa-copyright me-3"></i>
+        <span class="ms-1 text-lowercase"> FuNc1 </span>
+      </a>
+    </li>
+    <li class="overflow-hidden py-1">
+      <a class="sidebar-link mx-3" routerLink="login">
+        <i class="fa fa-bars me-3"></i>
+        <span class="ms-1 text-lowercase"> FFuNc2s </span>
+      </a>
     </li>
 
-    <li class="d-flex align-items-center bg-erp-purple my-2 p-2">
-      <i class="mx-3 fa fa-sign-in-alt"></i>
-      <span class="ms-3"> eqweqwewqeqw </span>
-    </li>
-    <li class="d-flex align-items-center bg-erp-purple my-2 p-2">
-      <i class="mx-3 fa fa-sign-in-alt"></i>
-      <span class="ms-3"> eqweqwewqeqw </span>
-    </li>
-    <li class="d-flex align-items-center bg-erp-purple my-2 p-2">
-      <i class="mx-3 fa fa-sign-in-alt"></i>
-      <span class="ms-3"> eqweqwewqeqw </span>
+    <li class="overflow-hidden py-1">
+      <a class="sidebar-link mx-3" routerLink="login">
+        <i class="fa fa-building me-3"></i>
+        <span class="ms-1 text-lowercase"> FuNc3 </span>
+      </a>
     </li>
   </ul>
 </nav>

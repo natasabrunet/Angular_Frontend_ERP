@@ -12,7 +12,7 @@ export class NewClientComponent implements OnInit {
   closeResult = '';
   iconPenSquare = faPenSquare;
   nameCtrl = new FormControl('',[Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)]);
-  addressCtrl = new FormControl('',[Validators.required, Validators.pattern(/^[A-Za-z0-9.'\s]*$/)]);
+  addressCtrl = new FormControl('',[Validators.required, Validators.pattern(/^[A-Za-z0-9.',\s]*$/)]);
   cifCtrl = new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/)]);
 
   constructor(private modalService: NgbModal) { }
@@ -20,13 +20,16 @@ export class NewClientComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //pop-up informative window
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open((content), {centered: true, ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+
+
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

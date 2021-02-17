@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserSignUp } from 'src/app/Models/newUser';
+import { UserSignUpDto } from 'src/app/Models/DTOs/newUserDto';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class SignupService {
 
    }
 
-  createUser( user: UserSignUp ){
+  createUser( user: UserSignUpDto ){
     return this.httpClient.post(`${this.baseUrl}/api/users`, user);
   }
 }

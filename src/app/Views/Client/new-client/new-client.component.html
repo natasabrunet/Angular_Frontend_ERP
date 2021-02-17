@@ -2,7 +2,7 @@
     
     <div class="container pb-5 pt-5">
         <div class="rightSide pb-3">
-            <a [routerLink]="['']">Back to clients admin</a>
+            <a [routerLink]="['']" (click)="open(content)">Back to clients admin</a>
         </div>
         <div class="row mx-auto mb-3">
             <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
@@ -63,6 +63,34 @@
                 Save
                 </button>
             </div>
+
+                <!--Pop up informative window -->
+        <ng-template #content let-modal>
+        <div class="modal-body">
+          <p>
+            If you want to save changes, please cancel and save modifications before proceeding
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn bg-erp-red"
+            (click)="modal.close('Save click')"
+          >
+            Discard changes
+          </button>
+          <button
+          type="button"
+          class="btn bg-erp-blue"
+          (click)="modal.close('Save click')"
+        >
+          Cancel
+        </button>
+        </div>
+      </ng-template>
+  
+      <!--END Pop up informative window -->
+
 
             </form>
         

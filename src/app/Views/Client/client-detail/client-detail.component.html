@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row py-5">
+    <div class="col-sm-12 d-flex justify-content-end">
+      <a [routerLink]="['/client-list']">Back to clients admin</a>
+    </div>
+  </div>
+
+  <h4 class="text-center pb-5">Clients Details</h4>
+
+  <!-- Client details -->
+
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="col-sm-12 d-md-inline-flex mb-4 mt-3">
+        <div class="col-sm-3">
+          <p class="text-lg-center"><strong>Name:</strong></p>
+        </div>
+        <div class="col-sm-7">
+          <p>Name Name </p>
+        </div>
+        <div class="col-sm-2">
+          <i class="fas fa-edit"></i>
+        </div>
+      </div>
+      <div class="col-sm-12 d-md-inline-flex mb-4">
+        <div class="col-sm-3">
+          <p class="text-lg-center"><strong>Address:</strong></p>
+        </div>
+        <div class="col-sm-7">
+          <p>Address </p>
+        </div>
+        <div class="col-sm-2">
+          <i class="fas fa-edit"></i>
+        </div>
+      </div>
+      <div class="col-sm-12 d-md-inline-flex mb-4">
+        <div class="col-sm-3">
+          <p class="text-lg-center"><strong>CIF:</strong></p>
+        </div>
+        <div class="col-sm-7">
+          <p>098765445 </p>
+        </div>
+        <div class="col-sm-2">
+         <i class="fas fa-edit"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-5 d-inline-flex mb-4">
+      <div class="col-sm-7">
+       <img src="assets/images/mockup-portrait.jpg" class="img-responsive h-100 w-100 rounded" alt="An image with a girl">
+      </div>
+      <div class="col-sm-2 text-center">
+        <i class="fas fa-edit"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="row py-2">
+    <div class="col-7 d-flex justify-content-center">
+      <button type="submit" class="btn btn-erp-red text-erp-white me-3"> DELETE </button>
+      <button type="submit" class="btn btn-erp-blue text-erp-white me-3"> SAVE </button>
+    </div>
+  </div>
+
+  <h4 class="text-center py-4">Orders</h4>
+
+  <!-- Orders data -->
+  <div class="table-responsive mb-5">
+    <table class="table align-middle">
+      <thead>
+      <tr>
+        <th scope="col">Orders</th>
+        <th scope="col">Day</th>
+        <th scope="col">Total</th>
+        <th scope="col">CIF</th>
+        <th scope="col">Options</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!--      <tr>-->
+      <!--        <th scope="row"></th>-->
+      <!--        <td></td>-->
+      <!--        <td></td>-->
+      <!--        <td></td>-->
+      <!--        <td></td>-->
+      <!--        <td></td>-->
+      <!--      </tr>-->
+      </tbody>
+    </table>
+  </div>
+
+</div>

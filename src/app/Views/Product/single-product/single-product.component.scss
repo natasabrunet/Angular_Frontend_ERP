@@ -2,9 +2,21 @@
     width: 90%;
 }
 
-a {
-    color: #242A32;
-    text-decoration: none;  
+.img {
+    width: 100%;
+   
+}
+
+.buttonIcon {
+    color:#4E78BB;
+    position: absolute;
+    right: 15px;
+    top: 5px; 
+} 
+
+.buttonIcon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
 
 button:hover {
@@ -12,3 +24,16 @@ button:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
 }
+
+.btn-erp-delete {
+    background-color: #dd5d56;
+  }
+  
+.btn-erp-general {
+    background-color:#4E78BB;
+}
+
+.modalMessage {
+    position: absolute;
+    z-index: 15000;
+  }

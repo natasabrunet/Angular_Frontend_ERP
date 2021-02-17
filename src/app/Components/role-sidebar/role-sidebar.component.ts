@@ -49,7 +49,7 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
           this.userType = {
             role: ['fas fa-user-tie', 'client'],
             operations: [
-              ['fas fa-eye', 'view', 'client-view'], // TODO: app-routing.module.ts
+              ['fas fa-eye', 'list', 'client-list'], // TODO: app-routing.module.ts
               ['fas fa-list-alt', 'orders', 'orders'], // TODO: app-routing.module.ts
               ['far fa-paper-plane', 'contact', 'contact-client'], // TODO: app-routing.module.ts
               ['far fa-trash-alt', 'delete', 'delete-account'], // TODO: app-routing.module.ts

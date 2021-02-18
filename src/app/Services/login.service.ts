@@ -12,7 +12,7 @@ import { I_loginAPIres } from '../Models/loginAPIres';
 export class LoginService {
   url = 'http://217.76.158.200:8080';
   endpoint = '/api/login';
-  APIresName = 'erpToken';
+  // APIresName = 'erpToken';
   APIres: I_loginAPIres;
 
   constructor(private http: HttpClient) {}

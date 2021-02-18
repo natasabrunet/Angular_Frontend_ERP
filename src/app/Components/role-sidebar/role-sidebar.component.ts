@@ -49,11 +49,11 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
           this.userType = {
             role: ['fas fa-user-tie', 'client'],
             operations: [
-              ['fas fa-eye', 'list', 'client-list'], // TODO: app-routing.module.ts
+              // ['fas fa-eye', 'list', 'client-list'], // TODO: app-routing.module.ts
               ['fas fa-list-alt', 'orders', 'orders'], // TODO: app-routing.module.ts
               ['far fa-paper-plane', 'contact', 'contact-client'], // TODO: app-routing.module.ts
-              ['far fa-trash-alt', 'delete', 'delete-account'], // TODO: app-routing.module.ts
               ['far fa-address-card', 'profile', 'profile'], // TODO: app-routing.module.ts
+              ['far fa-trash-alt', 'delete', 'delete-account'], // TODO: app-routing.module.ts
               ['fas fa-chart-line', 'stats', 'stats'], // TODO: app-routing.module.ts
             ],
           };
@@ -65,7 +65,7 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
             role: ['fas fa-user-cog', 'admin'],
             operations: [
               ['fas fa-shopping-basket', 'products', 'product-list'],
-              ['fas fa-users', 'clients', 'new-client'],
+              ['fas fa-users', 'clients', 'client-list'],
               ['fas fa-list-alt', 'orders', 'orders'], // TODO: app-routing.module.ts
               ['fas fa-id-card-alt', 'employees', 'employees'], // TODO: app-routing.module.ts
               ['fas fa-chart-line', 'stats', 'stats'], // TODO: app-routing.module.ts

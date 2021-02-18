@@ -165,8 +165,8 @@ export class LoginComponent implements OnInit, DoCheck {
   // TODO: Remove autoLogin() in production!
   autoLogin(): void {
     const bodyTEST: I_logedUser = {
-      username: 'D3831093R',
-      password: 'Dev@lop3rs',
+      username: 'dev@loping.it', // administrator@admin.com 
+      password: 'Dev@lop3rs', // Administrator1.
     };
     // NOTE: This user works because it already exists in DB
 
@@ -187,6 +187,8 @@ export class LoginComponent implements OnInit, DoCheck {
         this.msg = 'Form successfully submitted';
         console.log('Form automatically submited to REST API');
 
+        // console.log(APIres);
+        
         setTimeout(() => {
           this.showAlert = false; // alert OK
           this.server = false; // spinner out

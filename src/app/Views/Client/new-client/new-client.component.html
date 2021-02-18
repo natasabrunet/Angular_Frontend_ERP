@@ -112,17 +112,27 @@
             </div>
 <!-- Div de l'àrea de la foto -->
 <div class="mx-auto mb-3 pb-5 pt-5 pl-5 pr-5  col-xs-12 mx-auto col-sm-12 col-md-4 col-lg-4 col-xl-4">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" class="rounded float-right img-fluid" id="myImg" alt="...">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" class="rounded float-right img-fluid" id="myImg" (click)="openEnlarge(contentEnlarge)" alt="...">
 
-    <a (click)="open(content)"><fa-icon [icon]="iconPenSquare" class="align-self-end"  size="2x"></fa-icon></a> 
+    <a (click)="openUpload(contentUpload)"><fa-icon [icon]="iconPenSquare" class="align-self-end"  size="2x"></fa-icon></a> 
 </div>
 
                            <!--Pop up upload image-->
-                           <ng-template #content let-modal>
+                           <ng-template #contentUpload let-modal>
                             <div class="modal-body">
-                            <p>
+                            <!-- <p>
                                 wohooo
                             </p>
+                            <input type="text"/> -->
+                            <label for="imageInput" class="col-sm-12 col-md-4 col-form-label m-3"><fa-icon [icon]="iconFolder" class="align-self-end folder"   size="2x"></fa-icon> </label>
+                    <input type="text"
+                    class="col bg-erp-silver border-0 rounded-3"
+                    autocomplete="off"
+                    id="imageInput"
+                    name="imageInput"/>
+
+
+
                             </div>
                             <div class="modal-footer">
                             <button
@@ -130,19 +140,36 @@
                                 class="btn bg-erp-red"
                                 (click)="modal.close('Save click')"
                             >
-                                Discard changes
+                                Discard
                             </button>
                             <button
                             type="button"
                             class="btn bg-erp-blue"
                             (click)="modal.close('Save click')"
                             >
-                            Cancel
+                            Upload
                             </button>
                             </div>
                         </ng-template>
                   
                       <!--END Pop up upload image -->
+
+
+ 
+                                   <!--Pop up enlarge image-->
+                                   <ng-template #contentEnlarge let-modal>
+                                    <div class="modal-header">
+                                        
+                                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                    <div class="modal-body">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" class="img-fluid"/>
+                                    </div>
+                                </ng-template>
+                          
+                              <!--END Pop up upload image -->
 
 
         

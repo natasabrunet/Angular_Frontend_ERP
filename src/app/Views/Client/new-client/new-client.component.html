@@ -91,14 +91,14 @@
                 </div>
                 <div class="row m-4">
                 <button
-                [disabled]=""
+                [disabled]="cifCtrl.invalid && addressCtrl.invalid && nameCtrl.invalid"
                 type="submit"
                 class="btn bg-erp-red col-4 m-4">
                 Clear
                 </button>
 
                 <button
-                [disabled]=""
+                [disabled]="cifCtrl.invalid && addressCtrl.invalid && nameCtrl.invalid" 
                 type="submit"
                 class="btn bg-erp-blue col-4  m-4">
                 Save

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Product } from '../Models/newProduct';
-import { updateProduct } from '../Models/updateProduct';
+import { newProductDto } from '../Models/DTOs/newProductDto';
+import { updateProductDto } from '../Models/DTOs/updateProductDto';
 import { LoginService } from './login.service';
 
 
@@ -18,27 +18,30 @@ export class ProductsService {
   constructor( 
     private httpClient: HttpClient,
     private loginService: LoginService
-  ) 
-  {   
-    this.token = this.loginService.getBearerToken;  //Accedemos al servicio de login para recuperar el token que se ha guardado
+  ) {   
+    //Accedemos al servicio de login para recuperar el token que se ha guardado
+    this.token = this.loginService.getBearerToken;  
   }
+
 
   getProducts() {
-   const headers = new HttpHeaders({
-     Authorization: this.token
+    const headers = new HttpHeaders({
+      Authorization: this.token
     });
-    return this.httpClient.get( `${this.url}${this.endPoint}`, {headers});
+    return this.httpClient.get( `${this.url}${this.endPoint}`, {headers} );
   }
 
+
   deleteProduct(id: number) {
-   const options ={ 
-       headers: new HttpHeaders({
-         Authorization: this.token
-       }),
-       body: {
-         id: id
-       }};
-   return this.httpClient.delete( `${this.url}${this.endPoint}`, options);
+    const options = { 
+      headers: new HttpHeaders({
+        Authorization: this.token
+      }),
+      body: {
+        id: id
+      }
+    };
+    return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
   }
 
   
@@ -46,31 +49,32 @@ export class ProductsService {
     const headers = new HttpHeaders({
       Authorization: this.token
     });
-    return this.httpClient.get( `${this.url}${this.endPoint}/${id}`, {headers});
+    return this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {headers});
   }
  
+
   updateProduct(id:number, name:string, stock:number, image:string, price:number) {
-    let body= new updateProduct(id, name, stock, price, image);
+    let body= new updateProductDto(id, name, stock, price, image);
     
-    const options ={ 
+    const options = { 
       headers: new HttpHeaders({
-       Authorization: this.token
+        Authorization: this.token
       })
     }; 
-    return this.httpClient.put( `${this.url}${this.endPoint}`, body, options);
+    return this.httpClient.put(`${this.url}${this.endPoint}`, body, options);
   }
 
-  addProduct(name:string, stock:number, image:string,  price:number) {
-    let body= new Product(name, stock, price, image);
 
-    const options ={ 
+  addProduct(name:string, stock:number, image:string,  price:number) {
+    let body= new newProductDto(name, stock, price, image);
+
+    const options = { 
       headers: new HttpHeaders({
-       Authorization: this.token
+        Authorization: this.token
       })
     }; 
     return this.httpClient.post(`${this.url}${this.endPoint}`, body, options) ;
   }  
-
 
 }
 

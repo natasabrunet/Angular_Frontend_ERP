@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { UserSignUp } from 'src/app/Models/newUser';
+import { UserSignUpDto } from 'src/app/Models/DTOs/newUserDto';
 
 //import services
 import { SignupService } from '../../../Services/signup.service';
@@ -11,7 +11,7 @@ import { SignupService } from '../../../Services/signup.service';
 })
 export class SignUpComponent implements OnInit {
 
-  public new_user: UserSignUp;
+  public new_user: UserSignUpDto;
   public password_conf:string;
   public email:string; // FIXME: Temporalmente creado hasta actualización de schema
   public bussinessName:string; // FIXME: Temporalmente creado hasta actualización de schema
@@ -23,7 +23,7 @@ export class SignUpComponent implements OnInit {
     private modalService: NgbModal,
     private signupService:SignupService
   ) {
-    this.new_user = new UserSignUp('', '');// FIXME: Temporalmente creado hasta actualización de schema
+    this.new_user = new UserSignUpDto('', '','');// FIXME: Temporalmente creado hasta actualización de schema
     this.check_password = false;
     this.check_eye = false;
   }

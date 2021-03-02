@@ -89,7 +89,8 @@ export class AppComponent implements OnInit, DoCheck {
     );
     dom.watch(); // Replace any existing <i> tags with <svg> icon
 
-    this.loginService.clearSession(); // clear previous sessionStorage
+    // INFO: 01/03/2021 - The line below is commented, because if it is executed, when refreshing (eg F5) the authenticated session is lost.
+    //this.loginService.clearSession(); // clear previous sessionStorage
   }
 
   ngDoCheck(): void {

@@ -58,7 +58,7 @@ export class LoginService {
   }
 
   get getUserName(): string {
-    if (this.APIres) return this.APIres.nombreUsuario;
+    if (this.APIres) return this.APIres.username;
   }
 
   get getUserRole(): string {

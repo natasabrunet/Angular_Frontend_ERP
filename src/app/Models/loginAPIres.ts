@@ -1,7 +1,7 @@
 export interface I_loginAPIres {
   token: string;
   bearer: string;
-  nombreUsuario: string;
+  username: string;
   authorities: [
     {
       authority: string;

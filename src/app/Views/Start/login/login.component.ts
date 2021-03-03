@@ -165,8 +165,8 @@ export class LoginComponent implements OnInit, DoCheck {
   // TODO: Remove autoLogin() in production!
   autoLogin(): void {
     const bodyTEST: I_logedUser = {
-      username: 'dev@loping.it', // administrator@admin.com 
-      password: 'Dev@lop3rs', // Administrator1.
+      username: 'administrator@admin.com', // administrator@admin.com 
+      password: 'Administrator1.', // Administrator1.
     };
     // NOTE: This user works because it already exists in DB
 

@@ -34,6 +34,8 @@ export class LoginService {
     this.APIres = <I_loginAPIres>(
       JSON.parse(sessionStorage.getItem(this.APIresName))
     );
+    console.log('this.APIres');
+    console.log(this.APIres);
   }
 
   clearSession(): void {

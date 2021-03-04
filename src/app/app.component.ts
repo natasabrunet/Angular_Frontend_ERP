@@ -78,7 +78,8 @@ export class AppComponent implements OnInit, DoCheck {
   mode = ''; // environment mode msg
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
-  sidebar = true;
+  sidebar = true; // boolean for collapse sidebar
+  showSidebar = false; // by default not showing the sidebar
   token = ''; // <-- log in OK
   role = ''; // <-- log in OK
 
@@ -138,5 +139,9 @@ export class AppComponent implements OnInit, DoCheck {
 
   toggleSidebar(e: boolean) {
     this.sidebar = e;
+  }
+
+  toggleShowSidebar(e: boolean) {
+    this.showSidebar = e;
   }
 }

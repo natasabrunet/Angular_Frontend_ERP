@@ -4,24 +4,23 @@
 
   <!-- SIDEBAR -->
   <div class="position-sticky top-0 d-flex">
-    <aside
-      [ngClass]="{
+    <aside [ngClass]="{
         'bg-erp-black': true,
         'w-sidebar-collapsed': true,
         'w-sidebar-open': !sidebar
       }"
-    >
-      <app-role-sidebar [_role]="role" (stateSidebar)="toggleSidebar($event)">
+           [hidden]="!token || !showSidebar">
+      <app-role-sidebar [_role]="role"
+                        (stateSidebar)="toggleSidebar($event)">
       </app-role-sidebar>
     </aside>
-
     <main class="w-100">
       <!-- HEADER -->
-      <div
-        class="container-fluid p-0 position-sticky top-0 z-2000"
-        *ngIf="token; else adminNavbar"
-      >
-        <app-header></app-header>
+      <div class="container-fluid p-0 position-sticky top-0 z-2000"
+           *ngIf="token; else adminNavbar">
+        <app-header [_showSidebar]="showSidebar"
+                    (showSidebar)="toggleShowSidebar($event)
+                    "></app-header>
       </div>
 
       <ng-template #adminNavbar>
@@ -37,5 +36,7 @@
   <app-footer></app-footer>
 
   <!-- TODO: to be removed in production - DEVELOPERS VIEWS -->
-  <div *ngIf="mode !== ''"><app-dev-navbar></app-dev-navbar></div>
+  <div *ngIf="mode !== ''">
+    <app-dev-navbar></app-dev-navbar>
+  </div>
 </div>

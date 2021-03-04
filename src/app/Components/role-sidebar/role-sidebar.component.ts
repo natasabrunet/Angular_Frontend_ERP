@@ -19,10 +19,11 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
   userType: I_userType;
   @Output() stateSidebar = new EventEmitter<boolean>();
   @Input() _role: string;
+  @Input() showSidebar: boolean;
 
   toggle = false;
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
     this._toggleSidebar(); // default off

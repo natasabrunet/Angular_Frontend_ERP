@@ -1,5 +1,8 @@
 <header class="w-100">
   <div class="navbar navbar-top navbar-expand-md header py-2 px-3 bg-erp-white">
+    <div class="col-1">
+      <app-toggler (showSidebar)="toggleShowSidebar($event)"></app-toggler>
+    </div>
     <div class="col">
       <app-header-search></app-header-search>
     </div>
@@ -9,7 +12,8 @@
       <app-admin></app-admin>
     </div>
 
-    <select #langSelect (change)="changeLanguage(langSelect.value)">
+    <select #langSelect
+            (change)="changeLanguage(langSelect.value)">
       <option *ngFor="let lang of langs">{{ lang }}</option>
     </select>
   </div>

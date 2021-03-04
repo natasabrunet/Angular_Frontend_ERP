@@ -40,6 +40,9 @@ import { RoleSidebarComponent } from './Components/role-sidebar/role-sidebar.com
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
+import { OrdersComponent } from './views/orders/orders.component';
+import { StatsComponent } from './views/stats/stats.component';
+import { EmployeesComponent } from './views/employees/employees.component';
 
 registerLocaleData(localeESP);
 
@@ -65,7 +68,10 @@ registerLocaleData(localeESP);
     HomepageComponent,
     AboutPageComponent,
     ContactPageComponent,
-    RoleSidebarComponent
+    RoleSidebarComponent,
+    OrdersComponent,
+    StatsComponent,
+    EmployeesComponent
   ],
 
   imports: [

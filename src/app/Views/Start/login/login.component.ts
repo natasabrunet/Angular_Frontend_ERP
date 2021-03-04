@@ -142,6 +142,7 @@ export class LoginComponent implements OnInit, DoCheck {
           }, 2000);
         },
         (error) => {
+          console.log('Login error!!!!');
           console.warn(error.message);
           //  API REST != 200
           this.showAlert = true; // alert ERROR

@@ -1,3 +1,9 @@
-.z-2000 {
-  z-index: 2000;
+.w-sidebar-collapsed {
+  width: 65px;
+  transition: width 0.7s ease-in-out;
+}
+
+.w-sidebar-open {
+  width: 320px;
+  transition: width 0.7s ease-in-out;
 }

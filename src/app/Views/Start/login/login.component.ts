@@ -187,6 +187,8 @@ export class LoginComponent implements OnInit, DoCheck {
         this.msg = 'Form successfully submitted';
         console.log('Form automatically submited to REST API');
 
+        // console.log(APIres);
+        
         setTimeout(() => {
           this.showAlert = false; // alert OK
           this.server = false; // spinner out

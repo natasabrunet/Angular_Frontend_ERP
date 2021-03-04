@@ -1,26 +1,23 @@
-footer a, footer p {
-    font-size:14px;
+footer a,
+footer p {
+  font-size: 14px;
 }
 
-footer, a {
-    background-color:#242A32;
-    color: #fff;
-    text-decoration: none;
-    
+footer,
+a {
+  background-color: #242a32;
+  color: #fff;
+  text-decoration: none;
 }
 
 .information a {
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%; 
-    background-repeat: no-repeat;
-    background-size: 0% 1px;
-    transition: background-size .5s;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.5s;
 }
 
-.information a:hover { 
-    background-size: 100% 1px;
-}
-
-footer {
-    z-index: 2050;
+.information a:hover {
+  background-size: 100% 1px;
 }

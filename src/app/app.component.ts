@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 
 import { environment } from '../environments/environment';
 import { LoginService } from './Services/login.service';
+import { I_loginAPIres } from './Models/loginAPIres';
 
 ////////////////////////////
 //  Bootstrap JS imports  //
@@ -41,8 +42,24 @@ import {
   faEye,
   faMapMarkerAlt,
   faBuilding,
-  faSearch, faEdit,
-} from '@fortawesome/free-solid-svg-icons'; // we only installed the solids
+  faBars,
+  faUserCog,
+  faUser,
+  faUserTie,
+  faShoppingBasket,
+  faUsers,
+  faListAlt,
+  faIdCardAlt,
+  faChartLine,
+  faClock,
+  faSearch,
+  faEdit,
+} from '@fortawesome/free-solid-svg-icons'; // solids
+import {
+  faPaperPlane,
+  faTrashAlt,
+  faAddressCard,
+} from '@fortawesome/free-regular-svg-icons'; // regular
 
 ////////////////////////////////////////
 //  Imports for ngx-tranlate library  //
@@ -61,7 +78,10 @@ export class AppComponent implements OnInit, DoCheck {
   mode = ''; // environment mode msg
   title = 'ITProject-ERP-Frontend';
   langs: string[] = [];
+  sidebar = true; // boolean for collapse sidebar
+  showSidebar = false; // by default not showing the sidebar
   token = ''; // <-- log in OK
+  role = ''; // <-- log in OK
 
   constructor(
     private loginService: LoginService,
@@ -84,13 +104,28 @@ export class AppComponent implements OnInit, DoCheck {
       faEye,
       faMapMarkerAlt,
       faBuilding,
+      faBars,
+      faUserCog,
+      faUser,
+      faUserTie,
+      faShoppingBasket,
+      faUsers,
+      faListAlt,
+      faIdCardAlt,
+      faChartLine,
+      faClock,
+      faPaperPlane,
+      faTrashAlt,
+      faAddressCard,
       faSearch,
       faEdit
     );
     dom.watch(); // Replace any existing <i> tags with <svg> icon
 
     // INFO: 01/03/2021 - The line below is commented, because if it is executed, when refreshing (eg F5) the authenticated session is lost.
-    //this.loginService.clearSession(); // clear previous sessionStorage
+    //if (this.loginService.getAPIres === undefined) {
+      //this.loginService.clearSession(); // clear previous sessionStorage
+    //}
     
     // INFO: 03/03/2021 - If we don't have the token in App, check if we have the token in Browser,
     //                    and If we have it in Browser, we save it in App
@@ -104,10 +139,21 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    this.token = this.loginService.getToken; // <-- log in
+    if (this.loginService.getToken) {
+      this.token = this.loginService.getToken; // <-- log in
+      this.role = this.loginService.getUserRole; // <-- log in
+    }
   }
 
   changeLang(lang: string) {
     this.translateService.use(lang);
+  }
+
+  toggleSidebar(e: boolean) {
+    this.sidebar = e;
+  }
+
+  toggleShowSidebar(e: boolean) {
+    this.showSidebar = e;
   }
 }

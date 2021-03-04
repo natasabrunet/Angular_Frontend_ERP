@@ -50,7 +50,6 @@ body > * {
 }
 
 body {
-  // DON'T REMOVE THIS CLASS!
   background-color: $erp-silver; // default background
 }
 
@@ -82,7 +81,7 @@ footer {
 
 // ALL <a> style is defined here (for normal, not-Bootrap links)
 // but also in override.scss (those belonging to B5 classes, like .navlink, etc)
-a:not(.navbar-brand):not(.nav-link):not(.dropdown-item) {
+a:not(.navbar-brand):not(.nav-link):not(.dropdown-item):not(.sidebar-link) {
   cursor: pointer;
   display: inline-block;
   color: $erp-blue;
@@ -111,36 +110,26 @@ a:hover {
   text-decoration: none;
 }
 
-/*
-  
-  HOW BOOTSTRAP custom-themes WORKS...
-  
-  1. Do you wanna use "#dd5d56" as text color?
+// UTILITY //
+.z-2000 {
+  z-index: 2000;
+}
 
-      Just use => "text-erp-red"
-
-  2. Do you wanna use "#dd5d56" as border color?
-
-      Just use => "border border-erp-red"
-
-  3. Do you wanna use "#dd5d56" as color-solid button?
-
-      Just use => "btn btn-erp-red"
-
-  4. Do you wanna use "#dd5d56" as color-outlined button?
-
-      Just use => "btn btn-outline-erp-red"
-
-  5. Do you wanna use "#dd5d56" background?
-
-      Just use => "bg-erp-red"    
-
-  */
-
+// OTHER //
 .btn-erp-delete {
   background-color: #dd5d56;
 }
 
 .btn-erp-general {
-  background-color:#4E78BB;
+  background-color: #4e78bb;
 }
+
+/*
+  
+  NOTE: How Bootstrap 5 "custom-themes" syntax works...
+  
+  Wanna use "#dd5d56" as text, border, button, solid button, background?
+
+  B5 class => "text-erp-red", "border border-erp-red", "btn btn-erp-red", "btn btn-outline-erp-red", "bg-erp-red", etc.
+
+*/

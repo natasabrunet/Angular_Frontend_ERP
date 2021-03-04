@@ -32,10 +32,9 @@ export class LoginService {
 
     // save in App
     this.APIres = <I_loginAPIres>(
-      JSON.parse(sessionStorage.getItem(this.APIresName))
+      // JSON.parse(sessionStorage.getItem(this.APIresName))
+      APIres
     );
-    console.log('this.APIres');
-    console.log(this.APIres);
   }
 
   clearSession(): void {
@@ -47,24 +46,30 @@ export class LoginService {
   }
 
   // getters
+  get getAPIres(): I_loginAPIres {
+    if (this.APIres) return this.APIres;
+  }
+
   get getToken(): string {
-    if (this.APIres) return this.APIres.token;
+    if (this.APIres && this.APIres.token) return this.APIres.token;
   }
 
   get getBearer(): string {
-    if (this.APIres) return this.APIres.bearer;
+    if (this.APIres && this.APIres.bearer) return this.APIres.bearer;
   }
 
   get getBearerToken(): string {
-    if (this.APIres) return `${this.APIres.bearer} ${this.APIres.token}`;
+    if (this.APIres && this.APIres.token && this.APIres.bearer)
+      return `${this.APIres.bearer} ${this.APIres.token}`;
   }
 
   get getUserName(): string {
-    if (this.APIres) return this.APIres.username;
+    if (this.APIres && this.APIres.username) return this.APIres.username;
   }
 
   get getUserRole(): string {
-    if (this.APIres) return this.APIres.authorities[0].authority;
+    if (this.APIres && this.APIres.authorities[0].authority)
+      return this.APIres.authorities[0].authority;
   }
 }
 
@@ -72,7 +77,7 @@ export class LoginService {
 
 e.g. DTO
 
-authorities: { authority: "ROLE_CLIENT" }
+authorities: [ { authority: "ROLE_CLIENT" }... ]
 bearer: "Bearer"
 nombreUsuario: "D3831093R"
 token: "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEMzgzMTA5M1IiLCJleHAiOjE2MTMwNjI0ODIsImlhdCI6MTYxMzA0NDQ4Mn0.aRLZ8_wNMVUws5zF3aM7Mh4cnpE9dAyqX4hnaMP2Lf_tKSBw7IiWJ9FncLE9NjgA8z4WCPoX1LDPrLIFeXcZ1g"

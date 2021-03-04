@@ -34,8 +34,8 @@ import { SingleProductComponent } from './Views/Product/single-product/single-pr
 import { HomepageComponent } from './Views/Homepage/homepage.component';
 import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
-
 import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component';
+import { RoleSidebarComponent } from './Components/role-sidebar/role-sidebar.component';
 
 
 // Pipes
@@ -64,7 +64,8 @@ registerLocaleData(localeESP);
     NoProductImagePipe,
     HomepageComponent,
     AboutPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    RoleSidebarComponent
   ],
 
   imports: [

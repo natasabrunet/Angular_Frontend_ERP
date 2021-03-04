@@ -13,10 +13,7 @@ export class ProductsListComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
 
-
   products: any[];
-
-
 
   constructor(
     private productsService: ProductsService,
@@ -26,6 +23,8 @@ export class ProductsListComponent implements OnInit {
     this.productsService.getProducts()
       .subscribe((data: any) => {
         this.products = data.products;
+        console.log(this.products);
+
       });
 
   }

@@ -122,8 +122,20 @@ export class AppComponent implements OnInit, DoCheck {
     );
     dom.watch(); // Replace any existing <i> tags with <svg> icon
 
-    // clear previous sessionStorage
-    this.loginService.clearSession();
+    // INFO: 01/03/2021 - The line below is commented, because if it is executed, when refreshing (eg F5) the authenticated session is lost.
+    //if (this.loginService.getAPIres === undefined) {
+      //this.loginService.clearSession(); // clear previous sessionStorage
+    //}
+    
+    // INFO: 03/03/2021 - If we don't have the token in App, check if we have the token in Browser,
+    //                    and If we have it in Browser, we save it in App
+    if (!this.loginService.getToken === undefined) {
+      if (sessionStorage.getItem(this.loginService.APIresName)) {
+        this.loginService.saveSession(JSON.parse(sessionStorage.getItem(this.loginService.APIresName)));
+      }
+    }
+    // INFO: 03/03/2021 - Get the token
+    this.token = this.loginService.getToken;
   }
 
   ngDoCheck(): void {

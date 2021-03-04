@@ -1,0 +1,27 @@
+@import "../../../../Sass/theme-core.scss";
+
+h1{
+    text-transform: uppercase;
+}
+
+.rightSide{
+    text-align: right;
+  }
+
+  .btn{
+    color: $erp-white;
+ }
+ .a{text-align:right}
+
+#myImg {
+  cursor:pointer;
+}
+
+.close{
+  position:relative;
+  right:-95%;
+};
+ 
+.folder {
+  color: $erp-blue;
+}

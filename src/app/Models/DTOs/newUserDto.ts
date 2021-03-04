@@ -1,12 +1,14 @@
 //FIXME: Clase temporal hasta que desde back end se actualice schema
-export class UserSignUp{
+export class UserSignUpDto{
 
   public username: string;
   public password: string;
+  public userType: string;
 
-  constructor(cif:string, password:string){
+  constructor(cif:string, password:string, userType:string){
     this.username = cif;
     this.password = password;
+    this.userType = userType;
   }
 
 }

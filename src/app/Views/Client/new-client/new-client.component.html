@@ -1,1 +1,181 @@
-<p>new-client works!</p>
+<div class="body bg-erp-silver">
+    
+    <div class="container pb-5 pt-5">
+        <div class="rightSide pb-3">
+            <a (click)="open(content)">Back to clients admin</a>
+        </div>
+
+                            <!--Pop up informative window -->
+                            <ng-template #content let-modal>
+                                <div class="modal-body">
+                                <p>
+                                    If you want to save changes, please cancel and save modifications before proceeding
+                                </p>
+                                </div>
+                                <div class="modal-footer">
+                                <button
+                                    type="button"
+                                    class="btn bg-erp-red"
+                                    (click)="modal.close('Save click')"
+                                >
+                                    Discard changes
+                                </button>
+                                <button
+                                type="button"
+                                class="btn bg-erp-blue"
+                                (click)="modal.close('Save click')"
+                                >
+                                Cancel
+                                </button>
+                                </div>
+                            </ng-template>
+                      
+                          <!--END Pop up informative window -->
+
+
+
+        <div class="row mx-auto mb-3">
+            <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <h1 class="text-center pt-3 pb-3">Client details</h1>
+            </div>
+            <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
+<!-- Div de l'àrea del form -->
+<div class="mx-auto mb-3 ml-3 mr-3 pb-5 pt-5 pl-5 pr-5 bg-erp-white rounded-3 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            <form>
+                <div class="row mb-3 mx-auto">
+                    <label for="nameInput" class="col-md-4 col-form-label m-3">Name: </label>
+                    <input type="text"
+                    class="col bg-erp-silver border-0 rounded-3 form-control m-3"
+                    autocomplete="off"
+                    id="nameInput"
+                    name="nameInput"
+                    [formControl]="nameCtrl"/>
+                    
+                    <div class="row mx-auto">
+                        <div class="col-md-6 col-form-label" ></div>
+                    <p class="col nameError text-erp-red" *ngIf="nameCtrl.errors && nameCtrl.dirty">
+                        Please, enter a valid Name
+                    </p>
+                    </div>
+                </div>
+                
+                <div class="row mb-3 mx-auto">
+                    <label for="addressInput" class="col-sm-12 col-md-4 col-form-label m-3">Address: </label>
+                    <input type="text"
+                    class="col bg-erp-silver border-0 rounded-3 form-control m-3"
+                    autocomplete="off"
+                    id="addressInput"
+                    name="addressInput"
+                    [formControl]="addressCtrl"/>
+                    <div class="row mx-auto">
+                        <div class="col-md-5 col-form-label" ></div>
+                    <p class=" col addressError text-erp-red" *ngIf="addressCtrl.errors && addressCtrl.dirty">
+                        Please, enter a valid Address
+                    </p>
+                    </div>
+                </div>
+                <div class="row mb-3 mx-auto">
+                    <label for="cifInput" class="col-sm-12 col-md-4 col-form-label m-3">CIF: </label>
+                    <input type="text"
+                    class="col bg-erp-silver border-0 rounded-3 form-control m-3"
+                    autocomplete="off"
+                    id="cifInput"
+                    name="cifInput"
+                    [formControl]="cifCtrl"/>
+                </div>
+                <div class="row mx-auto">
+                    <div class="col-md-6 col-form-label" ></div>
+                    <p class="col cifError text-erp-red" *ngIf="cifCtrl.errors && cifCtrl.dirty">
+                        Please, enter a valid CIF
+                    </p>
+                </div>
+                <div class="row m-4">
+                <button
+                [disabled]="cifCtrl.invalid && addressCtrl.invalid && nameCtrl.invalid"
+                type="submit"
+                class="btn bg-erp-red col-4 m-4">
+                Clear
+                </button>
+
+                <button
+                [disabled]="cifCtrl.invalid && addressCtrl.invalid && nameCtrl.invalid" 
+                type="submit"
+                class="btn bg-erp-blue col-4  m-4">
+                Save
+                </button>
+            </div>
+
+            </form>
+        
+        </div>
+
+            </div>
+<!-- Div de l'àrea de la foto -->
+<div class="mx-auto mb-3 pb-5 pt-5 pl-5 pr-5  col-xs-12 mx-auto col-sm-12 col-md-4 col-lg-4 col-xl-4">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" class="rounded float-right img-fluid" id="myImg" (click)="openEnlarge(contentEnlarge)" alt="...">
+
+    <a (click)="openUpload(contentUpload)"><fa-icon [icon]="iconPenSquare" class="align-self-end"  size="2x"></fa-icon></a> 
+</div>
+
+                           <!--Pop up upload image-->
+                           <ng-template #contentUpload let-modal>
+                            <div class="modal-body">
+                            <!-- <p>
+                                wohooo
+                            </p>
+                            <input type="text"/> -->
+                            <label for="imageInput" class="col-sm-12 col-md-4 col-form-label m-3"><fa-icon [icon]="iconFolder" class="align-self-end folder"   size="2x"></fa-icon> </label>
+                    <input type="text"
+                    class="col bg-erp-silver border-0 rounded-3"
+                    autocomplete="off"
+                    id="imageInput"
+                    name="imageInput"/>
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn bg-erp-red"
+                                (click)="modal.close('Save click')"
+                            >
+                                Discard
+                            </button>
+                            <button
+                            type="button"
+                            class="btn bg-erp-blue"
+                            (click)="modal.close('Save click')"
+                            >
+                            Upload
+                            </button>
+                            </div>
+                        </ng-template>
+                  
+                      <!--END Pop up upload image -->
+
+
+ 
+                                   <!--Pop up enlarge image-->
+                                   <ng-template #contentEnlarge let-modal>
+                                    <div class="modal-header">
+                                        
+                                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                    <div class="modal-body">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" class="img-fluid"/>
+                                    </div>
+                                </ng-template>
+                          
+                              <!--END Pop up upload image -->
+
+
+        
+        </div>
+
+    </div>
+
+
+</div>

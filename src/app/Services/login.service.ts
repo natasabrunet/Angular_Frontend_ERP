@@ -12,7 +12,7 @@ import { I_loginAPIres } from '../Models/loginAPIres';
 export class LoginService {
   url = 'http://217.76.158.200:8080';
   endpoint = '/api/login';
-  // APIresName = 'erpToken';
+  APIresName = 'erpToken';
   APIres: I_loginAPIres;
 
   constructor(private http: HttpClient) {}
@@ -28,7 +28,7 @@ export class LoginService {
   // API REST response - persisted in localStorage
   saveSession(APIres: I_loginAPIres): void {
     // save in Browser
-    // sessionStorage.setItem(this.APIresName, <string>JSON.stringify(APIres));
+    sessionStorage.setItem(this.APIresName, <string>JSON.stringify(APIres));
 
     // save in App
     this.APIres = <I_loginAPIres>(
@@ -39,7 +39,7 @@ export class LoginService {
 
   clearSession(): void {
     // remove in Browser
-    // sessionStorage.removeItem(this.APIresName);
+    sessionStorage.removeItem(this.APIresName);
 
     // remove in App
     this.APIres = {} as I_loginAPIres;
@@ -51,24 +51,24 @@ export class LoginService {
   }
 
   get getToken(): string {
-    if (this.APIres.token) return this.APIres.token;
+    if (this.APIres && this.APIres.token) return this.APIres.token;
   }
 
   get getBearer(): string {
-    if (this.APIres.bearer) return this.APIres.bearer;
+    if (this.APIres && this.APIres.bearer) return this.APIres.bearer;
   }
 
   get getBearerToken(): string {
-    if (this.APIres.token && this.APIres.bearer)
+    if (this.APIres && this.APIres.token && this.APIres.bearer)
       return `${this.APIres.bearer} ${this.APIres.token}`;
   }
 
   get getUserName(): string {
-    if (this.APIres.nombreUsuario) return this.APIres.nombreUsuario;
+    if (this.APIres && this.APIres.username) return this.APIres.username;
   }
 
   get getUserRole(): string {
-    if (this.APIres.authorities[0].authority)
+    if (this.APIres && this.APIres.authorities[0].authority)
       return this.APIres.authorities[0].authority;
   }
 }

@@ -129,7 +129,7 @@ export class AppComponent implements OnInit, DoCheck {
     
     // INFO: 03/03/2021 - If we don't have the token in App, check if we have the token in Browser,
     //                    and If we have it in Browser, we save it in App
-    if (!this.loginService.getToken === undefined) {
+    if (this.loginService.getToken === undefined) {
       if (sessionStorage.getItem(this.loginService.APIresName)) {
         this.loginService.saveSession(JSON.parse(sessionStorage.getItem(this.loginService.APIresName)));
       }
@@ -139,9 +139,12 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    if (this.loginService.getToken) {
-      this.token = this.loginService.getToken; // <-- log in
-      this.role = this.loginService.getUserRole; // <-- log in
+    if (this.loginService.getToken == undefined) {
+      this.token = ''; // <-- Not logged
+      this.role = ''; // <-- Not logged
+    } else {
+      this.token = this.loginService.getToken; // <-- Logged
+      this.role = this.loginService.getUserRole; // <-- Logged
     }
   }
 

@@ -9,7 +9,7 @@
         'w-sidebar-collapsed': true,
         'w-sidebar-open': !sidebar
       }"
-           [hidden]="!token || !showSidebar">
+           [hidden]="token.length == 0 || !showSidebar">
       <app-role-sidebar [_role]="role"
                         (stateSidebar)="toggleSidebar($event)">
       </app-role-sidebar>
@@ -17,7 +17,7 @@
     <main class="w-100">
       <!-- HEADER -->
       <div class="container-fluid p-0 position-sticky top-0 z-2000"
-           *ngIf="token; else adminNavbar">
+           *ngIf="token.length > 0; else adminNavbar">
         <app-header [_showSidebar]="showSidebar"
                     (showSidebar)="toggleShowSidebar($event)
                     "></app-header>

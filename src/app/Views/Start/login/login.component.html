@@ -17,7 +17,7 @@
 
 <!-- ADMIN NAVBAR -->
 <section id="adminNavbar"
-  class="d-flex mb-1 justify-content-between align-items-center p-2 mx-auto bg-erp-white border rounded-pill">
+         class="d-flex mb-1 justify-content-between align-items-center p-2 mx-auto bg-erp-white border rounded-pill">
   <span class="ps-2">
     header log in / sign up
     <code>(F1.7 - wil be removed soon)</code>
@@ -51,7 +51,7 @@
     <label for="loginEmail" class="col-4 col-form-label">Email</label>
     <div class="col">
       <input #ref0 id="loginEmail" type="email" formControlName="email" class="form-control bg-erp-silver"
-        [class.is-invalid]="validateOnTouched(ref0) > 0" autocomplete="off" />
+             [class.is-invalid]="validateOnTouched(ref0) > 0" autocomplete="off" />
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref0) === 1">
         email required
       </small>
@@ -67,7 +67,7 @@
     <label for="loginNIF" class="col-4 col-form-label">NIF</label>
     <div class="col">
       <input #ref1 id="loginNIF" type="text" formControlName="nif" class="form-control bg-erp-silver"
-        [class.is-invalid]="validateOnTouched(ref1) > 0" autocomplete="off" />
+             [class.is-invalid]="validateOnTouched(ref1) > 0" autocomplete="off" />
       <small class="invalid-feedback" *ngIf="validateOnTouched(ref1) === 1">
         NIF required
       </small>
@@ -84,17 +84,16 @@
     <div class="col">
       <div class="d-flex">
         <input #ref2 id="loginPassword" type="password" formControlName="password" class="form-control bg-erp-silver"
-          [class.is-invalid]="validateOnTouched(ref2) > 0" autocomplete="off" />
+               [class.is-invalid]="validateOnTouched(ref2) > 0" autocomplete="off" />
         <button #eye class="bg-erp-blue text-erp-silver" type="button" (click)="toggleEye(eye, ref2)">
           <!-- icon : eye -->
           <i class="fas fa-eye-slash"></i>
         </button>
       </div>
-
-      <small class="invalid-feedback text-justify" *ngIf="validateOnTouched(ref2) === 1">
+      <small class="invalid-feedback d-block" *ngIf="(validateOnTouched(ref2) === 1)">
         password required
       </small>
-      <small class="invalid-feedback text-justify" *ngIf="validateOnTouched(ref2) === 2">
+      <small class="invalid-feedback d-block" *ngIf="(validateOnTouched(ref2) === 2)">
         The password must have between 8 and 12 characters, including one
         uppercase letter, one lowercase letter, one special character and one
         number
@@ -107,8 +106,8 @@
 
   <!-- submit -->
   <button class="btn text-erp-white w-100" type="submit" name="submited" value="valid"
-    [class.btn-erp-blue]="!disabled || submitable" [class.btn-erp-red]="disabled && !submitable"
-    [disabled]="disabled && !submitable">
+          [class.btn-erp-blue]="!disabled || submitable" [class.btn-erp-red]="disabled && !submitable"
+          [disabled]="disabled && !submitable">
     log in
     <i class="fas fa-sign-in-alt"></i>
   </button>

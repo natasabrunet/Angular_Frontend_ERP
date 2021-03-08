@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdersService } from "src/app/Services/orders.service";
+import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-orders',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+  faTrashAlt = faTrashAlt;
+  faEdit = faEdit;
+
+  orders: any[];
+
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit(): void {
+    this.getListOrders();
+  }
+
+  getListOrders() {
+    this.ordersService.getAllOrders().subscribe((orders) => console.log(orders));
   }
 
 }

@@ -18,6 +18,15 @@ import { NewClientComponent } from './Views/Client/new-client/new-client.compone
 import { ClientListComponent } from './Views/Client/client-list/client-list.component';
 import { ClientDetailComponent } from './Views/Client/client-detail/client-detail.component';
 
+// Orders import
+import { OrdersComponent } from "./Views/orders/orders.component";
+
+// Employees import
+import { EmployeesComponent } from "./Views/employees/employees.component";
+
+// Stats import
+import { StatsComponent } from "./Views/stats/stats.component";
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -35,6 +44,9 @@ const routes: Routes = [
   { path: 'new-client', component: NewClientComponent },
   { path: 'client-detail', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'employees', component: EmployeesComponent },
+  { path: 'stats', component: StatsComponent },
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },
   { path: 'dev/sign-up', component: SignUpComponent },
@@ -56,4 +68,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -36,6 +36,9 @@ import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
 import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component';
 import { RoleSidebarComponent } from './Components/role-sidebar/role-sidebar.component';
+import { OrdersComponent } from './views/orders/orders.component';
+import { StatsComponent } from './views/stats/stats.component';
+import { EmployeesComponent } from './views/employees/employees.component';
 
 
 // Pipes
@@ -65,7 +68,10 @@ registerLocaleData(localeESP);
     HomepageComponent,
     AboutPageComponent,
     ContactPageComponent,
-    RoleSidebarComponent
+    RoleSidebarComponent,
+    OrdersComponent,
+    StatsComponent,
+    EmployeesComponent
   ],
 
   imports: [
@@ -95,7 +101,7 @@ registerLocaleData(localeESP);
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {

@@ -13,34 +13,32 @@ export class ProductsListComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
 
-
   products: any[];
- 
 
-
-  constructor( 
+  constructor(
     private productsService: ProductsService,
-    private router:Router ) 
-  { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.productsService.getProducts()
-      .subscribe( (data: any) => {
+      .subscribe((data: any) => {
         this.products = data.products;
-    });
-    
+        console.log(this.products);
+
+      });
+
   }
 
-  delete( i: number ) {
+  delete(i: number) {
     const id = this.products[i].id;
 
     this.productsService.deleteProduct(id)
       .subscribe();
-    this.products.splice(i,1);
+    this.products.splice(i, 1);
   }
 
   //Función para que se abra la página de single product
-  goSingleProduct( id:number ) {
+  goSingleProduct(id: number) {
     this.router.navigate(['/single-product', id]);
   }
 

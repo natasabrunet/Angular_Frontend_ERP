@@ -11,7 +11,8 @@ import { ClientListComponent } from './client-list/client-list.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 
 // services
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -27,6 +28,13 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forChild({
+      // loader: {
+      //   provide: TranslateLoader,
+      //   useFactory: HttpLoaderFactory,
+      //   deps: [HttpClient],
+      // },
+    }),
   ],
   exports: [NewClientComponent],
 })

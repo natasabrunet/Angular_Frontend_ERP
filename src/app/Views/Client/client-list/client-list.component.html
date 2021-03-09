@@ -1,10 +1,11 @@
 <div class="container">
-  <h4 class="text-center py-5">Clients Administration</h4>
+  <h4 class="text-center py-5">{{ 'Clients-list.page-head' | translate }}</h4>
   <!-- Search -->
   <div class="row mb-5">
     <div class="col-sm-12 d-inline-flex justify-content-end ">
       <div class="col-sm-3 me-4">
-        <input class="form-control me-4 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-4 rounded-pill" type="search"
+               placeholder="{{ 'Search.searchph' | translate }} ..." aria-label="Search">
       </div>
       <button type="submit" class="btn btn-erp-blue text-erp-white">New Client</button>
     </div>
@@ -14,10 +15,10 @@
     <table class="table align-middle">
       <thead>
         <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Address</th>
-          <th scope="col">CIF</th>
-          <th scope="col">Options</th>
+          <th scope="col">{{ 'Clients-list.list.head-name' | translate }}</th>
+          <th scope="col">{{ 'Clients-list.list.head-address' | translate }}</th>
+          <th scope="col">{{ 'Clients-list.list.head-cif' | translate }}</th>
+          <th scope="col">{{ 'Clients-list.list.head-options' | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -48,22 +49,22 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">
-                    modal-title
+                    {{ 'Clients-list.modal.title' | translate }}
                   </h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                  modal-message: {{client.name}}?
+                  {{ 'Clients-list.modal.message' | translate }}: {{client.name}}?
                 </div>
 
                 <div class="modal-footer">
                   <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
-                    button-no
+                    {{ 'Clients-list.modal.button-no' | translate }}
                   </button>
                   <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="delete(i)"
                           data-bs-dismiss="modal">
-                    button-no-delete
+                    {{ 'Clients-list.modal.button-delete' | translate }}
                   </button>
                 </div>
               </div>

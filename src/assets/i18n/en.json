@@ -2,35 +2,30 @@
     "Search": {
         "searchph": "search"
     },
-
     "Header": {
         "notifications": {
             "head": "Notifications",
             "event_head_today": "Event today",
             "event_description": "Just a reminder that you have an event today"
         }
-      },
-  
-    "Admin": {
-      "header": {
-        "profile": "Profile",
-        "inbox": "Inbox",
-        "settings": "Settings",
-        "logout": "Logout"
-      }
     },
-
-    "btn":{
+    "Admin": {
+        "header": {
+            "profile": "Profile",
+            "inbox": "Inbox",
+            "settings": "Settings",
+            "logout": "Logout"
+        }
+    },
+    "btn": {
         "add": "ADD",
         "delete": "DELETE",
         "update": "UPDATE"
-    }, 
-
-    "footer":{
+    },
+    "footer": {
         "developer": "Developed by"
-    }, 
-
-    "singleProd":{
+    },
+    "singleProd": {
         "tittleNew": "NEW PRODUCT",
         "tittleUpdate": "UPDATE PRODUCTE",
         "name": "Name",
@@ -46,7 +41,6 @@
         "deleteOkMessage": "Product has been deleted correclty.",
         "deleteErrorMessage": "Product has not been deleted. Please, contact with IT team."
     },
-
     "Products-list": {
         "page-head": "Products list",
         "list": {
@@ -56,16 +50,32 @@
             "head-image": "Image",
             "head-options": "Options"
         },
-
         "modal": {
             "title": "Deleting…",
             "message": "Are you sure you want to delete ",
             "button-no": "No",
             "button-delete": "Delete"
         },
-
         "button": {
             "new-product": "New product"
+        }
+    },
+    "Clients-list": {
+        "page-head": "Clients List",
+        "list": {
+            "head-name": "Name",
+            "head-address": "Address",
+            "head-cif": "CIF",
+            "head-options": "Options"
+        },
+        "modal": {
+            "title": "Deleting…",
+            "message": "Are you sure you want to delete ",
+            "button-no": "No",
+            "button-delete": "Delete"
+        },
+        "button": {
+            "new-client": "New client"
         }
     }
 }

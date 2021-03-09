@@ -2,35 +2,30 @@
     "Search": {
         "searchph": "buscar"
     },
-
     "Header": {
         "notifications": {
             "head": "Notificaciones",
             "event_head_today": "Evento de hoy",
             "event_description": "Recordatorio de un evento de hoy"
         }
-      },
-  
-    "Admin": {
-      "header": {
-        "profile": "Perfil",
-        "inbox": "Bandeja de entrada",
-        "settings": "Ajustes",
-        "logout": "Salir"
-      }
     },
-
-    "btn":{
+    "Admin": {
+        "header": {
+            "profile": "Perfil",
+            "inbox": "Bandeja de entrada",
+            "settings": "Ajustes",
+            "logout": "Salir"
+        }
+    },
+    "btn": {
         "add": "AÑADIR",
         "delete": "BORRAR",
         "update": "MODIFICAR"
-    }, 
-
-    "footer":{
+    },
+    "footer": {
         "developer": "Desarrollado por"
-    }, 
-
-    "singleProd":{
+    },
+    "singleProd": {
         "tittleNew": "NUEVO PRODUCTO",
         "tittleUpdate": "MODIFICAR PRODUCTO",
         "name": "Nombre",
@@ -46,7 +41,6 @@
         "deleteOkMessage": "El producto ha sido borrado correctamente.",
         "deleteErrorMessage": "No se ha podido borrar el producto. Por favor, contacte con el equipo IT."
     },
-
     "Products-list": {
         "page-head": "Lista de productos",
         "list": {
@@ -56,17 +50,32 @@
             "head-image": "Imagen",
             "head-options": "Opciones"
         },
-
         "modal": {
             "title": "Borrando…",
             "message": "¿Estás seguro que quieres borrar el producto ",
             "button-no": "No",
             "button-delete": "Borrar"
         },
-
         "button": {
             "new-product": "añadir producto"
         }
+    },
+    "Clients-list": {
+        "page-head": "Lista de clientes",
+        "list": {
+            "head-name": "Nombre",
+            "head-address": "Dirección",
+            "head-cif": "CIF",
+            "head-options": "Opciones"
+        },
+        "modal": {
+            "title": "Borrando…",
+            "message": "¿Estás seguro que quieres borrar el cliente ",
+            "button-no": "No",
+            "button-delete": "Borrar"
+        },
+        "button": {
+            "new-client": "añadir cliente"
+        }
     }
-    
 }

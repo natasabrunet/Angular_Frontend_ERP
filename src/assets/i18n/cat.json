@@ -2,36 +2,30 @@
     "Search": {
         "searchph": "cercar"
     },
-
     "Header": {
         "notifications": {
             "head": "Notificacions",
             "event_head_today": "Esdeveniment avui",
             "event_description": "Recordatori de l'esdeveniment d'avui"
-    
         }
-      },
-    
-      "Admin": {
+    },
+    "Admin": {
         "header": {
-          "profile": "Perfil",
-          "inbox": "safata d'entrada",
-          "settings": "ajustos",
-          "logout": "sortir"
+            "profile": "Perfil",
+            "inbox": "safata d'entrada",
+            "settings": "ajustos",
+            "logout": "sortir"
         }
-      },
-
-    "btn":{
+    },
+    "btn": {
         "add": "AFEGIR",
         "delete": "ESBORRAR",
         "update": "MODIFICAR"
-    }, 
-
-    "footer":{
+    },
+    "footer": {
         "developer": "Desenvolupat per"
-    }, 
-
-    "singleProd":{
+    },
+    "singleProd": {
         "tittleNew": "NOU PRODUCTE",
         "tittleUpdate": "MODIFICAR PRODUCTE",
         "name": "Nom",
@@ -46,9 +40,7 @@
         "updateErrorMessage": "No s'ha pogut actualitzar el producte. Si us plau, contacte amb el equip IT.",
         "deleteOkMessage": "El producte ha sigut borrat correctament.",
         "deleteErrorMessage": "No s'ha pogut esborrar el producte. Si us plau, contacte amb el equip IT."
-
     },
-
     "Products-list": {
         "page-head": "Lista de productes",
         "list": {
@@ -58,17 +50,32 @@
             "head-image": "Imatge",
             "head-options": "Opcions"
         },
-
         "modal": {
             "title": "Esborrant…",
             "message": "Estàs segur que vols esborrar el producte ",
             "button-no": "No",
             "button-delete": "Esborrar"
         },
-
         "button": {
             "new-product": "afegir producte"
         }
+    },
+    "Clients-list": {
+        "page-head": "Llista de clients",
+        "list": {
+            "head-name": "Nom",
+            "head-address": "Adreça",
+            "head-cif": "CIF",
+            "head-options": "Opcions"
+        },
+        "modal": {
+            "title": "Esborrant…",
+            "message": "¿Estàs segur que vols esborrar el client ",
+            "button-no": "No",
+            "button-delete": "Esborrar"
+        },
+        "button": {
+            "new-client": "afegir client"
+        }
     }
-    
 }

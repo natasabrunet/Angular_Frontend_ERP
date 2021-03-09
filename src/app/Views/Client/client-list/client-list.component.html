@@ -13,20 +13,70 @@
   <div class="table-responsive mb-5">
     <table class="table align-middle">
       <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Address</th>
-        <th scope="col">CIF</th>
-        <th scope="col">Options</th>
-      </tr>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">CIF</th>
+          <th scope="col">Options</th>
+        </tr>
       </thead>
       <tbody>
-<!--      <tr>-->
-<!--        <th scope="row"></th>-->
-<!--        <td></td>-->
-<!--        <td></td>-->
-<!--        <td></td>-->
-<!--      </tr>-->
+        <tr *ngFor="let client of clients; let i = index">
+          <td>{{ client.name }}</td>
+          <td>{{ client.address }}</td>
+          <td>{{ client.dni }}</td>
+          <!-- Edit/Delete -->
+          <td class="pr-td">
+            <div class="d-flex justify-content-center align-items-center">
+
+              <!-- Edit -->
+              <button (click)="goSingleClient(client.id)" class="btn">
+                <fa-icon class="mx-md-3" [icon]="faEdit" size="lg" role="button"></fa-icon>
+              </button>
+
+              <!-- Delete -->
+              <button type="button" class="btn" data-bs-toggle="modal" [attr.data-bs-target]="'#delete'+i">
+                <fa-icon class="mx-md-3 deleteIcon" [icon]="faTrashAlt" size="lg" role="button"></fa-icon>
+              </button>
+            </div>
+          </td>
+
+          <!-- Modal -->
+          <div class="modal fade modalMessage" [id]="'delete'+i" tabindex="-1"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    modal-title
+                  </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                  modal-message: {{client.name}}?
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
+                    button-no
+                  </button>
+                  <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="delete(i)"
+                          data-bs-dismiss="modal">
+                    button-no-delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </tr>
+        <!--      <tr>-->
+        <!--        <th scope="row"></th>-->
+        <!--        <td></td>-->
+        <!--        <td></td>-->
+        <!--        <td></td>-->
+        <!--      </tr>-->
       </tbody>
     </table>
   </div>
@@ -36,16 +86,26 @@
     <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-center">
       <nav aria-label="Page navigation">
         <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link rounded-circle" href="#" aria-label="Previous">
+          <li class="page-item"
+              [ngClass]="{'disabled': isFirstPage()}">
+            <a class="page-link rounded-circle"
+               href="#"
+               aria-label="Previous"
+               (click)="gotoPrevPage();">
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
-          <li class="page-item"><a class="page-link rounded-circle" href="#">1</a></li>
-          <li class="page-item"><a class="page-link rounded-circle" href="#">2</a></li>
-          <li class="page-item"><a class="page-link rounded-circle" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link rounded-circle" href="#" aria-label="Next">
+          <li *ngFor="let page of pagesArray"
+              class="page-item"
+              [ngClass]="{'disabled': page === currentPage}">
+            <a class="page-link rounded-circle" href="#" (click)="goToPage(page)">{{page}}</a>
+          </li>
+          <li class="page-item"
+              [ngClass]="{'disabled': isLastPage()}">
+            <a class="page-link rounded-circle"
+               href="#"
+               aria-label="Next"
+               (click)="gotoNextPage()">
               <span aria-hidden="true">&raquo;</span>
             </a>
           </li>

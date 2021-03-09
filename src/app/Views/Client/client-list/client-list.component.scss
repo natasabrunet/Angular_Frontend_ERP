@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Raleway:wght@400;600&display=swap');
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #242A32;
+}
+
+.appButton {
+    background-color: #4E78BB;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.table {
+    font-family: 'Raleway', sans-serif;
+    color: #242A32;
+}
+
+// .pr-td {
+//     max-height: 60px;
+// }
+
+.deleteIcon {
+    color: #DD5D56;
+}
+
+.deleteButton {
+    background-color: #DD5D56;
+}
+
+.modalMessage {
+    position: absolute;
+    z-index: 150000;
+  }
+
+.disabled, .disabled a {
+    color: #999999 !important;
+}

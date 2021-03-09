@@ -24,7 +24,6 @@ export class ProductsListComponent implements OnInit {
       .subscribe((data: any) => {
         this.products = data.products;
         console.log(this.products);
-
       });
 
   }

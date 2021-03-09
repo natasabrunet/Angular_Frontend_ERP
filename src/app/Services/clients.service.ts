@@ -10,7 +10,7 @@ export class ClientsService {
   url: string = 'http://217.76.158.200:8080';
   endPoint: string = '/api/clients';
   token: string; 
-  defaultClientsPerPage = 1;
+  clientsPerPage = 5;
 
   constructor( 
     private httpClient: HttpClient,

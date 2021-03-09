@@ -16,6 +16,7 @@ export class ClientListComponent implements OnInit {
   clients: any[];
   currentPage: number;
   totalPages: number;
+  pageToGo: number;
   pagesArray: Array<number>;
 
   constructor(private clientsService: ClientsService,
@@ -33,11 +34,11 @@ export class ClientListComponent implements OnInit {
   }
 
   isLastPage() {
-    return this.currentPage === this.totalPages;
+    return this.currentPage == this.totalPages;
   }
 
   isFirstPage() {
-    return this.currentPage === 1;
+    return this.currentPage == 1;
   }
 
 
@@ -61,16 +62,18 @@ export class ClientListComponent implements OnInit {
   }
 
   goToPage(pageNumber: number): boolean {
-    this.clientsService.getClients(this.clientsService.defaultClientsPerPage, pageNumber - 1) // -1 proque el paginador empieza en la página 0
+    if (pageNumber > this.totalPages) {
+      pageNumber = this.totalPages;
+    }
+    this.pagesArray = new Array();
+    this.clientsService.getClients(this.clientsService.clientsPerPage, pageNumber - 1) // -1 proque el paginador empieza en la página 0
     .subscribe((data: any) => {
       this.currentPage = pageNumber;
-      this.clients = data;
-      this.totalPages = 2; //this.getTotalPages(data.totalClients, this.clientsService.clientsPerPage);
-      this.pagesArray = this.arrayOfPages();
-      console.log("data!!!");
-      console.log(data);
+      this.clients = data.ClientsOfThePage;
+      this.totalPages = this.getTotalPages(data.totalClients, this.clientsService.clientsPerPage);
+      this.setupArrayOfPages();
+      this.pageToGo = null;
     });
-    
     return false;
   }
 
@@ -83,15 +86,14 @@ export class ClientListComponent implements OnInit {
   }
 
   //function to return array of pages
-  arrayOfPages(): Array<number> {
-    let arrPages: Array<number>;
+  setupArrayOfPages() {
+    this.pagesArray = new Array();
     if (this.totalPages > 0) {
-      arrPages = Array(this.totalPages);
+      this.pagesArray = Array(this.totalPages - 1);
       for (let i=0; i<this.totalPages; i++) {
-        arrPages[i] = i+1;
+        this.pagesArray[i] = i+1;
       }
     }
-    return arrPages;
   }
   
   numSequence(n: number): Array<number> { 

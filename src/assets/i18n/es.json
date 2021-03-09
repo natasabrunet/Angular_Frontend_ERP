@@ -75,7 +75,11 @@
             "button-delete": "Borrar"
         },
         "button": {
-            "new-client": "añadir cliente"
+            "new-client": "añadir cliente",
+            "go": "ir"
+        },
+        "literals": {
+            "go-to-page": "ir a la página"
         }
     }
 }

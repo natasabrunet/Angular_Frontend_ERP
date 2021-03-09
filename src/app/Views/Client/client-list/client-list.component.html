@@ -7,7 +7,9 @@
         <input class="form-control me-4 rounded-pill" type="search"
                placeholder="{{ 'Search.searchph' | translate }} ..." aria-label="Search">
       </div>
-      <button type="submit" class="btn btn-erp-blue text-erp-white">New Client</button>
+      <button type="submit" class="btn btn-erp-blue text-erp-white">
+        {{ 'Clients-list.button.new-client' | translate}}
+      </button>
     </div>
   </div>
   <!-- Client data -->
@@ -23,7 +25,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let client of clients; let i = index">
-          <td>{{ client.name }}</td>
+          <td>{{ client.nameAndSurname }}</td>
           <td>{{ client.address }}</td>
           <td>{{ client.dni }}</td>
           <!-- Edit/Delete -->
@@ -98,7 +100,7 @@
           </li>
           <li *ngFor="let page of pagesArray"
               class="page-item"
-              [ngClass]="{'disabled': page === currentPage}">
+              [ngClass]="{'disabled': page == currentPage}">
             <a class="page-link rounded-circle" href="#" (click)="goToPage(page)">{{page}}</a>
           </li>
           <li class="page-item"
@@ -115,11 +117,18 @@
     </div>
     <!-- Go to page section -->
     <div class="col-12 col-lg-3 d-flex justify-content-end align-items-center align-self-center">
-      <p class="text-center p-0 m-0">Go to page:</p>
+      <p class="text-center p-0 m-0 no-wrap">{{ 'Clients-list.literals.go-to-page' | translate}}:</p>
       <div class="col-3 col-sm-2 col-md-1 col-lg-3 me-2 ms-2">
-        <input class="form-control rounded-pill" type="search" aria-label="Search">
+        <input type="search"
+               class="form-control rounded-pill"
+               aria-label="go to page"
+               pattern="[0-9]*"
+               value=""
+               [(ngModel)]="pageToGo">
       </div>
-      <button type="submit" class="btn btn-erp-blue text-erp-white rounded-pill disabled">Go</button>
+      <button type="button" class="btn btn-erp-blue text-erp-white rounded-pill" (click)="goToPage(pageToGo)">
+        {{ 'Clients-list.button.go' | translate}}
+      </button>
     </div>
   </div>
 </div>

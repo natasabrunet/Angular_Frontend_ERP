@@ -75,7 +75,11 @@
             "button-delete": "Esborrar"
         },
         "button": {
-            "new-client": "afegir client"
+            "new-client": "afegir client",
+            "go": "anar"
+        },
+        "literals": {
+            "go-to-page": "anar a la pàgina"
         }
     }
 }

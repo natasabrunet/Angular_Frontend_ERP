@@ -75,7 +75,11 @@
             "button-delete": "Delete"
         },
         "button": {
-            "new-client": "New client"
+            "new-client": "New client",
+            "go": "go"
+        },
+        "literals": {
+            "go-to-page": "go to page"
         }
     }
 }

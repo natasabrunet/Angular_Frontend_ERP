@@ -21,7 +21,14 @@ export class OrdersComponent implements OnInit {
   }
 
   getListOrders() {
-    this.ordersService.getAllOrders().subscribe((orders) => console.log(orders));
+    this.ordersService.getAllOrders()
+      .subscribe(
+        (data: any) => {
+          this.orders = data.orders
+        },
+        error => {
+          console.log(error)
+        });
   }
 
 }

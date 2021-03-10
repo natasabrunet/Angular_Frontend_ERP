@@ -7,61 +7,143 @@
 
   <h4 class="text-center pb-5">Clients Details</h4>
 
-  <!-- Client details -->
+  <!-- <div *ngIf="showAlert" id="loginAlert" class="mb-3 mx-auto text-center border rounded-3" [ngClass]="{
+  'border-erp-darkgreen': server,
+  'text-erp-darkgreen': server,
+  'bg-erp-palegreen': server,
+  'border-erp-firebrick ': !server,
+  'text-erp-firebrick ': !server,
+  'bg-erp-pink': !server
+}">
+<small>{{ msg }}</small>
+</div> -->
 
-  <div class="row">
-    <div class="col-sm-7">
-      <div class="col-sm-12 d-md-inline-flex mb-4 mt-3">
-        <div class="col-sm-3">
-          <p class="text-lg-center"><strong>Name:</strong></p>
+
+  <div class="row mb-3">
+    <!-- Client fields -->
+    <div class="col-md-6">
+      <form method="post" role="form" class="php-email-form" autocomplete="off"
+            [formGroup]='form'
+            (ngSubmit)="submit()">
+        <!-- Name -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="name" class="col-form-label">Name:</label>
+          </div>
+          <div class="col">
+            <input id="name"
+                   name="name"
+                   type="text"
+                   class="form-control"
+                   autocomplete="off"
+                   formControlName="name"
+                   [class.is-invalid]="isNameInvalid"
+                   autofocus />
+            <div *ngIf="isNameInvalid" class="invalid-feedback">Required field</div>
+          </div>
         </div>
-        <div class="col-sm-7">
-          <p>Name Name </p>
+
+        <!-- Address -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="clientAddress" class="col-form-label">Address:</label>
+          </div>
+          <div class="col">
+            <input id="address"
+                   name="address"
+                   type="text"
+                   class="form-control"
+                   autocomplete="off"
+                   formControlName="address"
+                   [class.is-invalid]="isAddressInvalid" />
+            <div *ngIf="isAddressInvalid" class="invalid-feedback">Required field</div>
+          </div>
         </div>
-        <div class="col-sm-2">
-          <i class="fas fa-edit"></i>
+
+        <!-- CIF -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="clientCif" class="col-form-label">CIF:</label>
+          </div>
+          <div class="col">
+            <input id="cif"
+                   name="cif"
+                   type="text"
+                   class="form-control"
+                   autocomplete="off"
+                   formControlName="cif"
+                   [class.is-invalid]="isCIFInvalid" />
+            <div *ngIf="isCIFInvalid" class="invalid-feedback">Required field</div>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-12 d-md-inline-flex mb-4">
-        <div class="col-sm-3">
-          <p class="text-lg-center"><strong>Address:</strong></p>
+
+        <!-- SERVER RESPONSE ALERT -->
+        <div *ngIf="showAlert"
+             class="mb-3 mx-auto text-center border rounded-3"
+             [ngClass]="{
+                'border-erp-darkgreen': success,
+                'text-erp-darkgreen': success,
+                'bg-erp-palegreen': success,
+                'border-erp-firebrick ': !success,
+                'text-erp-firebrick ': !success,
+                'bg-erp-pink': !success
+              }">
+          <small>{{ returnMessage }}</small>
         </div>
-        <div class="col-sm-7">
-          <p>Address </p>
+
+
+        <div class="row py-2">
+          <div class="col-7 d-flex justify-content-center">
+            <button type="button" class="btn btn-erp-red text-erp-white me-3" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"> DELETE </button>
+            <button type="submit" class="btn btn-erp-blue text-erp-white me-3"> SAVE </button>
+          </div>
         </div>
-        <div class="col-sm-2">
-          <i class="fas fa-edit"></i>
-        </div>
-      </div>
-      <div class="col-sm-12 d-md-inline-flex mb-4">
-        <div class="col-sm-3">
-          <p class="text-lg-center"><strong>CIF:</strong></p>
-        </div>
-        <div class="col-sm-7">
-          <p>098765445 </p>
-        </div>
-        <div class="col-sm-2">
-          <i class="fas fa-edit"></i>
-        </div>
-      </div>
+      </form>
+    </div><!-- /.col-md-6 -->
+
+    <!-- Client image -->
+    <div class="col-md-6 text-center">
+      <img src="assets/images/mockup-portrait.jpg"
+           class="img-responsive rounded client-avatar">
+      <i class="fas fa-edit mx-2 client-avatar-edit-button"></i>
     </div>
-    <div class="col-sm-5 d-inline-flex mb-4">
-      <div class="col-sm-7">
-        <img src="assets/images/mockup-portrait.jpg" class="img-responsive h-100 w-100 rounded"
-             alt="An image with a girl">
-      </div>
-      <div class="col-sm-2 text-center">
-        <i class="fas fa-edit"></i>
+  </div><!-- /.row -->
+
+
+  <!-- Modal - Delete Confirmation -->
+  <div class="modal fade"
+       id="deleteModal"
+       tabindex="-1"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            {{ 'Client.modal.delete.title' | translate }}
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          {{ 'Client.modal.delete.message' | translate }}
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
+            {{ 'Client.modal.delete.button-no' | translate }}
+          </button>
+          <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="deleteClient()"
+                  data-bs-dismiss="modal">
+            {{ 'Client.modal.delete.button-delete' | translate }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="row py-2">
-    <div class="col-7 d-flex justify-content-center">
-      <button type="submit" class="btn btn-erp-red text-erp-white me-3"> DELETE </button>
-      <button type="submit" class="btn btn-erp-blue text-erp-white me-3"> SAVE </button>
-    </div>
-  </div>
+
+
 
   <h4 class="text-center py-4">Orders</h4>
 

@@ -1,29 +1,58 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr>
-    </tbody>
-</table>
+<div class="container mt-5">
+    <div class="row">
+        <h2>Orders list</h2>
+    </div>
+    <div class="row">
+        <table class="table table-responsive-md mt-5 productTable align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Client Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"
+                        class="text-center">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let elm of info, let i = index">
+                    <td>{{elm.id}}</td>
+                    <td>{{elm.clientName}}</td>
+                    <td>{{elm.date | date:'dd-MM-yyy'}}</td>
+                    <td>199,99</td>
+                    <td>{{elm.status}}</td>
+                    <td class="text-center">
+                        <!-- Edit -->
+                        <button class="btn"
+                                (click)="goOrderDetail(elm.id)">
+                            <fa-icon class="mx-md-3"
+                                     [icon]="faEdit"
+                                     size="lg"
+                                     role="button"></fa-icon>
+                        </button>
+
+                        <!-- Delete -->
+                        <button type="button"
+                                class="btn"
+                                [id]="'#delete'+i"
+                                (click)="confirmDelete(i)">
+                            <fa-icon class="mx-md-3 deleteIcon"
+                                     [icon]="faTrashAlt"
+                                     size="lg"
+                                     role="button"></fa-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row my-5">
+        <div class="col text-end">
+            <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para 
+            que la página de single product sepa si está en modo alta o mantenimiento  -->
+            <button (click)="goOrderDetail(0)"
+                    class="btn appButton">New Order</button>
+        </div>
+    </div>
+</div>

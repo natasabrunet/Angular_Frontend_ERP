@@ -37,6 +37,7 @@ import { ContactPageComponent } from './Views/contact-page/contact-page.componen
 import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component';
 import { RoleSidebarComponent } from './Components/role-sidebar/role-sidebar.component';
 import { OrdersComponent } from './views/orders/orders.component';
+import { OrderDetailComponent } from './views/orders/order-detail/order-detail.component';
 import { StatsComponent } from './views/stats/stats.component';
 import { EmployeesComponent } from './views/employees/employees.component';
 
@@ -70,7 +71,8 @@ registerLocaleData(localeESP);
     RoleSidebarComponent,
     OrdersComponent,
     StatsComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    OrderDetailComponent
   ],
 
   imports: [

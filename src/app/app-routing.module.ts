@@ -20,6 +20,7 @@ import { ClientDetailComponent } from './Views/Client/client-detail/client-detai
 
 // Orders import
 import { OrdersComponent } from "./Views/orders/orders.component";
+import { OrderDetailComponent } from "src/app/Views/orders/order-detail/order-detail.component";
 
 // Employees import
 import { EmployeesComponent } from "./Views/employees/employees.component";
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'client-detail', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: 'orders', component: OrdersComponent },
+  { path: 'order-detail/:id', component: OrderDetailComponent },
   { path: 'employees', component: EmployeesComponent },
   { path: 'stats', component: StatsComponent },
   // developers views

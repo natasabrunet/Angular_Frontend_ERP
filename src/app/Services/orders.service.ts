@@ -14,26 +14,20 @@ export class OrdersService {
 
   orderById: Observable<any>;
 
-  /*headers: HttpHeaders = new HttpHeaders({
-    Authorization: this.loginService.getBearerToken
-  });*/
-
   constructor(private httpClient: HttpClient, private loginService: LoginService) {
     this.token = this.loginService.getBearerToken;
   }
 
+  headers: HttpHeaders = new HttpHeaders({
+    Authorization: this.loginService.getBearerToken
+  });
+
   getAllOrders() {
-    const headers = new HttpHeaders({
-      Authorization: this.token
-    });
-    return this.httpClient.get(`${this.url}${this.endPoint}`, { headers });
+    return this.httpClient.get(`${this.url}${this.endPoint}`, { headers: this.headers });
   }
 
   getOrderById(id: string) {
-    const headers = new HttpHeaders({
-      Authorization: this.token
-    });
-    return (this.orderById = this.httpClient.get(`${this.url}${this.endPoint}/${id}`, { headers }));
+    return (this.orderById = this.httpClient.get(`${this.url}${this.endPoint}/${id}`, { headers: this.headers }));
   }
 
   /* getTotalPrice(){

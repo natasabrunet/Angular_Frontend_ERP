@@ -29,8 +29,12 @@ export class ClientListComponent implements OnInit {
   }
 
   //Función para que se abra la página de single client
-  goSingleClient(id: number) {
-    this.router.navigate(['/single-client', id]);
+  goEditClient(id: number) {
+    console.log(`goEditClient = ${id}`);
+    this.router.navigate(['/client-detail', id]);
+  }
+  goNewClient(id: number) {
+    this.router.navigate(['/new-client', id]);
   }
 
   isLastPage() {

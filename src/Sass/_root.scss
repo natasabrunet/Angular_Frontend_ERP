@@ -134,8 +134,6 @@ a:hover {
 
 */
 
-
-
 /*
 INFO: 09/03/2021
 FIX MODAL BACKDROP
@@ -146,10 +144,5 @@ https://weblog.west-wind.com/posts/2016/sep/14/bootstrap-modal-dialog-showing-un
 }
 
 .modal-backdrop {
-  display:none !important;
+  display:none !important; // workaround for Modal's under backdrop
 }
-
-// .modal-content, .modal-dialog {
-//   margin: 2px auto;
-//   z-index: 1050 !important;
-// }

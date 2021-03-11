@@ -94,6 +94,9 @@ registerLocaleData(localeESP);
       },
     }),
   ],
+  exports: [
+    TranslateModule
+  ],
   providers: [
     {
       provide: LOCALE_ID,

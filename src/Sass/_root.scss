@@ -133,3 +133,16 @@ a:hover {
   B5 class => "text-erp-red", "border border-erp-red", "btn btn-erp-red", "btn btn-outline-erp-red", "bg-erp-red", etc.
 
 */
+
+/*
+INFO: 09/03/2021
+FIX MODAL BACKDROP
+https://weblog.west-wind.com/posts/2016/sep/14/bootstrap-modal-dialog-showing-under-modal-background
+*/
+.z-2000 {
+  z-index: 900 !important; // z-index: 2000 is too hight and remains above the modals
+}
+
+.modal-backdrop {
+  display:none !important; // workaround for Modal's under backdrop
+}

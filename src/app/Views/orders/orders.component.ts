@@ -39,12 +39,11 @@ export class OrdersComponent implements OnInit {
     this.router.navigate(['/order-detail', id]);
   }
 
-  confirmDelete(i: number) { // FALTA MODAL PER CONFIRMAR DELETE!!!!
+  confirmDelete(i: number) {
     const id = this.orders[i].id;
 
     this.ordersService.deleteOrder(id)
       .subscribe();
     this.orders.splice(i, 1);
   }
-
 }

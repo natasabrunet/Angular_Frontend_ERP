@@ -35,13 +35,41 @@
                         <!-- Delete -->
                         <button type="button"
                                 class="btn"
-                                [id]="'#delete'+i"
-                                (click)="confirmDelete(i)">
+                                data-bs-toggle="modal"
+                                [attr.data-bs-target]="'#delete'+i">
                             <fa-icon class="mx-md-3 deleteIcon"
                                      [icon]="faTrashAlt"
                                      size="lg"
                                      role="button"></fa-icon>
                         </button>
+                        <!-- Modal -->
+                        <div class="modal fade"
+                             tabindex="-1"
+                             [id]="'delete'+i">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Confirm delete</h5>
+                                        <button type="button"
+                                                class="btn-close"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Delete order {{elm.id}}?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button"
+                                                class="btn appButton text-uppercase"
+                                                data-bs-dismiss="modal">No</button>
+                                        <button type="button"
+                                                data-bs-dismiss="modal"
+                                                class="btn btn-primary deleteButton text-uppercase"
+                                                (click)="confirmDelete(i)">Delete order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -55,5 +83,5 @@
                     class="btn appButton">New Order</button>
         </div>
     </div>
-    <pre>No hay modal para eliminar el order! Al clickar en el icono de trash, se elimina automaticamente!!!</pre>
+    <pre>Mejor no eliminar el order existente pq todavía no se pueden crear orders nuevos desde front!!</pre>
 </div>

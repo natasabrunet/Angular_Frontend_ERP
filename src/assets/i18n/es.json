@@ -81,5 +81,27 @@
         "literals": {
             "go-to-page": "ir a la página"
         }
+    },
+    "Client": {
+        "back-to-client-list": "Volver a la administración de clientes",
+        "client-detail": "Detalle del Cliente",
+        "name": "Nombre",
+        "address": "Dirección",
+        "cif": "CIF",
+        "buttons": {
+            "delete": "Borrar",
+            "save": "Guardar"
+        },
+        "modal": {
+            "delete": {
+                "title": "Borrando…",
+                "message": "¿Estás seguro que quieres borrar este cliente?",
+                "button-no": "No",
+                "button-delete": "Borrar"
+            }
+        }
+    },
+    "Validation": {
+        "required-field": "Campo obligatorio"
     }
 }

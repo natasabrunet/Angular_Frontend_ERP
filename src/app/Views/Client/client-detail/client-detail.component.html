@@ -1,90 +1,170 @@
+<!-- 
+==================================================================================================================
+  PENDING WORK:
+- Client Image Update
+- Orders Section 
+==================================================================================================================
+-->
+
 <div class="container">
   <div class="row py-5">
     <div class="col-sm-12 d-flex justify-content-end">
-      <a [routerLink]="['/client-list']">Back to clients admin</a>
+      <a [routerLink]="['/client-list']">{{ 'Client.back-to-client-list' | translate}}</a>
     </div>
   </div>
 
-  <h4 class="text-center pb-5">Clients Details</h4>
+  <h4 class="text-center pb-5">{{ 'Client.client-detail' | translate}}</h4>
 
-  <!-- Client details -->
+  <div class="row mb-3">
+    <!-- Client fields -->
+    <div class="col-md-6">
+      <form method="post" role="form" class="php-email-form" autocomplete="off"
+            [formGroup]='form'
+            (ngSubmit)="submit()">
+        <!-- Name -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="name" class="col-form-label">{{ 'Client.name' | translate}}:</label>
+          </div>
+          <div class="col">
+            <input id="name"
+                   name="name"
+                   type="text"
+                   class="form-control"
+                   autocomplete="off"
+                   formControlName="name"
+                   [class.is-invalid]="isNameInvalid"
+                   autofocus />
+            <div *ngIf="isNameInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+          </div>
+        </div>
 
-  <div class="row">
-    <div class="col-sm-7">
-      <div class="col-sm-12 d-md-inline-flex mb-4 mt-3">
-        <div class="col-sm-3">
-          <p class="text-lg-center"><strong>Name:</strong></p>
+        <!-- Address -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="clientAddress" class="col-form-label">{{ 'Client.address' | translate}}:</label>
+          </div>
+          <div class="col">
+            <input id="address"
+                   name="address"
+                   type="text"
+                   class="form-control"
+                   autocomplete="off"
+                   formControlName="address"
+                   [class.is-invalid]="isAddressInvalid" />
+            <div *ngIf="isAddressInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+          </div>
         </div>
-        <div class="col-sm-7">
-          <p>Name Name </p>
+
+        <!-- CIF -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="clientCif" class="col-form-label">{{ 'Client.cif' | translate}}:</label>
+          </div>
+          <div class="col">
+            <input id="cif"
+                   name="cif"
+                   type="text"
+                   class="form-control"
+                   autocomplete="off"
+                   formControlName="cif"
+                   [class.is-invalid]="isCIFInvalid" />
+            <div *ngIf="isCIFInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+          </div>
         </div>
-        <div class="col-sm-2">
-          <i class="fas fa-edit"></i>
+
+        <!-- SERVER RESPONSE ALERT (copied from login page) -->
+        <div *ngIf="showAlert"
+             class="mb-3 mx-auto text-center border rounded-3"
+             [ngClass]="{
+                'border-erp-darkgreen': success,
+                'text-erp-darkgreen': success,
+                'bg-erp-palegreen': success,
+                'border-erp-firebrick ': !success,
+                'text-erp-firebrick ': !success,
+                'bg-erp-pink': !success
+              }">
+          <small>{{ alertMessage }}</small>
         </div>
-      </div>
-      <div class="col-sm-12 d-md-inline-flex mb-4">
-        <div class="col-sm-3">
-          <p class="text-lg-center"><strong>Address:</strong></p>
+
+
+        <div class="row py-2">
+          <div class="col-7 d-flex justify-content-center">
+            <button type="button" class="btn btn-erp-red text-erp-white me-3" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal">{{ 'Client.buttons.delete' | translate}}</button>
+            <button type="submit" class="btn btn-erp-blue text-erp-white me-3">{{ 'Client.buttons.save' |
+              translate}}</button>
+          </div>
         </div>
-        <div class="col-sm-7">
-          <p>Address </p>
-        </div>
-        <div class="col-sm-2">
-          <i class="fas fa-edit"></i>
-        </div>
-      </div>
-      <div class="col-sm-12 d-md-inline-flex mb-4">
-        <div class="col-sm-3">
-          <p class="text-lg-center"><strong>CIF:</strong></p>
-        </div>
-        <div class="col-sm-7">
-          <p>098765445 </p>
-        </div>
-        <div class="col-sm-2">
-         <i class="fas fa-edit"></i>
-        </div>
-      </div>
+      </form>
+    </div><!-- /.col-md-6 -->
+
+    <!-- Client image -->
+    <div class="col-md-6 text-center">
+      <img src="assets/images/mockup-portrait.jpg"
+           class="img-responsive rounded client-avatar">
+      <i class="fas fa-edit mx-2 client-avatar-edit-button"></i>
     </div>
-    <div class="col-sm-5 d-inline-flex mb-4">
-      <div class="col-sm-7">
-       <img src="assets/images/mockup-portrait.jpg" class="img-responsive h-100 w-100 rounded" alt="An image with a girl">
-      </div>
-      <div class="col-sm-2 text-center">
-        <i class="fas fa-edit"></i>
+  </div><!-- /.row -->
+
+
+  <!-- Modal - Delete Confirmation -->
+  <div class="modal fade"
+       id="deleteModal"
+       tabindex="-1"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            {{ 'Client.modal.delete.title' | translate }}
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          {{ 'Client.modal.delete.message' | translate }}
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
+            {{ 'Client.modal.delete.button-no' | translate }}
+          </button>
+          <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="deleteClient()"
+                  data-bs-dismiss="modal">
+            {{ 'Client.modal.delete.button-delete' | translate }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="row py-2">
-    <div class="col-7 d-flex justify-content-center">
-      <button type="submit" class="btn btn-erp-red text-erp-white me-3"> DELETE </button>
-      <button type="submit" class="btn btn-erp-blue text-erp-white me-3"> SAVE </button>
-    </div>
-  </div>
-
+  <!-- -------------------------------------------------------------- -->
+  <!-- ORDERS SECTION REMAINS TO BE IMPLEMENTED !!!-->
+  <!-- -------------------------------------------------------------- -->
   <h4 class="text-center py-4">Orders</h4>
 
   <!-- Orders data -->
   <div class="table-responsive mb-5">
     <table class="table align-middle">
       <thead>
-      <tr>
-        <th scope="col">Orders</th>
-        <th scope="col">Day</th>
-        <th scope="col">Total</th>
-        <th scope="col">CIF</th>
-        <th scope="col">Options</th>
-      </tr>
+        <tr>
+          <th scope="col">Orders</th>
+          <th scope="col">Day</th>
+          <th scope="col">Total</th>
+          <th scope="col">CIF</th>
+          <th scope="col">Options</th>
+        </tr>
       </thead>
       <tbody>
-      <!--      <tr>-->
-      <!--        <th scope="row"></th>-->
-      <!--        <td></td>-->
-      <!--        <td></td>-->
-      <!--        <td></td>-->
-      <!--        <td></td>-->
-      <!--        <td></td>-->
-      <!--      </tr>-->
+        <!--      <tr>-->
+        <!--        <th scope="row"></th>-->
+        <!--        <td></td>-->
+        <!--        <td></td>-->
+        <!--        <td></td>-->
+        <!--        <td></td>-->
+        <!--        <td></td>-->
+        <!--      </tr>-->
       </tbody>
     </table>
   </div>

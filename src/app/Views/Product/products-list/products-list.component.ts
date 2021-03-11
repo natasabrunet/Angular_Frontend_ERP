@@ -21,10 +21,13 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsService.getProducts()
-      .subscribe((data: any) => {
-        this.products = data.products;
-        console.log(this.products);
-      });
+      .subscribe(
+        (data: any) => {
+          this.products = data.products;
+        },
+        error => {
+          console.log(error);
+        });
 
   }
 

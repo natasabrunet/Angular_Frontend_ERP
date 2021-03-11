@@ -11,12 +11,12 @@
                   autocomplete="off">
                 <div class="mb-3 form-group">
                     <label for="clientID"
-                           class="col-sm-2 col-form-label me-2">Client Name</label>
+                           class="col-sm-2 col-form-label me-2">Client ID</label>
                     <input type="text"
                            [required]
                            class="form-control"
                            id="clientID"
-                           placeholder="Client Name"
+                           placeholder="Client ID"
                            name="clientID">
                     <!-- [(ngModel)]="order.clientID" -->
                 </div>
@@ -63,13 +63,13 @@
                     class="btn btn-info me-3"
                     type="submit"
                     *ngIf="orderID==0; else updateBtn"
-                    (click)="createOrder(clientName, date, status)">Create order
+                    (click)="createOrder(clientId, date, status)">Create order
             </button>
             <ng-template #updateBtn>
                 <button form="singleOrder"
                         class="btn btn-info me-3"
                         type="submit"
-                        (click)="updateOrder(clientName, date, status)">Update order
+                        (click)="updateOrder(clientId, date, status)">Update order
                 </button>
             </ng-template>
             <button class="btn btn-danger"
@@ -93,11 +93,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of productList">
+                <tr *ngFor="let product of orderProducts">
                     <th scope="row">{{product.name}}</th>
                     <td>{{product.quantity}}</td>
                     <td>{{product.price}}</td>
-                    <td>La suma</td>
+                    <td></td>
                     <td class="text-center">
                         <!-- Edit -->
                         <button type="button"

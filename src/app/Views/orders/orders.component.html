@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let elm of info, let i = index">
+                <tr *ngFor="let elm of orders, let i = index">
                     <td>{{elm.id}}</td>
                     <td>{{elm.clientName}}</td>
                     <td>{{elm.date | date:'dd-MM-yyy'}}</td>
@@ -55,4 +55,5 @@
                     class="btn appButton">New Order</button>
         </div>
     </div>
+    <pre>No hay modal para eliminar el order! Al clickar en el icono de trash, se elimina automaticamente!!!</pre>
 </div>

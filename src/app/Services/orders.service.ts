@@ -34,7 +34,15 @@ export class OrdersService {
 
   } */
 
-  /* deleteOrder(id: string){
-
-  } */
+  deleteOrder(id: string) {
+    const options = {
+      headers: new HttpHeaders({
+        Authorization: this.token
+      }),
+      body: {
+        id: id
+      }
+    };
+    return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
+  }
 }

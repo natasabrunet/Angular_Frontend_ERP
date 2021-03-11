@@ -83,13 +83,14 @@ export class OrderDetailComponent implements OnInit {
 
   // calcular precio total de producto unico haciendo un bucle de products y multiplicando cantidad por precio/unidad
 
-  //order: any[];
+  order: any;
+  orderProducts: any = [];
 
   orderID: any;
-  errorAPI: boolean;
+  /*errorAPI: boolean;
   errorMessage: string;
   success: string;
-  action: string;
+  action: string;*/
 
   constructor(private ordersService: OrdersService,
     private _router: ActivatedRoute) {
@@ -98,8 +99,8 @@ export class OrderDetailComponent implements OnInit {
       this.ordersService.getOrderById(params['id'])
         .subscribe((data: any) => {
           if (this.orderID != 0) {
-            this.info = data // canviar info per order!!!
-            console.log(this.info);
+            this.order = data.order;
+            this.orderProducts = data.order.products;
           }
         })
 
@@ -109,18 +110,20 @@ export class OrderDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProductList();
+    if (this.orderID != 0) {
+      this.getProductList();
+    }
   }
 
   getProductList() {
-    return this.productList;
+    return this.orderProducts;
   }
 
-  createOrder(clientName: string, date: any, status: string) {
+  createOrder(clientId: string, date: any, status: string) {
     alert('Creating a new order from scratch');
   }
 
-  updateOrder(clientName: string, date: any, status: string) {
+  updateOrder(clientId: string, date: any, status: string) {
     alert('If the order already exist, you can modify it');
   }
 

@@ -83,6 +83,15 @@
         }
     },
     "Client": {
+        "back-to-client-list": "Back to clients admin",
+        "client-detail": "Client Detail",
+        "name": "Name",
+        "address": "Address",
+        "cif": "CIF",
+        "buttons": {
+            "delete": "Delete",
+            "save": "Save"
+        },
         "modal": {
             "delete": {
                 "title": "Deleting…",
@@ -91,5 +100,8 @@
                 "button-delete": "Delete"
             }
         }
+    },
+    "Validation": {
+        "required-field": "Required field"
     }
 }

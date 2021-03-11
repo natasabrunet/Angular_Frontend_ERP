@@ -1,23 +1,19 @@
+<!-- 
+==================================================================================================================
+  PENDING WORK:
+- Client Image Update
+- Orders Section 
+==================================================================================================================
+-->
+
 <div class="container">
   <div class="row py-5">
     <div class="col-sm-12 d-flex justify-content-end">
-      <a [routerLink]="['/client-list']">Back to clients admin</a>
+      <a [routerLink]="['/client-list']">{{ 'Client.back-to-client-list' | translate}}</a>
     </div>
   </div>
 
-  <h4 class="text-center pb-5">Clients Details</h4>
-
-  <!-- <div *ngIf="showAlert" id="loginAlert" class="mb-3 mx-auto text-center border rounded-3" [ngClass]="{
-  'border-erp-darkgreen': server,
-  'text-erp-darkgreen': server,
-  'bg-erp-palegreen': server,
-  'border-erp-firebrick ': !server,
-  'text-erp-firebrick ': !server,
-  'bg-erp-pink': !server
-}">
-<small>{{ msg }}</small>
-</div> -->
-
+  <h4 class="text-center pb-5">{{ 'Client.client-detail' | translate}}</h4>
 
   <div class="row mb-3">
     <!-- Client fields -->
@@ -28,7 +24,7 @@
         <!-- Name -->
         <div class="row mb-3">
           <div class="col-md-3">
-            <label for="name" class="col-form-label">Name:</label>
+            <label for="name" class="col-form-label">{{ 'Client.name' | translate}}:</label>
           </div>
           <div class="col">
             <input id="name"
@@ -39,14 +35,14 @@
                    formControlName="name"
                    [class.is-invalid]="isNameInvalid"
                    autofocus />
-            <div *ngIf="isNameInvalid" class="invalid-feedback">Required field</div>
+            <div *ngIf="isNameInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
           </div>
         </div>
 
         <!-- Address -->
         <div class="row mb-3">
           <div class="col-md-3">
-            <label for="clientAddress" class="col-form-label">Address:</label>
+            <label for="clientAddress" class="col-form-label">{{ 'Client.address' | translate}}:</label>
           </div>
           <div class="col">
             <input id="address"
@@ -56,14 +52,14 @@
                    autocomplete="off"
                    formControlName="address"
                    [class.is-invalid]="isAddressInvalid" />
-            <div *ngIf="isAddressInvalid" class="invalid-feedback">Required field</div>
+            <div *ngIf="isAddressInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
           </div>
         </div>
 
         <!-- CIF -->
         <div class="row mb-3">
           <div class="col-md-3">
-            <label for="clientCif" class="col-form-label">CIF:</label>
+            <label for="clientCif" class="col-form-label">{{ 'Client.cif' | translate}}:</label>
           </div>
           <div class="col">
             <input id="cif"
@@ -73,11 +69,11 @@
                    autocomplete="off"
                    formControlName="cif"
                    [class.is-invalid]="isCIFInvalid" />
-            <div *ngIf="isCIFInvalid" class="invalid-feedback">Required field</div>
+            <div *ngIf="isCIFInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
           </div>
         </div>
 
-        <!-- SERVER RESPONSE ALERT -->
+        <!-- SERVER RESPONSE ALERT (copied from login page) -->
         <div *ngIf="showAlert"
              class="mb-3 mx-auto text-center border rounded-3"
              [ngClass]="{
@@ -88,15 +84,16 @@
                 'text-erp-firebrick ': !success,
                 'bg-erp-pink': !success
               }">
-          <small>{{ returnMessage }}</small>
+          <small>{{ alertMessage }}</small>
         </div>
 
 
         <div class="row py-2">
           <div class="col-7 d-flex justify-content-center">
             <button type="button" class="btn btn-erp-red text-erp-white me-3" data-bs-toggle="modal"
-                    data-bs-target="#deleteModal"> DELETE </button>
-            <button type="submit" class="btn btn-erp-blue text-erp-white me-3"> SAVE </button>
+                    data-bs-target="#deleteModal">{{ 'Client.buttons.delete' | translate}}</button>
+            <button type="submit" class="btn btn-erp-blue text-erp-white me-3">{{ 'Client.buttons.save' |
+              translate}}</button>
           </div>
         </div>
       </form>
@@ -142,9 +139,9 @@
     </div>
   </div>
 
-
-
-
+  <!-- -------------------------------------------------------------- -->
+  <!-- ORDERS SECTION REMAINS TO BE IMPLEMENTED !!!-->
+  <!-- -------------------------------------------------------------- -->
   <h4 class="text-center py-4">Orders</h4>
 
   <!-- Orders data -->

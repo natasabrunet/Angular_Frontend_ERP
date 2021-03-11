@@ -21,7 +21,7 @@ export class ClientDetailComponent implements OnInit {
 
   showAlert      : boolean = false;
   success        : boolean = false;
-  returnMessage  : string;
+  alertMessage  : string;
 
   form: FormGroup;
 
@@ -73,8 +73,6 @@ export class ClientDetailComponent implements OnInit {
   }
 
   loadClient(id: string) {
-    console.log("id");
-    console.log(id);
     this.clientsService.getClientByID(id)
       .subscribe( (data:any) => {
         if (!data) {
@@ -110,18 +108,18 @@ export class ClientDetailComponent implements OnInit {
     .subscribe(resp => {
       this.showAlert = true;
       this.success = true;
-      this.returnMessage = 'Client updated!!!'
+      this.alertMessage = 'Client updated!!!'
       
       // let alert show up and then redirect
       setTimeout(() => {
         this.showAlert = false; // alert OK
-        this.returnMessage = ''
+        this.alertMessage = ''
       }, 2000);
     }, (err) => {
       // console.log(err);
       this.showAlert = true;
       this.success = false;
-      this.returnMessage = err.error.message;
+      this.alertMessage = err.error.message;
     });
   }
 
@@ -130,19 +128,19 @@ export class ClientDetailComponent implements OnInit {
     .subscribe(resp => {
       this.showAlert = true;
       this.success = true;
-      this.returnMessage = 'Client deleted!!!'
+      this.alertMessage = 'Client deleted!!!'
       
       // let alert show up and then redirect
       setTimeout(() => {
         this.showAlert = false; // alert OK
-        this.returnMessage = '';
+        this.alertMessage = '';
         this.router.navigateByUrl('client-list'); // redirect to client-list
       }, 2000);
     }, (err) => {
       console.log(err);
       this.showAlert = true;
       this.success = false;
-      this.returnMessage = err.error;
+      this.alertMessage = err.error;
     });
   }
 }

@@ -81,5 +81,27 @@
         "literals": {
             "go-to-page": "go to page"
         }
+    },
+    "Client": {
+        "back-to-client-list": "Back to clients admin",
+        "client-detail": "Client Detail",
+        "name": "Name",
+        "address": "Address",
+        "cif": "CIF",
+        "buttons": {
+            "delete": "Delete",
+            "save": "Save"
+        },
+        "modal": {
+            "delete": {
+                "title": "Deleting…",
+                "message": "Are you sure you want to delete this client?",
+                "button-no": "No",
+                "button-delete": "Delete"
+            }
+        }
+    },
+    "Validation": {
+        "required-field": "Required field"
     }
 }

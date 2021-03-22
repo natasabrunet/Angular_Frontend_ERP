@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'single-product/:id', component: SingleProductComponent },
   { path: 'client-list', component: ClientListComponent },
   { path: 'new-client', component: NewClientComponent },
-  { path: 'client-detail', component: ClientDetailComponent },
+  { path: 'client-detail/:id', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'employees', component: EmployeesComponent },

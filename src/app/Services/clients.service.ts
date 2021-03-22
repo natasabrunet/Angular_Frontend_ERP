@@ -27,10 +27,32 @@ export class ClientsService {
     return this.httpClient.get( `${this.url}${this.endPoint}`, {headers} );
   }
   
-  getClients(amount, page ) {
+  getClients(amount: number, page: number ) {
     const headers = new HttpHeaders({
       Authorization: this.token
     });
     return this.httpClient.get( `${this.url}${this.endPoint}/list/${amount}/${page}`, {headers} );
+  }
+
+  getClientByID(id: string ) {
+    const headers = new HttpHeaders({
+      Authorization: this.token
+    });
+    return this.httpClient.get( `${this.url}${this.endPoint}/${id}`, {headers} );
+  }
+
+  updateClient(client) {
+    const headers = new HttpHeaders({
+      Authorization: this.token
+    });
+    return this.httpClient.put( `${this.url}${this.endPoint}/${client.id}`, client, {headers} );
+  }
+
+  deleteClient(id: string) {
+    const headers = new HttpHeaders({
+      Authorization: this.token
+    });
+    
+    return this.httpClient.delete( `${this.url}${this.endPoint}/${id}`, {headers} );
   }
 }

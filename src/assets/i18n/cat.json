@@ -70,7 +70,7 @@
         },
         "modal": {
             "title": "Esborrant…",
-            "message": "¿Estàs segur que vols esborrar el client ",
+            "message": "Estàs segur que vols esborrar el client ",
             "button-no": "No",
             "button-delete": "Esborrar"
         },
@@ -81,5 +81,27 @@
         "literals": {
             "go-to-page": "anar a la pàgina"
         }
+    },
+    "Client": {
+        "back-to-client-list": "Tornar a l'administració de clients",
+        "client-detail": "Detall del Client",
+        "name": "Nom",
+        "address": "Adreça",
+        "cif": "CIF",
+        "buttons": {
+            "delete": "Esborrar",
+            "save": "Guardar"
+        },
+        "modal": {
+            "delete": {
+                "title": "Esborrant…",
+                "message": "Estàs segur que vols esborrar aquest client?",
+                "button-no": "No",
+                "button-delete": "Esborrar"
+            }
+        }
+    },
+    "Validation": {
+        "required-field": "Camp obligatori"
     }
 }

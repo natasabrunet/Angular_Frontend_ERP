@@ -26,6 +26,6 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {}
   logout() {
     this.loginService.clearSession();
-    // this.router.navigateByUrl('log-in'); // redirect to Log-in
+    this.router.navigateByUrl('log-in'); // redirect to Log-in
   }
 }

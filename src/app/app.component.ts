@@ -83,14 +83,11 @@ export class AppComponent implements OnInit, DoCheck {
   token = ''; // <-- log in OK
   role = ''; // <-- log in OK
 
-  constructor(
-    private loginService: LoginService,
-    private translateService: TranslateService
-  ) {
+  constructor(private loginService: LoginService, private translateService: TranslateService) {
     this.mode = environment.mode;
-    this.translateService.setDefaultLang('en');
-    this.translateService.use('en');
-    this.translateService.addLangs(['en', 'es', 'cat']);
+    this.translateService.setDefaultLang('en'); //fallback set of translations to use in case there are missing translations for the current language. 
+    this.translateService.use('en'); //tells the service which is the current language to use for translations.
+    this.translateService.addLangs(['en', 'es', 'cat']); //tells the service which languages are available to use for translations.
     this.langs = this.translateService.getLangs();
   }
 
@@ -149,9 +146,6 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   changeLang(lang: string) {
-    //let browserLang = window.navigator.languages ? window.navigator.languages[0] : null;
-    let browserLang = window.navigator.language;
-    console.log(browserLang);
     this.translateService.use(lang);
   }
 

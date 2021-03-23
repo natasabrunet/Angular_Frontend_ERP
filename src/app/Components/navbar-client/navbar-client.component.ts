@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-navbar-client',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarClientComponent implements OnInit {
 
-  constructor() { }
+  langs: string[] = [];
+
+  constructor(public appComponent: AppComponent) {
+    this.langs = appComponent.langs;
+  }
 
   ngOnInit(): void {
+  }
+
+  changeLanguage(lang: string) {
+    this.appComponent.changeLang(lang);
   }
 
 }

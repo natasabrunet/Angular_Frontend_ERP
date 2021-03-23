@@ -18,9 +18,12 @@
         }
     },
     "btn": {
-        "add": "AÑADIR",
-        "delete": "BORRAR",
-        "update": "MODIFICAR"
+        "add": "Añadir",
+        "delete": "Borrar",
+        "update": "Modificar",
+        "edit": "Editar",
+        "go": "Ir",
+        "go-to-page": "Ir a la página"
     },
     "footer": {
         "developer": "Desarrollado por"
@@ -99,6 +102,25 @@
                 "button-no": "No",
                 "button-delete": "Borrar"
             }
+        }
+    },
+    "Employees-list": {
+        "page-head": "Lista de empleados",
+        "list": {
+            "head-id": "ID",
+            "head-name": "Nombre",
+            "head-total-sellings": "Ventas Totales",
+            "head-orders-attended": "# Pedidos Atendidos",
+            "head-options": "Opciones"
+        },
+        "modal": {
+            "title": "Borrando…",
+            "message": "¿Estás seguro que quieres borrar el cliente ",
+            "button-no": "No",
+            "button-delete": "Borrar"
+        },
+        "button": {
+            "new-employee": "añadir cliente"
         }
     },
     "Validation": {

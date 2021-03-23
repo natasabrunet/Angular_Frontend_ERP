@@ -18,9 +18,12 @@
         }
     },
     "btn": {
-        "add": "AFEGIR",
-        "delete": "ESBORRAR",
-        "update": "MODIFICAR"
+        "add": "Afegir",
+        "delete": "Esborrar",
+        "update": "Modificar",
+        "edit": "Editar",
+        "go": "Anar",
+        "go-to-page": "Anar a la pàgina"
     },
     "footer": {
         "developer": "Desenvolupat per"
@@ -99,6 +102,25 @@
                 "button-no": "No",
                 "button-delete": "Esborrar"
             }
+        }
+    },
+    "Employees-list": {
+        "page-head": "Llista d'empleats",
+        "list": {
+            "head-id": "ID",
+            "head-name": "Nom",
+            "head-total-sellings": "Vendes Totals",
+            "head-orders-attended": "# Comandes Ateses",
+            "head-options": "Opcions"
+        },
+        "modal": {
+            "title": "Esborrant…",
+            "message": "Estàs segur que vols esborrar l'empleat ",
+            "button-no": "No",
+            "button-delete": "Esborrar"
+        },
+        "button": {
+            "new-employee": "afegir empleat"
         }
     },
     "Validation": {

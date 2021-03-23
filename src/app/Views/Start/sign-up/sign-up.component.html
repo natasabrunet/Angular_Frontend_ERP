@@ -147,14 +147,14 @@
       <div
         class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
       >
-        <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
+        <label class="p-2 col-2" for="exampleInputEmail1">Confirm Password: </label>
         <div class="ms-5 col-8">
           <div class="d-flex">
             <input
               id="password_see"
               type="password"
               name="password-control"
-              class="form-control bg-erp-silver"
+              class="form-control bg-erp-silver mt-3"
               [ngClass]="{
                 'is-invalid':
                   password2.touched &&
@@ -167,7 +167,7 @@
               pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
               autocomplete="off"
             />
-            <button class="bg-erp-blue" type="button" (click)="verPassword2()">
+            <button class="bg-erp-blue mt-3" type="button" (click)="verPassword2()">
               <i id="eye2" class="fas fa-eye-slash"></i>
             </button>
           </div>

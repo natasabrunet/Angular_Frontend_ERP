@@ -83,14 +83,11 @@ export class AppComponent implements OnInit, DoCheck {
   token = ''; // <-- log in OK
   role = ''; // <-- log in OK
 
-  constructor(
-    private loginService: LoginService,
-    private translateService: TranslateService
-  ) {
+  constructor(private loginService: LoginService, private translateService: TranslateService) {
     this.mode = environment.mode;
-    this.translateService.setDefaultLang('en');
-    this.translateService.use('en');
-    this.translateService.addLangs(['en', 'es', 'cat']);
+    this.translateService.setDefaultLang('en'); //fallback set of translations to use in case there are missing translations for the current language. 
+    this.translateService.use('en'); //tells the service which is the current language to use for translations.
+    this.translateService.addLangs(['en', 'es', 'cat']); //tells the service which languages are available to use for translations.
     this.langs = this.translateService.getLangs();
   }
 
@@ -124,9 +121,9 @@ export class AppComponent implements OnInit, DoCheck {
 
     // INFO: 01/03/2021 - The line below is commented, because if it is executed, when refreshing (eg F5) the authenticated session is lost.
     //if (this.loginService.getAPIres === undefined) {
-      //this.loginService.clearSession(); // clear previous sessionStorage
+    //this.loginService.clearSession(); // clear previous sessionStorage
     //}
-    
+
     // INFO: 03/03/2021 - If we don't have the token in App, check if we have the token in Browser,
     //                    and If we have it in Browser, we save it in App
     if (this.loginService.getToken === undefined) {

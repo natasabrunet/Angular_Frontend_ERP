@@ -103,5 +103,17 @@
     },
     "Validation": {
         "required-field": "Campo obligatorio"
+    },
+    "homepage": {
+        "welcome-msg": "Bienvenidos a ERP!",
+        "cheers-msg": "SALUD!!!"
+    },
+    "navbar-client": {
+        "navbar-home": "Inicio",
+        "navbar-about": "Nosotros",
+        "navbar-products": "Productos",
+        "navbar-contact": "Contacto",
+        "navbar-login": "Entrar",
+        "navbar-signup": "Registrarse"
     }
 }

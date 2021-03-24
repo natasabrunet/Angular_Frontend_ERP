@@ -115,5 +115,11 @@
         "navbar-contact": "Contacte",
         "navbar-login": "Entrar",
         "navbar-signup": "Registrar-se"
+    },
+    "about": {
+        "text-greeting": "¡Hola!",
+        "text-1": "Som uns estudiants afortunats de la IT Academy que acabem d'acabar l'itinerari escollit i vam tenir l'oportunitat de treballar junts en el projecte beer-nice.",
+        "text-2": "Som un equip multicultural a què ens agrada passar temps junts: riure'ns o resoldre els problemes que de vegades apareixen i esperem que aviat gaudim junts d'unes cerveses multiculturals i ens oblidem dels problemes. Bé, serà una situació en què tots sortirem guanyant.",
+        "text-goodbye": "¡Salutacions!"
     }
 }

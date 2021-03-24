@@ -38,11 +38,11 @@ import { DevNavbarComponent } from './Components/dev-navbar/dev-navbar.component
 import { RoleSidebarComponent } from './Components/role-sidebar/role-sidebar.component';
 import { OrdersComponent } from './views/orders/orders.component';
 import { StatsComponent } from './views/stats/stats.component';
-import { EmployeesComponent } from './views/employees/employees.component';
+import { EmployeeComponent } from './views/employees/employee/employee.component';
+import { EmployeesListComponent } from './views/employees/employees-list/employees-list.component';
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
-import { EmployeeComponent } from './views/employees/employee/employee.component';
 
 registerLocaleData(localeESP);
 
@@ -71,8 +71,8 @@ registerLocaleData(localeESP);
     RoleSidebarComponent,
     OrdersComponent,
     StatsComponent,
-    EmployeesComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EmployeesListComponent
   ],
 
   imports: [

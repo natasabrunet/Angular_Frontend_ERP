@@ -7,7 +7,9 @@
                 <input class="form-control me-4 rounded-pill" type="search"
                        placeholder="{{ 'Search.searchph' | translate }} ..." aria-label="Search">
             </div>
-            <button type="submit" class="btn btn-erp-blue text-erp-white">
+            <button type="submit"
+                    class="btn btn-erp-blue text-erp-white"
+                    title="{{ 'Employees-list.button.new-employee' | translate}}">
                 {{ 'Employees-list.button.new-employee' | translate}}
             </button>
         </div>
@@ -28,13 +30,13 @@
             <tbody>
                 <tr *ngFor="let employee of employees; let i = index">
                     <td>
-                        {{ employee.id }}
-                    </td>
-                    <td>
                         {{ employee.dni }}
                     </td>
                     <td>
                         {{ employee.nameAndSurname }}
+                    </td>
+                    <td>
+                        {{ employee.dni }}
                     </td>
                     <td>
                         {{ employee.nameAndSurname }}

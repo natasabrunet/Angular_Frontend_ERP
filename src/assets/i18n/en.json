@@ -18,9 +18,12 @@
         }
     },
     "btn": {
-        "add": "ADD",
-        "delete": "DELETE",
-        "update": "UPDATE"
+        "add": "Add",
+        "delete": "Delete",
+        "update": "Update",
+        "edit": "Edit",
+        "go": "Go",
+        "go-to-page": "Go to page"
     },
     "footer": {
         "developer": "Developed by"
@@ -99,6 +102,25 @@
                 "button-no": "No",
                 "button-delete": "Delete"
             }
+        }
+    },
+    "Employees-list": {
+        "page-head": "Employees list",
+        "list": {
+            "head-id": "ID",
+            "head-name": "Name",
+            "head-total-sellings": "Total Sellings",
+            "head-orders-attended": "# Orders Attended",
+            "head-options": "Options"
+        },
+        "modal": {
+            "title": "Deleting…",
+            "message": "Are you sure you want to delete ",
+            "button-no": "No",
+            "button-delete": "Delete"
+        },
+        "button": {
+            "new-employee": "New employee"
         }
     },
     "Validation": {

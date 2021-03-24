@@ -42,6 +42,7 @@ import { EmployeesComponent } from './views/employees/employees.component';
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
+import { EmployeesListComponent } from './views/employees/employees-list/employees-list.component';
 
 registerLocaleData(localeESP);
 
@@ -70,7 +71,8 @@ registerLocaleData(localeESP);
     RoleSidebarComponent,
     OrdersComponent,
     StatsComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    EmployeesListComponent
   ],
 
   imports: [

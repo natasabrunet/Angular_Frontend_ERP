@@ -22,7 +22,7 @@ import { ClientDetailComponent } from './Views/Client/client-detail/client-detai
 import { OrdersComponent } from "./Views/orders/orders.component";
 
 // Employees import
-import { EmployeesComponent } from "./Views/employees/employees.component";
+import { EmployeesListComponent } from './Views/employees/employees-list/employees-list.component';
 
 // Stats import
 import { StatsComponent } from "./Views/stats/stats.component";
@@ -45,7 +45,7 @@ const routes: Routes = [
   { path: 'client-detail/:id', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: 'orders', component: OrdersComponent },
-  { path: 'employees', component: EmployeesComponent },
+  { path: 'employees-list', component: EmployeesListComponent },
   { path: 'stats', component: StatsComponent },
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },

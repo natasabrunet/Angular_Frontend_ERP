@@ -25,7 +25,7 @@
               <!-- Image -->
               <td class="text-center">
               <button type="button" class="btn p-0" data-bs-toggle="modal" [attr.data-bs-target]="'#'+product.name">
-                <img class="product-img-thumb" [src]="product.image | noProductImage" />
+                <img class="product-img-thumb" *ngIf="product.image > 0" [src]="product.image | noProductImage" />
               </button>
               </td>
 
@@ -40,10 +40,10 @@
                     </div>
 
                     <div class="modal-body d-flex justify-content-center align-items-center">
-                      <img class="" [src]="product.image" />
-
+                      <img *ngIf="product.image > 0" [src]="product.image | noProductImage" />
+                      <!-- Added at the moment the pipe. To be checked-->
                     </div>
-                    
+
                     <div class="modal-footer">
                       <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Close
@@ -57,9 +57,9 @@
               <!-- Edit/Delete -->
               <td class="pr-td">
                 <div class="d-flex justify-content-center align-items-center">
-                
+
                 <!-- Edit -->
-                <button (click)="goSingleProduct(product.id)" class="btn"><fa-icon class="mx-md-3" [icon]="faEdit" size="lg" role="button" ></fa-icon></button> 
+                <button (click)="goSingleProduct(product.id)" class="btn"><fa-icon class="mx-md-3" [icon]="faEdit" size="lg" role="button" ></fa-icon></button>
 
                 <!-- Delete -->
                 <button type="button" class="btn" data-bs-toggle="modal" [attr.data-bs-target]="'#delete'+i" >
@@ -80,7 +80,7 @@
                       <div class="modal-body">
                         {{ 'Products-list.modal.message' | translate }} {{product.name}}?
                       </div>
-                      
+
                       <div class="modal-footer">
                         <button  type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
                           {{ 'Products-list.modal.button-no' | translate }}
@@ -101,10 +101,10 @@
 
       <div class="row my-5">
         <div class="col text-end">
-          <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para 
+          <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para
             que la página de single product sepa si está en modo alta o mantenimiento  -->
           <button (click)="goSingleProduct(0)" class="btn appButton">{{ 'Products-list.button.new-product' | translate }}</button>
-        </div> 
+        </div>
       </div>
     </div>
   </div>

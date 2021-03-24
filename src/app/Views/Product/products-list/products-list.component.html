@@ -40,8 +40,7 @@
                     </div>
 
                     <div class="modal-body d-flex justify-content-center align-items-center">
-                      <img *ngIf="product.image > 0" [src]="product.image | noProductImage" />
-                      <!-- Added at the moment the pipe. To be checked-->
+                      <img class="" *ngIf="product.image > 0" [src]="product.image | noProductImage" />
                     </div>
 
                     <div class="modal-footer">

@@ -1,7 +1,9 @@
 <section class="container-fluid m-5">
 
-  <h3 class="text-center" *ngIf="idProduct==0; else updateProduct">{{ "singleProd.tittleNew" | translate }}</h3>
-  <ng-template #updateProduct><h3 class="text-center">{{ "singleProd.tittleUpdate" | translate }}</h3></ng-template>
+    <h3 class="text-center" *ngIf="idProduct==0; else updateProduct">{{ "singleProd.tittleNew" | translate }}</h3>
+    <ng-template #updateProduct>
+        <h3 class="text-center">{{ "singleProd.tittleUpdate" | translate }}</h3>
+    </ng-template>
 
   <div class="row d-flex justify-content-center">
     <div class="col-md-6">
@@ -76,7 +78,13 @@
     <div class="col-md-4">
     </div>
 
-  </div>
+        <div form="singleProduct" class="col-md-4 mt-3  position-relative">
+            <img [src]="product.image" id="info" class="img rounded" alt="image of the product">
+            <label for="file-upload" class="subir">
+        <fa-icon class="buttonIcon" [icon]="iconPenSquare" [fixedWidth]="true" size="2x" title="Edit Image">  </fa-icon>
+      </label>
+            <input id="file-upload" (change)="uploadImage()" type="file" style="display: none;" />
+        </div>
 
   <!-- Modal para confirmación de borrado del producto -->
   <div class="modal fade modalMessage" [id]="'delete'+idProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,19 +97,19 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <div class="modal-body">
-          {{ 'Products-list.modal.message' | translate }} {{product.name}}?
+        <div class="col-md-4">
         </div>
 
         <div class="modal-footer">
           <button  type="button" class="btn btn-erp-general " data-bs-dismiss="modal">
             {{ 'Products-list.modal.button-no' | translate }}
           </button>
-          <button type="button" class="btn btn-erp-delete" (click)="delete(idProduct)" data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-erp-delete" (click)="delete(idProduct)" data-bs-dismiss="modal">
             {{ 'Products-list.modal.button-delete' | translate }}
           </button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
   </div>
 

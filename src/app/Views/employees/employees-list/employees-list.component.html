@@ -1,0 +1,157 @@
+<div class="container">
+    <h4 class="text-center py-5">{{ 'Employees-list.page-head' | translate }}</h4>
+    <!-- Search -->
+    <div class="row mb-5">
+        <div class="col-sm-12 d-inline-flex justify-content-end ">
+            <div class="col-sm-3 me-4">
+                <input class="form-control me-4 rounded-pill" type="search"
+                       placeholder="{{ 'Search.searchph' | translate }} ..." aria-label="Search">
+            </div>
+            <button type="submit" class="btn btn-erp-blue text-erp-white">
+                {{ 'Employees-list.button.new-employee' | translate}}
+            </button>
+        </div>
+    </div>
+
+    <!-- Employees data -->
+    <div class="table-responsive mb-5">
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th class="col-1" scope="col ">{{ 'Employees-list.list.head-id' | translate }}</th>
+                    <th class="col-2" scope="col ">{{ 'Employees-list.list.head-name' | translate }}</th>
+                    <th class="col-3" scope="col ">{{ 'Employees-list.list.head-total-sellings' | translate }}</th>
+                    <th class="col-5" scope="col ">{{ 'Employees-list.list.head-orders-attended' | translate }}</th>
+                    <th class="text-center" scope="col-1">{{ 'Employees-list.list.head-options' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees; let i = index">
+                    <td>
+                        {{ employee.id }}
+                    </td>
+                    <td>
+                        {{ employee.dni }}
+                    </td>
+                    <td>
+                        {{ employee.nameAndSurname }}
+                    </td>
+                    <td>
+                        {{ employee.nameAndSurname }}
+                    </td>
+                    <!-- Edit/Delete -->
+                    <td class="pr-td">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <!-- Edit -->
+                            <button (click)="goEditEmployee(employee.id)" class="btn">
+                                <fa-icon class="mx-md-3"
+                                         [icon]="faEdit"
+                                         size="lg"
+                                         title="{{ 'btn.edit' | translate }}"
+                                         role="button"></fa-icon>
+                            </button>
+
+                            <!-- Delete -->
+                            <button type="button"
+                                    class="btn"
+                                    data-bs-toggle="modal"
+                                    title="{{ 'btn.delete' | translate }}"
+                                    [attr.data-bs-target]="'#delete'+i">
+                                <fa-icon class="mx-md-3 deleteIcon"
+                                         size="lg" role="button"
+                                         [icon]="faTrashAlt">
+                                </fa-icon>
+                            </button>
+                        </div>
+                    </td>
+
+                    <!-- Modal -->
+                    <div class="modal fade modalMessage"
+                         tabindex="-1"
+                         aria-hidden="true"
+                         [id]="'delete'+i">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        {{ 'Employees-list.modal.title' | translate }}
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    {{ 'Employees-list.modal.message' | translate }} "{{employee.nameAndSurname}}"?
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
+                                        {{ 'Employees-list.modal.button-no' | translate }}
+                                    </button>
+                                    <button type="button" class="btn btn-primary deleteButton text-uppercase"
+                                            data-bs-dismiss="modal"
+                                            (click)="delete(i)">
+                                        {{ 'Employees-list.modal.button-delete' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="row d-flex justify-content-end mb-5">
+        <!-- Page numbers -->
+        <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item"
+                        [ngClass]="{'disabled': isFirstPage()}">
+                        <a class="page-link rounded-circle"
+                           href="#"
+                           aria-label="Previous"
+                           (click)="gotoPrevPage();">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li *ngFor="let page of pagesArray"
+                        class="page-item"
+                        [ngClass]="{'disabled': page == currentPage}">
+                        <a class="page-link rounded-circle" href="#" (click)="goToPage(page)">{{page}}</a>
+                    </li>
+                    <li class="page-item"
+                        [ngClass]="{'disabled': isLastPage()}">
+                        <a class="page-link rounded-circle"
+                           href="#"
+                           aria-label="Next"
+                           (click)="gotoNextPage()">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Go to page section -->
+        <div class="col-12 col-lg-3 d-flex justify-content-end align-items-center align-self-center">
+            <p class="text-center p-0 m-0 no-wrap">{{ 'btn.go-to-page' | translate}}:</p>
+            <div class="col-3 col-sm-2 col-md-1 col-lg-3 me-2 ms-2">
+                <input type="search"
+                       class="form-control rounded-pill"
+                       aria-label="go to page"
+                       pattern="[0-9]*"
+                       value=""
+                       [(ngModel)]="pageToGo">
+            </div>
+            <button type="button"
+                    class="btn btn-erp-blue text-erp-white rounded-pill"
+                    title="{{ 'btn.go-to-page' | translate }}"
+                    (click)="goToPage(pageToGo)">
+                {{ 'btn.go' | translate}}
+            </button>
+        </div>
+    </div>
+</div>

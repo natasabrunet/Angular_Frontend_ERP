@@ -29,9 +29,9 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
 
   toggle = false;
 
-
   constructor(private loginService: LoginService,
-    private translateService:TranslateService) { }
+              private translateService:TranslateService,
+              public appComponent: AppComponent) {}
 
   ngOnInit(): void {
     this._toggleSidebar(); // default off
@@ -56,7 +56,6 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
     switch (authority) {
       case 'ROLE_CLIENT':
         (() => {
-          console.log(this.translateService.currentLang);
           this.userType = {
             role: ['fas fa-user-tie', 'client'],
             operations: [

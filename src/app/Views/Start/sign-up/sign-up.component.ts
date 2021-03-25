@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { UserSignUpDto } from 'src/app/Models/DTOs/newUserDto';
 
@@ -11,94 +12,118 @@ import { SignupService } from '../../../Services/signup.service';
 })
 export class SignUpComponent implements OnInit {
 
-  public new_user: UserSignUpDto;
-  public password_conf:string;
-  public email:string; // FIXME: Temporalmente creado hasta actualización de schema
-  public bussinessName:string; // FIXME: Temporalmente creado hasta actualización de schema
-  public check_password:boolean;
-  public check_eye:boolean;
-  public closeResult= '';
+  signUpForm: FormGroup;
 
-  constructor(
-    private modalService: NgbModal,
-    private signupService:SignupService
-  ) {
-    this.new_user = new UserSignUpDto('', '','');// FIXME: Temporalmente creado hasta actualización de schema
-    this.check_password = false;
-    this.check_eye = false;
+  regexCIF = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
+  regexEmail = /^[a-z0-9._%+-]+@[a-z0-9·-]+.[a-z]{2,4}$/;
+  regexPassword = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/;
+  regexZIP = /\b\d{5}\b/g;
+
+  new_user: UserSignUpDto;
+
+  constructor(private modalService: NgbModal, private signupService: SignupService, private fb: FormBuilder) {
+    this.createForm();
   }
 
   ngOnInit(): void {
 
   }
 
-  onSubmit(form){
+  createForm() {
+    this.signUpForm = this.fb.group({
+      inputName: ['Pook', [Validators.required, Validators.minLength(3)]],
+      inputSurname: ['Wokgm', [Validators.required, Validators.minLength(3)]],
+      inputDNI: ['13628002L', this.validateDNI],
+      address: this.fb.group({
+        inputAddress: ['C/ Corsega n52 1 4', Validators.required],
+        inputCity: ['Pamplona', [Validators.required, Validators.minLength(2)]],
+        inputProvince: ['', Validators.required], // no s'actualitza el valor!!!!!!!
+        inputZIP: ['08059', [Validators.required, Validators.pattern(this.regexZIP)]],
+      }),
+      inputCIF: ['E34692244', [Validators.required, Validators.pattern(this.regexCIF)]],
+      inputEmail: ['r@op.es', [Validators.required, Validators.pattern(this.regexEmail)]],
+      inputPassword: ['123', Validators.required], //Validators.pattern(this.regexPassword)
+      inputRepeatPass: ['123', Validators.required]
+    })
+    this.new_user = new UserSignUpDto(this.signUpForm.value);
+  }
+
+  onSubmit() {
+    console.log(this.signUpForm.value);
     console.log(this.new_user);
-    this.signupService.createUser(this.new_user)
-        .subscribe(resp => {
-          console.log(resp)
-        })
-    this.email = '';// FIXME: Temporalmente fuera de form hasta actualización de schema
-    this.bussinessName = '';// FIXME: Temporalmente fuera de form hasta actualización de schema
-    form.reset();
+
+    /*this.signupService.createUser(this.new_user)
+      .subscribe(resp => {
+        console.log(resp)
+      })
+    this.signUpForm.reset();*/
   }
 
-  verPassword1(){
-    let password1: HTMLInputElement = (<HTMLInputElement>document.getElementById('password1'));
-    if(password1.type === "password"){
-       password1.type = "text";
-     }else{
-       password1.type = "password";
-     }
+  validateDNI(inputDNI) {
+    const value = inputDNI.value;
+    const dni_letters = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-    let eye: HTMLElement = (<HTMLElement>document.getElementById('eye1'));
-    if(this.check_eye === false){
-      this.check_eye = true;
-      eye.classList.remove("fa-eye-slash");
-      eye.classList.add("fa-eye");
-    }else{
-      this.check_eye = false;
-      eye.classList.add("fa-eye-slash");
-      eye.classList.remove("fa-eye");
-    }
-  }
+    if (/^(\d{8})[a-zA-Z]$/.test(value)) {
+      const number = value.substr(0, value.length - 1);
+      const letter = value.charAt(value.length - 1);
+      const calc = number % 23;
+      const correctLetter = dni_letters.charAt(calc);
 
-  verPassword2(){
-    let password_see: HTMLInputElement = (<HTMLInputElement>document.getElementById('password_see'));
-    if(password_see.type === "password"){
-       password_see.type = "text";
-     }else{
-       password_see.type = "password";
-     }
+      if (letter.toUpperCase() == correctLetter) {
+        return null;
+      } else {
+        return { validateDNI: 'The letter do not match with the numbers' };
+      }
 
-     let eye: HTMLElement = (<HTMLElement>document.getElementById('eye2'));
-     if(this.check_eye === false){
-       this.check_eye = true;
-       eye.classList.remove("fa-eye-slash");
-       eye.classList.add("fa-eye");
-     }else{
-       this.check_eye = false;
-       eye.classList.add("fa-eye-slash");
-       eye.classList.remove("fa-eye");
-     }
-  }
-
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): any {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
     } else {
-      return `with: ${reason}`;
+      return { validateDNI: 'DNI required (8 numbers and 1 letter)' };
     }
   }
+
+  showPassword(inputPass: string, eyeIcon: string) {
+    let inputPassword: HTMLInputElement = (<HTMLInputElement>document.getElementById(inputPass));
+    let icon: HTMLInputElement = (<HTMLInputElement>document.getElementById(eyeIcon));
+
+    if (inputPassword.type === 'password') {
+      inputPassword.type = 'text';
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    } else if (inputPassword.type === 'text') {
+      inputPassword.type = 'password';
+      icon.classList.add("fa-eye-slash");
+      icon.classList.remove("fa-eye");
+    }
+  }
+
+  isValidInput(name: string): boolean {
+    const input: any = this.signUpForm.get(name);
+    return input.touched && input.invalid
+  }
+
+  matchPasswords() {
+    const pass1 = this.signUpForm.get('inputPassword').value;
+    const pass2 = this.signUpForm.get('inputRepeatPass').value;
+
+    return (pass1 === pass2) ? false : true;
+  }
+
+  /*
+    open(content) {
+      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+  
+    private getDismissReason(reason: any): any {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return `with: ${reason}`;
+      }
+    }*/
 }
 

@@ -61,12 +61,12 @@
 
     </div>
 
-    <div form ="singleProduct" class="col-md-4 mt-3  position-relative">
-      <img [src]="product.image" id="info" class="img rounded" alt="image of the product">
-      <label for="file-upload" class="subir">
+    <div form ="singleProduct" class="col-md-4 mt-3 position-relative d-flex justify-content-center">
+      <img *ngIf="product.image > 0" [src]="product.image" id="info" class="img rounded" alt="image of the product">
+      <input id="file-upload" (change)="uploadImage()" type="file" style="display: none;"/>
+      <label for="file-upload" class="subir"><span *ngIf="product.image != 0" class="text-danger m-auto">Upload image product </span>
         <fa-icon class="buttonIcon" [icon]="iconPenSquare" [fixedWidth]="true" size="2x">  </fa-icon>
       </label>
-      <input id="file-upload" (change)="uploadImage()" type="file" style="display: none;"/>
     </div>
 
     <div form="singleProduct" class="col-md-6 d-flex justify-content-center pb-3 my-3">

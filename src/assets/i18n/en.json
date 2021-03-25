@@ -137,5 +137,11 @@
         "navbar-contact": "Contact",
         "navbar-login": "Log in",
         "navbar-signup": "Sign up"
+    },
+    "about": {
+        "text-greeting": "Hi!",
+        "text-1": "We are some lucky students at the IT Academy who just finished the chosen itinerary and got the chance to work together on a beer-nice project!",
+        "text-2": "We are a multicultural team who enjoy spending time together: laughing or resolving the problems that sometimes appear and we hope that soon we'll enjoy some multicultural beers together and forget about the problems. Well, It'll be a win-win situation.",
+        "text-goodbye": "Cheers to that!"
     }
 }

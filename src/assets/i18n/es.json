@@ -123,6 +123,9 @@
             "new-employee": "Añadir empleado"
         }
     },
+    "Employee": {
+        "back-to-employee-list": "Volver a la administración de empleados"
+    },
     "Validation": {
         "required-field": "Campo obligatorio"
     },

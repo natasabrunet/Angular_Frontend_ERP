@@ -1,1 +1,203 @@
-<p>employee works!</p>
+<div class="container">
+    <div class="row py-5">
+        <div class="col-md-6">
+            <h4 class2="pb-5">
+                <div *ngIf="isNew; else employeeWelcome">
+                    {{ 'Employee.new-employee' | translate}}
+                </div>
+                <ng-template #employeeWelcome>
+                    {{ 'Employee.employee-detail' | translate}}
+                </ng-template>
+            </h4>
+        </div>
+        <div class="col-md-6">
+            <div class="col-sm-12 d-flex justify-content-end">
+                <a [routerLink]="['/employees-list']">{{ 'Employee.back-to-employees-list' | translate}}</a>
+            </div>
+        </div>
+    </div>
+
+    <form method="post" role="form" class="php-email-form" autocomplete="off"
+          [formGroup]='form'
+          (ngSubmit)="submit()">
+        <!-- Employee fields -->
+        <div class="row mb-3">
+            <div class="col-md-7">
+                <!-- Name -->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="name" class="col-form-label">{{ 'Employee.name' | translate}}:</label>
+                    </div>
+                    <div class="col">
+                        <input id="name"
+                               name="name"
+                               type="text"
+                               class="form-control"
+                               autocomplete="off"
+                               formControlName="name"
+                               [class.is-invalid]="isNameEmpty"
+                               autofocus />
+                        <div *ngIf="isNameEmpty" class="invalid-feedback">{{ 'Validation.required-field' | translate}}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salary -->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="salary" class="col-form-label">{{ 'Employee.salary' | translate}}:</label>
+                    </div>
+                    <div class="col">
+                        <input id="salary"
+                               name="salary"
+                               type="text"
+                               class="form-control"
+                               autocomplete="off"
+                               formControlName="salary"
+                               [class.is-invalid]="isSalaryEmpty" />
+                        <div *ngIf="isSalaryEmpty" class="invalid-feedback">
+                            {{ 'Validation.required-field' | translate}}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Sellings -->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="totalSellings" class="col-form-label">{{ 'Employee.total-sellings' |
+                            translate}}:</label>
+                    </div>
+                    <div class="col">
+                        <input id="totalSellings"
+                               name="totalSellings"
+                               type="text"
+                               class="form-control"
+                               autocomplete="off"
+                               formControlName="totalSellings" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <!-- Email -->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="email" class="col-form-label">{{ 'Employee.email' | translate}}:</label>
+                    </div>
+                    <div class="col">
+                        <input id="email"
+                               name="email"
+                               type="text"
+                               class="form-control"
+                               autocomplete="off"
+                               formControlName="email"
+                               [class.is-invalid]="isEmailEmpty"
+                               autofocus />
+                        <div *ngIf="isEmailEmpty" class="invalid-feedback">{{ 'Validation.required-field' | translate}}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DNI -->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="dni" class="col-form-label">{{ 'Employee.dni' | translate}}:</label>
+                    </div>
+                    <div class="col">
+                        <input id="dni"
+                               name="dni"
+                               type="text"
+                               class="form-control"
+                               autocomplete="off"
+                               formControlName="dni"
+                               [class.is-invalid]="isDniEmpty" />
+                        <div *ngIf="isDniEmpty" class="invalid-feedback">
+                            {{ 'Validation.required-field' | translate}}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="phone" class="col-form-label">{{ 'Employee.phone' | translate}}:</label>
+                    </div>
+                    <div class="col">
+                        <input id="phone"
+                               name="phone"
+                               type="text"
+                               class="form-control"
+                               autocomplete="off"
+                               formControlName="phone"
+                               [class.is-invalid]="isPhoneEmpty" />
+                        <div *ngIf="isPhoneEmpty" class="invalid-feedback">
+                            {{ 'Validation.required-field' | translate}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </form>
+
+    <!-- Modal - Delete Confirmation -->
+    <div class="modal fade"
+         id="deleteModal"
+         tabindex="-1"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        {{ 'Employee.modal.delete.title' | translate }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    {{ 'Employee.modal.delete.message' | translate }}
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
+                        {{ 'Employee.modal.delete.button-no' | translate }}
+                    </button>
+                    <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="deleteEmployee()"
+                            data-bs-dismiss="modal">
+                        {{ 'Employee.modal.delete.button-delete' | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -------------------------------------------------------------- -->
+    <!-- ORDERS SECTION REMAINS TO BE IMPLEMENTED !!!-->
+    <!-- -------------------------------------------------------------- -->
+    <h4 class="text-center py-4">Orders</h4>
+
+    <!-- Orders data -->
+    <div class="table-responsive mb-5">
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Day</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--      <tr>-->
+                <!--        <th scope="row"></th>-->
+                <!--        <td></td>-->
+                <!--        <td></td>-->
+                <!--        <td></td>-->
+                <!--        <td></td>-->
+                <!--        <td></td>-->
+                <!--      </tr>-->
+            </tbody>
+        </table>
+    </div>
+
+</div>

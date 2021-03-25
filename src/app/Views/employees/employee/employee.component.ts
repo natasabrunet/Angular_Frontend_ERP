@@ -12,11 +12,16 @@ import { I_Employee } from '../../../Models/employee';
 })
 export class EmployeeComponent implements OnInit {
   employee       : I_Employee;
-  // id             : string;
-  // name           : string;
-  // address        : string;
-  // cif            : string;
-  // image          : string;
+
+  id             :string;
+  name           :string;
+  email          :string;
+  salary         :string;
+  dni            :string;
+  totalSellings  :string;
+  phone          :string;
+  ordersAttended :string;
+  ordersAssigned :string;
 
   isNew          : boolean = false;
 
@@ -31,6 +36,7 @@ export class EmployeeComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private router: Router,
               private fb: FormBuilder) { 
+    this.resetEmployee();
     this.createForm();
   }
 
@@ -40,6 +46,7 @@ export class EmployeeComponent implements OnInit {
       const id = params['id'];
       if (id.toLowerCase() == 'new') {
         this.isNew = true;
+        this.resetEmployee();
       } else {
         this.loadEmployee(id);
       }
@@ -58,7 +65,7 @@ export class EmployeeComponent implements OnInit {
       dni: [this.employee.dni, [Validators.required]],
       phone: [this.employee.phone, [Validators.required]],
 
-      totalSellings: [this.employee.totalSellings, [Validators.required]],
+      totalSellings: [{value: this.employee.totalSellings, disabled: true}, [Validators.required]],
       ordersAttended: [this.employee.ordersAttended, [Validators.required]],
       ordersAssigned: [this.employee.ordersAssigned, [Validators.required]]
     });
@@ -92,6 +99,20 @@ export class EmployeeComponent implements OnInit {
     }
     
     this.updateEmployee();
+  }
+
+  resetEmployee() {
+    this.employee = {
+        id             : '',
+        name           : '',
+        email          : '',
+        salary         : '',
+        dni            : '',
+        totalSellings  : '',
+        phone          : '',
+        ordersAttended : '',
+        ordersAssigned : ''
+    }
   }
 
   loadEmployee(id: string) {

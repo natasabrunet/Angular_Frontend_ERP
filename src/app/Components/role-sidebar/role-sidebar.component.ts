@@ -6,9 +6,15 @@ import {
   OnInit,
   OnChanges,
 } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 import { I_userType } from 'src/app/Models/userType';
 import { LoginService } from 'src/app/Services/login.service';
+
+// In need for the translation
+import { AppComponent } from '../../app.component';
+
+
 @Component({
   selector: 'app-role-sidebar',
   templateUrl: './role-sidebar.component.html',
@@ -23,7 +29,9 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
 
   toggle = false;
 
-  constructor(private loginService: LoginService) { }
+
+  constructor(private loginService: LoginService,
+    private translateService:TranslateService) { }
 
   ngOnInit(): void {
     this._toggleSidebar(); // default off
@@ -39,6 +47,7 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
   _toggleSidebar() {
     this.toggle = !this.toggle;
     this.stateSidebar.emit(this.toggle);
+    console.log(this.translateService.currentLang);
   }
 
   // FIXME: TO DELETE (if fetched from DB)
@@ -47,6 +56,7 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
     switch (authority) {
       case 'ROLE_CLIENT':
         (() => {
+          console.log(this.translateService.currentLang);
           this.userType = {
             role: ['fas fa-user-tie', 'client'],
             operations: [

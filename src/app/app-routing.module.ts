@@ -23,6 +23,7 @@ import { OrdersComponent } from "./Views/orders/orders.component";
 
 // Employees import
 import { EmployeesListComponent } from './Views/employees/employees-list/employees-list.component';
+import { EmployeeComponent } from './Views/employees/employee/employee.component';
 
 // Stats import
 import { StatsComponent } from "./Views/stats/stats.component";
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: '404', component: PageNotFoundComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'employees-list', component: EmployeesListComponent },
+  { path: 'employee/:id', component: EmployeeComponent },
   { path: 'stats', component: StatsComponent },
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },

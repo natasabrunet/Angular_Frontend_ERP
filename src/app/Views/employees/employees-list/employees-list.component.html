@@ -7,7 +7,7 @@
                 <input class="form-control me-4 rounded-pill" type="search"
                        placeholder="{{ 'Search.searchph' | translate }} ..." aria-label="Search">
             </div>
-            <button type="submit"
+            <button (click)="goEditEmployee('new')"
                     class="btn btn-erp-blue text-erp-white"
                     title="{{ 'Employees-list.button.new-employee' | translate}}">
                 {{ 'Employees-list.button.new-employee' | translate}}

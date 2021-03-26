@@ -29,9 +29,7 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
 
   toggle = false;
 
-  constructor(private loginService: LoginService,
-              private translateService:TranslateService,
-              public appComponent: AppComponent) {}
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
     this._toggleSidebar(); // default off
@@ -47,7 +45,6 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
   _toggleSidebar() {
     this.toggle = !this.toggle;
     this.stateSidebar.emit(this.toggle);
-    console.log(this.translateService.currentLang);
   }
 
   // FIXME: TO DELETE (if fetched from DB)

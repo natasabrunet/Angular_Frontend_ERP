@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ClientsService } from '../../../Services/clients.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmployeesComponent } from '../employees.component';
 import { I_Employee } from '../../../Models/employee';
 
 @Component({
@@ -24,6 +23,7 @@ export class EmployeeComponent implements OnInit {
   ordersAssigned :string;
 
   isNew          : boolean = false;
+  doValidations  : boolean = false;
 
   showAlert      : boolean = false;
   success        : boolean = false;
@@ -50,6 +50,10 @@ export class EmployeeComponent implements OnInit {
       } else {
         this.loadEmployee(id);
       }
+      // Init True/False for:
+      //   - true: valildations will be triggered when field is "touched"
+      //   - false: valildations will be triggered when submit the form
+      this.doValidations = true;
     });
 
   }
@@ -66,31 +70,38 @@ export class EmployeeComponent implements OnInit {
       phone: [this.employee.phone, [Validators.required]],
 
       totalSellings: [{value: this.employee.totalSellings, disabled: true}, [Validators.required]],
-      ordersAttended: [this.employee.ordersAttended, [Validators.required]],
-      ordersAssigned: [this.employee.ordersAssigned, [Validators.required]]
+      ordersAttended: [{value: this.employee.ordersAttended, disabled: true}, [Validators.required]],
+      ordersAssigned: [{value: this.employee.ordersAssigned, disabled: true}, [Validators.required]]
     });
   }
 
   get isNameEmpty() {
-    return this.form.get('name').invalid && this.form.get('name').touched;
+    // return this.form.get('name').invalid && this.form.get('name').touched;
+    return this.doValidations && this.form.get('name').invalid && this.form.get('name').touched;
   }
   get isEmailEmpty() {
-    return this.form.get('email').value.trim() === '' && this.form.get('email').invalid && this.form.get('email').touched;
+    // return this.form.get('email').value.trim() === '' && this.form.get('email').invalid && this.form.get('email').touched;
+    return this.doValidations && this.form.get('email').invalid && this.form.get('email').value.trim() === '' && this.form.get('email').touched;
   }
   get isEmailInvalid() {
-    return this.form.get('email').value.trim() !== '' && this.form.get('email').invalid && this.form.get('email').touched;
+    // return this.form.get('email').value.trim() !== '' && this.form.get('email').invalid && this.form.get('email').touched;
+    return this.doValidations && this.form.get('email').invalid && this.form.get('email').value.trim() !== '' && this.form.get('email').touched;
   }
   get isSalaryEmpty() {
-    return this.form.get('salary').invalid && this.form.get('salary').touched;
+    // return this.form.get('salary').invalid && this.form.get('salary').touched;
+    return this.doValidations && this.form.get('salary').invalid && this.form.get('salary').touched;
   }
   get isDniEmpty() {
-    return this.form.get('dni').invalid && this.form.get('dni').touched;
+    // return this.form.get('dni').invalid && this.form.get('dni').touched;
+    return this.doValidations && this.form.get('dni').invalid && this.form.get('dni').touched;
   }
   get isPhoneEmpty() {
-    return this.form.get('phone').invalid && this.form.get('phone').touched;
+    // return this.form.get('phone').invalid && this.form.get('phone').touched;
+    return this.doValidations && this.form.get('phone').invalid && this.form.get('phone').touched;
   }
 
   submit() {
+    this.doValidations = true;
     if (this.form.invalid) {
       // Si el form es inválido, márcamos los controles como "touched" para que se marquen/muestren los errores
       return Object.values(this.form.controls).forEach( control => {
@@ -99,6 +110,7 @@ export class EmployeeComponent implements OnInit {
     }
     
     this.updateEmployee();
+    this.doValidations = false;
   }
 
   resetEmployee() {

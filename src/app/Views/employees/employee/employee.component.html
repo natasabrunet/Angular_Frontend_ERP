@@ -6,7 +6,7 @@
                     {{ 'Employee.new-employee' | translate}}
                 </div>
                 <ng-template #employeeWelcome>
-                    {{ 'Employee.employee-detail' | translate}}
+                    <div>{{ 'Employee.employee-detail' | translate}}</div>
                 </ng-template>
             </h4>
         </div>
@@ -22,7 +22,8 @@
           (ngSubmit)="submit()">
         <!-- Employee fields -->
         <div class="row mb-3">
-            <div class="col-md-7">
+            <!-- Left Column -->
+            <div class="col-md-6">
                 <!-- Name -->
                 <div class="row mb-3">
                     <div class="col-md-3">
@@ -37,8 +38,10 @@
                                formControlName="name"
                                [class.is-invalid]="isNameEmpty"
                                autofocus />
-                        <div *ngIf="isNameEmpty" class="invalid-feedback">{{ 'Validation.required-field' | translate}}
+                        <div *ngIf="isNameEmpty" class="invalid-feedback">
+                            {{ 'Validation.required-field' | translate}}
                         </div>
+
                     </div>
                 </div>
 
@@ -51,7 +54,7 @@
                         <input id="salary"
                                name="salary"
                                type="text"
-                               class="form-control"
+                               class="form-control medium-field"
                                autocomplete="off"
                                formControlName="salary"
                                [class.is-invalid]="isSalaryEmpty" />
@@ -76,9 +79,26 @@
                                formControlName="totalSellings" />
                     </div>
                 </div>
+
+                <!-- Orders attended -->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="ordersAttended" class="col-form-label">{{ 'Employee.orders-attended' |
+                            translate}}:</label>
+                    </div>
+                    <div class="col">
+                        <input id="ordersAttended"
+                               name="ordersAttended"
+                               type="text"
+                               class="form-control short-field"
+                               autocomplete="off"
+                               formControlName="ordersAttended" />
+                    </div>
+                </div>
             </div>
 
-            <div class="col-md-5">
+            <!-- Right Column -->
+            <div class="col-md-6">
                 <!-- Email -->
                 <div class="row mb-3">
                     <div class="col-md-3">
@@ -135,8 +155,51 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Orders assigned -->
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="ordersAssigned" class="col-form-label">{{ 'Employee.orders-assigned' |
+                            translate}}:</label>
+                    </div>
+                    <div class="col">
+                        <input id="ordersAssigned"
+                               name="ordersAssigned"
+                               type="text"
+                               class="form-control short-field"
+                               autocomplete="off"
+                               formControlName="ordersAssigned" />
+                    </div>
+                </div>
+
             </div>
         </div><!-- /.row -->
+
+        <div class="row py-2">
+            <div class="col-12 d-flex">
+                <button type="submit"
+                        class="btn btn-erp-blue text-erp-white me-3">
+                    <span *ngIf="isNew; else employeeEditLabel">{{ 'Employee.buttons.save' | translate}}</span>
+                    <ng-template #employeeEditLabel>
+                        <span>{{ 'Employee.buttons.update' | translate}}</span>
+                    </ng-template>
+                </button>
+                <!-- Delete button (!isNEw) -->
+                <button type="button"
+                        class="btn btn-default btn-erp-red text-erp-white me-3"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteModal" *ngIf="!isNew">
+                    {{ 'Employee.buttons.delete' | translate}}
+                </button>
+                <!-- Cancel button (isNew) -->
+                <button type="button"
+                        class="btn btn-default btn-erp-red text-erp-white me-3"
+                        [routerLink]="['/employees-list']"
+                        *ngIf="isNew">
+                    {{ 'Employee.buttons.cancel' | translate}}
+                </button>
+            </div>
+        </div>
     </form>
 
     <!-- Modal - Delete Confirmation -->

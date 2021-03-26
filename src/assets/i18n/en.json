@@ -137,7 +137,9 @@
         "orders-assigned": "Orders Assigned",
         "buttons": {
             "delete": "Delete",
-            "save": "Save"
+            "save": "Save",
+            "update": "Update",
+            "cancel": "Cancel"
         },
         "modal": {
             "delete": {

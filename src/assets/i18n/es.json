@@ -144,5 +144,20 @@
         "text-1": "Somos estudiantes afortunados de la IT Academy que acabamos de terminar el itinerario escogido y tuvimos la oportunidad de trabajar juntos en el proyecto beer-nice.",
         "text-2": "Somos un equipo multicultural al que nos gusta pasar tiempo juntos: reírnos o resolver los problemas que a veces aparecen y esperamos que pronto disfrutemos juntos de unas cervezas multiculturales y nos olvidemos de los problemas. Será una situación en la que todos saldremos ganando.",
         "text-goodbye": "¡Saludos!"
-    }
+    },
+    "client": "cliente",
+	  "clients": "clientes",
+	  "order": "orden",
+	  "orders": "órdenes",
+	  "contact": "contacto",
+	  "contacts": "contactos",
+	  "profile": "perfil",
+	  "delete": "eliminar",
+	  "stats": "estad",
+	  "product": "producto",
+	  "products": "productos",
+	  "employee": "empleado",
+	  "employees": "empleados",
+	  "clock": "horario"
+
 }

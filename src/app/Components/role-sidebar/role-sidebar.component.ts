@@ -6,14 +6,12 @@ import {
   OnInit,
   OnChanges,
 } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 
 import { I_userType } from 'src/app/Models/userType';
 import { LoginService } from 'src/app/Services/login.service';
 
 // In need for the translation
-import { AppComponent } from '../../app.component';
-
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-role-sidebar',

@@ -10,9 +10,6 @@ import {
 import { I_userType } from 'src/app/Models/userType';
 import { LoginService } from 'src/app/Services/login.service';
 
-// In need for the translation
-import { TranslateService } from '@ngx-translate/core';
-
 @Component({
   selector: 'app-role-sidebar',
   templateUrl: './role-sidebar.component.html',

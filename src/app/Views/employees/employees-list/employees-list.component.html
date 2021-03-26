@@ -28,16 +28,16 @@
             <tbody>
                 <tr *ngFor="let employee of employees; let i = index">
                     <td>
-                        {{ employee.id }}
-                    </td>
-                    <td>
                         {{ employee.dni }}
                     </td>
                     <td>
-                        {{ employee.nameAndSurname }}
+                        {{ employee.user.username }}
                     </td>
                     <td>
-                        {{ employee.nameAndSurname }}
+                        {{ employee.salary }}
+                    </td>
+                    <td>
+                        {{ employee.phone }}
                     </td>
                     <!-- Edit/Delete -->
                     <td class="pr-td">

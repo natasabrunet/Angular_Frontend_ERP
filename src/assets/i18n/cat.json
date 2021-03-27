@@ -147,21 +147,16 @@
 
     "client":         "client",
 	  "clients":        "clients",
-	  "client-list":    "llistat-clients",
 	  "order":          "ordre",
 	  "orders":         "ordres",
 	  "contact":        "contacte",
 	  "contacts":       "contactes",
-	  "contact-client": "contacte-client",
 	  "profile":        "perfil",
 	  "delete":         "eliminar",
-	  "delete-account": "eliminar-compte",
 	  "stats":          "estadístiques",
 	  "product":        "producte",
 	  "products":       "productes",
-	  "product-list":   "llistat-productes",
 	  "employee":       "empleat",
 	  "employees":      "empleats",
-	  "employees-list": "llistat-empleats",
 	  "clock":          "horari"
 }

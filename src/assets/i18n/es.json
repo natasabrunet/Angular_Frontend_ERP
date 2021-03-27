@@ -148,22 +148,17 @@
 
     "client":         "cliente",
 	  "clients":        "clientes",
-	  "client-list":    "listado-clientes",
 	  "order":          "órdene",
 	  "orders":         "órdenes",
 	  "contact":        "contacto",
 	  "contacts":       "contactos",
-	  "contact-client": "contacto-cliente",
 	  "profile":        "perfil",
 	  "delete":         "eliminar",
-	  "delete-account": "eliminar-cuenta",
 	  "stats":          "estadísticas",
 	  "product":        "producto",
 	  "products":       "productos",
-	  "product-list":   "lista-productos",
 	  "employee":       "empleado",
 	  "employees":      "empleados",
-	  "employees-list": "listado-empleados",
 	  "clock":          "horario"
 
 }

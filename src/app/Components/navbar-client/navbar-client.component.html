@@ -1,64 +1,43 @@
 <!-- links and routerLinkActive needs to be added -->
-<div class="container-fluid p-0 position-sticky top-0"
-     id="nav-client">
-  <nav class="navbar nav-color navbar-expand-md">
-    <div class="container-fluid">
-      <button class="navbar-toggler navbar-dark"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbar-client"
-              aria-controls="navbar-client"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse"
-           id="navbar-client">
-        <ul class="navbar-nav mx-2 p-1 mb-2 mb-md-0 me-auto">
-          <li class="nav-item my-1 my-md-0">
-            <a class="nav-link"
-               role="button"
-               routerLink="/home">{{ 'navbar-client.navbar-home' | translate }}</a>
-          </li>
-          <li class="nav-item mb-1 mb-md-0">
-            <a class="nav-link"
-               role="button"
-               routerLink="/about">{{ 'navbar-client.navbar-about' | translate }}</a>
-          </li>
-          <li class="nav-item mb-1 mb-md-0">
-            <a class="nav-link"
-               role="button"
-               routerLink="/products">{{ 'navbar-client.navbar-products' | translate }}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"
-               role="button"
-               routerLink="/contact">{{ 'navbar-client.navbar-contact' | translate }}</a>
-          </li>
-        </ul>
-        <div class="d-flex">
-          <button type="submit"
-                  class="btn btn-erp-blue me-3">
-            <a routerLink="/log-in"
-               class="text-erp-white">
-              {{ 'navbar-client.navbar-login' | translate }}
-              <i class="fas fa-sign-in-alt"></i>
-            </a>
-          </button>
-          <button type="submit"
-                  class="btn btn-erp-blue me-3">
-            <a routerLink="/sign-up"
-               class="text-erp-white">
-              {{ 'navbar-client.navbar-signup' | translate }}
-              <i class="fas fa-user-plus"></i>
-            </a>
-          </button>
-          <select #langSelect
-                  (change)="changeLanguage(langSelect.value)">
-            <option *ngFor="let lang of langs">{{ lang }}</option>
-          </select>
+<div class="container-fluid p-0 position-sticky top-0" id="nav-client">
+    <nav class="navbar nav-color navbar-expand-md">
+        <div class="container-fluid">
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-client" aria-controls="navbar-client" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-client">
+                <ul class="navbar-nav mx-2 p-1 mb-2 mb-md-0 me-auto">
+                    <li class="nav-item my-1 my-md-0">
+                        <a class="nav-link" role="button" routerLink="/home">{{ 'navbar-client.navbar-home' | translate }}</a>
+                    </li>
+                    <li class="nav-item mb-1 mb-md-0">
+                        <a class="nav-link" role="button" routerLink="/about">{{ 'navbar-client.navbar-about' | translate }}</a>
+                    </li>
+                    <li class="nav-item mb-1 mb-md-0">
+                        <a class="nav-link" role="button" routerLink="/product-list">{{ 'navbar-client.navbar-products' | translate }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" role="button" routerLink="/contact">{{ 'navbar-client.navbar-contact' | translate }}</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-erp-blue me-3">
+                    <a routerLink="/log-in" class="text-erp-white">
+                    {{ 'navbar-client.navbar-login' | translate }}
+                    <i class="fas fa-sign-in-alt"></i>
+                    </a>
+                  </button>
+                    <button type="submit" class="btn btn-erp-blue me-3">
+                    <a routerLink="/sign-up" class="text-erp-white">
+                    {{ 'navbar-client.navbar-signup' | translate }}
+                    <i class="fas fa-user-plus"></i>
+                    </a>
+                  </button>
+                    <select #langSelect (change)="changeLanguage(langSelect.value)">
+                    <option *ngFor="let lang of langs">{{ lang }}</option>
+                  </select>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </div>

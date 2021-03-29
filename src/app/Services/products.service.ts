@@ -26,7 +26,7 @@ export class ProductsService {
 
   getProducts() {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      //Authorization: this.token //removed to showing products without loggin 
     });
     return this.httpClient.get( `${this.url}${this.endPoint}`, {headers} );
   }

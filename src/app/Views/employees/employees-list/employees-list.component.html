@@ -33,13 +33,13 @@
                         {{ employee.dni }}
                     </td>
                     <td>
-                        {{ employee.nameAndSurname }}
+                        {{ employee.user.username }}
                     </td>
                     <td>
-                        {{ employee.dni }}
+                        {{ employee.salary }}
                     </td>
                     <td>
-                        {{ employee.nameAndSurname }}
+                        {{ employee.phone }}
                     </td>
                     <!-- Edit/Delete -->
                     <td class="pr-td">
@@ -83,7 +83,7 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    {{ 'Employees-list.modal.message' | translate }} "{{employee.nameAndSurname}}"?
+                                    {{ 'Employees-list.modal.message' | translate }} "{{employee.user.username}}"?
                                 </div>
 
                                 <div class="modal-footer">

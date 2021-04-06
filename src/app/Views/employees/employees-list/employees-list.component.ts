@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
-import { ClientsService } from '../../../Services/clients.service';
+import { EmployeesService } from '../../../Services/employees.service';
 
 
 @Component({
@@ -19,10 +19,7 @@ export class EmployeesListComponent implements OnInit {
     pageToGo: number;
     pagesArray: Array<number>;
 
-    // TODO: 23/03/2021
-    // Employees data is not implemented in Backend API, so "ClientsService" is used.
-    // Must change "ClientsService" with "EmployeesService" when Backend API implement Employees data
-  constructor(private clientsService: ClientsService,
+  constructor(private employeesService: EmployeesService,
               private router: Router) {
       this.currentPage = 1;
     }
@@ -68,16 +65,35 @@ export class EmployeesListComponent implements OnInit {
       pageNumber = this.totalPages;
     }
     this.pagesArray = new Array();
-    this.clientsService.getClients(this.clientsService.clientsPerPage, pageNumber - 1) // -1 proque el paginador empieza en la página 0
-    .subscribe((data: any) => {
-      this.currentPage = pageNumber;
-      this.employees = data.ClientsOfThePage;
-      this.totalPages = this.getTotalPages(data.totalClients, this.clientsService.clientsPerPage);
-      this.setupArrayOfPages();
-      this.pageToGo = null;
-    }, (err) => {
-      console.log(err);
-    });
+    // TODO: 26/03/2021
+    // The API does not implement employee paging, so for now, we get them all
+    this.employeesService.getAllEmployees()
+      .subscribe((data: any) => {
+        console.log(data);
+        
+        this.currentPage = pageNumber;
+        this.employees = data.employee;
+        // this.totalPages = this.getTotalPages(data.totalEmployees, this.employeesService.employeesPerPage);
+        this.totalPages = 1;
+        this.setupArrayOfPages();
+        this.pageToGo = null;
+      }, (err) => {
+        console.log(err);
+      });
+
+
+    // Scafolding for Employees Pagination (same as did in Clients Pagination)
+    // 
+    // this.employeesService.getEmployees(this.employeesService.employeesPerPage, pageNumber - 1) // -1 proque el paginador empieza en la página 0
+    // .subscribe((data: any) => {
+    //   this.currentPage = pageNumber;
+    //   this.employees = data.EmployeesOfThePage;
+    //   this.totalPages = this.getTotalPages(data.totalEmployees, this.employeesService.employeesPerPage);
+    //   this.setupArrayOfPages();
+    //   this.pageToGo = null;
+    // }, (err) => {
+    //   console.log(err);
+    // });
     return false;
   }
 

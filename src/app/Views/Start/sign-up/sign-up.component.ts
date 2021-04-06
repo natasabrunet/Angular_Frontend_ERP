@@ -21,8 +21,11 @@ export class SignUpComponent implements OnInit {
 
   new_user: UserSignUpDto;
 
+  closeResult = '';
+
   constructor(private modalService: NgbModal, private signupService: SignupService, private fb: FormBuilder) {
     this.createForm();
+    //this.new_user = new UserSignUpDto(this.signUpForm.value);
   }
 
   ngOnInit(): void {
@@ -31,32 +34,29 @@ export class SignUpComponent implements OnInit {
 
   createForm() {
     this.signUpForm = this.fb.group({
-      inputName: ['Pook', [Validators.required, Validators.minLength(3)]],
-      inputSurname: ['Wokgm', [Validators.required, Validators.minLength(3)]],
-      inputDNI: ['13628002L', this.validateDNI],
+      inputName: ['', [Validators.required, Validators.minLength(3)]],
+      inputSurname: ['', [Validators.required, Validators.minLength(3)]],
+      inputDNI: ['', this.validateDNI],
       address: this.fb.group({
-        inputAddress: ['C/ Corsega n52 1 4', Validators.required],
-        inputCity: ['Pamplona', [Validators.required, Validators.minLength(2)]],
+        inputAddress: ['', Validators.required],
+        inputCity: ['', [Validators.required, Validators.minLength(2)]],
         inputProvince: ['', Validators.required], // no s'actualitza el valor!!!!!!!
-        inputZIP: ['08059', [Validators.required, Validators.pattern(this.regexZIP)]],
+        inputZIP: ['', [Validators.required, Validators.pattern(this.regexZIP)]],
       }),
-      inputCIF: ['E34692244', [Validators.required, Validators.pattern(this.regexCIF)]],
-      inputEmail: ['r@op.es', [Validators.required, Validators.pattern(this.regexEmail)]],
-      inputPassword: ['123', Validators.required], //Validators.pattern(this.regexPassword)
-      inputRepeatPass: ['123', Validators.required]
+      inputCIF: ['', [Validators.required, Validators.pattern(this.regexCIF)]],
+      inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
+      inputPassword: ['123!aB123', [Validators.required, Validators.pattern(this.regexPassword)]],
+      inputRepeatPass: ['123!aB123', Validators.required]
     })
-    this.new_user = new UserSignUpDto(this.signUpForm.value);
   }
 
   onSubmit() {
-    console.log(this.signUpForm.value);
-    console.log(this.new_user);
-
-    /*this.signupService.createUser(this.new_user)
+    this.new_user = new UserSignUpDto(this.signUpForm.value);
+    this.signupService.createUser(this.new_user)
       .subscribe(resp => {
         console.log(resp)
       })
-    this.signUpForm.reset();*/
+    this.signUpForm.reset();
   }
 
   validateDNI(inputDNI) {
@@ -72,11 +72,11 @@ export class SignUpComponent implements OnInit {
       if (letter.toUpperCase() == correctLetter) {
         return null;
       } else {
-        return { validateDNI: 'The letter do not match with the numbers' };
+        return { validateDNI: 'The letter do not match with the numbers' }
       }
 
     } else {
-      return { validateDNI: 'DNI required (8 numbers and 1 letter)' };
+      return { validateDNI: 'DNI required (8 numbers and 1 letter)' }
     }
   }
 
@@ -107,23 +107,23 @@ export class SignUpComponent implements OnInit {
     return (pass1 === pass2) ? false : true;
   }
 
-  /*
-    open(content) {
-      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-        this.closeResult = `Closed with: ${result}`;
-      }, (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      });
+
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): any {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
     }
-  
-    private getDismissReason(reason: any): any {
-      if (reason === ModalDismissReasons.ESC) {
-        return 'by pressing ESC';
-      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-        return 'by clicking on a backdrop';
-      } else {
-        return `with: ${reason}`;
-      }
-    }*/
+  }
 }
 

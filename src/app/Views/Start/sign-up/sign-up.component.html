@@ -198,9 +198,26 @@
         <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-3">
           <button class="btn"
                   type="submit"
+                  (click)="open(content)"
                   [disabled]="!signUpForm.valid">Submit</button>
         </div>
       </form>
+      <ng-template #content
+                   let-modal>
+        <div class="modal-header">
+          <h5 class="modal-title">Succesful Registration!</h5>
+        </div>
+        <div class="modal-body">
+          You will be redirect to your company account.
+        </div>
+        <div class="modal-footer">
+          <button type="button"
+                  class="btn btn-outline-dark"
+                  (click)="modal.close('Save click')">
+            ACCEPT
+          </button>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>

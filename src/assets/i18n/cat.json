@@ -143,5 +143,11 @@
         "text-1": "Som uns estudiants afortunats de la IT Academy que acabem d'acabar l'itinerari escollit i vam tenir l'oportunitat de treballar junts en el projecte beer-nice.",
         "text-2": "Som un equip multicultural a què ens agrada passar temps junts: riure'ns o resoldre els problemes que de vegades apareixen i esperem que aviat gaudim junts d'unes cerveses multiculturals i ens oblidem dels problemes. Bé, serà una situació en què tots sortirem guanyant.",
         "text-goodbye": "¡Salutacions!"
+    },
+    "pageNotFound":{
+      "h1": "Error 404",
+      "text-1": "¡No et preocupis, no ets tu, som nosaltres!",
+      "text-2": "¡No hem pogut trobar aquesta pàgina!",
+      "btn-goBack": "Torna"
     }
 }

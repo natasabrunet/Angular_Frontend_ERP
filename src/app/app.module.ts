@@ -44,6 +44,7 @@ import { EmployeesComponent } from './views/employees/employees.component';
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 import { EmployeesListComponent } from './views/employees/employees-list/employees-list.component';
+import { ShoppingCartComponent } from './components/header/shopping-cart/shopping-cart.component';
 
 registerLocaleData(localeESP);
 
@@ -73,7 +74,8 @@ registerLocaleData(localeESP);
     OrdersComponent,
     StatsComponent,
     EmployeesComponent,
-    EmployeesListComponent
+    EmployeesListComponent,
+    ShoppingCartComponent
   ],
 
   imports: [

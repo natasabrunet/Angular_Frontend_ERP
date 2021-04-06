@@ -1,0 +1,82 @@
+<div class="d-flex align-items-center">
+    <div class="dropdown">
+        <a
+           class="nav-link counter"
+           id="notificationDropdown"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false"
+           href="">
+            <fa-icon [icon]="faShoppingCart" size="lg" class="text-erp-black"></fa-icon>
+            <!-- <span class="counter__symbol">5</span> -->
+            <span class="cart-basket d-flex align-items-center justify-content-center">13</span>
+        </a>
+
+        <ul
+            class="dropdown-menu dropdown-menu-end menu-box"
+            aria-labelledby="notificationDropdown">
+            <h6 class="p-3">{{ 'Header.notifications.head' | translate }}</h6>
+            <div class="dropdown-divider"></div>
+
+            <!-- Call to see last notifications (NgFor) -->
+            <a class="dropdown-item notification">
+                <div
+                     class="notification__item d-flex justify-content-center align-items-center">
+                    <div class="notification__item--thumbnail">
+                        <!-- Icon related to notification -->
+                    </div>
+                </div>
+                <div
+                     class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3">
+                    <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' |
+                        translate }}</h6>
+                    <p class="notification__item--content-text mb-0">
+                        {{ 'Header.notifications.event_description' | translate }}
+                    </p>
+                </div>
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+
+            <a class="dropdown-item notification">
+                <div
+                     class="notification__item d-flex justify-content-center align-items-center">
+                    <div class="notification__item--thumbnail">
+                        <!-- Icon related to notification -->
+                    </div>
+                </div>
+                <div
+                     class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3">
+                    <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' |
+                        translate }}</h6>
+                    <p class="notification__item--content-text mb-0">
+                        {{ 'Header.notifications.event_description' | translate }}
+                    </p>
+                </div>
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+
+            <a class="dropdown-item notification">
+                <div
+                     class="notification__item d-flex justify-content-center align-items-center">
+                    <div class="notification__item--thumbnail">
+                        <!-- Icon related to notification -->
+                    </div>
+                </div>
+                <div
+                     class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3">
+                    <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' |
+                        translate }}</h6>
+                    <p class="notification__item--content-text mb-0">
+                        {{ 'Header.notifications.event_description' | translate }}
+                    </p>
+                </div>
+            </a>
+
+        </ul>
+    </div>
+</div>

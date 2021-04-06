@@ -1,0 +1,60 @@
+.cart-basket {
+    font-size: .6rem;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    background-color: #418deb;
+    border-radius: 50%;
+  }
+
+
+// .counter {
+//     position: relative;
+//     color: #242a32;
+  
+//     &__symbol {
+//       position: absolute;
+//       left: 32px;
+//       background-color: #dd5d56;
+//       width: 7px;
+//       height: 7px;
+//       border-radius: 100%;
+//     }
+//   }
+  
+  
+//   .menu-box {
+//     box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+//     border: none;
+//     margin-top: 2rem;
+//   }
+  
+//   .notification {
+//     display: inline-flex;
+  
+//     &__item {
+//       &--thumbnail {
+//         width: 30px;
+//         height: 30px;
+//         background-color: #dd5d56;
+//         border-radius: 100%;
+//       }
+  
+//       &--content {
+//         font-family: "Montserrat", sans-serif;
+  
+//         &-title {
+//           font-weight: 500;
+//         }
+  
+//         &-text {
+//           font-weight: 300;
+//           color: #8c8c8c;
+//         }
+//       }
+//     }
+//   }
+  

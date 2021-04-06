@@ -18,6 +18,7 @@ import { StartModule } from './Views/Start/start.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminViewModule } from './Views/Admin-view/admin-view.module';
 import { ClientModule } from './Views/Client/client.module';
+import { ChartsModule } from 'ng2-charts'; //statistical charts
 
 // import components
 import { HeaderComponent } from './Components/header/header.component';
@@ -84,6 +85,7 @@ registerLocaleData(localeESP);
     StartModule,
     ClientModule,
     AdminViewModule,
+    ChartsModule,
     // ngx-translate and the loader module
     HttpClientModule,
     TranslateModule.forRoot({

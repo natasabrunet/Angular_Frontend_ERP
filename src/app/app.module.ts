@@ -44,6 +44,7 @@ import { EmployeesComponent } from './views/employees/employees.component';
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 import { EmployeesListComponent } from './views/employees/employees-list/employees-list.component';
+import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 
 registerLocaleData(localeESP);
 
@@ -73,7 +74,8 @@ registerLocaleData(localeESP);
     OrdersComponent,
     StatsComponent,
     EmployeesComponent,
-    EmployeesListComponent
+    EmployeesListComponent,
+    ProductsWithoutSessionComponent
   ],
 
   imports: [
@@ -97,7 +99,8 @@ registerLocaleData(localeESP);
     }),
   ],
   exports: [
-    TranslateModule
+    TranslateModule,
+    ProductsWithoutSessionComponent
   ],
   providers: [
     {

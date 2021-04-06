@@ -6,6 +6,8 @@ import { LoginService } from 'src/app/Services/login.service';
 import { I_logedUser } from 'src/app/Models/logedUser';
 import { I_loginAPIres } from 'src/app/Models/loginAPIres';
 
+import { environment } from '../../../../environments/environment';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,6 +22,8 @@ export class LoginComponent implements OnInit, DoCheck {
   eye = false;
   server = false;
   showAlert = false;
+
+  mode = environment.mode;
 
   constructor(
     private loginService: LoginService,

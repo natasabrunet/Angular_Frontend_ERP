@@ -27,6 +27,8 @@ import { EmployeesListComponent } from './Views/employees/employees-list/employe
 // Stats import
 import { StatsComponent } from "./Views/stats/stats.component";
 
+import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -47,6 +49,7 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent },
   { path: 'employees-list', component: EmployeesListComponent },
   { path: 'stats', component: StatsComponent },
+  { path: 'products-without-session', component: ProductsWithoutSessionComponent },
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },
   { path: 'dev/sign-up', component: SignUpComponent },

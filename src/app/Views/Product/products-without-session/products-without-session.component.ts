@@ -10,10 +10,6 @@ import { Router } from '@angular/router';
 })
 export class ProductsWithoutSessionComponent implements OnInit {
 
-  //Icons
-  faTrashAlt = faTrashAlt;
-  faEdit = faEdit;
-
   products: any[];
 
   constructor(
@@ -30,14 +26,6 @@ export class ProductsWithoutSessionComponent implements OnInit {
           console.log(error);
         });
 
-  }
-
-  delete(i: number) {
-    const id = this.products[i].id;
-
-    this.productsService.deleteProduct(id)
-      .subscribe();
-    this.products.splice(i, 1);
   }
 
   //Función para que se abra la página de single product

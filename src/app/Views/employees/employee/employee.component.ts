@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ClientsService } from '../../../Services/clients.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { I_Employee } from '../../../Models/employee';
+import { EmployeesService } from '../../../Services/employees.service';
 
 @Component({
   selector: 'app-employee',
@@ -32,7 +32,7 @@ export class EmployeeComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private clientsService: ClientsService,
+  constructor(private employeesService: EmployeesService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
               private fb: FormBuilder) { 
@@ -128,22 +128,27 @@ export class EmployeeComponent implements OnInit {
   }
 
   loadEmployee(id: string) {
-    this.clientsService.getClientByID(id)
+    this.employeesService.getEmployeeByID(id)
       .subscribe( (data:any) => {
-        if (!data) {
+        console.log("data");
+        console.log(data);
+        console.log("data.user");
+        console.log(data.employee);
+        
+        if (!data || !data.employee) {
           this.router.navigateByUrl('employees-list'); // redirect to client-list
         } else {
-          this.employee.id = data.id; //Guardamos el ID para poder usarlo en todo el componente (necesario para update y delete)
-          this.employee.name = data.nameAndSurname;
-          this.employee.email = data.address;
-          this.employee.salary = data.dni;
-          this.employee.dni = data.dni;
-          this.employee.totalSellings = data.dni;
-          this.employee.phone = data.dni;
-          this.employee.ordersAssigned = data.dni;
-          this.employee.ordersAttended = data.dni;
-          
-          this.employeeToForm();
+            this.employee.id = data.employee.id; //Guardamos el ID para poder usarlo en todo el componente (necesario para update y delete)
+            this.employee.name = data.employee.user.username;
+            this.employee.email = data.employee.email;
+            this.employee.salary = data.employee.salary;
+            this.employee.dni = data.employee.dni;
+            this.employee.totalSellings = data.employee.salary;
+            this.employee.phone = data.employee.phone;
+            this.employee.ordersAssigned = data.employee.salary;
+            this.employee.ordersAttended = data.employee.salary;
+            
+            this.employeeToForm();
         }
       }, (err) => {
         console.log(err);
@@ -185,7 +190,7 @@ export class EmployeeComponent implements OnInit {
     // };
     this.formToEmployee();
 
-    this.clientsService.updateClient(this.employee)
+    this.employeesService.updateEmployee(this.employee)
     .subscribe(resp => {
       this.showAlert = true;
       this.success = true;
@@ -205,7 +210,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   deleteEmployee() {
-    this.clientsService.deleteClient(this.employee.id)
+    this.employeesService.deleteEmployee(this.employee.id)
     .subscribe(resp => {
       this.showAlert = true;
       this.success = true;

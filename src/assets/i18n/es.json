@@ -150,5 +150,20 @@
       "text-1": "¡No te preocupes, no eres tú, somos nosotros!",
       "text-2": "¡No pudimos encontrar esa página!",
       "btn-goBack": "Ir atras!"
-    }
+    },
+
+    "client":         "cliente",
+	  "clients":        "clientes",
+	  "order":          "pedido",
+	  "orders":         "pedidos",
+	  "contact":        "contacto",
+	  "contacts":       "contactos",
+	  "profile":        "perfil",
+	  "delete":         "eliminar",
+	  "stats":          "stats",
+	  "product":        "producto",
+	  "products":       "productos",
+	  "employee":       "empleado",
+	  "employees":      "empleados",
+	  "clock":          "horario"
 }

@@ -115,13 +115,16 @@
         },
         "modal": {
             "title": "Borrando…",
-            "message": "¿Estás seguro que quieres borrar el cliente ",
+            "message": "¿Estás seguro que quieres borrar el empleado ",
             "button-no": "No",
             "button-delete": "Borrar"
         },
         "button": {
-            "new-employee": "añadir cliente"
+            "new-employee": "Añadir empleado"
         }
+    },
+    "Employee": {
+        "back-to-employee-list": "Volver a la administración de empleados"
     },
     "Validation": {
         "required-field": "Campo obligatorio"

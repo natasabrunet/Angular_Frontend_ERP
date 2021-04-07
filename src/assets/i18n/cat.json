@@ -120,8 +120,11 @@
             "button-delete": "Esborrar"
         },
         "button": {
-            "new-employee": "afegir empleat"
+            "new-employee": "Afegir empleat"
         }
+    },
+    "Employee": {
+        "back-to-employee-list": "Tornar a l'administració d'empleats"
     },
     "Validation": {
         "required-field": "Camp obligatori"

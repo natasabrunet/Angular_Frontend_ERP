@@ -123,6 +123,33 @@
             "new-employee": "New employee"
         }
     },
+    "Employee": {
+        "back-to-employees-list": "Back to employees admin",
+        "employee-detail": "Employee detail",
+        "new-employee": "New Employee",
+        "name": "Name",
+        "email": "Email",
+        "salary": "Salary",
+        "dni": "DNI",
+        "phone": "Phone",
+        "total-sellings": "Total Sellings",
+        "orders-attended": "Orders Attended",
+        "orders-assigned": "Orders Assigned",
+        "buttons": {
+            "delete": "Delete",
+            "save": "Save",
+            "update": "Update",
+            "cancel": "Cancel"
+        },
+        "modal": {
+            "delete": {
+                "title": "Deleting…",
+                "message": "Are you sure you want to delete this employee?",
+                "button-no": "No",
+                "button-delete": "Delete"
+            }
+        }
+    },
     "Validation": {
         "required-field": "Required field"
     },

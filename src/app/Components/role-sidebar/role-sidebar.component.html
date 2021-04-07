@@ -9,7 +9,7 @@
       <span class="sidebar-role h6 mx-3"
             (click)="_toggleSidebar()">
         <i class="{{ userType.role[0] }} me-4"></i>
-        <span class="text-capitalize"> {{ userType.role[1] }} </span>
+        <span class="text-capitalize"> {{ userType.role[1] | translate}} </span>
       </span>
     </li>
 
@@ -18,7 +18,7 @@
       <a class="sidebar-link mx-3"
          routerLink="{{ fn[2] }}">
         <i class="{{ fn[0] }} me-3"></i>
-        <span class="ms-1 text-lowercase"> {{ fn[1] }} </span>
+        <span class="ms-1 text-lowercase"> {{ fn[1] | translate}} </span>
       </a>
     </li>
   </ul>

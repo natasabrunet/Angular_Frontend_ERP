@@ -149,5 +149,19 @@
       "text-1": "¡No et preocupis, no ets tu, som nosaltres!",
       "text-2": "¡No hem pogut trobar aquesta pàgina!",
       "btn-goBack": "Torna"
-    }
+    },
+    "client":         "client",
+	  "clients":        "clients",
+	  "order":          "comanda",
+	  "orders":         "comandes",
+	  "contact":        "contacte",
+	  "contacts":       "contactes",
+	  "profile":        "perfil",
+	  "delete":         "eliminar",
+	  "stats":          "stats",
+	  "product":        "producte",
+	  "products":       "productes",
+	  "employee":       "empleat",
+	  "employees":      "empleats",
+	  "clock":          "horari"
 }

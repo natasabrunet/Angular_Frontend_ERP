@@ -9,6 +9,7 @@ import {
 
 import { I_userType } from 'src/app/Models/userType';
 import { LoginService } from 'src/app/Services/login.service';
+
 @Component({
   selector: 'app-role-sidebar',
   templateUrl: './role-sidebar.component.html',
@@ -23,7 +24,7 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
 
   toggle = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
     this._toggleSidebar(); // default off

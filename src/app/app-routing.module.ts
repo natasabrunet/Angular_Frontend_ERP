@@ -24,6 +24,7 @@ import { OrdersComponent } from "./Views/orders/orders.component";
 
 // Employees import
 import { EmployeesListComponent } from './Views/employees/employees-list/employees-list.component';
+import { EmployeeComponent } from './Views/employees/employee/employee.component';
 
 // Stats import
 import { StatsComponent } from "./Views/stats/stats.component";
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: '404', component: PageNotFoundComponent },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'employees-list', component: EmployeesListComponent, canActivate: [AuthGuard] },
+  { path: 'employee/:id', component: EmployeeComponent },
   { path: 'stats', component: StatsComponent, canActivate: [AuthGuard] },
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },

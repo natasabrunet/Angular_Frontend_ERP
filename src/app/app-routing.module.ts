@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { AuthGuard } from './Guards/auth.guard';
 
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';
@@ -27,26 +28,25 @@ import { EmployeesListComponent } from './Views/employees/employees-list/employe
 // Stats import
 import { StatsComponent } from "./Views/stats/stats.component";
 
-
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },
   { path: 'about', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },
-  { path: 'admin', component: AdminViewComponent },
+  { path: 'admin', component: AdminViewComponent, canActivate: [AuthGuard] },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'log-in', component: LoginComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'licence', component: LicenceComponent },
   { path: 'product-list', component: ProductsListComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
-  { path: 'client-list', component: ClientListComponent },
+  { path: 'client-list', component: ClientListComponent, canActivate: [AuthGuard] },
   { path: 'new-client', component: NewClientComponent },
   { path: 'client-detail/:id', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'employees-list', component: EmployeesListComponent },
-  { path: 'stats', component: StatsComponent },
+  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: 'employees-list', component: EmployeesListComponent, canActivate: [AuthGuard] },
+  { path: 'stats', component: StatsComponent, canActivate: [AuthGuard] },
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },
   { path: 'dev/sign-up', component: SignUpComponent },

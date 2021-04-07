@@ -29,11 +29,8 @@ export class EmployeesListComponent implements OnInit {
   }
 
   //Función para que se abra la página de single Employee
-  goEditEmployee(id: number) {
-    this.router.navigate(['/employee-detail', id]);
-  }
-  goNewEmployee(id: number) {
-    this.router.navigate(['/new-employee', id]);
+  goEditEmployee(id: string) {
+    this.router.navigate(['/employee', id]);
   }
 
   isLastPage() {

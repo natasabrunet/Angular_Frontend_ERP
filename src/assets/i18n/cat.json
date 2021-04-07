@@ -120,8 +120,11 @@
             "button-delete": "Esborrar"
         },
         "button": {
-            "new-employee": "afegir empleat"
+            "new-employee": "Afegir empleat"
         }
+    },
+    "Employee": {
+        "back-to-employee-list": "Tornar a l'administració d'empleats"
     },
     "Validation": {
         "required-field": "Camp obligatori"
@@ -149,5 +152,19 @@
       "text-1": "¡No et preocupis, no ets tu, som nosaltres!",
       "text-2": "¡No hem pogut trobar aquesta pàgina!",
       "btn-goBack": "Torna"
-    }
+    },
+    "client":         "client",
+	  "clients":        "clients",
+	  "order":          "comanda",
+	  "orders":         "comandes",
+	  "contact":        "contacte",
+	  "contacts":       "contactes",
+	  "profile":        "perfil",
+	  "delete":         "eliminar",
+	  "stats":          "stats",
+	  "product":        "producte",
+	  "products":       "productes",
+	  "employee":       "empleat",
+	  "employees":      "empleats",
+	  "clock":          "horari"
 }

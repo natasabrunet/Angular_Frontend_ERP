@@ -123,6 +123,33 @@
             "new-employee": "New employee"
         }
     },
+    "Employee": {
+        "back-to-employees-list": "Back to employees admin",
+        "employee-detail": "Employee detail",
+        "new-employee": "New Employee",
+        "name": "Name",
+        "email": "Email",
+        "salary": "Salary",
+        "dni": "DNI",
+        "phone": "Phone",
+        "total-sellings": "Total Sellings",
+        "orders-attended": "Orders Attended",
+        "orders-assigned": "Orders Assigned",
+        "buttons": {
+            "delete": "Delete",
+            "save": "Save",
+            "update": "Update",
+            "cancel": "Cancel"
+        },
+        "modal": {
+            "delete": {
+                "title": "Deleting…",
+                "message": "Are you sure you want to delete this employee?",
+                "button-no": "No",
+                "button-delete": "Delete"
+            }
+        }
+    },
     "Validation": {
         "required-field": "Required field"
     },
@@ -144,10 +171,18 @@
         "text-2": "We are a multicultural team who enjoy spending time together: laughing or resolving the problems that sometimes appear and we hope that soon we'll enjoy some multicultural beers together and forget about the problems. Well, It'll be a win-win situation.",
         "text-goodbye": "Cheers to that!"
     },
-    "pageNotFound":{
-      "h1": "Error 404",
-      "text-1": "Don't worry, it's not you, it's us!",
-      "text-2": "We couldn't find that page!",
-      "btn-goBack": "Go back home!"
-    }
-}
+    "client":         "client",
+	  "clients":        "clients",
+	  "order":          "order",
+	  "orders":         "orders",
+	  "contact":        "contact",
+	  "contacts":       "contacts",
+	  "profile":        "profile",
+	  "delete":         "delete",
+	  "stats":          "stats",
+	  "product":        "product",
+	  "products":       "products",
+	  "employee":       "employee",
+	  "employees":      "employees",
+	  "clock":          "clock"
+  }

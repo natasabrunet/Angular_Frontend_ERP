@@ -1,82 +1,119 @@
 <div class="d-flex align-items-center">
     <div class="dropdown">
         <a
-           class="nav-link counter"
-           id="notificationDropdown"
+           class="nav-link shopping-cart-icon"
+           id="cartBasket"
            role="button"
            data-bs-toggle="dropdown"
            aria-haspopup="true"
            aria-expanded="false"
            href="">
             <fa-icon [icon]="faShoppingCart" size="lg" class="text-erp-black"></fa-icon>
-            <!-- <span class="counter__symbol">5</span> -->
-            <span class="cart-basket d-flex align-items-center justify-content-center">13</span>
+            <span *ngIf="cartCounter > 0 || true"
+                  class="shopping-cart-counter d-flex align-items-center justify-content-center">{{cartCounter}}</span>
         </a>
 
-        <ul
-            class="dropdown-menu dropdown-menu-end menu-box"
-            aria-labelledby="notificationDropdown">
-            <h6 class="p-3">{{ 'Header.notifications.head' | translate }}</h6>
-            <div class="dropdown-divider"></div>
+        <div
+             class="dropdown-menu dropdown-menu-end menu-box shopping-cart-box"
+             aria-labelledby="cartBasket">
 
-            <!-- Call to see last notifications (NgFor) -->
-            <a class="dropdown-item notification">
-                <div
-                     class="notification__item d-flex justify-content-center align-items-center">
-                    <div class="notification__item--thumbnail">
-                        <!-- Icon related to notification -->
+            <div class="shopping-cart">
+                <div class="shopping-cart-header">
+                    <div class="shopping-cart-total">
+                        <span class="p-r-05">Total:</span>
+                        <span class="text-highlight">3.079,96 €</span>
                     </div>
+                </div><!-- /.shopping-cart-header -->
+
+                <ul class="shopping-cart-items">
+                    <li class="clearfix">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+                        <span class="item-name">Sony DSC-RX100M III</span>
+                        <span class="item-price">849,99 €</span>
+                        <span class="item-quantity"><input type="number" value="2" min="1"></span>
+                        <span class="item-removal">
+                            <button class="btn btn-xs">
+                                <fa-icon class="mx-md-3 deleteIcon"
+                                         [icon]="faTrashAlt"
+                                         size="md"
+                                         title="remove"
+                                         role="button"></fa-icon>
+                            </button>
+                        </span>
+                        <span class="item-line-price text-highlight">1.699,98 €</span>
+                    </li>
+
+                    <li class="clearfix">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item2" />
+                        <span class="item-name">KS Automatic Mechanic...</span>
+                        <span class="item-price">1.249,99</span>
+                        <span class="item-quantity"><input type="number" value="1" min="1"></span>
+                        <span class="item-removal">
+                            <button class="btn btn-xs">
+                                <fa-icon class="mx-md-3 deleteIcon"
+                                         [icon]="faTrashAlt"
+                                         size="md"
+                                         title="remove"
+                                         role="button"></fa-icon>
+                            </button>
+                        </span>
+                        <span class="item-line-price text-highlight">1.249,99 €</span>
+                    </li>
+
+                    <li class="clearfix">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item3" />
+                        <span class="item-name">Kindle, 6" Glare-Free To...</span>
+                        <span class="item-price">129,99</span>
+                        <span class="item-quantity"><input type="number" value="1" min="1"></span>
+                        <span class="item-removal">
+                            <button class="btn btn-xs">
+                                <fa-icon class="mx-md-3 deleteIcon"
+                                         [icon]="faTrashAlt"
+                                         size="md"
+                                         title="remove"
+                                         role="button"></fa-icon>
+                            </button>
+                        </span>
+                        <span class="item-line-price text-highlight">129,99 €</span>
+                    </li>
+                </ul><!-- /.shopping-cart-items -->
+
+                <div class="shopping-cart-buttons">
+                    <button class="btn btn-block btn-erp-blue text-erp-white">Checkout</button>
                 </div>
-                <div
-                     class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3">
-                    <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' |
-                        translate }}</h6>
-                    <p class="notification__item--content-text mb-0">
-                        {{ 'Header.notifications.event_description' | translate }}
-                    </p>
+            </div><!-- /.shopping-cart -->
+
+        </div>
+
+        <!-- <div class="dropdown-menu dropdown-menu-end menu-box">
+
+
+
+            <form action="/examples/actions/confirmation.php" method="post">
+                <p class="hint-text">Sign in with your social media account</p>
+                <div class="form-group social-btn clearfix">
+                    <a href="#" class="btn btn-secondary facebook-btn float-left"><i class="fa fa-facebook"></i>
+                        Facebook</a>
+                    <a href="#" class="btn btn-secondary twitter-btn float-right"><i class="fa fa-twitter"></i>
+                        Twitter</a>
                 </div>
-            </a>
-
-            <div class="dropdown-divider"></div>
-
-
-            <a class="dropdown-item notification">
-                <div
-                     class="notification__item d-flex justify-content-center align-items-center">
-                    <div class="notification__item--thumbnail">
-                        <!-- Icon related to notification -->
-                    </div>
+                <div class="or-seperator"><b>or</b></div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" required="required">
                 </div>
-                <div
-                     class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3">
-                    <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' |
-                        translate }}</h6>
-                    <p class="notification__item--content-text mb-0">
-                        {{ 'Header.notifications.event_description' | translate }}
-                    </p>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="required">
                 </div>
-            </a>
-
-            <div class="dropdown-divider"></div>
-
-
-            <a class="dropdown-item notification">
-                <div
-                     class="notification__item d-flex justify-content-center align-items-center">
-                    <div class="notification__item--thumbnail">
-                        <!-- Icon related to notification -->
-                    </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Login">
+                <div class="text-center mt-2">
+                    <a href="#">Forgot Your password?</a>
                 </div>
-                <div
-                     class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3">
-                    <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' |
-                        translate }}</h6>
-                    <p class="notification__item--content-text mb-0">
-                        {{ 'Header.notifications.event_description' | translate }}
-                    </p>
-                </div>
-            </a>
+            </form>
+        </div> -->
 
-        </ul>
+
+
+
+
     </div>
 </div>

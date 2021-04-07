@@ -1,0 +1,110 @@
+<div class="d-flex align-items-center">
+    <div class="dropdown">
+        <a
+           class="nav-link cart-basket"
+           id="cartBasket"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false"
+           href="">
+            <fa-icon [icon]="faShoppingCart" size="lg" class="text-erp-black"></fa-icon>
+            <span *ngIf="cartCounter > 0"
+                  class="cart-basket-counter d-flex align-items-center justify-content-center">{{cartCounter}}</span>
+        </a>
+
+        <ul
+            class="dropdown-menu dropdown-menu-end menu-box"
+            aria-labelledby="cartBasket">
+            <!-- Call to see last notifications (NgFor) -->
+            <a class="dropdown-item notification">
+                <div
+                     class="notification__item d-flex justify-content-center align-items-center">
+                    <div class="notification__item--thumbnail">
+                        <!-- Icon related to notification -->
+                    </div>
+                </div>
+                <div
+                     class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3">
+                    <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' |
+                        translate }}</h6>
+                    <p class="notification__item--content-text mb-0">
+                        {{ 'Header.notifications.event_description' | translate }}
+                    </p>
+                </div>
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+
+            <a class="dropdown-item notification">
+                <div
+                     class="notification__item d-flex justify-content-center align-items-center">
+                    <div class="notification__item--thumbnail">
+                        <!-- Icon related to notification -->
+                    </div>
+                </div>
+                <div
+                     class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3">
+                    <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' |
+                        translate }}</h6>
+                    <p class="notification__item--content-text mb-0">
+                        {{ 'Header.notifications.event_description' | translate }}
+                    </p>
+                </div>
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+
+            <a class="dropdown-item notification">
+                <div
+                     class="notification__item d-flex justify-content-center align-items-center">
+                    <div class="notification__item--thumbnail">
+                        <!-- Icon related to notification -->
+                    </div>
+                </div>
+                <div
+                     class="notification__item--content d-flex align-items-start flex-column justify-content-center ms-3">
+                    <h6 class="notification__item--content-title mb-1">{{ 'Header.notifications.event_head_today' |
+                        translate }}</h6>
+                    <p class="notification__item--content-text mb-0">
+                        {{ 'Header.notifications.event_description' | translate }}
+                    </p>
+                </div>
+            </a>
+
+        </ul>
+
+        <div class="dropdown-menu dropdown-menu-end menu-box">
+
+
+
+            <!-- <form action="/examples/actions/confirmation.php" method="post">
+                <p class="hint-text">Sign in with your social media account</p>
+                <div class="form-group social-btn clearfix">
+                    <a href="#" class="btn btn-secondary facebook-btn float-left"><i class="fa fa-facebook"></i>
+                        Facebook</a>
+                    <a href="#" class="btn btn-secondary twitter-btn float-right"><i class="fa fa-twitter"></i>
+                        Twitter</a>
+                </div>
+                <div class="or-seperator"><b>or</b></div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="required">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Login">
+                <div class="text-center mt-2">
+                    <a href="#">Forgot Your password?</a>
+                </div>
+            </form> -->
+        </div>
+
+
+
+
+
+    </div>
+</div>

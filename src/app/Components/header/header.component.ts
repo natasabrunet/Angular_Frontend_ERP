@@ -10,7 +10,7 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  // faBars = faBars; 
+  // faBars = faBars;
 
   selectedLanguage = 'en';
   langs: string[] = [];
@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
 
   toggleShowSidebar(e: boolean) {
     this.isSidebarOpen = e;
+    console.log(e);
     this.showSidebar.emit(this.isSidebarOpen);
   }
 

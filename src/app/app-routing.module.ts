@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { AuthGuard } from './Guards/auth.guard';
 
 import { PageNotFoundComponent } from './Views/Page-not-found/page-not-found.component';
 import { LicenceComponent } from './Components/Footer/licence/licence.component';
@@ -12,6 +13,7 @@ import { HomepageComponent } from './Views/Homepage/homepage.component';
 import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
 import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
+import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 
 // Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
@@ -23,11 +25,12 @@ import { OrdersComponent } from "./Views/orders/orders.component";
 
 // Employees import
 import { EmployeesListComponent } from './Views/employees/employees-list/employees-list.component';
+import { EmployeeComponent } from './Views/employees/employee/employee.component';
 
 // Stats import
 import { StatsComponent } from "./Views/stats/stats.component";
 
-import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
+
 
 
 const routes: Routes = [
@@ -35,14 +38,14 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'about', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },
-  { path: 'admin', component: AdminViewComponent },
+  { path: 'admin', component: AdminViewComponent, canActivate: [AuthGuard] },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'log-in', component: LoginComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'licence', component: LicenceComponent },
   { path: 'product-list', component: ProductsListComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
-  { path: 'client-list', component: ClientListComponent },
+  { path: 'client-list', component: ClientListComponent, canActivate: [AuthGuard] },
   { path: 'new-client', component: NewClientComponent },
   { path: 'client-detail/:id', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },

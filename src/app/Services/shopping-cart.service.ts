@@ -44,6 +44,8 @@ export class ShoppingCartService {
     });
 
     this.saveSessionStorage(this.cart);
+    // Emit cart update observable
+    this.cartUpdated.emit(itemToUpdate.id)
   }
 
   removeItem(itemToRemove: I_ShoppingCartItem) {
@@ -52,6 +54,8 @@ export class ShoppingCartService {
     });
     
     this.saveSessionStorage(this.cart);
+    // Emit cart update observable
+    this.cartUpdated.emit(itemToRemove.id);
   }
 
   // If the sessionStorage item doesn't existe, it will create it

@@ -51,16 +51,12 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     let item = this.cartItems[i];
     item.total = item.quantity * item.price;
     this.shoppingCartService.updateItem(item);
-    // Emit cart update observable
-    this.shoppingCartService.cartUpdated.emit(item.id);
   }
 
   removeItem(i:number) {
     let item = this.cartItems[i];
     this.shoppingCartService.removeItem(item);
     this.cartItems.splice(i, 1);
-    // Emit cart update observable
-    this.shoppingCartService.cartUpdated.emit(item.id);
   }
 
   // Prevent DropDown from closing if the shopping cart is NOT empty

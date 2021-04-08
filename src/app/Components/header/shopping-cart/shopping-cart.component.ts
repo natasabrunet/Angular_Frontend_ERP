@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faTrashAlt, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { I_ShoppingCartItem } from '../../../Models/shoppingCartItem';
 
@@ -9,6 +9,9 @@ import { I_ShoppingCartItem } from '../../../Models/shoppingCartItem';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
+  @Input() iconClass: string = 'text-erp-black';
+  @Input() badgeClass: string = 'blue-badge';
+
   //Icons
   faTrashAlt = faTrashAlt;
   faShoppingCart = faShoppingCart;
@@ -16,7 +19,8 @@ export class ShoppingCartComponent implements OnInit {
   public cartItems: I_ShoppingCartItem[] = [];
   public cartTotal: number = 0;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
     this.createDummyShoppingCart();

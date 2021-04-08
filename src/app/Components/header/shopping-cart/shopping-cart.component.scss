@@ -3,19 +3,29 @@ $shopping-cart-badge-color: #418deb;
 $shopping-cart-text-color: #ffffff;
 
 .shopping-cart-icon {
-  padding-left: 0.5rem;
+  padding-left: 0.5em;
+  margin-right: 0.5em;
 }
 .shopping-cart-counter {
   font-size: .6rem;
   position: absolute;
   top: 5px;
-  right: 5px;
+  right: 15px;
   width: 15px;
   height: 15px;
-  background-color: $shopping-cart-badge-color;
-  color: $shopping-cart-text-color;
   border-radius: 50%;
 }
+
+.blue-badge {
+  background-color: $shopping-cart-badge-color;
+  color: $shopping-cart-text-color;
+}
+
+.red-badge {
+  color: red;
+  background-color: yellow;
+}
+
 
 .menu-box {
   box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);

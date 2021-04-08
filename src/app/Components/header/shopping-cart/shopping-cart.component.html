@@ -8,11 +8,10 @@
            aria-haspopup="true"
            aria-expanded="false"
            href="">
-            <fa-icon [icon]="faShoppingCart" size="lg" class="text-erp-black"></fa-icon>
+            <fa-icon [icon]="faShoppingCart" size="lg" class="{{iconClass}}"></fa-icon>
             <span *ngIf="cartItems.length > 0"
-                  class="shopping-cart-counter d-flex align-items-center justify-content-center">{{cartItems.length}}</span>
+                  class="shopping-cart-counter d-flex align-items-center justify-content-center {{badgeClass}}">{{cartItems.length}}</span>
         </a>
-
         <div
              class="dropdown-menu dropdown-menu-end menu-box shopping-cart-box"
              aria-labelledby="cartBasket"

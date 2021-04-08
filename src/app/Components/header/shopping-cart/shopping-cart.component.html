@@ -9,40 +9,48 @@
            aria-expanded="false"
            href="">
             <fa-icon [icon]="faShoppingCart" size="lg" class="text-erp-black"></fa-icon>
-            <span *ngIf="cartCounter > 0"
-                  class="shopping-cart-counter d-flex align-items-center justify-content-center">{{cartCounter}}</span>
+            <span *ngIf="cartItems.length > 0"
+                  class="shopping-cart-counter d-flex align-items-center justify-content-center">{{cartItems.length}}</span>
         </a>
 
         <div
              class="dropdown-menu dropdown-menu-end menu-box shopping-cart-box"
-             aria-labelledby="cartBasket">
+             aria-labelledby="cartBasket"
+             (click)="dropdownClickControl($event);">
 
             <div class="shopping-cart">
-                <div class="shopping-cart-header">
-                    <div class="shopping-cart-total">
-                        <span class="p-r-05">Total:</span>
-                        <span class="text-highlight">3.079,96 €</span>
-                    </div>
-                </div><!-- /.shopping-cart-header -->
+                <ng-container *ngIf="cartItems.length > 0; else emptyCartTemplate">
+                    <div class="shopping-cart-header">
+                        <div class="shopping-cart-total">
+                            <span class="p-r-05">Total:</span>
+                            <span class="text-highlight">{{ cartTotal | number: '1.2-2' }} €</span>
+                        </div>
+                    </div><!-- /.shopping-cart-header -->
 
-                <ul class="shopping-cart-items">
-                    <li class="clearfix">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
-                        <span class="item-name">Sony DSC-RX100M III</span>
-                        <span class="item-price">849,99 €</span>
-                        <span class="item-quantity"><input type="number" value="2" min="1"></span>
-                        <span class="item-removal">
-                            <button class="btn btn-xs">
-                                <fa-icon class="mx-md-3 deleteIcon"
-                                         [icon]="faTrashAlt"
-                                         size="md"
-                                         title="remove"
-                                         role="button"></fa-icon>
-                            </button>
-                        </span>
-                        <span class="item-line-price text-highlight">1.699,98 €</span>
-                    </li>
-
+                    <ul class="shopping-cart-items">
+                        <li *ngFor="let item of cartItems; let i=index" class="clearfix">
+                            <img [src]="item.image" [alt]="item.name" />
+                            <span class="item-name">{{ item.name }}</span>
+                            <span class="item-price">{{ item.price | number: '1.2-2'}} €</span>
+                            <span class="item-quantity">
+                                <input type="number"
+                                       value="{{item.quantity}}"
+                                       min="1"
+                                       [(ngModel)]="cartItems[i].quantity"
+                                       (ngModelChange)="updateItemTotal(i)">
+                            </span>
+                            <span class="item-removal">
+                                <button class="btn btn-xs" (click)="removeItem(i);">
+                                    <fa-icon class="mx-md-3 deleteIcon"
+                                             [icon]="faTrashAlt"
+                                             size="md"
+                                             title="remove"
+                                             role="button"></fa-icon>
+                                </button>
+                            </span>
+                            <span class="item-line-price text-highlight">{{ item.total | number: '1.2-2'}} €</span>
+                        </li>
+                        <!-- 
                     <li class="clearfix">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item2" />
                         <span class="item-name">KS Automatic Mechanic...</span>
@@ -75,12 +83,16 @@
                             </button>
                         </span>
                         <span class="item-line-price text-highlight">129,99 €</span>
-                    </li>
-                </ul><!-- /.shopping-cart-items -->
+                    </li> -->
+                    </ul><!-- /.shopping-cart-items -->
 
-                <div class="shopping-cart-buttons">
-                    <button class="btn btn-block btn-erp-blue text-erp-white">Checkout</button>
-                </div>
+                    <div class="shopping-cart-buttons">
+                        <button class="btn btn-block btn-erp-blue text-erp-white">Checkout</button>
+                    </div>
+                </ng-container>
+                <ng-template #emptyCartTemplate>
+                    <div class="text-center text-bold">Cart is empty</div>
+                </ng-template>
             </div><!-- /.shopping-cart -->
 
         </div>

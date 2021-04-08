@@ -1,14 +1,14 @@
-<div class="container m-5">
+<div class="container mt-3 mb-3">
 
     <div class="row d-flex flex-wrap">
 
-        <div class="card m-2" style="width: 18rem;" *ngFor="let product of products; let i = index">
+        <div class="card m-3 flex-fill" style="width: 18rem;" *ngFor="let product of products; let i = index">
             <!-- <img *ngIf="product.image > 0" [src]="product.image | noProductImage" class="card-img-top" alt="product image"> -->
-            <img src="../../assets/images/product1.jpg" class="card-img-top" alt="product image">
+            <img src="../../assets/images/products.jpg" class="card-img-top" alt="product image">
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.price | currency | translate}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-erp-blue me-3">AÑADIR A LA CESTA</a>
             </div>
         </div>
 

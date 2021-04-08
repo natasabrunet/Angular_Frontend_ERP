@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { UserSignUpDto } from 'src/app/Models/DTOs/newUserDto';
+import { CountriesService } from 'src/app/Services/countries.service';
 
 //import services
 import { SignupService } from '../../../Services/signup.service';
@@ -16,37 +17,38 @@ export class SignUpComponent implements OnInit {
 
   regexCIF = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
   regexEmail = /^[a-z0-9._%+-]+@[a-z0-9·-]+.[a-z]{2,4}$/;
-  regexPassword = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/;
-  regexZIP = /\b\d{5}\b/g;
 
   new_user: UserSignUpDto;
 
+  countryInfo: any[] = [];
+  provinceInfo: any[] = [];
+  cityInfo: any[] = [];
+
   closeResult = '';
 
-  constructor(private modalService: NgbModal, private signupService: SignupService, private fb: FormBuilder) {
+  constructor(private modalService: NgbModal, private signupService: SignupService, private fb: FormBuilder, private country: CountriesService) {
     this.createForm();
-    //this.new_user = new UserSignUpDto(this.signUpForm.value);
   }
 
   ngOnInit(): void {
-
+    this.getCountries();
   }
 
   createForm() {
     this.signUpForm = this.fb.group({
       inputName: ['', [Validators.required, Validators.minLength(3)]],
       inputSurname: ['', [Validators.required, Validators.minLength(3)]],
-      inputDNI: ['', this.validateDNI],
       address: this.fb.group({
         inputAddress: ['', Validators.required],
         inputCity: ['', [Validators.required, Validators.minLength(2)]],
-        inputProvince: ['', Validators.required], // no s'actualitza el valor!!!!!!!
-        inputZIP: ['', [Validators.required, Validators.pattern(this.regexZIP)]],
+        inputCountry: ['', Validators.required],
+        inputProvince: ['', Validators.required],
+        inputZIP: ['', Validators.required],
       }),
       inputCIF: ['', [Validators.required, Validators.pattern(this.regexCIF)]],
       inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
-      inputPassword: ['123!aB123', [Validators.required, Validators.pattern(this.regexPassword)]],
-      inputRepeatPass: ['123!aB123', Validators.required]
+      inputPassword: ['', this.checkPassStrength],
+      inputRepeatPass: ['', Validators.required]
     })
   }
 
@@ -55,28 +57,43 @@ export class SignUpComponent implements OnInit {
     this.signupService.createUser(this.new_user)
       .subscribe(resp => {
         console.log(resp)
-      })
-    this.signUpForm.reset();
+      });
   }
 
-  validateDNI(inputDNI) {
-    const value = inputDNI.value;
-    const dni_letters = "TRWAGMYFPDXBNJZSQVHLCKE";
+  checkPassStrength(inputPass) {
+    const password = inputPass.value;
 
-    if (/^(\d{8})[a-zA-Z]$/.test(value)) {
-      const number = value.substr(0, value.length - 1);
-      const letter = value.charAt(value.length - 1);
-      const calc = number % 23;
-      const correctLetter = dni_letters.charAt(calc);
+    const uppercase = '[A-Z]';
+    const lowercase = '[a-z]';
+    const numbers = '[0-9]';
+    const symbols = '[*.!@#$%^&(){}[]:;<>,.?/~_+-=|]';
+    const minLength = 8;
+    const maxLength = 16;
+    let count = 1;
+    const minControlPassed = 5;
 
-      if (letter.toUpperCase() == correctLetter) {
-        return null;
-      } else {
-        return { validateDNI: 'The letter do not match with the numbers' }
+    // RegEx
+    let regex = [];
+    regex.push(uppercase); // Add uppercase control
+    regex.push(lowercase); // Add lowercase control
+    regex.push(numbers); // Add numbers control
+    regex.push(symbols); // Add symbols control
+
+
+    // Validate Strength
+    if (password.length >= minLength && password.length <= maxLength) {
+      count++;
+      for (let i = 0; i < regex.length; i++) {
+        if (new RegExp(regex[i]).test(password) && count < minControlPassed) {
+          count++;
+        } else if (count >= minControlPassed) {
+          return null;
+        } else {
+          return { checkPassStrength: 'The password requires at least one number, uppercase and lowercase letters and one special character.' }
+        }
       }
-
     } else {
-      return { validateDNI: 'DNI required (8 numbers and 1 letter)' }
+      return { checkPassStrength: 'The password must be at least 8 characters long, but no more than 16' }
     }
   }
 
@@ -107,6 +124,24 @@ export class SignUpComponent implements OnInit {
     return (pass1 === pass2) ? false : true;
   }
 
+  getCountries() {
+    this.country.allCountries().
+      subscribe(
+        data => {
+          this.countryInfo = data.Countries;
+        },
+        err => console.log(err)
+      )
+  }
+
+  onChangeCountry(inputCountry) {
+    this.provinceInfo = this.countryInfo[inputCountry].States;
+    this.cityInfo = this.provinceInfo[0].Cities;
+  }
+
+  onChangeProvince(inputProvince) {
+    this.cityInfo = this.provinceInfo[inputProvince].Cities;
+  }
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {

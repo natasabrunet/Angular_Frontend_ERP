@@ -32,10 +32,12 @@ export class ShoppingCartService {
     return total;
   }
 
-  addItem(item: I_ShoppingCartItem) {
+  addItem(itemToAdd: I_ShoppingCartItem) {
     this.cart = this.cartItems;
-    this.cart.push(item);
+    this.cart.push(itemToAdd);
     this.saveSessionStorage(this.cart);
+    // Emit cart update observable
+    this.cartUpdated.emit(itemToAdd.id)
   }
 
   updateItem(itemToUpdate: I_ShoppingCartItem) {

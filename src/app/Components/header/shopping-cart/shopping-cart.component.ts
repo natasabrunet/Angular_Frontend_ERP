@@ -1,6 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { faTrashAlt, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { delay } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { I_ShoppingCartItem } from '../../../Models/shoppingCartItem';
+import { ShoppingCartService } from '../../../Services/shopping-cart.service';
 
 
 @Component({
@@ -8,7 +11,7 @@ import { I_ShoppingCartItem } from '../../../Models/shoppingCartItem';
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit, OnDestroy {
   @Input() iconClass: string = 'text-erp-black';
   @Input() badgeClass: string = 'blue-badge';
 
@@ -19,34 +22,45 @@ export class ShoppingCartComponent implements OnInit {
   public cartItems: I_ShoppingCartItem[] = [];
   public cartTotal: number = 0;
 
-  constructor() { 
+  // To unsubscribe from ngOnDestroy
+  public cartSubscription: Subscription;
+
+  constructor(public shoppingCartService: ShoppingCartService) { 
   }
 
   ngOnInit(): void {
-    this.createDummyShoppingCart();
+    // Subscription to the cart update observable
+    this.cartSubscription = this.shoppingCartService.cartUpdated
+      .pipe(delay(100))
+      .subscribe(id => { 
+        this.cartTotal = this.shoppingCartService.cartTotal;
+      });
+    this.loadCartItems();
   }
 
-  reloadCartTotal() {
-    console.log('reloadCartTotal');
-    let total = 0;
-    for (let i = 0; i < this.cartItems.length; i++) {
-      console.log(i, this.cartItems[i].total);
-      total += this.cartItems[i].total;
-      console.log('total', total);
-    }
-    this.cartTotal = total;
+  ngOnDestroy(): void {
+    this.cartSubscription.unsubscribe();
+  }
+
+  loadCartItems() {
+    this.cartTotal = this.shoppingCartService.cartTotal;
+    this.cartItems = this.shoppingCartService.cartItems;
   }
   
   updateItemTotal(i:number) {
     let item = this.cartItems[i];
     item.total = item.quantity * item.price;
-    this.reloadCartTotal();
+    this.shoppingCartService.updateItem(item);
+    // Emit cart update observable
+    this.shoppingCartService.cartUpdated.emit(item.id);
   }
 
   removeItem(i:number) {
-    console.log(i);
+    let item = this.cartItems[i];
+    this.shoppingCartService.removeItem(item);
     this.cartItems.splice(i, 1);
-    this.reloadCartTotal();
+    // Emit cart update observable
+    this.shoppingCartService.cartUpdated.emit(item.id);
   }
 
   // Prevent DropDown from closing if the shopping cart is NOT empty
@@ -56,60 +70,4 @@ export class ShoppingCartComponent implements OnInit {
     }
   }
 
-  createDummyShoppingCart() {
-    console.log("createDummyShoppingCart");
-    class CartItem implements I_ShoppingCartItem {
-      id       = '';
-      name     = '';
-      desc     = '';
-      image    = '';
-      price    = 0;
-      quantity = 0;
-      total    = 0;
-    };
-
-    let item: CartItem = new CartItem()
-
-    item.id       = '001';
-    item.name     = 'SONY DSC-RX100M III';
-    item.desc     = '';
-    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg';
-    item.price    = 849.99;
-    item.quantity = 2;
-    item.total    = item.price * item.quantity;
-    this.cartItems.push(item);
-
-    item = new CartItem();
-    item.id       = '002';
-    item.name     = 'KS automatic Mechanical';
-    item.desc     = '';
-    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg';
-    item.price    = 1249.99;
-    item.quantity = 1;
-    item.total    = item.price * item.quantity;
-    this.cartItems.push(item);
-
-    item = new CartItem();
-    item.id       = '003';
-    item.name     = 'Kindle Paperwhite | Waterproof, 6"';
-    item.desc     = 'Kindle Paperwhite | Waterproof, 6" High-Resolution Display, 8GB Black';
-    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg';
-    item.price    = 129.99;
-    item.quantity = 1;
-    item.total    = item.price * item.quantity;
-    this.cartItems.push(item);
-
-    
-    item = new CartItem();
-    item.id       = '003';
-    item.name     = 'xKindle Paperwhite | Waterproof, 6"';
-    item.desc     = 'xKindle Paperwhite | Waterproof, 6" High-Resolution Display, 8GB Black';
-    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg';
-    item.price    = 129.99;
-    item.quantity = 1;
-    item.total    = item.price * item.quantity;
-    this.cartItems.push(item);
-
-    this.reloadCartTotal();
-  }
 }

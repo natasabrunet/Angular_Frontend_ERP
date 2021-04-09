@@ -46,6 +46,9 @@ import { ProductsWithoutSessionComponent } from './Views/Product/products-withou
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 
+//pagination
+import {NgxPaginationModule} from 'ngx-pagination';
+
 registerLocaleData(localeESP);
 
 // @ts-ignore
@@ -74,7 +77,8 @@ registerLocaleData(localeESP);
     OrdersComponent,
     StatsComponent,
     EmployeeComponent,
-    EmployeesListComponent
+    EmployeesListComponent,
+    ProductsWithoutSessionComponent
   ],
 
   imports: [
@@ -96,6 +100,7 @@ registerLocaleData(localeESP);
         deps: [HttpClient],
       },
     }),
+    NgxPaginationModule
   ],
   exports: [
     TranslateModule

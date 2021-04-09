@@ -13,8 +13,6 @@ export class ProductsService {
   url: string = 'http://217.76.158.200:8080';
   endPoint: string = '/api/products';
   token: string; 
-  productsPerPage = 3;
-
 
   constructor( 
     private httpClient: HttpClient,
@@ -29,12 +27,6 @@ export class ProductsService {
       //Authorization: this.token //removed to showing products without loggin 
     });
     return this.httpClient.get( `${this.url}${this.endPoint}`, {headers} );
-  }
-
-  getProductsPagination(amount: number, page: number) {
-    const headers = new HttpHeaders;
-    return this.httpClient.get( `${this.url}${this.endPoint}/list/${amount}/${page}`, {headers} );
-
   }
 
   deleteProduct(id: number) {

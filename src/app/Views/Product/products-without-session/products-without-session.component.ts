@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/Services/products.service';
-import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
+import {  } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @Component({
   selector: 'app-products-without-session',
@@ -12,16 +14,16 @@ export class ProductsWithoutSessionComponent implements OnInit {
 
   products: any[];
 
-  currentPage: number;
-  totalPages: number;
-  pageToGo: number;
-  pagesArray: Array<number>;
+  public page: number;
+
+  productsCart: number = 0;
+  cart = Array();
+  showCart;
+  productWholesaleCard: number;
 
   constructor(
     private productsService: ProductsService,
-    private router: Router) {
-      this.currentPage = 1;
-    }
+    private router: Router) {}
 
   ngOnInit(): void {
     this.productsService.getProducts()
@@ -32,78 +34,22 @@ export class ProductsWithoutSessionComponent implements OnInit {
         error => {
           console.log(error);
         });
-    this.goToPage(this.currentPage); 
   }
 
   goDetailProduct(id: number) {
     this.router.navigate(['/detail-product', id]);
   }
 
-  //Pagination
+  addProductCart(product) {
+    this.showCart = (<HTMLInputElement>document.getElementById('showProductsCard'));
+    this.cart.push(product);
+    this.productsCart++;
+  }
 
-    isLastPage() {
-      return this.currentPage == this.totalPages;
-    }
-  
-    isFirstPage() {
-      return this.currentPage == 1;
-    }
-
-    gotoNextPage(): boolean {
-      let _pageNumber = this.currentPage + 1;
-      if (_pageNumber > this.totalPages) {
-        _pageNumber = this.totalPages;
-      }
-      this.goToPage(_pageNumber);
-  
-      return false;
-    }
-    gotoPrevPage(): boolean {
-      let _pageNumber = this.currentPage - 1;
-      if (_pageNumber < 1) {
-        _pageNumber = 1;
-      }
-      this.goToPage(_pageNumber);
-  
-      return false;
-    }
-  
-    goToPage(pageNumber: number): boolean {
-      if (pageNumber > this.totalPages) {
-        pageNumber = this.totalPages;
-      }
-      this.pagesArray = new Array();
-      this.productsService.getProductsPagination(this.productsService.productsPerPage, pageNumber - 1)
-      .subscribe((data: any) => {
-        this.currentPage = pageNumber;
-        this.products = data.ProductsOfThePage;
-        this.totalPages = this.getTotalPages(data.totalProducts, this.productsService.productsPerPage);
-        this.setupArrayOfPages();
-        this.pageToGo = null;
-      });
-      return false;
-    }
-  
-    getTotalPages(totalProducts: number, productsPerPage: number) :number {
-      let _totalPages = 0;
-      if (productsPerPage > 0) {
-        _totalPages = Math.ceil(totalProducts / productsPerPage);
-      }
-      return _totalPages;
-    }
-  
-    setupArrayOfPages() {
-      this.pagesArray = new Array();
-      if (this.totalPages > 0) {
-        this.pagesArray = Array(this.totalPages - 1);
-        for (let i=0; i<this.totalPages; i++) {
-          this.pagesArray[i] = i+1;
-        }
-      }
-    }
-    
-    numSequence(n: number): Array<number> { 
-      return Array(n); 
-  } 
+  addProductWholesaleCart(product) {
+    this.showCart = (<HTMLInputElement>document.getElementById('showProductsCard'));
+    this.productWholesaleCard = product.wholesale_price;
+    this.cart.push(product);
+  }
 
 }

@@ -53,6 +53,9 @@
               <i class="fas fa-user-plus"></i>
             </a>
           </button>
+
+          <app-shopping-cart iconClass="text-erp-white"></app-shopping-cart>
+
           <select #langSelect
                   (change)="changeLanguage(langSelect.value)">
             <option *ngFor="let lang of langs">{{ lang }}</option>

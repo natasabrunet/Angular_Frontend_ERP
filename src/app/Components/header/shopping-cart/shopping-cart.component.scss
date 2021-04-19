@@ -1,0 +1,162 @@
+$text-highlight-color: #6394F8;
+$shopping-cart-badge-color: #418deb;
+$shopping-cart-text-color: #ffffff;
+
+.shopping-cart-icon {
+  padding-left: 0.5em;
+  margin-right: 0.5em;
+}
+.shopping-cart-counter {
+  font-size: .6rem;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.blue-badge {
+  background-color: $shopping-cart-badge-color;
+  color: $shopping-cart-text-color;
+}
+
+.red-badge {
+  color: red;
+  background-color: yellow;
+}
+
+
+.menu-box {
+  box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+  border: none;
+  margin-top: 2rem;
+}
+
+.text-highlight {
+  color: $text-highlight-color;
+}
+
+.p-r-05 {
+  padding-right: 0.5em;
+}
+
+.shopping-cart {
+  font: 14px/22px "Lato", Arial, sans-serif;
+  width: 420px;
+  
+  .deleteIcon {
+    color: #DD5D56;
+  }
+
+  .deleteButton {
+    background-color: #DD5D56;
+  }
+
+  .shopping-cart-header {
+    border-bottom: 1px solid #E8E8E8;
+    padding-right: 0.5em;
+    text-align: right;
+  }
+
+  .shopping-cart-buttons {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    & .btn-block{
+      width: 100%;
+    }
+  }
+  .shopping-cart-items {
+    list-style-type: none;
+    padding-top: 20px;
+    li {
+        margin-bottom: 18px;
+    }
+
+    img {
+      float: left;
+      margin-right: 12px;
+      max-width: 70px;
+      max-height: 70px;
+    }
+    
+    .item-name {
+      display: block;
+      font-size: 16px;
+    }
+    .item-detail {
+      display: block;
+      font-size: 12px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    
+    .item-price {
+      display: inline-block;
+      text-align: right;
+      margin-right: 0.5em;
+      width: 20%;
+    }
+    
+    .item-quantity {
+      display: inline-block;
+      input {
+        width: 50px;
+      }
+    }
+
+    .item-removal {
+      display: inline-block;
+      width: 15%;
+      color: red;
+      padding-left: 0.25em;
+    }
+
+    .item-line-price {
+      display: inline-block;
+      text-align: right;
+      width: 25%;
+    }
+  }
+
+  // // Triángula "flecha"
+  // .shopping-cart2:after {
+  // 	bottom: 100%;
+  // 	left: 89%;
+  // 	border: solid transparent;
+  // 	content: " ";
+  // 	height: 0;
+  // 	width: 0;
+  // 	position: absolute;
+  // 	pointer-events: none;
+  // 	border-bottom-color: white;
+  // 	border-width: 8px;
+  // 	margin-left: -8px;
+  // }
+
+  // .button {
+  //   background: $second-color;
+  //   color:white;
+  //   text-align: center;
+  //   padding: 12px;
+  //   text-decoration: none;
+  //   display: block;
+  //   border-radius: 3px;
+  //   font-size: 16px;
+  //   margin: 25px 0 15px 0;
+  //   text-transform: uppercase;
+  //   &:hover {
+  //     background: lighten($second-color, 3%);
+  //   }
+  //   i {
+  //     padding-left: 5px;
+  //   }
+  // }
+
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

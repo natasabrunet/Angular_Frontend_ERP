@@ -1,7 +1,7 @@
 export class UserSignUpDto {
 
   address: string;
-  cif: string;
+  dni: string;
   image: string;
   name_surname: string;
   username: string;
@@ -11,7 +11,7 @@ export class UserSignUpDto {
 
   constructor(newClient) {
     this.address = `${newClient.address.inputAddress} ${newClient.address.inputCity} ${newClient.address.inputProvince} ${newClient.address.inputZIP} ${newClient.address.inputCountry}`;
-    this.cif = newClient.inputCIF;
+    this.dni = newClient.inputDNI;
     this.image = '';
     this.name_surname = `${newClient.inputName} ${newClient.inputSurname}`;
     this.username = newClient.inputEmail;

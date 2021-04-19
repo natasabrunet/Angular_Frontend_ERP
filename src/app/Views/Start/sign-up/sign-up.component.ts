@@ -6,6 +6,7 @@ import { CountriesService } from 'src/app/Services/countries.service';
 
 //import services
 import { SignupService } from '../../../Services/signup.service';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -45,7 +46,7 @@ export class SignUpComponent implements OnInit {
         inputProvince: ['', Validators.required],
         inputZIP: ['', Validators.required],
       }),
-      inputCIF: ['', [Validators.required, Validators.pattern(this.regexCIF)]],
+      inputDNI: ['', [Validators.required, Validators.pattern(this.regexCIF)]],
       inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
       inputPassword: ['', this.checkPassStrength],
       inputRepeatPass: ['', Validators.required]
@@ -54,6 +55,7 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     this.new_user = new UserSignUpDto(this.signUpForm.value);
+    console.log(this.signUpForm.value);
     this.signupService.createUser(this.new_user)
       .subscribe(resp => {
         console.log(resp)

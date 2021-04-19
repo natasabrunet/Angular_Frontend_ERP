@@ -50,10 +50,10 @@
                  [ngClass]="{'is-invalid':isValidInput('inputDNI')}">
           <div class="invalid-feedback">
             <span *ngIf="signUpForm.get('inputDNI')?.errors?.required">
-              Your CIF is required
+              Your ID is required
             </span>
             <span *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
-              Provide a valid CIF (1 letter and 8 numbers)
+              Provide a valid ID (8 numbers and 1 letter)
             </span>
           </div>
         </div>

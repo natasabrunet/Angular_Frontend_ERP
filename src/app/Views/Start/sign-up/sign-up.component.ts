@@ -17,6 +17,7 @@ export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
 
   regexCIF = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
+  regexDNI: RegExp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
   regexEmail = /^[a-z0-9._%+-]+@[a-z0-9·-]+.[a-z]{2,4}$/;
 
   new_user: UserSignUpDto;
@@ -46,7 +47,7 @@ export class SignUpComponent implements OnInit {
         inputProvince: ['', Validators.required],
         inputZIP: ['', Validators.required],
       }),
-      inputDNI: ['', [Validators.required, Validators.pattern(this.regexCIF)]],
+      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNI)]],
       inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
       inputPassword: ['', this.checkPassStrength],
       inputRepeatPass: ['', Validators.required]

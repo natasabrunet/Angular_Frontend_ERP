@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { faPenSquare, faArrowLeft  } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/Services/products.service';
@@ -42,7 +42,9 @@ export class SingleProductComponent implements OnInit {
 
   uploadImage(){
     var imgName = (<HTMLInputElement>document.getElementById('file-upload')).files[0].name;
-    this.product.image = "/assets/images/" + imgName;
+    this.product.image = "../../assets/images/" + imgName;
+    console.log(this.product.image);
+    console.log(imgName);
   };
 
   
@@ -55,13 +57,14 @@ export class SingleProductComponent implements OnInit {
       this.success=producto.success;  
       this.messageManagement( producto );  
       console.log(producto);
+      
 
     }, ( errorServicio:any ) => {
       this.errorAPI = true;
       this.messageManagement( errorServicio ); 
       console.log(errorServicio);
     }); 
-    
+    console.log("mioo" + this.product.name + this.product.stock + this.product.image);
   }
   
   //Llamamos al servicio que accede a la API para modificar un producto por ID

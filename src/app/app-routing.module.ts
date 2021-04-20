@@ -13,6 +13,7 @@ import { HomepageComponent } from './Views/Homepage/homepage.component';
 import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
 import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
+import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 
 // Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
@@ -28,6 +29,9 @@ import { EmployeeComponent } from './Views/employees/employee/employee.component
 
 // Stats import
 import { StatsComponent } from "./Views/stats/stats.component";
+
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -45,10 +49,10 @@ const routes: Routes = [
   { path: 'new-client', component: NewClientComponent },
   { path: 'client-detail/:id', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },
-  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
-  { path: 'employees-list', component: EmployeesListComponent, canActivate: [AuthGuard] },
-  { path: 'employee/:id', component: EmployeeComponent },
-  { path: 'stats', component: StatsComponent, canActivate: [AuthGuard] },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'employees-list', component: EmployeesListComponent },
+  { path: 'stats', component: StatsComponent },
+  { path: 'products-without-session', component: ProductsWithoutSessionComponent },
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },
   { path: 'dev/sign-up', component: SignUpComponent },

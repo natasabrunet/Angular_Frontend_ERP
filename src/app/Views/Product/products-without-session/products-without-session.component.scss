@@ -1,0 +1,45 @@
+.card-title {
+    text-align: center;
+}
+
+.second-price-text {
+    color: #60c3d3;
+    margin-bottom: -10px !important;
+}
+
+.units-text {
+    font-size: 11px;
+    color: #60c3d3;
+    margin-top: 0px !important;
+}
+
+.text-erp-white {
+    font-size: 0.9rem;
+}
+
+.btn-second {
+    background-color: #60c3d3;
+    border-color: #60c3d3;
+}
+
+.card {
+    border: 1px solid #e5f1f3!important;
+}
+
+@media only screen and (max-width: 1400px) {
+    .text-erp-white {
+        font-size: 0.81rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .text-erp-white {
+        font-size: 0.72rem;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .text-erp-white {
+        font-size: 0.9rem;
+    }
+}

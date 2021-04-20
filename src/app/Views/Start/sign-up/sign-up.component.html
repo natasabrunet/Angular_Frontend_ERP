@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="col-md-4 p-4">
-          <label class="form-label ps-1">CIF</label>
+          <label class="form-label ps-1">DNI</label>
           <input type="text"
                  class="form-control"
                  formControlName="inputDNI"
@@ -52,9 +52,15 @@
             <span *ngIf="signUpForm.get('inputDNI')?.errors?.required">
               Your ID is required
             </span>
-            <span *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
-              Provide a valid ID (8 numbers and 1 letter)
+             <span *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
+              Provide a valid CIF (1 letter 7 numbers 1 letter)
             </span>
+             <span *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
+              Provide a valid DNI (8 numbers 1 letter)
+            </span>
+            <!-- <span *ngIf="signUpForm.get('inputDNI')?.errors?.checkDNI">
+              {{signUpForm.get('inputDNI').errors.checkDNI}}
+            </span> -->
           </div>
         </div>
         <div class="row mx-auto"

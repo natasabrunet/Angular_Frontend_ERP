@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { text } from '@fortawesome/fontawesome-svg-core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { UserSignUpDto } from 'src/app/Models/DTOs/newUserDto';
 import { CountriesService } from 'src/app/Services/countries.service';
@@ -18,6 +19,8 @@ export class SignUpComponent implements OnInit {
 
   regexCIF = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
   regexDNI: RegExp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
+  regexDNICIF: RegExp = /^[0-9a-zA-Z][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/i  ;
+  // i stands for insensitive for upper or lower
   regexEmail = /^[a-z0-9._%+-]+@[a-z0-9·-]+.[a-z]{2,4}$/;
 
   new_user: UserSignUpDto;
@@ -47,7 +50,7 @@ export class SignUpComponent implements OnInit {
         inputProvince: ['', Validators.required],
         inputZIP: ['', Validators.required],
       }),
-      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNI)]],
+      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNICIF) ]],
       inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
       inputPassword: ['', this.checkPassStrength],
       inputRepeatPass: ['', Validators.required]
@@ -56,7 +59,6 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     this.new_user = new UserSignUpDto(this.signUpForm.value);
-    console.log(this.signUpForm.value);
     this.signupService.createUser(this.new_user)
       .subscribe(resp => {
         console.log(resp)

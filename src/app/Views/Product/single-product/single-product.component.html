@@ -5,78 +5,54 @@
         <h3 class="text-center">{{ "singleProd.tittleUpdate" | translate }}</h3>
     </ng-template>
 
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-6">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
 
-      <form id="singleProduct" action="" autocomplete="off" >
-        <div class="my-3 input-group">
-          <label for="nameProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.name" | translate }}</label>
-          <input
-            type="text"
-            [required]
-            class="form-control"
-            id="nameProduct"
-            placeholder="{{ 'singleProd.namePlaceHolder' | translate }}"
-            name= "name"
-            [(ngModel)] = "product.name"
-          >
+            <form id="singleProduct" action="" autocomplete="off">
+                <div class="my-3 input-group">
+                    <label for="nameProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.name" | translate }}</label>
+                    <input type="text" [required] class="form-control" id="nameProduct" placeholder="{{ 'singleProd.namePlaceHolder' | translate }}" name="name" [(ngModel)]="product.name">
+                </div>
+                <div class="mb-3 input-group">
+                    <label for="stockProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.stock" | translate }}</label>
+                    <input type="number" required class="form-control" id="stockProduct" placeholder="{{ 'singleProd.stockPlaceHolder' | translate }}" name="stock" [(ngModel)]="product.stock">
+                </div>
+                <div class="input-group">
+                    <label for="priceProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.price" | translate }}</label>
+                    <input type="number" required class="form-control" id="priceProduct" placeholder="{{ 'singleProd.pricePlaceHolder' | translate }}" name="price" [(ngModel)]="product.price">
+                    <span class="input-group-text">€</span>
+                </div>
+            </form>
+
+            <!-- Alerta para confirmar al usuario que si se ha creado/modificado nuevo producto correctamente o ha habido algún error-->
+            <div id="alertMessage" class="alert alert-dismissible show visually-hidden fade mt-2" role="alert">
+                <p *ngIf="action=='add' && !errorAPI && success=='true'">{{ 'singleProd.addOkMessage' | translate }}</p>
+                <p *ngIf="action=='add' && ((errorAPI) || (!errorAPI && success=='false'))">{{ 'singleProd.addErrorMessage' | translate }} <br> {{errorMessage}}</p>
+                <p *ngIf="action=='upd' && !errorAPI && success=='true'">{{ 'singleProd.updateOkMessage' | translate }}</p>
+                <p *ngIf="action=='upd' && ((errorAPI) || (!errorAPI && success=='false'))">{{ 'singleProd.updateErrorMessage' | translate }} <br> {{errorMessage}}</p>
+                <p *ngIf="action=='dlt' && !errorAPI && success=='true'">{{ 'singleProd.deleteOkMessage' | translate }}</p>
+                <p *ngIf="action=='dlt' && ((errorAPI) || (!errorAPI && success=='false'))">{{ 'singleProd.deleteErrorMessage' | translate }} <br> {{errorMessage}}</p>
+                <button type="button" (click)="hiddeMessage()" class="btn-close"></button>
+            </div>
+
         </div>
-        <div class="mb-3 input-group">
-          <label for="stockProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.stock" | translate }}</label>
-          <input
-            type="number"
-            required
-            class="form-control"
-            id="stockProduct"
-            placeholder="{{ 'singleProd.stockPlaceHolder' | translate }}"
-            name = "stock"
-            [(ngModel)] = "product.stock"
-          >
-        </div>
-        <div class="input-group">
-          <label for="priceProduct" class="col-sm-2 col-form-label me-2">{{ "singleProd.price" | translate }}</label>
-          <input
-            type="number"
-            required
-            class="form-control"
-            id="priceProduct"
-            placeholder="{{ 'singleProd.pricePlaceHolder' | translate }}"
-            name = "price"
-            [(ngModel)] = "product.price"
-          >
-          <span class="input-group-text">€</span>
-        </div>
-      </form>
 
-      <!-- Alerta para confirmar al usuario que si se ha creado/modificado nuevo producto correctamente o ha habido algún error-->
-      <div id="alertMessage" class="alert alert-dismissible show visually-hidden fade mt-2" role="alert">
-        <p *ngIf="action=='add' && !errorAPI && success=='true'">{{ 'singleProd.addOkMessage' | translate }}</p>
-        <p *ngIf="action=='add' && ((errorAPI) || (!errorAPI && success=='false'))">{{ 'singleProd.addErrorMessage' | translate }} <br> {{errorMessage}}</p>
-        <p *ngIf="action=='upd' && !errorAPI && success=='true'">{{ 'singleProd.updateOkMessage' | translate }}</p>
-        <p *ngIf="action=='upd' && ((errorAPI) || (!errorAPI && success=='false'))">{{ 'singleProd.updateErrorMessage' | translate }} <br> {{errorMessage}}</p>
-        <p *ngIf="action=='dlt' && !errorAPI && success=='true'">{{ 'singleProd.deleteOkMessage' | translate }}</p>
-        <p *ngIf="action=='dlt' && ((errorAPI) || (!errorAPI && success=='false'))">{{ 'singleProd.deleteErrorMessage' | translate }} <br> {{errorMessage}}</p>
-        <button type="button" (click)= "hiddeMessage()" class="btn-close"></button>
-      </div>
-
-    </div>
-
-    <div form ="singleProduct" class="col-md-4 mt-3 position-relative d-flex justify-content-center">
-      <img *ngIf="product.image > 0" [src]="product.image" id="info" class="img rounded" alt="image of the product">
-      <input id="file-upload" (change)="uploadImage()" type="file" style="display: none;"/>
-      <label for="file-upload" class="subir"><span *ngIf="product.image != 0" class="text-danger m-auto">Upload image product </span>
+        <div form="singleProduct" class="col-md-4 mt-3 position-relative d-flex justify-content-center">
+            <img *ngIf="product.image > 0" [src]="product.image" id="info" class="img rounded" alt="image of the product">
+            <input id="file-upload" (change)="uploadImage()" type="file" style="display: none;" />
+            <label for="file-upload" class="subir"><span *ngIf="product.image != 0" class="text-danger m-auto">Upload image product </span>
         <fa-icon class="buttonIcon" [icon]="iconPenSquare" [fixedWidth]="true" size="2x">  </fa-icon>
       </label>
-    </div>
+        </div>
 
-    <div form="singleProduct" class="col-md-6 d-flex justify-content-center pb-3 my-3">
-      <button  form ="singleProduct" class="col-6 btn btn-erp-general me-3" type="submit" *ngIf="idProduct==0; else updateBtn" (click)="add(idProduct, name, stock, image, price)">{{ "btn.add" | translate }}</button>
-      <ng-template #updateBtn><button form ="singleProduct" class="col-6 btn btn-erp-general me-3" type="submit" (click)="update(idProduct, name, stock, image, price)">{{ "btn.update" | translate }}</button></ng-template>
-      <button form ="singleProduct" *ngIf="idProduct!=0" class="col-6 btn btn-erp-delete" type="button" data-bs-toggle="modal" [attr.data-bs-target]="'#delete'+idProduct">{{ "btn.delete" | translate }}</button>
-    </div>
+        <div form="singleProduct" class="col-md-6 d-flex justify-content-center pb-3 my-3">
+            <button form="singleProduct" class="col-6 btn btn-erp-general me-3" type="submit" *ngIf="idProduct==0; else updateBtn" (click)="add(idProduct, name, stock, image, price)">{{ "btn.add" | translate }}</button>
+            <ng-template #updateBtn><button form="singleProduct" class="col-6 btn btn-erp-general me-3" type="submit" (click)="update(idProduct, name, stock, image, price)">{{ "btn.update" | translate }}</button></ng-template>
+            <button form="singleProduct" *ngIf="idProduct!=0" class="col-6 btn btn-erp-delete" type="button" data-bs-toggle="modal" [attr.data-bs-target]="'#delete'+idProduct">{{ "btn.delete" | translate }}</button>
+        </div>
 
-    <div class="col-md-4">
-    </div>
+        <div class="col-md-4">
+        </div>
 
         <div form="singleProduct" class="col-md-4 mt-3  position-relative">
             <img [src]="product.image" id="info" class="img rounded" alt="image of the product">
@@ -86,31 +62,31 @@
             <input id="file-upload" (change)="uploadImage()" type="file" style="display: none;" />
         </div>
 
-  <!-- Modal para confirmación de borrado del producto -->
-  <div class="modal fade modalMessage" [id]="'delete'+idProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            {{ 'Products-list.modal.title' | translate }}
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+        <!-- Modal para confirmación de borrado del producto -->
+        <div class="modal fade modalMessage" [id]="'delete'+idProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            {{ 'Products-list.modal.title' | translate }}
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
 
-        <div class="col-md-4">
-        </div>
+                    <div class="col-md-4">
+                    </div>
 
-        <div class="modal-footer">
-          <button  type="button" class="btn btn-erp-general " data-bs-dismiss="modal">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-erp-general " data-bs-dismiss="modal">
             {{ 'Products-list.modal.button-no' | translate }}
           </button>
-                    <button type="button" class="btn btn-erp-delete" (click)="delete(idProduct)" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-erp-delete" (click)="delete(idProduct)" data-bs-dismiss="modal">
             {{ 'Products-list.modal.button-delete' | translate }}
           </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-  </div>
 
 </section>

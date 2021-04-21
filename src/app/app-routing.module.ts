@@ -13,6 +13,8 @@ import { HomepageComponent } from './Views/Homepage/homepage.component';
 import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
 import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
+import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
+
 
 // Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
@@ -49,6 +51,8 @@ const routes: Routes = [
   { path: 'employees-list', component: EmployeesListComponent, canActivate: [AuthGuard] },
   { path: 'employee/:id', component: EmployeeComponent },
   { path: 'stats', component: StatsComponent, canActivate: [AuthGuard] },
+  { path: 'checkout', component: CheckoutComponent},
+
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },
   { path: 'dev/sign-up', component: SignUpComponent },

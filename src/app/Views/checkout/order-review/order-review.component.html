@@ -1,0 +1,59 @@
+<div class="row m-1"> 
+    <h2>Order Review</h2>
+    <div >
+        <h3>Product Details</h3>
+        <ul class="shopping-cart-items">
+            <li *ngFor="let item of cartItems; let i=index" class="row clearfix">
+                <img class="col-2 img-fluid" [src]="item.image" [alt]="item.name" />
+                <span class="col-10 item-name">{{ item.name }}</span>
+                <span class="col-6 item-price">Price: {{ item.price | number: '1.2-2'}} €</span>
+                <span class="col-6 item-quantity">QTY:
+                    <input class="col-4" type="number"
+                           value="{{item.quantity}}"
+                           min="1"
+                           [(ngModel)]="cartItems[i].quantity"
+                           (ngModelChange)="updateItemTotal(i)">
+                </span>
+                <span class="col-8 mt-3 item-line-price text-highlight">Sub-Total: {{ item.total | number: '1.2-2'}} €</span>
+                <span class="col-2 mt-2 item-removal">
+                    <button class="btn btn-xs" (click)="removeItem(i);">
+                        <fa-icon class="mx-md-0 deleteIcon"
+                                 [icon]="faTrashAlt"
+                                 size="mx"
+                                 title="remove"
+                                 role="button"></fa-icon>
+                    </button>
+                </span>
+                <hr class="my-2">
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <h3>Payments Methods</h3>
+        <div class="col-12">
+            <input class="col-1" type="radio" name="credit-card" id="cc">
+            <label class="col-11" for="credit-card">Credit-card</label>
+            <input class="col-1" type="radio" name="paypal" id="pp">
+            <label class="col-11" for="paypal">Paypal</label>
+            <input class="col-1" type="radio" name="cash" id="csh">
+            <label class="col-11" for="cash">Cash</label>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-3 row justify-content-end">
+            <span class="col-4 p-r-05 align-self-end">Shipping: </span>
+            <span class="col-6 text-highlight"> 0 €</span>
+        </div>
+        <div class="row mt-3 row justify-content-end">
+            <span class="col-4 p-r-05">Total: </span>
+            <span class="col-6 text-highlight">{{ cartTotal | number: '1.2-2' }} €</span>
+        </div>
+    </div>
+
+
+    <div class="col-12 m-2">
+        <button class="btn btn-block btn-erp-blue text-erp-white w-100">Buy Now</button>
+    </div>
+</div>

@@ -42,9 +42,13 @@ import { StatsComponent } from './views/stats/stats.component';
 import { EmployeeComponent } from './views/employees/employee/employee.component';
 import { EmployeesListComponent } from './views/employees/employees-list/employees-list.component';
 import { ShoppingCartComponent } from './Components/header/shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
+import { OrderReviewComponent } from './Views/checkout/order-review/order-review.component';
+import { BillingInformationComponent } from './Views/checkout/billing-information/billing-information.component';
+import { ShippingInformationComponent } from './Views/checkout/shipping-information/shipping-information.component';
 
 registerLocaleData(localeESP);
 
@@ -75,7 +79,11 @@ registerLocaleData(localeESP);
     StatsComponent,
     EmployeeComponent,
     EmployeesListComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    OrderReviewComponent,
+    BillingInformationComponent,
+    ShippingInformationComponent,
+    CheckoutComponent
   ],
 
   imports: [

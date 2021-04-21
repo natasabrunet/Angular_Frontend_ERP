@@ -53,10 +53,10 @@
               Your ID is required
             </span>
              <span *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
-              Provide a valid CIF (1 letter 7 numbers 1 letter)
+              <small class="small fw-bold"> Provide a valid CIF (1 letter 7 numbers 1 letter)</small>
             </span>
              <span *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
-              Provide a valid DNI (8 numbers 1 letter)
+              <small class="small fw-bold"> or valid DNI (8 numbers 1 letter)</small>
             </span>
             <!-- <span *ngIf="signUpForm.get('inputDNI')?.errors?.checkDNI">
               {{signUpForm.get('inputDNI').errors.checkDNI}}

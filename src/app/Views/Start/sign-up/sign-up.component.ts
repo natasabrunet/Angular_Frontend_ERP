@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { text } from '@fortawesome/fontawesome-svg-core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { UserSignUpDto } from 'src/app/Models/DTOs/newUserDto';
@@ -50,7 +50,7 @@ export class SignUpComponent implements OnInit {
         inputProvince: ['', Validators.required],
         inputZIP: ['', Validators.required],
       }),
-      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNICIF) ]],
+      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNICIF)]],
       inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
       inputPassword: ['', this.checkPassStrength],
       inputRepeatPass: ['', Validators.required]
@@ -83,7 +83,6 @@ export class SignUpComponent implements OnInit {
     regex.push(lowercase); // Add lowercase control
     regex.push(numbers); // Add numbers control
     regex.push(symbols); // Add symbols control
-
 
     // Validate Strength
     if (password.length >= minLength && password.length <= maxLength) {

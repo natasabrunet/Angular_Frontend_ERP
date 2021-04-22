@@ -39,3 +39,8 @@ export class SignupService {
 }
 
 
+/**
+ * .card {
+ * margin-bottom: 5rem
+ * }
+ */

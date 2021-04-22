@@ -1,5 +1,5 @@
-<div class="container-fluid bg-erp-silver">
-  <div class="card border-0 col-10 mx-auto">
+<div class="container-fluid bg-erp-silver mb-5">
+  <div class="card border-0 col-10 mb-5 mx-auto">
     <div class="card-body text-center bg-erp-silver pt-5">
       <h2 class="card-title fw-bold fs-1">Sign up</h2>
       <a class="pt-2 pb-4"
@@ -15,7 +15,7 @@
         <div class="col-md-4 pt-4">
           <label class="form-label ps-1">First name</label>
           <input type="text"
-                 class="form-control form-control-sm"
+                 class="form-control"
                  formControlName="inputName"
                  [ngClass]="{'is-invalid':isValidInput('inputName')}">
           <div class="invalid-feedback">
@@ -30,7 +30,7 @@
         <div class="col-md-4 pt-4">
           <label class="form-label ps-1">Last name</label>
           <input type="text"
-                 class="form-control form-control-sm"
+                 class="form-control"
                  formControlName="inputSurname"
                  [ngClass]="{'is-invalid':isValidInput('inputSurname')}">
           <div class="invalid-feedback">
@@ -45,7 +45,7 @@
         <div class="col-md-4 pt-4">
           <label class="form-label ps-1">DNI</label>
           <input type="text"
-                 class="form-control form-control-sm"
+                 class="form-control"
                  formControlName="inputDNI"
                  [ngClass]="{'is-invalid':isValidInput('inputDNI')}">
           <div class="invalid-feedback">
@@ -68,7 +68,7 @@
           <div class="col-md-12 py-4">
             <label class="form-label ps-1">Address</label>
             <input type="text"
-                   class="form-control form-control-sm"
+                   class="form-control"
                    formControlName="inputAddress"
                    [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
             <div class="invalid-feedback">
@@ -79,7 +79,7 @@
           </div>
           <div class="col-md-3 py-4">
             <label class="form-label ps-1">Country</label>
-            <select class="form-select form-select-sm"
+            <select class="form-select"
                     formControlName="inputCountry"
                     (change)="onChangeCountry($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputCountry')}">
@@ -94,7 +94,7 @@
           </div>
           <div class="col-md-3 py-4">
             <label class="form-label ps-1">Province</label>
-            <select class="form-select form-select-sm"
+            <select class="form-select"
                     formControlName="inputProvince"
                     (change)="onChangeProvince($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputProvince')}">
@@ -110,7 +110,7 @@
           <div class="col-md-3 py-4">
             <label class="form-label ps-1">City</label>
             <input type="text"
-                   class="form-control form-control-sm"
+                   class="form-control"
                    formControlName="inputCity"
                    [ngClass]="{'is-invalid':isValidInput('address.inputCity')}">
             <div class="invalid-feedback">
@@ -125,7 +125,7 @@
           <div class="col-md-3 py-4">
             <label class="form-label ps-1">Zip</label>
             <input type="text"
-                   class="form-control form-control-sm"
+                   class="form-control"
                    formControlName="inputZIP"
                    [ngClass]="{'is-invalid':isValidInput('address.inputZIP')}">
             <div class="invalid-feedback">
@@ -138,7 +138,7 @@
         <div class="col-md-4 p-4">
           <label class="form-label ps-1">Email</label>
           <input type="email"
-                 class="form-control form-control-sm"
+                 class="form-control"
                  formControlName="inputEmail"
                  [ngClass]="{'is-invalid':isValidInput('inputEmail')}">
           <div class="invalid-feedback">
@@ -155,13 +155,13 @@
           <div class="input-group">
             <input type="password"
                    id="inputPassword"
-                   class="form-control form-control-sm"
+                   class="form-control"
                    formControlName="inputPassword"
                    [ngClass]="{'is-invalid':isValidInput('inputPassword')}">
             <span class="btn btn-sm bg-erp-blue"
                   (click)="showPassword('inputPassword', 'eyePass')">
               <i id="eyePass"
-                 class="fas fa-eye-slash fa-sm"></i>
+                 class="fas fa-eye-slash"></i>
             </span>
             <div class="invalid-feedback">
               <span class="small fw-bold" *ngIf="signUpForm.get('inputPassword')?.errors?.checkPassStrength">
@@ -175,13 +175,13 @@
           <div class="input-group">
             <input type="password"
                    id="inputRepeatPass"
-                   class="form-control form-control-sm"
+                   class="form-control"
                    formControlName="inputRepeatPass"
                    [ngClass]="{'is-invalid':matchPasswords()}">
             <span class="btn btn-sm bg-erp-blue"
                   (click)="showPassword('inputRepeatPass', 'eyeRepeatPass')">
               <i id="eyeRepeatPass"
-                 class="fas fa-eye-slash fa-sm"></i>
+                 class="fas fa-eye-slash"></i>
             </span>
             <div class="invalid-feedback">
               <span class="small" *ngIf="signUpForm.get('inputRepeatPass')?.errors?.required">

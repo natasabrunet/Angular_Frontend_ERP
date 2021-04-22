@@ -13,9 +13,10 @@
             (ngSubmit)="onSubmit()"
             novalidate>
         <div class="col-md-4 pt-4">
-          <label class="form-label ps-1">First name</label>
+          <!-- <label class="form-label ps-1">First name</label> -->
           <input type="text"
                  class="form-control"
+                 placeholder="First Name"
                  formControlName="inputName"
                  [ngClass]="{'is-invalid':isValidInput('inputName')}">
           <div class="invalid-feedback">
@@ -28,9 +29,10 @@
           </div>
         </div>
         <div class="col-md-4 pt-4">
-          <label class="form-label ps-1">Last name</label>
+         <!--  <label class="form-label ps-1">Last name</label> -->
           <input type="text"
                  class="form-control"
+                 placeholder="Last Name"
                  formControlName="inputSurname"
                  [ngClass]="{'is-invalid':isValidInput('inputSurname')}">
           <div class="invalid-feedback">
@@ -43,9 +45,10 @@
           </div>
         </div>
         <div class="col-md-4 pt-4">
-          <label class="form-label ps-1">DNI</label>
+          <!-- <label class="form-label ps-1">DNI</label> -->
           <input type="text"
                  class="form-control"
+                 placeholder="DNI"
                  formControlName="inputDNI"
                  [ngClass]="{'is-invalid':isValidInput('inputDNI')}">
           <div class="invalid-feedback">
@@ -66,9 +69,10 @@
         <div class="row mx-auto"
              formGroupName="address">
           <div class="col-md-12 py-4">
-            <label class="form-label ps-1">Address</label>
+            <!-- <label class="form-label ps-1">Address</label> -->
             <input type="text"
                    class="form-control"
+                   placeholder="Adrress"
                    formControlName="inputAddress"
                    [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
             <div class="invalid-feedback">
@@ -136,9 +140,10 @@
           </div>
         </div>
         <div class="col-md-4 p-4">
-          <label class="form-label ps-1">Email</label>
+          <!-- <label class="form-label ps-1">Email</label> -->
           <input type="email"
                  class="form-control"
+                 placeholder="Email"
                  formControlName="inputEmail"
                  [ngClass]="{'is-invalid':isValidInput('inputEmail')}">
           <div class="invalid-feedback">
@@ -151,11 +156,12 @@
           </div>
         </div>
         <div class="col-md-4 p-4">
-          <label class="form-label ps-1">Password</label>
+          <!-- <label class="form-label ps-1">Password</label> -->
           <div class="input-group">
             <input type="password"
                    id="inputPassword"
                    class="form-control"
+                   placeholder="Password"
                    formControlName="inputPassword"
                    [ngClass]="{'is-invalid':isValidInput('inputPassword')}">
             <span class="btn btn-sm bg-erp-blue"
@@ -171,11 +177,12 @@
           </div>
         </div>
         <div class="col-md-4 p-4">
-          <label class="form-label ps-1">Repeat password</label>
+          <!-- <label class="form-label ps-1">Repeat password</label> -->
           <div class="input-group">
             <input type="password"
                    id="inputRepeatPass"
                    class="form-control"
+                   placeholder="Repeat password"
                    formControlName="inputRepeatPass"
                    [ngClass]="{'is-invalid':matchPasswords()}">
             <span class="btn btn-sm bg-erp-blue"

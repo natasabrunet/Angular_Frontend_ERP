@@ -12,3 +12,8 @@ h1, h2, h3, h4, h5, h6 {
 .card {
    margin-bottom: 5rem !important;
    }
+   .form-control,
+   .form-select {
+     border: 0;
+     border-bottom: 1px solid #ced4da;
+     }

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { text } from '@fortawesome/fontawesome-svg-core';
@@ -31,8 +32,12 @@ export class SignUpComponent implements OnInit {
 
   closeResult = '';
 
+// answer errors
+myJson: any;
+errorMessage: any;
   constructor(private modalService: NgbModal, private signupService: SignupService, private fb: FormBuilder, private country: CountriesService) {
     this.createForm();
+
   }
 
   ngOnInit(): void {
@@ -61,7 +66,16 @@ export class SignUpComponent implements OnInit {
     this.new_user = new UserSignUpDto(this.signUpForm.value);
     this.signupService.createUser(this.new_user)
       .subscribe(resp => {
-        console.log(resp)
+        console.log(resp);
+      }, err => {
+        console.log(err);
+        if ( err instanceof HttpErrorResponse) {
+          if (err.status === 422) {
+            this.errorMessage = err.error.message;
+            console.log(this.errorMessage);
+          }
+        }
+       // throw new Error(this.errorMessage);
       });
   }
 

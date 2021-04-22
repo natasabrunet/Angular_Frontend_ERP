@@ -15,7 +15,7 @@ export class SignupService {
   }
 
   createUser(user: UserSignUpDto) {
-    return this.httpClient.post(`${this.baseUrl}${this.endPoint}`, user)
+    return this.httpClient.post(`${this.baseUrl}${this.endPoint}`, user);
   }
 
 }

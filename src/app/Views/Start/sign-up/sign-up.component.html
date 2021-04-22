@@ -12,51 +12,51 @@
             [formGroup]="signUpForm"
             (ngSubmit)="onSubmit()"
             novalidate>
-        <div class="col-md-4 p-4">
+        <div class="col-md-4 pt-4">
           <label class="form-label ps-1">First name</label>
           <input type="text"
-                 class="form-control"
+                 class="form-control form-control-sm"
                  formControlName="inputName"
                  [ngClass]="{'is-invalid':isValidInput('inputName')}">
           <div class="invalid-feedback">
-            <span *ngIf="signUpForm.get('inputName')?.errors?.required">
+            <span class="form-text text-danger" *ngIf="signUpForm.get('inputName')?.errors?.required">
               Your name is required
             </span>
-            <span *ngIf="signUpForm.get('inputName')?.errors?.minlength">
+            <span class="form-text text-danger" *ngIf="signUpForm.get('inputName')?.errors?.minlength">
               Minimum {{signUpForm.get('inputName')?.errors?.minlength.requiredLength}} characters required
             </span>
           </div>
         </div>
-        <div class="col-md-4 p-4">
+        <div class="col-md-4 pt-4">
           <label class="form-label ps-1">Last name</label>
           <input type="text"
-                 class="form-control"
+                 class="form-control form-control-sm"
                  formControlName="inputSurname"
                  [ngClass]="{'is-invalid':isValidInput('inputSurname')}">
           <div class="invalid-feedback">
-            <span *ngIf="signUpForm.get('inputSurname')?.errors?.required">
+            <span class="small" *ngIf="signUpForm.get('inputSurname')?.errors?.required">
               Your surname is required
             </span>
-            <span *ngIf="signUpForm.get('inputSurname')?.errors?.minlength">
+            <span class="small" *ngIf="signUpForm.get('inputSurname')?.errors?.minlength">
               Minimum {{signUpForm.get('inputSurname')?.errors?.minlength.requiredLength}} characters required
             </span>
           </div>
         </div>
-        <div class="col-md-4 p-4">
+        <div class="col-md-4 pt-4">
           <label class="form-label ps-1">DNI</label>
           <input type="text"
-                 class="form-control"
+                 class="form-control form-control-sm"
                  formControlName="inputDNI"
                  [ngClass]="{'is-invalid':isValidInput('inputDNI')}">
           <div class="invalid-feedback">
-            <span *ngIf="signUpForm.get('inputDNI')?.errors?.required">
+            <span class="small" *ngIf="signUpForm.get('inputDNI')?.errors?.required">
               Your ID is required
             </span>
-             <span *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
-              <small class="small fw-bold"> Provide a valid CIF (1 letter 7 numbers 1 letter)</small>
+             <span class="small fw-bold" *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
+               Provide a valid CIF (1 letter 7 numbers 1 letter) or valid DNI (8 numbers 1 letter)
             </span>
-             <span *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
-              <small class="small fw-bold"> or valid DNI (8 numbers 1 letter)</small>
+             <span class="d-none" *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
+
             </span>
             <!-- <span *ngIf="signUpForm.get('inputDNI')?.errors?.checkDNI">
               {{signUpForm.get('inputDNI').errors.checkDNI}}
@@ -68,18 +68,18 @@
           <div class="col-md-12 py-4">
             <label class="form-label ps-1">Address</label>
             <input type="text"
-                   class="form-control"
+                   class="form-control form-control-sm"
                    formControlName="inputAddress"
                    [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
             <div class="invalid-feedback">
-              <span *ngIf="signUpForm.get('address.inputAddress')?.errors?.required">
+              <span class="small" *ngIf="signUpForm.get('address.inputAddress')?.errors?.required">
                 Your address is required
               </span>
             </div>
           </div>
           <div class="col-md-3 py-4">
             <label class="form-label ps-1">Country</label>
-            <select class="form-select"
+            <select class="form-select form-select-sm"
                     formControlName="inputCountry"
                     (change)="onChangeCountry($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputCountry')}">
@@ -87,14 +87,14 @@
                       value="{{i}}">{{country.CountryName}}</option>
             </select>
             <div class="invalid-feedback">
-              <span *ngIf="signUpForm.get('address.inputCountry')?.errors?.required">
+              <span class="small" *ngIf="signUpForm.get('address.inputCountry')?.errors?.required">
                 Your country is required
               </span>
             </div>
           </div>
           <div class="col-md-3 py-4">
             <label class="form-label ps-1">Province</label>
-            <select class="form-select"
+            <select class="form-select form-select-sm"
                     formControlName="inputProvince"
                     (change)="onChangeProvince($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputProvince')}">
@@ -102,7 +102,7 @@
                       value="{{j}}">{{province.StateName}}</option>
             </select>
             <div class="invalid-feedback">
-              <span *ngIf="signUpForm.get('address.inputProvince')?.errors?.required">
+              <span class="small" *ngIf="signUpForm.get('address.inputProvince')?.errors?.required">
                 Your province is required
               </span>
             </div>
@@ -110,14 +110,14 @@
           <div class="col-md-3 py-4">
             <label class="form-label ps-1">City</label>
             <input type="text"
-                   class="form-control"
+                   class="form-control form-control-sm"
                    formControlName="inputCity"
                    [ngClass]="{'is-invalid':isValidInput('address.inputCity')}">
             <div class="invalid-feedback">
-              <span *ngIf="signUpForm.get('address.inputCity')?.errors?.required">
+              <span class="small" *ngIf="signUpForm.get('address.inputCity')?.errors?.required">
                 Your city is required.
               </span>
-              <span *ngIf="signUpForm.get('address.inputCity')?.errors?.minlength">
+              <span class="small" *ngIf="signUpForm.get('address.inputCity')?.errors?.minlength">
                 Minimum {{signUpForm.get('address.inputCity')?.errors?.minlength.requiredLength}} characters required
               </span>
             </div>
@@ -125,11 +125,11 @@
           <div class="col-md-3 py-4">
             <label class="form-label ps-1">Zip</label>
             <input type="text"
-                   class="form-control"
+                   class="form-control form-control-sm"
                    formControlName="inputZIP"
                    [ngClass]="{'is-invalid':isValidInput('address.inputZIP')}">
             <div class="invalid-feedback">
-              <span *ngIf="signUpForm.get('address.inputZIP')?.errors?.required">
+              <span class="small" *ngIf="signUpForm.get('address.inputZIP')?.errors?.required">
                 Your zip code is required
               </span>
             </div>
@@ -138,14 +138,14 @@
         <div class="col-md-4 p-4">
           <label class="form-label ps-1">Email</label>
           <input type="email"
-                 class="form-control"
+                 class="form-control form-control-sm"
                  formControlName="inputEmail"
                  [ngClass]="{'is-invalid':isValidInput('inputEmail')}">
           <div class="invalid-feedback">
-            <span *ngIf="signUpForm.get('inputEmail')?.errors?.required">
+            <span class="small" *ngIf="signUpForm.get('inputEmail')?.errors?.required">
               Your email is required
             </span>
-            <span *ngIf="signUpForm.get('inputEmail')?.errors?.pattern">
+            <span class="small" *ngIf="signUpForm.get('inputEmail')?.errors?.pattern">
               Email format is invalid
             </span>
           </div>
@@ -155,16 +155,16 @@
           <div class="input-group">
             <input type="password"
                    id="inputPassword"
-                   class="form-control"
+                   class="form-control form-control-sm"
                    formControlName="inputPassword"
                    [ngClass]="{'is-invalid':isValidInput('inputPassword')}">
-            <span class="btn bg-erp-blue"
+            <span class="btn btn-sm bg-erp-blue"
                   (click)="showPassword('inputPassword', 'eyePass')">
               <i id="eyePass"
-                 class="fas fa-eye-slash"></i>
+                 class="fas fa-eye-slash fa-sm"></i>
             </span>
             <div class="invalid-feedback">
-              <span *ngIf="signUpForm.get('inputPassword')?.errors?.checkPassStrength">
+              <span class="small fw-bold" *ngIf="signUpForm.get('inputPassword')?.errors?.checkPassStrength">
                 {{signUpForm.get('inputPassword').errors.checkPassStrength}}
               </span>
             </div>
@@ -175,16 +175,16 @@
           <div class="input-group">
             <input type="password"
                    id="inputRepeatPass"
-                   class="form-control"
+                   class="form-control form-control-sm"
                    formControlName="inputRepeatPass"
                    [ngClass]="{'is-invalid':matchPasswords()}">
-            <span class="btn bg-erp-blue"
+            <span class="btn btn-sm bg-erp-blue"
                   (click)="showPassword('inputRepeatPass', 'eyeRepeatPass')">
               <i id="eyeRepeatPass"
-                 class="fas fa-eye-slash"></i>
+                 class="fas fa-eye-slash fa-sm"></i>
             </span>
             <div class="invalid-feedback">
-              <span *ngIf="signUpForm.get('inputRepeatPass')?.errors?.required">
+              <span class="small" *ngIf="signUpForm.get('inputRepeatPass')?.errors?.required">
                 The password doesn't match
               </span>
             </div>
@@ -199,8 +199,11 @@
       </form>
       <ng-template #content
                    let-modal>
-        <div class="modal-header">
+        <div class="modal-header" *ngIf="!errorMessage">
           <h5 class="modal-title">Succesful Registration!</h5>
+        </div>
+        <div class="modal-header" >
+          <h5 class="modal-title">{{ errorMessage }}</h5>
         </div>
         <div class="modal-body">
           You will be redirect to our home page.

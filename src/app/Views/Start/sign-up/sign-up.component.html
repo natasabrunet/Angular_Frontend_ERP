@@ -193,9 +193,10 @@
         <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-5" >
           <button class="btn"
                   type="submit"
-                  (click)="open(content)"
+
                   [disabled]="!signUpForm.valid">Submit</button>
         </div>
+        <!--(click)="open(content)" if Rubén doesn't give the ok-->
       </form>
       <ng-template #content
                    let-modal

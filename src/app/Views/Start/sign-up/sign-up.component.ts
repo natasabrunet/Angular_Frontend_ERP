@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { text } from '@fortawesome/fontawesome-svg-core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 import { UserSignUpDto } from 'src/app/Models/DTOs/newUserDto';
 import { CountriesService } from 'src/app/Services/countries.service';
 
@@ -37,7 +39,13 @@ errorMessage: string = "";
 errorMessageMaps: string = "";
 myError: any;
 
-  constructor(private modalService: NgbModal, private signupService: SignupService, private fb: FormBuilder, private country: CountriesService) {
+  constructor(private modalService: NgbModal,
+              private signupService: SignupService,
+              private fb: FormBuilder,
+              private country: CountriesService,
+              private toastr: ToastrService,
+              private router: Router) {
+
     this.createForm();
 
   }
@@ -69,9 +77,14 @@ myError: any;
     this.signupService.createUser(this.new_user)
       .subscribe(resp => {
         console.log(resp);
+        this.toastr.success('User created successfully. You`ll be re-directed to Home page', "New User", {
+          closeButton: true
+        });
+        this.router.navigate(['/home']);
       }, err => {
         console.log(err);
-        this.myError = err;
+       return err;
+
         /* if ( err instanceof HttpErrorResponse) {
           if (err.status === 422) {
            // this.errorMessage = err.error.message;

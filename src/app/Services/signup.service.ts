@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { UserSignUpDto } from 'src/app/Models/DTOs/newUserDto';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class SignupService {
   private baseUrl: string;
   private endPoint: string = '/api/users/clients';
   private errorMessage: string;
-  constructor(private httpClient: HttpClient) {
+
+  constructor(private httpClient: HttpClient,
+              private toastr: ToastrService) {
     this.baseUrl = 'http://217.76.158.200:8080';
   }
 
@@ -25,6 +28,7 @@ export class SignupService {
           if (err.status === 422) {
            // this.errorMessage = err.error.message;
            this.errorMessage = "The user already exists in the database.";
+           this.toastr.error(this.errorMessage, "Error User Registration");
           }
         }
         return throwError(new Error(this.errorMessage));

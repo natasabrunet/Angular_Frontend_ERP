@@ -190,7 +190,7 @@
             </div>
           </div>
         </div>
-        <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-5">
+        <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-5" >
           <button class="btn"
                   type="submit"
                   (click)="open(content)"
@@ -198,12 +198,11 @@
         </div>
       </form>
       <ng-template #content
-                   let-modal>
-        <div class="modal-header" *ngIf="!errorMessage">
+                   let-modal
+                   >
+        <div *ngIf="!errorMessage; else repeatForm">
+        <div class="modal-header">
           <h5 class="modal-title">Succesful Registration!</h5>
-        </div>
-        <div class="modal-header" >
-          <h5 class="modal-title">{{ errorMessage }}</h5>
         </div>
         <div class="modal-body">
           You will be redirect to our home page.
@@ -219,6 +218,25 @@
             ACCEPT
           </button> -->
         </div>
+        </div>
+      </ng-template>
+      <ng-template #repeatForm
+                   let-modal>
+        <div>
+          <div class="modal-header">
+            <h5 class="modal-title">{{ errorMessage }}</h5>
+          </div>
+          <div class="modal-body">
+            Try to fill the form again.
+          </div>
+          <div class="modal-footer">
+            <button type="button"
+                    class="btn btn-outline-dark"
+                    (click)="closeModal()">
+              ACCEPT
+            </button>
+          </div>
+          </div>
       </ng-template>
     </div>
   </div>

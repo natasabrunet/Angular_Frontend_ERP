@@ -33,8 +33,9 @@ export class SignUpComponent implements OnInit {
   closeResult = '';
 
 // answer errors
-myJson: any;
-errorMessage: any;
+errorMessage: string = "";
+errorMessageMaps: string = "";
+
   constructor(private modalService: NgbModal, private signupService: SignupService, private fb: FormBuilder, private country: CountriesService) {
     this.createForm();
 
@@ -71,14 +72,10 @@ errorMessage: any;
         console.log(err);
         if ( err instanceof HttpErrorResponse) {
           if (err.status === 422) {
-            this.errorMessage = err.error.message;
+           // this.errorMessage = err.error.message;
+           this.errorMessage = "The user already exists in the database.";
           }
         }
-        /* if(err.error instanceof Error) {
-          this.errorMessage = err.error.message
-        } else {
-          this.errorMessage = err.error.message;
-        } */
       });
   }
 
@@ -151,7 +148,14 @@ errorMessage: any;
         data => {
           this.countryInfo = data.Countries;
         },
-        err => console.log(err)
+        err =>{
+          console.log(err);
+           if(err.error instanceof Error) {
+          this.errorMessageMaps = err.error.message
+        } else {
+          this.errorMessageMaps = err.error.message;
+        }
+        }
       )
   }
 
@@ -171,7 +175,9 @@ errorMessage: any;
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-
+closeModal(){
+  this.modalService.dismissAll();
+}
   private getDismissReason(reason: any): any {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

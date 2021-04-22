@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Countries } from 'src/app/Models/countries';
+import { CountriesService } from '../../../Services/countries.service';
+
+
+
+
 
 @Component({
   selector: 'app-billing-information',
@@ -7,9 +14,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillingInformationComponent implements OnInit {
 
-  constructor() { }
+  countries: Countries [];
 
-  ngOnInit(): void {
+  
+  constructor(private countriesService : CountriesService) { 
   }
+  
+  ngOnInit(): void {
+    this.countriesService.allCountries().subscribe((res:Countries[]) => {this.countries = res; console.log(this.countries)}
+    );
 
+  }
+  
 }

@@ -200,7 +200,7 @@
       <ng-template #content
                    let-modal
                    >
-        <div *ngIf="!errorMessage; else repeatForm">
+        <div *ngIf="!myError; else repeatForm">
         <div class="modal-header">
           <h5 class="modal-title">Succesful Registration!</h5>
         </div>
@@ -224,7 +224,7 @@
                    let-modal>
         <div>
           <div class="modal-header">
-            <h5 class="modal-title">{{ errorMessage }}</h5>
+            <h5 class="modal-title">{{ myError }}</h5>
           </div>
           <div class="modal-body">
             Try to fill the form again.

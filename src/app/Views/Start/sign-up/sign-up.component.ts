@@ -35,6 +35,7 @@ export class SignUpComponent implements OnInit {
 // answer errors
 errorMessage: string = "";
 errorMessageMaps: string = "";
+myError: any;
 
   constructor(private modalService: NgbModal, private signupService: SignupService, private fb: FormBuilder, private country: CountriesService) {
     this.createForm();
@@ -70,12 +71,13 @@ errorMessageMaps: string = "";
         console.log(resp);
       }, err => {
         console.log(err);
-        if ( err instanceof HttpErrorResponse) {
+        this.myError = err;
+        /* if ( err instanceof HttpErrorResponse) {
           if (err.status === 422) {
            // this.errorMessage = err.error.message;
            this.errorMessage = "The user already exists in the database.";
           }
-        }
+        } */
       });
   }
 

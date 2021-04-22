@@ -72,10 +72,13 @@ errorMessage: any;
         if ( err instanceof HttpErrorResponse) {
           if (err.status === 422) {
             this.errorMessage = err.error.message;
-            console.log(this.errorMessage);
           }
         }
-       // throw new Error(this.errorMessage);
+        /* if(err.error instanceof Error) {
+          this.errorMessage = err.error.message
+        } else {
+          this.errorMessage = err.error.message;
+        } */
       });
   }
 

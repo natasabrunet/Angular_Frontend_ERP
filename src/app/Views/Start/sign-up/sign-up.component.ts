@@ -37,7 +37,7 @@ export class SignUpComponent implements OnInit {
 // answer errors
 errorMessage: string = "";
 errorMessageMaps: string = "";
-myError: any;
+myError: boolean = false;
 
   constructor(private modalService: NgbModal,
               private signupService: SignupService,
@@ -83,6 +83,7 @@ myError: any;
         this.router.navigate(['/home']);
       }, err => {
         console.log(err);
+        this.myError = true;
        return err;
 
         /* if ( err instanceof HttpErrorResponse) {

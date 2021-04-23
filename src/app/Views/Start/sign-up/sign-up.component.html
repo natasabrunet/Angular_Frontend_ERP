@@ -200,7 +200,7 @@
         <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-5" >
           <button class="btn"
                   type="submit"
-
+                  (click)="open(content)"
                   [disabled]="!signUpForm.valid">Submit</button>
         </div>
         <!--(click)="open(content)" if Rubén doesn't give the ok-->
@@ -208,7 +208,7 @@
       <ng-template #content
                    let-modal
                    >
-        <div *ngIf="!myError; else repeatForm">
+        <div *ngIf="myError == false; else repeatForm">
         <div class="modal-header">
           <h5 class="modal-title">Succesful Registration!</h5>
         </div>
@@ -232,7 +232,7 @@
                    let-modal>
         <div>
           <div class="modal-header">
-            <h5 class="modal-title">{{ myError }}</h5>
+            <h5 class="modal-title">user or mail already exits</h5>
           </div>
           <div class="modal-body">
             Try to fill the form again.

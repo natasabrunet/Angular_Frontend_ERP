@@ -1,9 +1,16 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { text } from '@fortawesome/fontawesome-svg-core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 import { UserSignUpDto } from 'src/app/Models/DTOs/newUserDto';
+import { CountriesService } from 'src/app/Services/countries.service';
 
 //import services
 import { SignupService } from '../../../Services/signup.service';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -11,86 +18,182 @@ import { SignupService } from '../../../Services/signup.service';
 })
 export class SignUpComponent implements OnInit {
 
-  public new_user: UserSignUpDto;
-  public password_conf:string;
-  public email:string; // FIXME: Temporalmente creado hasta actualización de schema
-  public bussinessName:string; // FIXME: Temporalmente creado hasta actualización de schema
-  public check_password:boolean;
-  public check_eye:boolean;
-  public closeResult= '';
+  signUpForm: FormGroup;
 
-  constructor(
-    private modalService: NgbModal,
-    private signupService:SignupService
-  ) {
-    this.new_user = new UserSignUpDto('', '','');// FIXME: Temporalmente creado hasta actualización de schema
-    this.check_password = false;
-    this.check_eye = false;
+  regexCIF = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
+  regexDNI: RegExp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
+  regexDNICIF: RegExp = /^[0-9a-zA-Z][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/i  ;
+  // i stands for insensitive for upper or lower
+  regexEmail = /^[a-z0-9._%+-]+@[a-z0-9·-]+.[a-z]{2,4}$/;
+
+  new_user: UserSignUpDto;
+
+  countryInfo: any[] = [];
+  provinceInfo: any[] = [];
+  cityInfo: any[] = [];
+
+  closeResult = '';
+
+// answer errors
+errorMessage: string = "";
+errorMessageMaps: string = "";
+myError: boolean = false;
+
+  constructor(private modalService: NgbModal,
+              private signupService: SignupService,
+              private fb: FormBuilder,
+              private country: CountriesService,
+              private toastr: ToastrService,
+              private router: Router) {
+
+    this.createForm();
+
   }
 
   ngOnInit(): void {
-
+    this.getCountries();
   }
 
-  onSubmit(form){
-    console.log(this.new_user);
+  createForm() {
+    this.signUpForm = this.fb.group({
+      inputName: ['', [Validators.required, Validators.minLength(3)]],
+      inputSurname: ['', [Validators.required, Validators.minLength(3)]],
+      address: this.fb.group({
+        inputAddress: ['', Validators.required],
+        inputCity: ['', [Validators.required, Validators.minLength(2)]],
+        inputCountry: ['', Validators.required],
+        inputProvince: ['', Validators.required],
+        inputZIP: ['', Validators.required],
+      }),
+      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNICIF)]],
+      inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
+      inputPassword: ['', this.checkPassStrength],
+      inputRepeatPass: ['', Validators.required]
+    })
+  }
+
+  onSubmit() {
+    this.new_user = new UserSignUpDto(this.signUpForm.value);
     this.signupService.createUser(this.new_user)
-        .subscribe(resp => {
-          console.log(resp)
-        })
-    this.email = '';// FIXME: Temporalmente fuera de form hasta actualización de schema
-    this.bussinessName = '';// FIXME: Temporalmente fuera de form hasta actualización de schema
-    form.reset();
+      .subscribe(resp => {
+        console.log(resp);
+        this.toastr.success('User created successfully. You`ll be re-directed to Home page', "New User", {
+          closeButton: true
+        });
+        this.router.navigate(['/home']);
+      }, err => {
+        console.log(err);
+        this.myError = true;
+       return err;
+
+        /* if ( err instanceof HttpErrorResponse) {
+          if (err.status === 422) {
+           // this.errorMessage = err.error.message;
+           this.errorMessage = "The user already exists in the database.";
+          }
+        } */
+      });
   }
 
-  verPassword1(){
-    let password1: HTMLInputElement = (<HTMLInputElement>document.getElementById('password1'));
-    if(password1.type === "password"){
-       password1.type = "text";
-     }else{
-       password1.type = "password";
-     }
+  checkPassStrength(inputPass) {
+    const password = inputPass.value;
 
-    let eye: HTMLElement = (<HTMLElement>document.getElementById('eye1'));
-    if(this.check_eye === false){
-      this.check_eye = true;
-      eye.classList.remove("fa-eye-slash");
-      eye.classList.add("fa-eye");
-    }else{
-      this.check_eye = false;
-      eye.classList.add("fa-eye-slash");
-      eye.classList.remove("fa-eye");
+    const uppercase = '[A-Z]';
+    const lowercase = '[a-z]';
+    const numbers = '[0-9]';
+    const symbols = '[*.!@#$%^&(){}[]:;<>,.?/~_+-=|]';
+    const minLength = 8;
+    const maxLength = 16;
+    let count = 1;
+    const minControlPassed = 5;
+
+    // RegEx
+    let regex = [];
+    regex.push(uppercase); // Add uppercase control
+    regex.push(lowercase); // Add lowercase control
+    regex.push(numbers); // Add numbers control
+    regex.push(symbols); // Add symbols control
+
+    // Validate Strength
+    if (password.length >= minLength && password.length <= maxLength) {
+      count++;
+      for (let i = 0; i < regex.length; i++) {
+        if (new RegExp(regex[i]).test(password) && count < minControlPassed) {
+          count++;
+        } else if (count >= minControlPassed) {
+          return null;
+        } else {
+          return { checkPassStrength: 'The password requires at least one number, uppercase and lowercase letters and one special character.' }
+        }
+      }
+    } else {
+      return { checkPassStrength: 'The password must be at least 8 characters long, but no more than 16' }
     }
   }
 
-  verPassword2(){
-    let password_see: HTMLInputElement = (<HTMLInputElement>document.getElementById('password_see'));
-    if(password_see.type === "password"){
-       password_see.type = "text";
-     }else{
-       password_see.type = "password";
-     }
+  showPassword(inputPass: string, eyeIcon: string) {
+    let inputPassword: HTMLInputElement = (<HTMLInputElement>document.getElementById(inputPass));
+    let icon: HTMLInputElement = (<HTMLInputElement>document.getElementById(eyeIcon));
 
-     let eye: HTMLElement = (<HTMLElement>document.getElementById('eye2'));
-     if(this.check_eye === false){
-       this.check_eye = true;
-       eye.classList.remove("fa-eye-slash");
-       eye.classList.add("fa-eye");
-     }else{
-       this.check_eye = false;
-       eye.classList.add("fa-eye-slash");
-       eye.classList.remove("fa-eye");
-     }
+    if (inputPassword.type === 'password') {
+      inputPassword.type = 'text';
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    } else if (inputPassword.type === 'text') {
+      inputPassword.type = 'password';
+      icon.classList.add("fa-eye-slash");
+      icon.classList.remove("fa-eye");
+    }
+  }
+
+  isValidInput(name: string): boolean {
+    const input: any = this.signUpForm.get(name);
+    return input.touched && input.invalid
+  }
+
+  matchPasswords() {
+    const pass1 = this.signUpForm.get('inputPassword').value;
+    const pass2 = this.signUpForm.get('inputRepeatPass').value;
+
+    return (pass1 === pass2) ? false : true;
+  }
+
+  getCountries() {
+    this.country.allCountries().
+      subscribe(
+        data => {
+          this.countryInfo = data.Countries;
+        },
+        err =>{
+          console.log(err);
+           if(err.error instanceof Error) {
+          this.errorMessageMaps = err.error.message
+        } else {
+          this.errorMessageMaps = err.error.message;
+        }
+        }
+      )
+  }
+
+  onChangeCountry(inputCountry) {
+    this.provinceInfo = this.countryInfo[inputCountry].States;
+    this.cityInfo = this.provinceInfo[0].Cities;
+  }
+
+  onChangeProvince(inputProvince) {
+    this.cityInfo = this.provinceInfo[inputProvince].Cities;
   }
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-
+closeModal(){
+  this.modalService.dismissAll();
+}
   private getDismissReason(reason: any): any {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

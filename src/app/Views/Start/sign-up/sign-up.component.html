@@ -1,215 +1,251 @@
-<div class="body bg-erp-silver">
-  <div class="container pb-5 pt-5">
-    <div class="row mx-auto mb-3">
-      <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
-        <h1 class="text-center pb-3">Sign up</h1>
-        <div class="text-center">
-          <a
-            class="ps-2"
-            [routerLink]="['/log-in']"
-            routerLinkActive="router-link-active"
-            >Already a member?</a
-          >
-        </div>
-      </div>
+<div class="container-fluid bg-erp-silver mb-5">
+  <div class="card border-0 col-10 mb-5 mx-auto">
+    <div class="card-body text-center bg-erp-silver pt-5">
+      <h2 class="card-title fw-bold fs-1">Sign up</h2>
+      <a class="pt-2 pb-4"
+         [routerLink]="['/log-in']"
+         routerLinkActive="router-link-active">Already a member?</a>
     </div>
-
-    <form
-      #formContacto="ngForm"
-      (ngSubmit)="onSubmit(formContacto)"
-      class="row mx-auto pt-3 pb-4 bg-erp-white"
-    >
-      <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
-      <div
-        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-      >
-        <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
-        <div class="ms-5 col-8">
-          <input
-            type="text"
-            name="businessName"
-            class="form-control bg-erp-silver"
-          />
-        </div>
-      </div>
-
-      <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
-      <!-- <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-    >
-      <label class="p-2 col-2" for="exampleInputEmail1">Name: </label>
-      <div class="ms-5 col-8">
-        <input
-          type="text"
-          name="businessName"
-          class="form-control bg-erp-silver"
-          [ngClass]="{
-            'is-invalid': businessName.touched && !businessName.valid
-          }"
-          #businessName="ngModel"
-          [(ngModel)]="businessName"
-          required
-          pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$"
-        />
-        <div
-          *ngIf="businessName.touched && !businessName.valid"
-          class="invalid-feedback"
-        >
-          This field is required!
-        </div>
-      </div>
-    </div> -->
-
-      <div
-        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-      >
-        <label class="p-2 col-2" for="exampleInputEmail1">CIF: </label>
-        <div class="ms-5 col-8">
-          <input
-            type="text"
-            name="cif"
-            class="form-control bg-erp-silver"
-            [ngClass]="{ 'is-invalid': cif.touched && !cif.valid }"
-            #cif="ngModel"
-            [(ngModel)]="new_user.username"
-            required
-            pattern="^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$"
-          />
-          <div *ngIf="cif.touched && !cif.valid" class="invalid-feedback">
-            This CIF does not match the standard format!
+    <div class="card-body">
+      <form action=""
+            class="row g-3 needs-validation"
+            [formGroup]="signUpForm"
+            (ngSubmit)="onSubmit()"
+            novalidate>
+        <div class="col-md-4 pt-md-4 pb-md-2 py-4">
+          <!-- <label class="form-label ps-1">First name</label> -->
+          <input type="text"
+                 class="form-control"
+                 placeholder="First Name"
+                 formControlName="inputName"
+                 [ngClass]="{'is-invalid':isValidInput('inputName')}">
+          <div class="invalid-feedback">
+            <span class="form-text text-danger" *ngIf="signUpForm.get('inputName')?.errors?.required">
+              Your name is required
+            </span>
+            <span class="form-text text-danger" *ngIf="signUpForm.get('inputName')?.errors?.minlength">
+              Minimum {{signUpForm.get('inputName')?.errors?.minlength.requiredLength}} characters required
+            </span>
           </div>
         </div>
-      </div>
-
-      <!--FIXME: Input temporal hasta que desde back end se actualice schema-->
-      <div
-        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-      >
-        <label class="p-2 col-2" for="exampleInputEmail1">Email: </label>
-        <div class="ms-5 col-8">
-          <input type="email" name="email" class="form-control bg-erp-silver" />
+        <div class="col-md-4 pt-md-4 pb-md-2 py-4">
+         <!--  <label class="form-label ps-1">Last name</label> -->
+          <input type="text"
+                 class="form-control"
+                 placeholder="Last Name"
+                 formControlName="inputSurname"
+                 [ngClass]="{'is-invalid':isValidInput('inputSurname')}">
+          <div class="invalid-feedback">
+            <span class="small" *ngIf="signUpForm.get('inputSurname')?.errors?.required">
+              Your surname is required
+            </span>
+            <span class="small" *ngIf="signUpForm.get('inputSurname')?.errors?.minlength">
+              Minimum {{signUpForm.get('inputSurname')?.errors?.minlength.requiredLength}} characters required
+            </span>
+          </div>
         </div>
-      </div>
+        <div class="col-md-4 pt-md-4 pb-md-2 py-4">
+          <!-- <label class="form-label ps-1">DNI</label> -->
+          <input type="text"
+                 class="form-control"
+                 placeholder="DNI"
+                 formControlName="inputDNI"
+                 [ngClass]="{'is-invalid':isValidInput('inputDNI')}">
+          <div class="invalid-feedback">
+            <span class="small" *ngIf="signUpForm.get('inputDNI')?.errors?.required">
+              Your ID is required
+            </span>
+             <span class="small fw-bold" *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
+               Provide a valid CIF (1 letter 7 numbers 1 letter) or valid DNI (8 numbers 1 letter)
+            </span>
+             <span class="d-none" *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
 
-      <!--TODO:Rehacer este input del formulario cuando desde back-end se actualice schema-->
-      <!-- <div
-      class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-    >
-      <label class="p-2 col-2" for="exampleInputEmail1">Email: </label>
-      <div class="ms-5 col-8">
-        <input
-          type="email"
-          name="email"
-          class="form-control bg-erp-silver"
-          [ngClass]="{ 'is-invalid': email.touched && !email.valid }"
-          #email="ngModel"
-          [(ngModel)]="new_user.email"
-          required
-          pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$"
-        />
-        <div *ngIf="email.touched && !email.valid" class="invalid-feedback">
-          This email does not match the standard format!
+            </span>
+            <!-- <span *ngIf="signUpForm.get('inputDNI')?.errors?.checkDNI">
+              {{signUpForm.get('inputDNI').errors.checkDNI}}
+            </span> -->
+          </div>
         </div>
-      </div>
-    </div> -->
+        <div class="row mx-auto"
+             formGroupName="address">
+          <div class="col-md-12 pt-md-4 pb-md-2 py-4">
+            <!-- <label class="form-label ps-1">Address</label> -->
+            <input type="text"
+                   class="form-control"
+                   placeholder="Adrress"
+                   formControlName="inputAddress"
+                   [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
+            <div class="invalid-feedback">
+              <span class="small" *ngIf="signUpForm.get('address.inputAddress')?.errors?.required">
+                Your address is required
+              </span>
+            </div>
+          </div>
+          <div class="col-md-3 pt-md-4 pb-md-2 py-4">
+            <label class="form-text ps-1">Country</label>
+            <select class="form-select"
+                    formControlName="inputCountry"
+                    (change)="onChangeCountry($event.target.value)"
+                    [ngClass]="{'is-invalid':isValidInput('address.inputCountry')}">
+              <option *ngFor="let country of countryInfo; let i = index"
+                      value="{{i}}">{{country.CountryName}}</option>
+            </select>
+            <div class="invalid-feedback">
+              <span class="small" *ngIf="signUpForm.get('address.inputCountry')?.errors?.required">
+                Your country is required
+              </span>
+            </div>
+          </div>
+          <div class="col-md-3 pt-md-4 pb-md-2 py-4">
+            <label class="form-text ps-1">Province</label>
+            <select class="form-select"
+                    formControlName="inputProvince"
+                    (change)="onChangeProvince($event.target.value)"
+                    [ngClass]="{'is-invalid':isValidInput('address.inputProvince')}">
+              <option *ngFor="let province of provinceInfo; let j = index"
+                      value="{{j}}">{{province.StateName}}</option>
+            </select>
+            <div class="invalid-feedback">
+              <span class="small" *ngIf="signUpForm.get('address.inputProvince')?.errors?.required">
+                Your province is required
+              </span>
+            </div>
+          </div>
+          <div class="col-md-3 pt-md-4 pb-md-2 py-4">
+            <label class="form-text ps-1">City</label>
+            <input type="text"
+                   class="form-control"
+                   formControlName="inputCity"
+                   [ngClass]="{'is-invalid':isValidInput('address.inputCity')}">
+            <div class="invalid-feedback">
+              <span class="small" *ngIf="signUpForm.get('address.inputCity')?.errors?.required">
+                Your city is required.
+              </span>
+              <span class="small" *ngIf="signUpForm.get('address.inputCity')?.errors?.minlength">
+                Minimum {{signUpForm.get('address.inputCity')?.errors?.minlength.requiredLength}} characters required
+              </span>
+            </div>
+          </div>
+          <div class="col-md-3 pt-md-4 pb-md-2 py-4">
+            <label class="form-text ps-1">Zip</label>
+            <input type="text"
+                   class="form-control"
+                   formControlName="inputZIP"
+                   [ngClass]="{'is-invalid':isValidInput('address.inputZIP')}">
+            <div class="invalid-feedback">
+              <span class="small" *ngIf="signUpForm.get('address.inputZIP')?.errors?.required">
+                Your zip code is required
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 pt-md-4 pl-md-4 pr-md-4 pb-md-1 py-4">
+          <!-- <label class="form-label ps-1">Email</label> -->
+          <input type="email"
+                 class="form-control"
+                 placeholder="Email"
+                 formControlName="inputEmail"
+                 [ngClass]="{'is-invalid':isValidInput('inputEmail')}">
+          <div class="invalid-feedback">
+            <span class="small" *ngIf="signUpForm.get('inputEmail')?.errors?.required">
+              Your email is required
+            </span>
+            <span class="small" *ngIf="signUpForm.get('inputEmail')?.errors?.pattern">
+              Email format is invalid
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 pt-md-4 pl-md-4 pr-md-4 pb-md-1 py-4">
+          <!-- <label class="form-label ps-1">Password</label> -->
+          <div class="input-group">
+            <input type="password"
+                   id="inputPassword"
+                   class="form-control"
+                   placeholder="Password"
+                   formControlName="inputPassword"
+                   [ngClass]="{'is-invalid':isValidInput('inputPassword')}">
+            <span class="btn bg-erp-blue"
+                  (click)="showPassword('inputPassword', 'eyePass')">
+              <i id="eyePass"
+                 class="fas fa-eye-slash fa-sm"></i>
+            </span>
+            <div class="invalid-feedback">
+              <span class="small fw-bold" *ngIf="signUpForm.get('inputPassword')?.errors?.checkPassStrength">
+                {{signUpForm.get('inputPassword').errors.checkPassStrength}}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 pt-md-4 pl-md-4 pr-md-4 pb-md-1 py-4">
+          <!-- <label class="form-label ps-1">Repeat password</label> -->
+          <div class="input-group">
+            <input type="password"
+                   id="inputRepeatPass"
+                   class="form-control"
+                   placeholder="Repeat password"
+                   formControlName="inputRepeatPass"
+                   [ngClass]="{'is-invalid':matchPasswords()}">
+            <span class="btn bg-erp-blue"
+                  (click)="showPassword('inputRepeatPass', 'eyeRepeatPass')">
+              <i id="eyeRepeatPass"
+                 class="fas fa-eye-slash fa-sm"></i>
+            </span>
+            <div class="invalid-feedback">
+              <span class="small" *ngIf="signUpForm.get('inputRepeatPass')?.errors?.required">
+                The password doesn't match
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-5" >
+          <button class="btn"
+                  type="submit"
 
-      <div
-        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-      >
-        <label class="p-2 col-2" for="exampleInputEmail1">Password: </label>
-        <div class="ms-5 col-8">
-          <div class="d-flex">
-            <input
-              id="password1"
-              type="password"
-              name="password"
-              class="form-control bg-erp-silver"
-              [ngClass]="{ 'is-invalid': password.touched && !password.valid }"
-              #password="ngModel"
-              [(ngModel)]="new_user.password"
-              required
-              pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
-              autocomplete="off"
-            />
-            <button class="bg-erp-blue" type="button" (click)="verPassword1()">
-              <i id="eye1" class="fas fa-eye-slash"></i>
+                  [disabled]="!signUpForm.valid">Submit</button>
+        </div>
+        <!--(click)="open(content)" if Rubén doesn't give the ok-->
+      </form>
+      <ng-template #content
+                   let-modal
+                   >
+        <div *ngIf="myError == false; else repeatForm">
+        <div class="modal-header">
+          <h5 class="modal-title">Succesful Registration!</h5>
+        </div>
+        <div class="modal-body">
+          You will be redirect to our home page.
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-outline-dark text-white"
+             role="button"
+             (click)="modal.close('Save click')"
+             routerLink="/home">Accept</a>
+          <!-- <button type="button"
+                  class="btn btn-outline-dark"
+                  (click)="modal.close('Save click')">
+            ACCEPT
+          </button> -->
+        </div>
+        </div>
+      </ng-template>
+      <ng-template #repeatForm
+                   let-modal>
+        <div>
+          <div class="modal-header">
+            <h5 class="modal-title">user or mail already exits</h5>
+          </div>
+          <div class="modal-body">
+            Try to fill the form again.
+          </div>
+          <div class="modal-footer">
+            <button type="button"
+                    class="btn btn-outline-dark"
+                    (click)="closeModal()">
+              ACCEPT
             </button>
           </div>
-          <div
-            *ngIf="password.touched && !password.valid"
-            class="invalid-feedback d-block"
-          >
-            This password does not match the required format!
           </div>
-        </div>
-      </div>
-
-      <div
-        class="form-group mx-auto pb-2 col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-flex"
-      >
-        <label class="p-2 col-2" for="exampleInputEmail1">Confirm Password: </label>
-        <div class="ms-5 col-8">
-          <div class="d-flex">
-            <input
-              id="password_see"
-              type="password"
-              name="password-control"
-              class="form-control bg-erp-silver mt-3"
-              [ngClass]="{
-                'is-invalid':
-                  password2.touched &&
-                  !password2.valid &&
-                  password !== password2
-              }"
-              #password2="ngModel"
-              [(ngModel)]="password_conf"
-              required
-              pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
-              autocomplete="off"
-            />
-            <button class="bg-erp-blue mt-3" type="button" (click)="verPassword2()">
-              <i id="eye2" class="fas fa-eye-slash"></i>
-            </button>
-          </div>
-          <div
-            *ngIf="password2.touched && !password2.valid"
-            class="invalid-feedback d-block"
-          >
-            This password does not match the password written above!
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="form-group d-grid pt-2 mx-auto col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xl-10"
-      >
-        <button
-          type="submit"
-          class="btn"
-          [disabled]="!formContacto.form.valid"
-          (click)="open(content)"
-        >
-          SUBMIT
-        </button>
-      </div>
-    </form>
-
-    <ng-template #content let-modal>
-      <div class="modal-header">
-        <h5 class="modal-title">Succesful Registration!</h5>
-      </div>
-      <div class="modal-body">
-        You will be redirect to your company account.
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-outline-dark"
-          (click)="modal.close('Save click')"
-        >
-          ACCEPT
-        </button>
-      </div>
-    </ng-template>
+      </ng-template>
+    </div>
   </div>
 </div>

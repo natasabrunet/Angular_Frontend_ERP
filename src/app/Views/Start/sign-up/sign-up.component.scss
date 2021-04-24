@@ -1,11 +1,6 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-}
-
-form{
-  max-width: 576px;
 }
 
 .btn {
@@ -14,8 +9,20 @@ form{
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
 }
-
-.btn:hover{
-  translate: Y(-3px);
-  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+.card {
+   margin-bottom: 5rem !important;
+   }
+   .form-control,
+   .form-select {
+     border: 0;
+     border-bottom: 1px solid #ced4da;
+     }
+     .bg-erp-blue{
+      border-radius:0.2rem !important;
+      -webkit-border-radius:0.2rem !important;
+      -moz-border-radius:0.2rem !important;
+      -ms-border-radius:0.2rem !important;
+      -o-border-radius:0.2rem !important;
 }
+
+

@@ -39,6 +39,17 @@ errorMessage: string = "";
 errorMessageMaps: string = "";
 myError: boolean = false;
 
+// placeholders
+placeholder = {
+  name: "First Name",
+  surname: "Last Name",
+  id: "Fiscal number or ID",
+  address: "Address",
+  email: "Email",
+  password: "Password",
+  checkPass: "Repeat password"
+}
+
   constructor(private modalService: NgbModal,
               private signupService: SignupService,
               private fb: FormBuilder,

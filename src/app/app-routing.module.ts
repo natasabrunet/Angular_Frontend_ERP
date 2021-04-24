@@ -31,6 +31,9 @@ import { EmployeeComponent } from './Views/employees/employee/employee.component
 // Stats import
 import { StatsComponent } from "./Views/stats/stats.component";
 
+
+
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },

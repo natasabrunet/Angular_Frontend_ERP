@@ -14,7 +14,6 @@ export class ProductsService {
   endPoint: string = '/api/products';
   token: string; 
 
-
   constructor( 
     private httpClient: HttpClient,
     private loginService: LoginService
@@ -23,14 +22,12 @@ export class ProductsService {
     this.token = this.loginService.getBearerToken;  
   }
 
-
   getProducts() {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      //Authorization: this.token //removed to showing products without loggin 
     });
     return this.httpClient.get( `${this.url}${this.endPoint}`, {headers} );
   }
-
 
   deleteProduct(id: number) {
     const options = { 
@@ -44,7 +41,6 @@ export class ProductsService {
     return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
   }
 
-  
   getProduct(id: number) {
     const headers = new HttpHeaders({
       Authorization: this.token
@@ -52,7 +48,6 @@ export class ProductsService {
     return this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {headers});
   }
  
-
   updateProduct(id:number, name:string, stock:number, image:string, price:number) {
     let body= new updateProductDto(id, name, stock, price, image);
     
@@ -64,7 +59,6 @@ export class ProductsService {
     return this.httpClient.put(`${this.url}${this.endPoint}`, body, options);
   }
 
-
   addProduct(name:string, stock:number, image:string,  price:number) {
     let body= new newProductDto(name, stock, price, image);
 
@@ -75,6 +69,5 @@ export class ProductsService {
     }; 
     return this.httpClient.post(`${this.url}${this.endPoint}`, body, options) ;
   }  
-
 }
 

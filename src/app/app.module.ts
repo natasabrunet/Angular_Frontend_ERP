@@ -41,6 +41,7 @@ import { OrdersComponent } from './views/orders/orders.component';
 import { StatsComponent } from './views/stats/stats.component';
 import { EmployeeComponent } from './views/employees/employee/employee.component';
 import { EmployeesListComponent } from './views/employees/employees-list/employees-list.component';
+import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 import { ShoppingCartComponent } from './Components/header/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
 
@@ -49,6 +50,9 @@ import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 import { OrderReviewComponent } from './Views/checkout/order-review/order-review.component';
 import { BillingInformationComponent } from './Views/checkout/billing-information/billing-information.component';
 import { ShippingInformationComponent } from './Views/checkout/shipping-information/shipping-information.component';
+
+//pagination
+import {NgxPaginationModule} from 'ngx-pagination';
 
 registerLocaleData(localeESP);
 
@@ -105,6 +109,7 @@ registerLocaleData(localeESP);
         deps: [HttpClient],
       },
     }),
+    NgxPaginationModule
   ],
   exports: [
     TranslateModule

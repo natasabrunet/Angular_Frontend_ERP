@@ -19,12 +19,10 @@ export class NavbarClientComponent implements OnInit {
 
   ngOnInit(): void {
     this.shoppingCartService.activeRouteCheckout$.subscribe( route =>{
-    this.activeRouterCheckout = route;
-    });    
+    this.activeRouterCheckout = route
+    });
   }
   
-
-
   changeLanguage(lang: string) {
     this.appComponent.changeLang(lang);
   }

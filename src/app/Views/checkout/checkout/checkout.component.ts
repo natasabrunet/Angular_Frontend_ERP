@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { ShoppingCartService } from '../../../Services/shopping-cart.service';
+
+
 
 
 @Component({
@@ -9,12 +12,17 @@ import { FormsModule } from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
 
-  shipAddress:boolean;
+  route:string;
   
-  constructor() { }
-  
-  ngOnInit(): void {
+  constructor(private shoppingCartService: ShoppingCartService, private router: Router) { 
+    this.route = this.router.url
   }
 
+  ngOnInit(): void {
+    this.shoppingCartService.activeRouteCheckout$.emit(false);
+  }
+  OnDestroy(): void {
+    this.shoppingCartService.activeRouteCheckout$.emit(true);
+  }
 }
  

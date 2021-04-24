@@ -52,7 +52,7 @@ const routes: Routes = [
   { path: 'employee/:id', component: EmployeeComponent },
   { path: 'stats', component: StatsComponent, canActivate: [AuthGuard] },
   { path: 'checkout', component: CheckoutComponent},
-
+  
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },
   { path: 'dev/sign-up', component: SignUpComponent },
@@ -65,6 +65,7 @@ const routes: Routes = [
   { path: 'dev/new-client', component: NewClientComponent },
   { path: 'dev/client-list', component: ClientListComponent },
   { path: 'dev/client-detail', component: ClientDetailComponent },
+  { path: 'dev/checkout', component: CheckoutComponent},
   // Path ** MUST be always the last route
   { path: '**', redirectTo: '404', pathMatch: 'full' },
 ];

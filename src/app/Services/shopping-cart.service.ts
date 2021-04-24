@@ -1,5 +1,8 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { of } from 'rxjs';
 import { I_ShoppingCartItem } from '../Models/shoppingCartItem';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +10,7 @@ import { I_ShoppingCartItem } from '../Models/shoppingCartItem';
 export class ShoppingCartService {
   public cart = [];
   sesionCartName = 'erpCart';
+  activeRouteCheckout$ = new EventEmitter<boolean>();
 
   // Observable: used to emit a string (e.g.: item id) when the cart is updated (e.g.: used in "shopping-cart.component.ts")
   public cartUpdated: EventEmitter<string> = new EventEmitter<string>();
@@ -30,6 +34,10 @@ export class ShoppingCartService {
       total += this.cartItems[i].total;
     }
     return total;
+  }
+
+  get _activeRouteCheckout() {
+    return this.activeRouteCheckout$
   }
 
   addItem(itemToAdd: I_ShoppingCartItem) {

@@ -1,5 +1,5 @@
 <div class="row m-1"> 
-    <h2>Order Review</h2>
+    <h2 class="text-center">Order Review</h2>
     <div >
         <h3>Product Details</h3>
         <ul class="shopping-cart-items">
@@ -32,15 +32,17 @@
     <div class="row">
         <h3>Payments Methods</h3>
         <div class="col-12">
-            <input class="col-1" type="radio" name="credit-card" id="cc">
-            <label class="col-11" for="credit-card">Credit-card</label>
-            <input class="col-1" type="radio" name="paypal" id="pp">
-            <label class="col-11" for="paypal">Paypal</label>
-            <input class="col-1" type="radio" name="cash" id="csh">
-            <label class="col-11" for="cash">Cash</label>
+            <fieldset>
+                <input class="col-1" type="radio" name="payment" id="cc">
+                <label class="col-11" for="credit-card">Credit-card</label>
+                <input class="col-1" type="radio" name="payment" id="pp">
+                <label class="col-11" for="paypal">Paypal</label>
+                <input class="col-1" type="radio" name="payment" id="csh">
+                <label class="col-11" for="cash">Cash</label>
+            </fieldset>
         </div>
     </div>
-
+    
     <div class="container">
         <div class="row mt-3 row justify-content-end">
             <span class="col-4 p-r-05 align-self-end">Shipping: </span>

@@ -1,13 +1,7 @@
 <div class="container-fluid row">
    <div class="col-12 col-md-6 col-lg-8 mt-3">
-       <app-billing-information class="col-12 col-md-6 col-lg-8 mt-3"></app-billing-information>
-       <div class="col-6 mt-3">
-           <input class="m-1" type="checkbox" [(ngModel)]="shipAddress" name="shipAddress" id="shipAddress">
-           <label for="shipAddress">Send to different address</label>
-       </div>
-       <app-shipping-information *ngIf="shipAddress" class="col-12 col-md-6 col-lg-8 mt-3"></app-shipping-information>
-   </div>
+    <app-billing-information class="col-12 col-md-6 col-lg-8 mt-3"></app-billing-information>
+    </div>
     <app-order-review class="col-12 col-md-6 col-lg-4"></app-order-review>
-    
 </div>
  

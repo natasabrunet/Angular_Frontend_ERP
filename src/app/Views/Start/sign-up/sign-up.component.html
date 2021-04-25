@@ -55,15 +55,13 @@
             <span class="small" *ngIf="signUpForm.get('inputDNI')?.errors?.required">
               Your ID is required
             </span>
-             <span class="small fw-bold" *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
-               Provide a valid CIF (1 letter 7 numbers 1 letter)
+             <span class="small fw-bold" *ngIf="(signUpForm.get('inputDNI')?.errors?.pattern)">
+               Not a valid CIF (1 letter 7 numbers 1 letter)
             </span>
+            <br>
              <span class="small fw-bold" *ngIf="signUpForm.get('inputDNI')?.errors?.dniDomain">
-              valid DNI (8 numbers 1 letter)
+              Not a valid DNI (8 numbers 1 letter)
             </span>
-            <!-- <span *ngIf="signUpForm.get('inputDNI')?.errors?.checkDNI">
-              {{signUpForm.get('inputDNI').errors.checkDNI}}
-            </span> -->
           </div>
         </div>
         <div class="row mx-auto"

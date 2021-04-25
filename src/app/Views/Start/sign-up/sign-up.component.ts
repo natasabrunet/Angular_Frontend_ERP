@@ -77,7 +77,7 @@ placeholder = {
         inputProvince: ['', Validators.required],
         inputZIP: ['', Validators.required],
       }),
-      inputDNI: ['', [Validators.required, Validators.pattern(this.regexCIF), this.checkDNI]],
+      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNICIF), this.checkDNI]],
       inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
       inputPassword: ['', this.checkPassStrength],
       inputRepeatPass: ['', Validators.required]
@@ -173,10 +173,12 @@ placeholder = {
 checkDNI(control: FormControl){
 
   let idControl = control.value;
-  let regexDNI = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
-  let regexCIF = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
+  let regexDNI: RegExp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
+  let regexCIF: RegExp = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
+  let vowel: RegExp = (/[a-zA-Z]/);
 
 if(control.pristine || idControl == "") return null;
+if((vowel.test(idControl))) return null;
 
 while((!regexDNI.test(idControl)) && (!regexCIF.test(idControl))){
   return {

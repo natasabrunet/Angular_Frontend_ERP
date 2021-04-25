@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { text } from '@fortawesome/fontawesome-svg-core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -39,6 +39,7 @@ errorMessage: string = "";
 errorMessageMaps: string = "";
 myError: boolean = false;
 
+
 // placeholders
 placeholder = {
   name: "First Name",
@@ -76,7 +77,7 @@ placeholder = {
         inputProvince: ['', Validators.required],
         inputZIP: ['', Validators.required],
       }),
-      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNICIF)]],
+      inputDNI: ['', [Validators.required, Validators.pattern(this.regexCIF), this.checkDNI]],
       inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
       inputPassword: ['', this.checkPassStrength],
       inputRepeatPass: ['', Validators.required]
@@ -168,6 +169,23 @@ placeholder = {
 
     return (pass1 === pass2) ? false : true;
   }
+
+checkDNI(control: FormControl){
+
+  let idControl = control.value;
+  let regexDNI = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
+
+if(control.pristine || idControl == "") return null;
+
+while(!regexDNI.test(idControl)){
+  return {
+    dniDomain: {
+      parsedIdControl : idControl
+    }
+  }
+}
+return null;
+}
 
   getCountries() {
     this.country.allCountries().

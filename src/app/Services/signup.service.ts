@@ -29,19 +29,10 @@ export class SignupService {
     .pipe(
       catchError((err) => {
         console.log(err);
-       /*  if ( err instanceof HttpErrorResponse) {
-          if (err.status === 422) {
-           // this.errorMessage = err.error.message;
-           this.errorMessage = "The user already exists in the database.";
-           this.toastr.error(this.errorMessage, "Error User Registration");
-          }
-        } */
         if(err instanceof HttpErrorResponse) {
           if(err.error instanceof ErrorEvent) {
             this.errorMessage = "An unexpected error has happened. \n You'll be redirected to Home page";
             this.toastr.error(this.errorMessage, "Unexpected Error");
-            console.log(err.error.message);
-            console.log(err.error.lineno);
             // redirection
             this.route.navigate(['/home']);
           } else {

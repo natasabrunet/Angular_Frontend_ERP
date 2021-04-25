@@ -174,10 +174,11 @@ checkDNI(control: FormControl){
 
   let idControl = control.value;
   let regexDNI = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
+  let regexCIF = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
 
 if(control.pristine || idControl == "") return null;
 
-while(!regexDNI.test(idControl)){
+while((!regexDNI.test(idControl)) && (!regexCIF.test(idControl))){
   return {
     dniDomain: {
       parsedIdControl : idControl

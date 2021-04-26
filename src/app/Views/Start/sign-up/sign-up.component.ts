@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { text } from '@fortawesome/fontawesome-svg-core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -39,6 +39,18 @@ errorMessage: string = "";
 errorMessageMaps: string = "";
 myError: boolean = false;
 
+
+// placeholders
+placeholder = {
+  name: "First Name",
+  surname: "Last Name",
+  id: "Fiscal number or ID",
+  address: "Address",
+  email: "Email",
+  password: "Password",
+  checkPass: "Repeat password"
+}
+
   constructor(private modalService: NgbModal,
               private signupService: SignupService,
               private fb: FormBuilder,
@@ -65,7 +77,7 @@ myError: boolean = false;
         inputProvince: ['', Validators.required],
         inputZIP: ['', Validators.required],
       }),
-      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNICIF)]],
+      inputDNI: ['', [Validators.required, Validators.pattern(this.regexDNICIF), this.checkDNI]],
       inputEmail: ['', [Validators.required, Validators.pattern(this.regexEmail)]],
       inputPassword: ['', this.checkPassStrength],
       inputRepeatPass: ['', Validators.required]
@@ -157,6 +169,26 @@ myError: boolean = false;
 
     return (pass1 === pass2) ? false : true;
   }
+
+checkDNI(control: FormControl){
+
+  let idControl = control.value;
+  let regexDNI: RegExp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
+  let regexCIF: RegExp = /^[a-zA-Z]{1}\d{7}[a-zA-Z0-9]{1}$/;
+  let vowel: RegExp = (/[a-zA-Z]/);
+
+if(control.pristine || idControl == "") return null;
+if((vowel.test(idControl))) return null;
+
+while((!regexDNI.test(idControl)) && (!regexCIF.test(idControl))){
+  return {
+    dniDomain: {
+      parsedIdControl : idControl
+    }
+  }
+}
+return null;
+}
 
   getCountries() {
     this.country.allCountries().

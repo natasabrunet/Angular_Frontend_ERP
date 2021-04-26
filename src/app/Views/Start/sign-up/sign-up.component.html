@@ -16,7 +16,7 @@
           <!-- <label class="form-label ps-1">First name</label> -->
           <input type="text"
                  class="form-control"
-                 placeholder="First Name"
+                 [placeholder]="placeholder.name"
                  formControlName="inputName"
                  [ngClass]="{'is-invalid':isValidInput('inputName')}">
           <div class="invalid-feedback">
@@ -32,7 +32,7 @@
          <!--  <label class="form-label ps-1">Last name</label> -->
           <input type="text"
                  class="form-control"
-                 placeholder="Last Name"
+                 [placeholder]="placeholder.surname"
                  formControlName="inputSurname"
                  [ngClass]="{'is-invalid':isValidInput('inputSurname')}">
           <div class="invalid-feedback">
@@ -48,22 +48,20 @@
           <!-- <label class="form-label ps-1">DNI</label> -->
           <input type="text"
                  class="form-control"
-                 placeholder="DNI"
+                 [placeholder]="placeholder.id"
                  formControlName="inputDNI"
                  [ngClass]="{'is-invalid':isValidInput('inputDNI')}">
           <div class="invalid-feedback">
             <span class="small" *ngIf="signUpForm.get('inputDNI')?.errors?.required">
               Your ID is required
             </span>
-             <span class="small fw-bold" *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
-               Provide a valid CIF (1 letter 7 numbers 1 letter) or valid DNI (8 numbers 1 letter)
+             <span class="small fw-bold" *ngIf="(signUpForm.get('inputDNI')?.errors?.pattern)">
+               Not a valid CIF (1 letter 7 numbers 1 letter)
             </span>
-             <span class="d-none" *ngIf="signUpForm.get('inputDNI')?.errors?.pattern">
-
+            <br>
+             <span class="small fw-bold" *ngIf="signUpForm.get('inputDNI')?.errors?.dniDomain">
+              Not a valid DNI (8 numbers 1 letter)
             </span>
-            <!-- <span *ngIf="signUpForm.get('inputDNI')?.errors?.checkDNI">
-              {{signUpForm.get('inputDNI').errors.checkDNI}}
-            </span> -->
           </div>
         </div>
         <div class="row mx-auto"
@@ -72,7 +70,7 @@
             <!-- <label class="form-label ps-1">Address</label> -->
             <input type="text"
                    class="form-control"
-                   placeholder="Adrress"
+                   [placeholder]="placeholder.address"
                    formControlName="inputAddress"
                    [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
             <div class="invalid-feedback">
@@ -143,7 +141,7 @@
           <!-- <label class="form-label ps-1">Email</label> -->
           <input type="email"
                  class="form-control"
-                 placeholder="Email"
+                 [placeholder]="placeholder.email"
                  formControlName="inputEmail"
                  [ngClass]="{'is-invalid':isValidInput('inputEmail')}">
           <div class="invalid-feedback">
@@ -161,7 +159,7 @@
             <input type="password"
                    id="inputPassword"
                    class="form-control"
-                   placeholder="Password"
+                   [placeholder]="placeholder.password"
                    formControlName="inputPassword"
                    [ngClass]="{'is-invalid':isValidInput('inputPassword')}">
             <span class="btn bg-erp-blue"
@@ -182,7 +180,7 @@
             <input type="password"
                    id="inputRepeatPass"
                    class="form-control"
-                   placeholder="Repeat password"
+                   [placeholder]="placeholder.checkPass"
                    formControlName="inputRepeatPass"
                    [ngClass]="{'is-invalid':matchPasswords()}">
             <span class="btn bg-erp-blue"

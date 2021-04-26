@@ -54,6 +54,10 @@ import { ShippingInformationComponent } from './Views/checkout/shipping-informat
 //pagination
 import {NgxPaginationModule} from 'ngx-pagination';
 
+// popUps UI/UX answers
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 registerLocaleData(localeESP);
 
 // @ts-ignore
@@ -93,6 +97,11 @@ registerLocaleData(localeESP);
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true
+    }), // ngx-toastr
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule, // don't remove this

@@ -15,6 +15,6 @@ export class CountriesService {
   }
 
   allCountries(): Observable<any> {
-    return this.httpClient.get<Countries>(this.baseUrl);
-  } 
+    return this.httpClient.get(this.baseUrl);
+  }
 }

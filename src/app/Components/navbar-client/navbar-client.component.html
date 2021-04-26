@@ -34,7 +34,7 @@
                         <i class="fas fa-user-plus"></i>
                       </a>
                     </button>
-                    <app-shopping-cart *ngIf="activeRouterCheckout" iconClass="text-erp-white"></app-shopping-cart>
+                    <app-shopping-cart *ngIf="router.url !== '/checkout' && router.url !== '/dev/checkout'" iconClass="text-erp-white"></app-shopping-cart>
                     <select #langSelect (change)="changeLanguage(langSelect.value)">
                     <option *ngFor="let lang of langs">{{ lang }}</option>
                   </select>

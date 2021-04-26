@@ -1,5 +1,5 @@
 import { Component, OnInit, } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { AppComponent } from '../../app.component';
 import { ShoppingCartService } from '../../Services/shopping-cart.service';
 
@@ -11,16 +11,12 @@ import { ShoppingCartService } from '../../Services/shopping-cart.service';
 export class NavbarClientComponent implements OnInit {
 
   langs: string[] = [];
-  activeRouterCheckout: boolean = true;
 
-  constructor(public appComponent: AppComponent, private shoppingCartService : ShoppingCartService) {
+  constructor(public appComponent: AppComponent, private shoppingCartService : ShoppingCartService, public router:Router) {
     this.langs = appComponent.langs;
   }
 
   ngOnInit(): void {
-    this.shoppingCartService.activeRouteCheckout$.subscribe( route =>{
-    this.activeRouterCheckout = route
-    });
   }
   
   changeLanguage(lang: string) {

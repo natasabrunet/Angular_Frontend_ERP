@@ -15,6 +15,7 @@ export class OrderReviewComponent implements OnInit, OnDestroy {
 //Icons
 faTrashAlt = faTrashAlt;
 faShoppingCart = faShoppingCart;
+buttonDisabled: string = ""
 
 public cartItems: I_ShoppingCartItem[] = [];
 public cartTotal: number = 0;
@@ -54,12 +55,19 @@ removeItem(i:number) {
   let item = this.cartItems[i];
   this.shoppingCartService.removeItem(item);
   this.cartItems.splice(i, 1);
+  this.buttonDisable();
 }
 
 // Prevent DropDown from closing if the shopping cart is NOT empty
 dropdownClickControl(event) {
   if (this.cartItems.length > 0) {
     event.stopPropagation();
+  }
+}
+
+buttonDisable(){
+  if(this.shoppingCartService.cart.length === 0){
+    this.buttonDisabled = "disabled";
   }
 }
 

@@ -49,7 +49,6 @@ import { CheckoutComponent } from './Views/checkout/checkout/checkout.component'
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 import { OrderReviewComponent } from './Views/checkout/order-review/order-review.component';
 import { BillingInformationComponent } from './Views/checkout/billing-information/billing-information.component';
-import { ShippingInformationComponent } from './Views/checkout/shipping-information/shipping-information.component';
 
 //pagination
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -91,7 +90,6 @@ registerLocaleData(localeESP);
     ShoppingCartComponent,
     OrderReviewComponent,
     BillingInformationComponent,
-    ShippingInformationComponent,
     CheckoutComponent
   ],
 

@@ -10,8 +10,8 @@
             (ngSubmit)="onSubmit()"
             novalidate>
         <div class="col-12 col-md-6 p-4">
-          <label class="form-label ps-1">First name</label>
           <input type="text"
+                 placeholder="First name"
                  class="form-control"
                  formControlName="inputName"
                  [ngClass]="{'is-invalid':isValidInput('inputName')}">
@@ -25,8 +25,8 @@
           </div>
         </div>
         <div class="col-12 col-md-6 p-4">
-          <label class="form-label ps-1">Last name</label>
           <input type="text"
+                 placeholder="Last name"
                  class="form-control"
                  formControlName="inputSurname"
                  [ngClass]="{'is-invalid':isValidInput('inputSurname')}">
@@ -40,8 +40,8 @@
           </div>
         </div>
         <div class="col-12 col-md-6 p-4">
-          <label class="form-label ps-1">DNI</label>
           <input type="text"
+          placeholder="DNI"
           class="form-control"
           formControlName="inputDNI"
           [ngClass]="{'is-invalid':isValidInput('inputDNI')}">
@@ -58,8 +58,8 @@
           </div>
         </div>
         <div class="col-12 col-md-6 p-4">
-          <label class="form-label ps-1">Email</label>
           <input type="email"
+                 placeholder="Email"
                  class="form-control"
                  formControlName="inputEmail"
                  [ngClass]="{'is-invalid':isValidInput('inputEmail')}">
@@ -75,8 +75,8 @@
         <div class="row mx-auto"
              formGroupName="address">
           <div class="col-md-12 py-4">
-            <label class="form-label ps-1">Address</label>
             <input type="text"
+                   placeholder="Address"
                    class="form-control"
                    formControlName="inputAddress"
                    [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
@@ -87,12 +87,12 @@
             </div>
           </div>
           <div class="col-md-3 py-4">
-            <label class="form-label ps-1">Country</label>
             <select class="form-select"
                     formControlName="inputCountry"
                     (change)="onChangeCountry($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputCountry')}">
-              <option *ngFor="let country of countryInfo; let i = index"
+                    <option disabled value="">Country</option>
+                    <option *ngFor="let country of countryInfo; let i = index"
                       value="{{i}}">{{country.CountryName}}</option>
             </select>
             <div class="invalid-feedback">
@@ -102,12 +102,12 @@
             </div>
           </div>
           <div class="col-md-3 py-4">
-            <label class="form-label ps-1">Province</label>
             <select class="form-select"
                     formControlName="inputProvince"
                     (change)="onChangeProvince($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputProvince')}">
-              <option *ngFor="let province of provinceInfo; let j = index"
+                    <option disabled value="">Province</option>
+                    <option *ngFor="let province of provinceInfo; let j = index"
                       value="{{j}}">{{province.StateName}}</option>
             </select>
             <div class="invalid-feedback">
@@ -117,8 +117,8 @@
             </div>
           </div>
           <div class="col-md-3 py-4">
-            <label class="form-label ps-1">City</label>
             <input type="text"
+                   placeholder="City"
                    class="form-control"
                    formControlName="inputCity"
                    [ngClass]="{'is-invalid':isValidInput('address.inputCity')}">
@@ -132,8 +132,8 @@
             </div>
           </div>
           <div class="col-md-3 py-4">
-            <label class="form-label ps-1">Zip</label>
             <input type="text"
+            placeholder="ZIP Code"
                    class="form-control"
                    formControlName="inputZIP"
                    [ngClass]="{'is-invalid':isValidInput('address.inputZIP')}">
@@ -148,9 +148,9 @@
              formGroupName="shippingAddress">
              <h2 class="card-title fw-bold fs-1">Shipping Information</h2>
              <div class="col-12 col-md-6 p-4">
-            <label class="form-label ps-1">First name</label>
             <input type="text"
-            class="form-control"
+                    placeholder="Name"
+                    class="form-control"
                     formControlName="inputNameShipping"
                     [ngClass]="{'is-invalid':isValidInput('inputName')}">
                     <div class="invalid-feedback">
@@ -163,8 +163,8 @@
             </div>
           </div>
           <div class="col-12 col-md-6 p-4">
-            <label class="form-label ps-1">Last name</label>
             <input type="text"
+                   placeholder="Last Name"
                    class="form-control"
                    formControlName="inputSurnameShipping"
                    [ngClass]="{'is-invalid':isValidInput('inputSurname')}">
@@ -178,11 +178,11 @@
             </div>
           </div>
           <div class="col-md-12 py-4">
-            <label class="form-label ps-1">Address</label>
             <input type="text"
-            class="form-control"
-            formControlName="inputAddressShipping"
-            [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
+                    placeholder="Address"
+                    class="form-control"
+                    formControlName="inputAddressShipping"
+                    [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
             <div class="invalid-feedback">
               <span *ngIf="billingForm.get('address.inputAddress')?.errors?.required">
                 Your address is required
@@ -190,12 +190,12 @@
             </div>
           </div>
           <div class="col-md-3 py-4">
-            <label class="form-label ps-1">Country</label>
             <select class="form-select"
-            formControlName="inputCountryShipping"
-            (change)="onChangeCountry($event.target.value)"
-            [ngClass]="{'is-invalid':isValidInput('address.inputCountry')}">
-            <option *ngFor="let country of countryInfo; let i = index"
+                    formControlName="inputCountryShipping"
+                    (change)="onChangeCountry($event.target.value)"
+                    [ngClass]="{'is-invalid':isValidInput('address.inputCountry')}">
+                    <option disabled value="">Country</option>
+                    <option *ngFor="let country of countryInfo; let i = index"
             value="{{i}}">{{country.CountryName}}</option>
           </select>
           <div class="invalid-feedback">
@@ -205,13 +205,13 @@
             </div>
           </div>
           <div class="col-md-3 py-4">
-            <label class="form-label ps-1">Province</label>
             <select class="form-select"
-            formControlName="inputProvinceShipping"
-            (change)="onChangeProvince($event.target.value)"
-            [ngClass]="{'is-invalid':isValidInput('address.inputProvince')}">
-            <option *ngFor="let province of provinceInfo; let j = index"
-            value="{{j}}">{{province.StateName}}</option>
+                    formControlName="inputProvinceShipping"
+                    (change)="onChangeProvince($event.target.value)"
+                    [ngClass]="{'is-invalid':isValidInput('address.inputProvince')}">
+                    <option disabled value="">Province</option>
+                    <option *ngFor="let province of provinceInfo; let j = index"
+          value="{{j}}">{{province.StateName}}</option>
           </select>
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('address.inputProvince')?.errors?.required">
@@ -220,11 +220,11 @@
           </div>
         </div>
         <div class="col-md-3 py-4">
-          <label class="form-label ps-1">City</label>
           <input type="text"
-          class="form-control"
-          formControlName="inputCityShipping"
-          [ngClass]="{'is-invalid':isValidInput('address.inputCity')}">
+                  placeholder="City"
+                  class="form-control"
+                  formControlName="inputCityShipping"
+                  [ngClass]="{'is-invalid':isValidInput('address.inputCity')}">
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('address.inputCity')?.errors?.required">
               Your city is required.
@@ -235,11 +235,11 @@
           </div>
         </div>
         <div class="col-md-3 py-4">
-          <label class="form-label ps-1">Zip</label>
           <input type="text"
-          class="form-control"
-          formControlName="inputZIPshipping"
-          [ngClass]="{'is-invalid':isValidInput('address.inputZIP')}">
+                  placeholder="ZIP Code"
+                  class="form-control"
+                  formControlName="inputZIPshipping"
+                  [ngClass]="{'is-invalid':isValidInput('address.inputZIP')}">
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('address.inputZIP')?.errors?.required">
                 Your zip code is required

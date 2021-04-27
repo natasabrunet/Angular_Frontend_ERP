@@ -13,6 +13,7 @@ import { HomepageComponent } from './Views/Homepage/homepage.component';
 import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
 import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
+import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
 
 
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'new-client', component: NewClientComponent },
   { path: 'client-detail/:id', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },
+  { path: 'products-without-session', component: ProductsWithoutSessionComponent },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'employees-list', component: EmployeesListComponent, canActivate: [AuthGuard] },
   { path: 'employee/:id', component: EmployeeComponent },

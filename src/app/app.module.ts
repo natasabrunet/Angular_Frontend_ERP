@@ -87,6 +87,7 @@ registerLocaleData(localeESP);
     StatsComponent,
     EmployeeComponent,
     EmployeesListComponent,
+    ProductsWithoutSessionComponent,
     ShoppingCartComponent,
     OrderReviewComponent,
     BillingInformationComponent,

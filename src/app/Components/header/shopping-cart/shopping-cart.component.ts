@@ -1,5 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { faTrashAlt, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { I_ShoppingCartItem } from '../../../Models/shoppingCartItem';
@@ -25,7 +26,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   // To unsubscribe from ngOnDestroy
   public cartSubscription: Subscription;
 
-  constructor(public shoppingCartService: ShoppingCartService) { 
+  constructor(public shoppingCartService: ShoppingCartService, private route: Router) { 
   }
 
   ngOnInit(): void {
@@ -64,6 +65,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     if (this.cartItems.length > 0) {
       event.stopPropagation();
     }
+  }
+
+  checkoutRoute(){
+    this.route.navigate(['checkout']);
   }
 
 }

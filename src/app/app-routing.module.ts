@@ -14,6 +14,8 @@ import { AdminViewComponent } from './Views/Admin-view/admin-view.component';
 import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
 import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
+import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
+
 
 // Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
@@ -49,10 +51,13 @@ const routes: Routes = [
   { path: 'new-client', component: NewClientComponent },
   { path: 'client-detail/:id', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'employees-list', component: EmployeesListComponent },
-  { path: 'stats', component: StatsComponent },
   { path: 'products-without-session', component: ProductsWithoutSessionComponent },
+  { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: 'employees-list', component: EmployeesListComponent, canActivate: [AuthGuard] },
+  { path: 'employee/:id', component: EmployeeComponent },
+  { path: 'stats', component: StatsComponent, canActivate: [AuthGuard] },
+  { path: 'checkout', component: CheckoutComponent},
+  
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },
   { path: 'dev/sign-up', component: SignUpComponent },
@@ -65,6 +70,7 @@ const routes: Routes = [
   { path: 'dev/new-client', component: NewClientComponent },
   { path: 'dev/client-list', component: ClientListComponent },
   { path: 'dev/client-detail', component: ClientDetailComponent },
+  { path: 'dev/checkout', component: CheckoutComponent},
   // Path ** MUST be always the last route
   { path: '**', redirectTo: '404', pathMatch: 'full' },
 ];

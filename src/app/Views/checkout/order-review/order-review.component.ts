@@ -47,6 +47,9 @@ loadCartItems() {
 
 updateItemTotal(i:number) {
   let item = this.cartItems[i];
+  if(item.quantity < 0){
+    item.quantity = 1;
+  }
   item.total = item.quantity * item.price;
   this.shoppingCartService.updateItem(item);
 }

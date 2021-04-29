@@ -33,6 +33,7 @@
                             <span class="item-price">{{ item.price | number: '1.2-2'}} €</span>
                             <span class="item-quantity">
                                 <input type="number"
+                                       id="quantity"
                                        value="{{item.quantity}}"
                                        min="1"
                                        [(ngModel)]="cartItems[i].quantity"

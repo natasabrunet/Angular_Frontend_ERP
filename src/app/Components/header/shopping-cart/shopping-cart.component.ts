@@ -34,6 +34,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.cartSubscription = this.shoppingCartService.cartUpdated
       .pipe(delay(100))
       .subscribe(id => { 
+        this.cartTotal = this.shoppingCartService.cartTotal;
         this.cartItems = this.shoppingCartService.cartItems;
       });
     this.loadCartItems();

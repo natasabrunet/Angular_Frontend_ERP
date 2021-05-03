@@ -35,6 +35,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       .pipe(delay(100))
       .subscribe(id => { 
         this.cartTotal = this.shoppingCartService.cartTotal;
+        this.cartItems = this.shoppingCartService.cartItems;
       });
     this.loadCartItems();
   }
@@ -50,6 +51,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   
   updateItemTotal(i:number) {
     let item = this.cartItems[i];
+    if(item.quantity < 0){
+      item.quantity = 1;
+      console.log(item);
+    }
     item.total = item.quantity * item.price;
     this.shoppingCartService.updateItem(item);
   }
@@ -69,6 +74,13 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   checkoutRoute(){
     this.route.navigate(['checkout']);
+  }
+
+  validateQty(qty){
+    if(qty.value < 0){
+      qty.value = 1;
+      console.log(qty);
+    }
   }
 
 }

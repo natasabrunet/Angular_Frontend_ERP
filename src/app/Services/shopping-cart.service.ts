@@ -35,7 +35,13 @@ export class ShoppingCartService {
 
   addItem(itemToAdd: I_ShoppingCartItem) {
     this.cart = this.cartItems;
-    this.cart.push(itemToAdd);
+    this.cart.find((product)=>{
+      if(product.id == itemToAdd.id){
+        product.quantity + itemToAdd.quantity
+      }else{
+        this.cart.push(itemToAdd);
+      }
+    });
     this.saveSessionStorage(this.cart);
     // Emit cart update observable
     this.cartUpdated.emit(itemToAdd.id)
@@ -121,6 +127,88 @@ export class ShoppingCartService {
     
     item = new CartItem();
     item.id       = '004';
+    item.name     = 'xKindle Paperwhite | Waterproof, 6"';
+    item.desc     = 'xKindle Paperwhite | Waterproof, 6" High-Resolution Display, 8GB Black';
+    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg';
+    item.price    = 400; //129.99;
+    item.quantity = 1;
+    item.total    = item.price * item.quantity;
+    this.cart.push(item);
+
+    item = new CartItem
+    item.id       = '005';
+    item.name     = 'SONY DSC-RX100M III';
+    item.desc     = '';
+    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg';
+    item.price    = 100; //849.99;
+    item.quantity = 2;
+    item.total    = item.price * item.quantity;
+    this.cart.push(item);
+
+    item = new CartItem();
+    item.id       = '006';
+    item.name     = 'KS automatic Mechanical';
+    item.desc     = '';
+    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg';
+    item.price    = 200; //1249.99;
+    item.quantity = 1;
+    item.total    = item.price * item.quantity;
+    this.cart.push(item);
+
+    item = new CartItem();
+    item.id       = '007';
+    item.name     = 'Kindle Paperwhite | Waterproof, 6"';
+    item.desc     = 'Kindle Paperwhite | Waterproof, 6" High-Resolution Display, 8GB Black';
+    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg';
+    item.price    = 300; //129.99;
+    item.quantity = 1;
+    item.total    = item.price * item.quantity;
+    this.cart.push(item);
+
+    
+    item = new CartItem();
+    item.id       = '008';
+    item.name     = 'xKindle Paperwhite | Waterproof, 6"';
+    item.desc     = 'xKindle Paperwhite | Waterproof, 6" High-Resolution Display, 8GB Black';
+    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg';
+    item.price    = 400; //129.99;
+    item.quantity = 1;
+    item.total    = item.price * item.quantity;
+    this.cart.push(item);
+
+    item = new CartItem
+    item.id       = '009';
+    item.name     = 'SONY DSC-RX100M III';
+    item.desc     = '';
+    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg';
+    item.price    = 100; //849.99;
+    item.quantity = 2;
+    item.total    = item.price * item.quantity;
+    this.cart.push(item);
+
+    item = new CartItem();
+    item.id       = '010';
+    item.name     = 'KS automatic Mechanical';
+    item.desc     = '';
+    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg';
+    item.price    = 200; //1249.99;
+    item.quantity = 1;
+    item.total    = item.price * item.quantity;
+    this.cart.push(item);
+
+    item = new CartItem();
+    item.id       = '011';
+    item.name     = 'Kindle Paperwhite | Waterproof, 6"';
+    item.desc     = 'Kindle Paperwhite | Waterproof, 6" High-Resolution Display, 8GB Black';
+    item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg';
+    item.price    = 300; //129.99;
+    item.quantity = 1;
+    item.total    = item.price * item.quantity;
+    this.cart.push(item);
+
+    
+    item = new CartItem();
+    item.id       = '012';
     item.name     = 'xKindle Paperwhite | Waterproof, 6"';
     item.desc     = 'xKindle Paperwhite | Waterproof, 6" High-Resolution Display, 8GB Black';
     item.image    = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg';

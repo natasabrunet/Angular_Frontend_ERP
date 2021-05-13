@@ -19,6 +19,7 @@
     },
     "btn": {
         "add": "Afegir",
+        "add-to-cart": "Afegir al carretó",
         "delete": "Esborrar",
         "update": "Modificar",
         "edit": "Editar",

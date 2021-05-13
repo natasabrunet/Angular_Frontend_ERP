@@ -19,6 +19,7 @@
     },
     "btn": {
         "add": "Add",
+        "add-to-cart": "Add to cart",
         "delete": "Delete",
         "update": "Update",
         "edit": "Edit",

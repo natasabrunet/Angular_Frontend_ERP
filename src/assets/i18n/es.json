@@ -19,6 +19,7 @@
     },
     "btn": {
         "add": "Añadir",
+        "add-to-cart": "Añadir al carrito",
         "delete": "Borrar",
         "update": "Modificar",
         "edit": "Editar",

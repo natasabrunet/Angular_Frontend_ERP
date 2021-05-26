@@ -5,7 +5,13 @@
       <div class="row">
         <h2 class="">{{ 'Products-list.page-head' | translate }}</h2>
       </div>
-
+      <div class="row mt-5">
+        <div class="col text-end">
+          <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para
+            que la página de single product sepa si está en modo alta o mantenimiento  -->
+          <button (click)="goSingleProduct(0)" class="btn appButton">{{ 'Products-list.button.new-product' | translate }}</button>
+        </div>
+      </div>
       <div class="row">
         <table class="table table-responsive-md mt-5 productTable align-middle">
           <thead>
@@ -51,8 +57,6 @@
                   </div>
                 </div>
               </div>
-
-
               <!-- Edit/Delete -->
               <td class="pr-td">
                 <div class="d-flex justify-content-center align-items-center">
@@ -96,14 +100,6 @@
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="row my-5">
-        <div class="col text-end">
-          <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para
-            que la página de single product sepa si está en modo alta o mantenimiento  -->
-          <button (click)="goSingleProduct(0)" class="btn appButton">{{ 'Products-list.button.new-product' | translate }}</button>
-        </div>
       </div>
     </div>
   </div>

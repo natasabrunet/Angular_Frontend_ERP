@@ -5,14 +5,6 @@
   </button>
 
   <ul class="list-unstyled position-relative top-custom">
-    <li class="overflow-hidden py-1">
-      <span class="sidebar-role h6 mx-3"
-            (click)="_toggleSidebar()">
-        <i class="{{ userType.role[0] }} me-4"></i>
-        <span class="text-capitalize"> {{ userType.role[1] | translate}} </span>
-      </span>
-    </li>
-
     <li *ngFor="let fn of userType.operations"
         class="overflow-hidden py-1">
       <a class="sidebar-link mx-3"

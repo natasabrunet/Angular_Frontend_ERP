@@ -64,6 +64,16 @@
             "new-product": "New product"
         }
     },
+    "order-review": {
+        "page-head": "Order Review",
+        "list": {
+            "head-list": "Product Details",
+            "head-price": "Price:",
+            "head-subTotal": "Sub-Total:",
+            "head-quantity": "QTY:"
+        }
+
+    },
     "Clients-list": {
         "page-head": "Clients List",
         "list": {
@@ -151,6 +161,7 @@
             }
         }
     },
+   
     "Validation": {
         "required-field": "Required field"
     },

@@ -64,6 +64,16 @@
             "new-product": "añadir producto"
         }
     },
+    "order-review": {
+        "page-head": "Revisión del pedido",
+        "list": {
+            "head-list": "Dettalles",
+            "head-price": "Precio:",
+            "head-subTotal": "Subtotal:",
+            "head-quantity": "CANT:"
+        }
+
+    },
     "Clients-list": {
         "page-head": "Lista de clientes",
         "list": {

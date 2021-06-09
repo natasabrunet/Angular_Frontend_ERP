@@ -1,20 +1,20 @@
 <div class="row m-1"> 
-    <h2 class="text-center m-4">Order Review</h2>
+    <h2 class="text-center m-4"> {{'order-review.page-head' | translate}} </h2>
     <div >
-        <h3>Product Details</h3>
+        <h3>{{ 'order-review.list.head-list' | translate}} </h3>
         <ul class="shopping-cart-items">
             <li *ngFor="let item of cartItems; let i=index" class="row clearfix">
                 <img class="col-2 img-fluid" [src]="item.image" [alt]="item.name" />
                 <span class="col-10 item-name">{{ item.name }}</span>
-                <span class="col-6 item-price"><strong>Price:</strong> {{ item.price | number: '1.2-2'}} €</span>
-                <span class="col-6 item-quantity"><strong>QTY: </strong>
+                <span class="col-6 item-price"><strong>{{'order-review.list.head-price' | translate}} </strong> {{ item.price | number: '1.2-2'}} €</span>
+                <span class="col-6 item-quantity"><strong> {{'order-review.list.head-quantity' | translate}} </strong>
                     <input class="col-4" type="number"
                            value="{{item.quantity}}"
                            min="1"
                            [(ngModel)]="cartItems[i].quantity"
                            (ngModelChange)="updateItemTotal(i)">
                 </span>
-                <span class="col-8 mt-3 item-line-price text-highlight"><strong>Sub-Total:</strong> {{ item.total | number: '1.2-2'}} €</span>
+                <span class="col-8 mt-3 item-line-price text-highlight"><strong>{{'order-review.list.head-subTotal' | translate}} </strong> {{ item.total | number: '1.2-2'}} €</span>
                 <span class="col-2 mt-2 item-removal">
                     <button class="btn btn-xs" (click)="removeItem(i);">
                         <fa-icon class="mx-md-0 deleteIcon"

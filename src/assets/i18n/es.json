@@ -74,6 +74,20 @@
         }
 
     },
+    "payment-methods":{
+        "page-head": "Métodos de pago",
+        "list": {
+            "credit-card": "Tarjeta de crédito",
+            "paypal": "PayPal",
+            "cash": "Efectivo",
+            "shipping": "Envío:",
+            "head-total": "Total:"
+        },
+        "button": {
+            "buy-now": "Finalizar compra"
+        }
+
+    },
     "Clients-list": {
         "page-head": "Lista de clientes",
         "list": {

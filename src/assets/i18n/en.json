@@ -73,6 +73,20 @@
             "head-quantity": "QTY:"
         }
 
+    }, 
+    "payment-methods":{
+        "page-head": "Payments Methods",
+        "list": {
+            "credit-card": "Credit-card",
+            "paypal": "PayPal",
+            "cash": "Cash",
+            "shipping": "Shipping:",
+            "head-total": "Total:"
+        },
+        "button": {
+            "buy-now": "BUY NOW"
+        }
+
     },
     "Clients-list": {
         "page-head": "Clients List",

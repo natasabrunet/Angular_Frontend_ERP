@@ -29,29 +29,29 @@
         </ul>
     </div>
     <div class="row">
-        <h3>Payments Methods</h3>
+        <h3>{{'payment-methods.page-head' | translate}} </h3>
         <div class="col-12">
             <fieldset>
                 <input class="col-1" type="radio" name="payment" id="cc">
-                <label class="col-11" for="credit-card"><strong>Credit-card</strong></label>
+                <label class="col-11" for="credit-card"><strong>{{'payment-methods.list.credit-card' | translate}} </strong></label>
                 <input class="col-1" type="radio" name="payment" id="pp">
-                <label class="col-11" for="paypal"><strong>Paypal</strong></label>
+                <label class="col-11" for="paypal"><strong>{{'payment-methods.list.paypal' | translate}} </strong></label>
                 <input class="col-1" type="radio" name="payment" id="csh">
-                <label class="col-11" for="cash"><strong>Cash</strong></label>
+                <label class="col-11" for="cash"><strong>{{'payment-methods.list.cash' | translate}} </strong></label>
             </fieldset>
         </div>
     </div>
     <div class="container">
         <div class="row mt-3 row justify-content-end">
-            <span class="col-4 p-r-05 align-self-end"><strong>Shipping: </strong></span>
+            <span class="col-4 p-r-05 align-self-end"><strong>{{'payment-methods.list.shipping' | translate}} </strong></span>
             <span class="col-6 text-highlight"> 0 €</span>
         </div>
         <div class="row mt-3 row justify-content-end">
-            <span class="col-4 p-r-05"><strong>Total: </strong></span>
+            <span class="col-4 p-r-05"><strong>{{'payment-methods.list.head-total' | translate}} </strong></span>
             <span class="col-6 text-highlight">{{ cartTotal | number: '1.2-2' }} €</span>
         </div>
     </div>
     <div class="col-12 m-2">
-        <button class="btn btn-block btn-erp-blue text-erp-white m-4 w-100" [disabled]="buttonDisabled">Buy Now</button>
+        <button class="btn btn-block btn-erp-blue text-erp-white m-4 w-100" [disabled]="buttonDisabled">{{'payment-methods.button.buy-now' | translate}} </button>
     </div>
 </div>

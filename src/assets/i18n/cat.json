@@ -65,12 +65,26 @@
         }
     },
     "order-review": {
-        "page-head": "Revisió de comandes",
+        "page-head": "Revisió de comanda",
         "list": {
             "head-list": "Dettalls",
             "head-price": "Preu:",
             "head-subTotal": "Subtotal:",
             "head-quantity": "QUANT:"
+        }
+
+    },
+    "payment-methods":{
+        "page-head": "Mètodes de pagament",
+        "list": {
+            "credit-card": "Targeta de crèdit",
+            "paypal": "PayPal",
+            "cash": "Efectiu",
+            "shipping": "Enviament:",
+            "head-total": "Total:"
+        },
+        "button": {
+            "buy-now": "FINALITZA LA COMPRA"
         }
 
     },

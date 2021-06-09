@@ -67,7 +67,7 @@
     "order-review": {
         "page-head": "Revisió de comanda",
         "list": {
-            "head-list": "Dettalls",
+            "head-list": "Detalls",
             "head-price": "Preu:",
             "head-subTotal": "Subtotal:",
             "head-quantity": "QUANT:"
@@ -87,6 +87,40 @@
             "buy-now": "FINALITZA LA COMPRA"
         }
 
+    },
+    "billing-information": {
+        "page-head": "Informació de facturació",
+        "error-list": {
+            "name-error": "El nom és obligatori",
+            "surname-error": "El cognom és obligatori",
+            "id-error": "L'ID és obligatori",
+            "cif-error": "Proporcionar un CIF vàlid (1 lletra 7 nombres 1 lletra)",
+            "dni-error": "o DNI vàlid (8 nombres 1 lletra)",
+            "email-error": "El correu és obligatori",
+            "emailFormat-error": "El format de correu no és vàlid",
+            "adress-error": "L'adreça és obligatòria",
+            "country-error":"El país és obligatori",
+            "province-error": "La província és obligatòria",
+            "city-error": "La ciutat és obligatòria",
+            "zip-error": "El codi postal és obligatori",
+            "minimum": "Mínim",
+            "characters-required": "caràcters necessaris"
+        },
+        "list": {
+            "country": "País ",
+            "province": "Província",
+            "city": "Ciutat",
+            "zip-code": "Codi postal",
+            "shipping-address": "Adreça d'enviament",
+            "name": "Nom",
+            "first-name": "Nom",
+            "last-name": "Cognom",
+            "dni": "DNI",
+            "email": "Correu",
+            "address":"Direcció",
+            "shipping-information": "Informació d'enviament",
+            "alternative-adress": "Enviar a una altra direcció"
+        }
     },
     "Clients-list": {
         "page-head": "Llista de clients",

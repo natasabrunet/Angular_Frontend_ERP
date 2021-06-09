@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { AppComponent } from 'src/app/app.component';
 import { Country, State } from 'src/app/Models/countries';
 import { CountriesService } from '../../../Services/countries.service';
 
@@ -9,6 +10,8 @@ import { CountriesService } from '../../../Services/countries.service';
   styleUrls: ['./billing-information.component.scss']
 })
 export class BillingInformationComponent implements OnInit {
+  // languages
+  langs: string[] = [];
 
   billingForm: FormGroup;
   shipAddress:boolean;
@@ -24,8 +27,9 @@ export class BillingInformationComponent implements OnInit {
   provinceInfo: State[] = [];
   cityInfo: any[] = [];
 
-  constructor( private fb: FormBuilder, private country: CountriesService) {
+  constructor( private fb: FormBuilder, private country: CountriesService, public appComponent: AppComponent) {
     this.createForm();
+    this.langs = appComponent.langs;
   }
 
   ngOnInit(): void {
@@ -83,5 +87,9 @@ export class BillingInformationComponent implements OnInit {
   onChangeProvince(inputProvince) {
     this.cityInfo = this.provinceInfo[inputProvince].Cities;
   }
+  // change languages
+changeLanguage(lang: string) {
+  this.appComponent.changeLang(lang);
+}
 }
 

@@ -88,6 +88,40 @@
         }
 
     },
+    "billing-information": {
+        "page-head": "Billing Information",
+        "error-list": {
+            "name-error": "Your name is required",
+            "surname-error": "Your surname is required",
+            "id-error": "Your ID is required",
+            "cif-error": "Provide a valid CIF (1 letter 7 numbers 1 letter)",
+            "dni-error": "or valid DNI (8 numbers 1 letter)",
+            "email-error": "Your email is required",
+            "emailFormat-error": "Email format is invalid",
+            "adress-error": "Your address is required",
+            "country-error":"Your country is required",
+            "province-error": "Your province is required",
+            "city-error": "Your city is required",
+            "zip-error": "Your zip code is required",
+            "minimum": "Minimum ",
+            "characters-required": "characters required"
+        },
+        "list": {
+            "country": "Country",
+            "province": "Province",
+            "city": "City",
+            "zip-code": "ZIP Code",
+            "shipping-address": "Shipping Address",
+            "name": "Name",
+            "first-name": "First Name",
+            "last-name": "Last Name",
+            "dni": "DNI",
+            "email": "Email",
+            "address":"Address",
+            "shipping-information": "Shipping information",
+            "alternative-adress": "Send to different address"
+        }
+    },
     "Clients-list": {
         "page-head": "Clients List",
         "list": {

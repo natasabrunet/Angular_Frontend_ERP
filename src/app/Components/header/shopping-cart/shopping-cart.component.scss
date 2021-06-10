@@ -8,7 +8,7 @@ $shopping-cart-text-color: #ffffff;
 }
 .shopping-cart-counter {
   font-size: .6rem;
-  position: absolute;
+   position: absolute; 
   top: 5px;
   right: 15px;
   width: 15px;
@@ -25,26 +25,23 @@ $shopping-cart-text-color: #ffffff;
   color: red;
   background-color: yellow;
 }
-
-
 .menu-box {
   box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
   border: none;
   margin-top: 2rem;
+  overflow-y: scroll;
+  height: 400px; 
 }
-
 .text-highlight {
   color: $text-highlight-color;
 }
-
 .p-r-05 {
   padding-right: 0.5em;
 }
-
 .shopping-cart {
   font: 14px/22px "Lato", Arial, sans-serif;
   width: 420px;
-  
+
   .deleteIcon {
     color: #DD5D56;
   }
@@ -58,7 +55,7 @@ $shopping-cart-text-color: #ffffff;
     padding-right: 0.5em;
     text-align: right;
   }
-
+  
   .shopping-cart-buttons {
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -69,6 +66,7 @@ $shopping-cart-text-color: #ffffff;
   .shopping-cart-items {
     list-style-type: none;
     padding-top: 20px;
+    
     li {
         margin-bottom: 18px;
     }
@@ -89,7 +87,6 @@ $shopping-cart-text-color: #ffffff;
       font-size: 12px;
       text-overflow: ellipsis;
       white-space: nowrap;
-      overflow: hidden;
     }
     
     .item-price {
@@ -159,4 +156,6 @@ $shopping-cart-text-color: #ffffff;
     display: table;
     clear: both;
   }
+
+ 
 }

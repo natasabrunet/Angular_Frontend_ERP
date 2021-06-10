@@ -4,6 +4,7 @@ import { delay } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { I_ShoppingCartItem } from '../../../Models/shoppingCartItem';
 import { ShoppingCartService } from '../../../Services/shopping-cart.service';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-order-review',
@@ -11,6 +12,9 @@ import { ShoppingCartService } from '../../../Services/shopping-cart.service';
   styleUrls: ['./order-review.component.scss']
 })
 export class OrderReviewComponent implements OnInit, OnDestroy {
+
+  // languages
+  langs: string[] = [];
 
 //Icons
 faTrashAlt = faTrashAlt;
@@ -23,7 +27,8 @@ public cartTotal: number = 0;
 // To unsubscribe from ngOnDestroy
 public cartSubscription: Subscription;
 
-constructor(public shoppingCartService: ShoppingCartService) { 
+constructor(public shoppingCartService: ShoppingCartService, public appComponent: AppComponent) { 
+  this.langs = appComponent.langs;
 }
 
 ngOnInit(): void {
@@ -72,6 +77,11 @@ buttonDisable(){
   if(this.shoppingCartService.cart.length === 0){
     this.buttonDisabled = "disabled";
   }
+}
+
+// change languages
+changeLanguage(lang: string) {
+  this.appComponent.changeLang(lang);
 }
 
 }

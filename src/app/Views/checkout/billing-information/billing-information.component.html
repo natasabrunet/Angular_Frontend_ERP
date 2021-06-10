@@ -1,7 +1,7 @@
 <div class="container-fluid bg-erp-silver pb-4">
   <div class="card border-0 col-10 mx-auto">
     <div class="card-body text-center bg-erp-silver pt-5">
-      <h2 class="card-title fw-bold fs-1">Billing Information</h2>
+      <h2 class="card-title fw-bold fs-1">{{"billing-information.page-head" | translate}}</h2>
     </div>
     <div class="card-body">
       <form action=""
@@ -11,64 +11,64 @@
             novalidate>
         <div class="col-12 col-md-6 p-4">
           <input type="text"
-                 placeholder="First name"
+          [placeholder]="'billing-information.list.name' | translate"
                  class="form-control"
                  formControlName="inputName"
                  [ngClass]="{'is-invalid':isValidInput('inputName')}">
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('inputName')?.errors?.required">
-              Your name is required
+              {{"billing-information.error-list.name-error" | translate}}
             </span>
             <span *ngIf="billingForm.get('inputName')?.errors?.minlength">
-              Minimum {{billingForm.get('inputName')?.errors?.minlength.requiredLength}} characters required
+              {{"billing-information.error-list.minimum" | translate}} {{billingForm.get('inputName')?.errors?.minlength.requiredLength}} {{"billing-information.error-list.characters-required" | translate}}
             </span>
           </div>
         </div>
         <div class="col-12 col-md-6 p-4">
           <input type="text"
-                 placeholder="Last name"
+          [placeholder]="'billing-information.list.last-name' | translate"
                  class="form-control"
                  formControlName="inputSurname"
                  [ngClass]="{'is-invalid':isValidInput('inputSurname')}">
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('inputSurname')?.errors?.required">
-              Your surname is required
+              {{"billing-information.error-list.surname-error" | translate}}
             </span>
             <span *ngIf="billingForm.get('inputSurname')?.errors?.minlength">
-              Minimum {{billingForm.get('inputSurname')?.errors?.minlength.requiredLength}} characters required
+              {{"billing-information.error-list.minimum" | translate}} {{billingForm.get('inputSurname')?.errors?.minlength.requiredLength}} {{"billing-information.error-list.characters-required" | translate}}
             </span>
           </div>
         </div>
         <div class="col-12 col-md-6 p-4">
           <input type="text"
-          placeholder="DNI"
+          [placeholder]="'billing-information.list.dni' | translate"
           class="form-control"
           formControlName="inputDNI"
           [ngClass]="{'is-invalid':isValidInput('inputDNI')}">
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('inputDNI')?.errors?.required">
-              Your ID is required
+              {{"billing-information.error-list.id-error" | translate}}
             </span>
             <span *ngIf="billingForm.get('inputDNI')?.errors?.pattern">
-              <small class="small fw-bold"> Provide a valid CIF (1 letter 7 numbers 1 letter)</small>
+              <small class="small fw-bold"> {{"billing-information.error-list.cif-error" | translate}}</small>
             </span>
             <span *ngIf="billingForm.get('inputDNI')?.errors?.pattern">
-              <small class="small fw-bold"> or valid DNI (8 numbers 1 letter)</small>
+              <small class="small fw-bold"> {{"billing-information.error-list.dni-error" | translate}}</small>
             </span>
           </div>
         </div>
         <div class="col-12 col-md-6 p-4">
           <input type="email"
-                 placeholder="Email"
+          [placeholder]="'billing-information.list.email' | translate"
                  class="form-control"
                  formControlName="inputEmail"
                  [ngClass]="{'is-invalid':isValidInput('inputEmail')}">
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('inputEmail')?.errors?.required">
-              Your email is required
+              {{"billing-information.error-list.email-error" | translate}}
             </span>
             <span *ngIf="billingForm.get('inputEmail')?.errors?.pattern">
-              Email format is invalid
+              {{"billing-information.error-list.emailFormat-error" | translate}}
             </span>
           </div>
         </div>
@@ -76,13 +76,13 @@
              formGroupName="address">
           <div class="col-md-12 py-4">
             <input type="text"
-                   placeholder="Address"
+            [placeholder]="'billing-information.list.address' | translate"
                    class="form-control"
                    formControlName="inputAddress"
                    [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
             <div class="invalid-feedback">
               <span *ngIf="billingForm.get('address.inputAddress')?.errors?.required">
-                Your address is required
+                {{"billing-information.error-list.adress-error" | translate}}
               </span>
             </div>
           </div>
@@ -91,13 +91,13 @@
                     formControlName="inputCountry"
                     (change)="onChangeCountry($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputCountry')}">
-                    <option disabled value="">Country</option>
+                    <option disabled value="">{{"billing-information.list.country" | translate}}</option>
                     <option *ngFor="let country of countryInfo; let i = index"
                       value="{{i}}">{{country.CountryName}}</option>
             </select>
             <div class="invalid-feedback">
               <span *ngIf="billingForm.get('address.inputCountry')?.errors?.required">
-                Your country is required
+                {{"billing-information.error-list.country-error" | translate}}
               </span>
             </div>
           </div>
@@ -106,86 +106,86 @@
                     formControlName="inputProvince"
                     (change)="onChangeProvince($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputProvince')}">
-                    <option disabled value="">Province</option>
+                    <option disabled value="">{{"billing-information.list.province" | translate}}</option>
                     <option *ngFor="let province of provinceInfo; let j = index"
                       value="{{j}}">{{province.StateName}}</option>
             </select>
             <div class="invalid-feedback">
               <span *ngIf="billingForm.get('address.inputProvince')?.errors?.required">
-                Your province is required
+                {{"billing-information.error-list.province-error" | translate}}
               </span>
             </div>
           </div>
           <div class="col-md-3 py-4">
             <input type="text"
-                   placeholder="City"
+            [placeholder]="'billing-information.list.city' | translate"
                    class="form-control"
                    formControlName="inputCity"
                    [ngClass]="{'is-invalid':isValidInput('address.inputCity')}">
             <div class="invalid-feedback">
               <span *ngIf="billingForm.get('address.inputCity')?.errors?.required">
-                Your city is required.
+                {{"billing-information.error-list.city-error" | translate}}
               </span>
               <span *ngIf="billingForm.get('address.inputCity')?.errors?.minlength">
-                Minimum {{billingForm.get('address.inputCity')?.errors?.minlength.requiredLength}} characters required
+                {{"billing-information.error-list.minimum" | translate}} {{billingForm.get('address.inputCity')?.errors?.minlength.requiredLength}} {{"billing-information.error-list.characters-required" | translate}}
               </span>
             </div>
           </div>
           <div class="col-md-3 py-4">
             <input type="text"
-            placeholder="ZIP Code"
+            [placeholder]="'billing-information.list.zip-code' | translate"
                    class="form-control"
                    formControlName="inputZIP"
                    [ngClass]="{'is-invalid':isValidInput('address.inputZIP')}">
             <div class="invalid-feedback">
               <span *ngIf="billingForm.get('address.inputZIP')?.errors?.required">
-                Your zip code is required
+                {{"billing-information.error-list.zip-error" | translate}}
               </span>
             </div>
           </div>
         </div>         
         <div *ngIf="shipAddress" class="row mx-auto"
              formGroupName="shippingAddress">
-             <h2 class="card-title fw-bold fs-1">Shipping Information</h2>
+             <h2 class="card-title fw-bold fs-1">{{"billing-information.list.shipping-information" | translate}}</h2>
              <div class="col-12 col-md-6 p-4">
             <input type="text"
-                    placeholder="Name"
+            [placeholder]="'billing-information.list.name' | translate"
                     class="form-control"
                     formControlName="inputNameShipping"
                     [ngClass]="{'is-invalid':isValidInput('inputName')}">
                     <div class="invalid-feedback">
               <span *ngIf="billingForm.get('inputNameShipping')?.errors?.required">
-                Your name is required
+                {{"billing-information.error-list.name-error" | translate}}
               </span>
               <span *ngIf="billingForm.get('inputNameShipping')?.errors?.minlength">
-                Minimum {{billingForm.get('inputName')?.errors?.minlength.requiredLength}} characters required
+                {{"billing-information.error-list.minimum" | translate}} {{billingForm.get('inputName')?.errors?.minlength.requiredLength}} {{"billing-information.error-list.characters-required" | translate}}
               </span>
             </div>
           </div>
           <div class="col-12 col-md-6 p-4">
             <input type="text"
-                   placeholder="Last Name"
+            [placeholder]="'billing-information.list.last-name' | translate"
                    class="form-control"
                    formControlName="inputSurnameShipping"
                    [ngClass]="{'is-invalid':isValidInput('inputSurname')}">
             <div class="invalid-feedback">
               <span *ngIf="billingForm.get('inputSurnameShipping')?.errors?.required">
-                Your surname is required
+                {{"billing-information.error-list.surname-error" | translate}}
               </span>
               <span *ngIf="billingForm.get('inputSurnameShipping')?.errors?.minlength">
-                Minimum {{billingForm.get('inputSurname')?.errors?.minlength.requiredLength}} characters required
+                {{"billing-information.error-list.minimum" | translate}} {{billingForm.get('inputSurname')?.errors?.minlength.requiredLength}} {{"billing-information.error-list.characters-required" | translate}}
               </span>
             </div>
           </div>
           <div class="col-md-12 py-4">
             <input type="text"
-                    placeholder="Address"
+            [placeholder]="'billing-information.list.address' | translate"
                     class="form-control"
                     formControlName="inputAddressShipping"
                     [ngClass]="{'is-invalid':isValidInput('address.inputAddress')}">
             <div class="invalid-feedback">
               <span *ngIf="billingForm.get('address.inputAddress')?.errors?.required">
-                Your address is required
+                {{"billing-information.error-list.adress-error" | translate}}
               </span>
             </div>
           </div>
@@ -194,13 +194,13 @@
                     formControlName="inputCountryShipping"
                     (change)="onChangeCountry($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputCountry')}">
-                    <option disabled value="">Country</option>
+                    <option disabled value="">{{"billing-information.list.country" | translate}}</option>
                     <option *ngFor="let country of countryInfo; let i = index"
             value="{{i}}">{{country.CountryName}}</option>
           </select>
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('address.inputCountry')?.errors?.required">
-              Your country is required
+              {{"billing-information.error-list.country-error" | translate}}
             </span>
             </div>
           </div>
@@ -209,40 +209,40 @@
                     formControlName="inputProvinceShipping"
                     (change)="onChangeProvince($event.target.value)"
                     [ngClass]="{'is-invalid':isValidInput('address.inputProvince')}">
-                    <option disabled value="">Province</option>
+                    <option disabled value="">{{"billing-information.list.province" | translate}}</option>
                     <option *ngFor="let province of provinceInfo; let j = index"
           value="{{j}}">{{province.StateName}}</option>
           </select>
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('address.inputProvince')?.errors?.required">
-              Your province is required
+              {{"billing-information.error-list.province-error" | translate}}
             </span>
           </div>
         </div>
         <div class="col-md-3 py-4">
           <input type="text"
-                  placeholder="City"
+          [placeholder]="'billing-information.list.city' | translate"
                   class="form-control"
                   formControlName="inputCityShipping"
                   [ngClass]="{'is-invalid':isValidInput('address.inputCity')}">
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('address.inputCity')?.errors?.required">
-              Your city is required.
+              {{"billing-information.error-list.city-error" | translate}}
             </span>
             <span *ngIf="billingForm.get('address.inputCity')?.errors?.minlength">
-              Minimum {{billingForm.get('address.inputCity')?.errors?.minlength.requiredLength}} characters required
+              {{"billing-information.error-list.minimum" | translate}} {{billingForm.get('address.inputCity')?.errors?.minlength.requiredLength}} {{"billing-information.error-list.characters-required" | translate}}
             </span>
           </div>
         </div>
         <div class="col-md-3 py-4">
           <input type="text"
-                  placeholder="ZIP Code"
+          [placeholder]="'billing-information.list.zip-code' | translate"
                   class="form-control"
                   formControlName="inputZIPshipping"
                   [ngClass]="{'is-invalid':isValidInput('address.inputZIP')}">
           <div class="invalid-feedback">
             <span *ngIf="billingForm.get('address.inputZIP')?.errors?.required">
-                Your zip code is required
+              {{"billing-information.error-list.zip-error" | translate}}
               </span>
             </div>
           </div>
@@ -253,7 +253,7 @@
   <div class="col-12 col-md-6 col-lg-8 m-3">
     <div class="col-6 mt-3">
         <input class="m-1" type="checkbox" [(ngModel)]="shipAddress" name="shipAddress" id="shipAddress">
-        <label for="shipAddress">Send to different address</label>
+        <label for="shipAddress">{{"billing-information.list.alternative-adress" | translate}}</label>
     </div>
   </div>
 </div> 

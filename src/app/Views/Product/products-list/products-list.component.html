@@ -1,113 +1,87 @@
 <div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <div class="row">
-        <h2 class="">{{ "Products-list.page-head" | translate }}</h2>
-      </div>
-      <div class="row mt-5">
-        <div class="col text-end">
-          <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="row">
+                <h2 class="">{{ "Products-list.page-head" | translate }}</h2>
+            </div>
+            <div class="row mt-5">
+                <div class="col text-end">
+                    <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para
             que la página de single product sepa si está en modo alta o mantenimiento  -->
-          <button (click)="goSingleProduct(0)" class="btn appButton">
+                    <button (click)="goSingleProduct(0)" class="btn appButton">
             {{ "Products-list.button.new-product" | translate }}
           </button>
-        </div>
-      </div>
-      <div class="row">
-        <table class="table table-responsive-md mt-5 productTable align-middle">
-          <thead>
-            <tr>
-              <th class="fw-bold col-md-5" scope="col ">
-                {{ "Products-list.list.head-name" | translate }}
-              </th>
-              <th class="fw-bold" scope="col ">
-                {{ "Products-list.list.head-stock" | translate }}
-              </th>
-              <th class="fw-bold" scope="col ">
-                {{ "Products-list.list.head-price" | translate }}
-              </th>
-              <th class="fw-bold text-center col-md-2" scope="col">
-                {{ "Products-list.list.head-image" | translate }}
-              </th>
-              <th class="fw-bold text-center col-md-2" scope="col ">
-                {{ "Products-list.list.head-options" | translate }}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let product of paginatedProducts; let i = index">
-              <td class="pr-td">{{ product.name }}</td>
-              <td class="pr-td">{{ product.stock }}</td>
-              <td class="pr-td">{{ product.price | currency }}</td>
-              <!-- Image -->
-              <td class="text-center">
-                <button
-                  type="button"
-                  class="btn p-0"
-                  data-bs-toggle="modal"
-                  [attr.data-bs-target]="'#' + product.name"
-                >
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-responsive-md mt-5 productTable align-middle">
+                    <thead>
+                        <tr>
+                            <th class="fw-bold col-md-5" scope="col ">
+                                {{ "Products-list.list.head-name" | translate }}
+                            </th>
+                            <th class="fw-bold" scope="col ">
+                                {{ "Products-list.list.head-stock" | translate }}
+                            </th>
+                            <th class="fw-bold" scope="col ">
+                                {{ "Products-list.list.head-price" | translate }}
+                            </th>
+                            <th class="fw-bold text-center col-md-2" scope="col">
+                                {{ "Products-list.list.head-image" | translate }}
+                            </th>
+                            <th class="fw-bold text-center col-md-2" scope="col ">
+                                {{ "Products-list.list.head-options" | translate }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of paginatedProducts; let i = index">
+                            <td class="pr-td">{{ product.name }}</td>
+                            <td class="pr-td">{{ product.stock }}</td>
+                            <td class="pr-td">{{ product.price | currency }}</td>
+                            <!-- Image -->
+                            <td class="text-center">
+                                <button type="button" class="btn p-0" data-bs-toggle="modal" [attr.data-bs-target]="'#' + product.name">
                   <img
                     class="product-img-thumb"
                     *ngIf="product.image > 0"
                     [src]="product.image | noProductImage"
                   />
                 </button>
-              </td>
+                            </td>
 
-              <div
-                class="modal fade modalMessage"
-                [id]="product.name"
-                tabindex="-1"
-                [attr.aria-labelledby]="'image of ' + product.name"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-xl">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        {{ product.name }}
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
+                            <div class="modal fade modalMessage" [id]="product.name" tabindex="-1" [attr.aria-labelledby]="'image of ' + product.name" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                {{ product.name }}
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
 
-                    <div
-                      class="
+                                        <div class="
                         modal-body
                         d-flex
                         justify-content-center
                         align-items-center
-                      "
-                    >
-                      <img
-                        class=""
-                        *ngIf="product.image > 0"
-                        [src]="product.image | noProductImage"
-                      />
-                    </div>
+                      ">
+                                            <img class="" *ngIf="product.image > 0" [src]="product.image | noProductImage" />
+                                        </div>
 
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Close
                       </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Edit/Delete -->
-              <td class="pr-td">
-                <div class="d-flex justify-content-center align-items-center">
-                  <!-- Edit -->
-                  <button (click)="goSingleProduct(product.id)" class="btn">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Edit/Delete -->
+                            <td class="pr-td">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <!-- Edit -->
+                                    <button (click)="goSingleProduct(product.id)" class="btn">
                     <fa-icon
                       class="mx-md-3"
                       [icon]="faEdit"
@@ -116,13 +90,8 @@
                     ></fa-icon>
                   </button>
 
-                  <!-- Delete -->
-                  <button
-                    type="button"
-                    class="btn"
-                    data-bs-toggle="modal"
-                    [attr.data-bs-target]="'#delete' + i"
-                  >
+                                    <!-- Delete -->
+                                    <button type="button" class="btn" data-bs-toggle="modal" [attr.data-bs-target]="'#delete' + i">
                     <fa-icon
                       class="mx-md-3 deleteIcon"
                       [icon]="faTrashAlt"
@@ -131,65 +100,45 @@
                     ></fa-icon>
                   </button>
 
-                  <!-- Modal -->
-                  <div
-                    class="modal fade modalMessage"
-                    [id]="'delete' + i"
-                    tabindex="-1"
-                    aria-labelledby="exampleModalLabel"
-                    aria-hidden="true"
-                  >
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">
-                            {{ "Products-list.modal.title" | translate }}
-                          </h5>
-                          <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                          ></button>
-                        </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade modalMessage" [id]="'delete' + i" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                        {{ "Products-list.modal.title" | translate }}
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
 
-                        <div class="modal-body">
-                          {{ "Products-list.modal.message" | translate }}
-                          {{ product.name }}?
-                        </div>
+                                                <div class="modal-body">
+                                                    {{ "Products-list.modal.message" | translate }} {{ product.name }}?
+                                                </div>
 
-                        <div class="modal-footer">
-                          <button
-                            type="button"
-                            class="btn appButton text-uppercase"
-                            data-bs-dismiss="modal"
-                          >
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
                             {{ "Products-list.modal.button-no" | translate }}
                           </button>
-                          <button
-                            type="button"
-                            class="btn btn-primary deleteButton text-uppercase"
-                            (click)="delete(i)"
-                            data-bs-dismiss="modal"
-                          >
+                                                    <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="delete(i)" data-bs-dismiss="modal">
                             {{
                               "Products-list.modal.button-delete" | translate
                             }}
                           </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn appButton" [disabled]="isFirstPage()" (click)="previousPage()">Previous</button>
+                    <button (click)="goToPage(page)" class="btn appButton ms-2" *ngFor="let page of pagesArray" [disabled]="currentPage() === page">{{page + 1}}</button>
+                    <button class="btn appButton ms-2" [disabled]="isLastPage()" (click)="nextPage()">Next</button>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="d-flex justify-content-center mb-2">
-          <button class="btn appButton me-2" [disabled]="isFirstPage()" (click)="previousPage()">Previous</button>
-          <button class="btn appButton ms-2" [disabled]="isLastPage()" (click)="nextPage()">Next</button>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

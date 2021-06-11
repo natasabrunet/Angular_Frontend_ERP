@@ -15,12 +15,13 @@ export class ProductsListComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
 
-  products: any[]=[]; 
+  products: any[]=[];
 
   page:number=0;
   limit:number=5;
 
   paginatedProducts: any[];
+  pagesArray: number[];
 
   constructor(
     private productsService: ProductsService,
@@ -33,12 +34,32 @@ export class ProductsListComponent implements OnInit {
     this.paginatedProducts = this.products.slice(this.page, this.limit);
   }
 
+  currentPage():number{
+    const result = this.page/PAGE_SIZE
+    return result
+  }
+
+  goToPage(index:number){
+
+   this.page = index*PAGE_SIZE;
+   this.limit = this.page +PAGE_SIZE
+   this.paginatedProducts = this.products.slice(this.page, this.limit);
+  };
+
+  getTotalPages(){
+    return Math.ceil(this.products.length/PAGE_SIZE)
+  }
+
+  setPagesArray():void {
+    this.pagesArray = [...new Array<number>(this.getTotalPages()).keys()];
+  }
+
   previousPage():void{
     this.page -= PAGE_SIZE;
     this.limit -= PAGE_SIZE;
     this.paginatedProducts = this.products.slice(this.page, this.limit);
   }
-  
+
   isFirstPage():boolean{
     return this.page === 0
   }
@@ -52,6 +73,7 @@ export class ProductsListComponent implements OnInit {
       (data: any) => {
         this.products = data.products;
         this.paginatedProducts = this.products.slice(this.page, this.limit);
+        this.setPagesArray();
       },
       (error) => {
         console.log(error);

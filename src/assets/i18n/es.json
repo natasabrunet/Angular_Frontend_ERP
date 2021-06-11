@@ -64,6 +64,64 @@
             "new-product": "añadir producto"
         }
     },
+    "order-review": {
+        "page-head": "Revisión del pedido",
+        "list": {
+            "head-list": "Detalles",
+            "head-price": "Precio:",
+            "head-subTotal": "Subtotal:",
+            "head-quantity": "CANT:"
+        }
+
+    },
+    "payment-methods":{
+        "page-head": "Métodos de pago",
+        "list": {
+            "credit-card": "Tarjeta de crédito",
+            "paypal": "PayPal",
+            "cash": "Efectivo",
+            "shipping": "Envío:",
+            "head-total": "Total:"
+        },
+        "button": {
+            "buy-now": "Finalizar compra"
+        }
+
+    },
+    "billing-information": {
+        "page-head": "Información de facturación",
+        "error-list": {
+            "name-error": "El nombre es obligatorio",
+            "surname-error": "El apellido es obligatorio",
+            "id-error": "El ID es obligatorio",
+            "cif-error": "Proporcionar un CIF válido (1 letra 7 números 1 letra)",
+            "dni-error": "o DNI válido (8 números 1 letra)",
+            "email-error": "El correo es obligatorio",
+            "emailFormat-error": "El formato de correo no es válido",
+            "adress-error": "La dirección es obligatoria",
+            "country-error":"El país es obligatorio",
+            "province-error": "La provincia es obligatoria",
+            "city-error": "La ciudad es obligatoria",
+            "zip-error": "El codigo postal es obligatorio",
+            "minimum": "Mínimo",
+            "characters-required": "caracteres necesarios"
+        },
+        "list": {
+            "country": "País ",
+            "province": "Provincia",
+            "city": "Ciudad",
+            "zip-code": "Codigo postal",
+            "shipping-address": "Dirección de envío",
+            "name": "Nombre",
+            "first-name": "Nombre",
+            "last-name": "Apellido",
+            "dni": "DNI",
+            "email": "Correo",
+            "address":"Dirección",
+            "shipping-information": "Información de envío",
+            "alternative-adress": "Enviar a otra dirección"
+        }
+    },
     "Clients-list": {
         "page-head": "Lista de clientes",
         "list": {

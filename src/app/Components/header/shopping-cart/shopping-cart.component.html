@@ -11,21 +11,18 @@
             <fa-icon [icon]="faShoppingCart" size="lg" class="{{iconClass}}"></fa-icon>
             <span *ngIf="cartItems.length > 0"
                   class="shopping-cart-counter d-flex align-items-center justify-content-center {{badgeClass}}">{{cartItems.length}}</span>
-        </a>
-        <div
-             class="dropdown-menu dropdown-menu-end menu-box shopping-cart-box"
+        </a>     
+        <div class="dropdown-menu dropdown-menu-end menu-box shopping-cart-box"
              aria-labelledby="cartBasket"
              (click)="dropdownClickControl($event);">
-
-            <div class="shopping-cart">
+            <div class="shopping-cart" >
                 <ng-container *ngIf="cartItems.length > 0; else emptyCartTemplate">
                     <div class="shopping-cart-header">
                         <div class="shopping-cart-total">
                             <span class="p-r-05">Total:</span>
                             <span class="text-highlight">{{ cartTotal | number: '1.2-2' }} €</span>
                         </div>
-                    </div><!-- /.shopping-cart-header -->
-
+                    </div><!-- /.shopping-cart-header -->                   
                     <ul class="shopping-cart-items">
                         <li *ngFor="let item of cartItems; let i=index" class="clearfix">
                             <img [src]="item.image" [alt]="item.name" />
@@ -85,16 +82,16 @@
                         <span class="item-line-price text-highlight">129,99 €</span>
                     </li> -->
                     </ul><!-- /.shopping-cart-items -->
-
+               
                     <div class="shopping-cart-buttons">
                         <button class="btn btn-block btn-erp-blue text-erp-white" (click)="checkoutRoute()">Checkout</button>
-                    </div>
-                </ng-container>
+                    </div>             
+                </ng-container>         
                 <ng-template #emptyCartTemplate>
                     <div class="text-center text-bold">Cart is empty</div>
-                </ng-template>
+                </ng-template>          
             </div><!-- /.shopping-cart -->
-
+      
         </div>
     </div>
 </div>

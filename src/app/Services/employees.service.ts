@@ -8,25 +8,25 @@ import { LoginService } from './login.service';
 export class EmployeesService {
   url: string = 'http://217.76.158.200:8080';
   endPoint: string = '/api/employees';
-  token: string; 
+  token: string;
   employeesPerPage = 5;
 
-  constructor( 
+  constructor(
     private httpClient: HttpClient,
     private loginService: LoginService
-  ) {   
+  ) {
     //Accedemos al servicio de login para recuperar el token que se ha guardado
-    this.token = this.loginService.getBearerToken;  
+    this.token = this.loginService.getBearerToken;
   }
 
-  
+
   getAllEmployees() {
     const headers = new HttpHeaders({
       Authorization: this.token
     });
     return this.httpClient.get( `${this.url}${this.endPoint}`, {headers} );
   }
-  
+
   getEmployees(amount: number, page: number ) {
     const headers = new HttpHeaders({
       Authorization: this.token
@@ -45,14 +45,14 @@ export class EmployeesService {
     const headers = new HttpHeaders({
       Authorization: this.token
     });
-    return this.httpClient.put( `${this.url}${this.endPoint}/${employee.id}`, employee, {headers} );
+    return this.httpClient.put( `${this.url}${this.endPoint}`, employee, {headers} );
   }
 
   deleteEmployee(id: string) {
     const headers = new HttpHeaders({
       Authorization: this.token
     });
-    
+
     return this.httpClient.delete( `${this.url}${this.endPoint}/${id}`, {headers} );
   }
 

@@ -74,7 +74,7 @@
         }
 
     },
-    "payment-methods":{
+    "payment-methods": {
         "page-head": "Métodos de pago",
         "list": {
             "credit-card": "Tarjeta de crédito",
@@ -99,7 +99,7 @@
             "email-error": "El correo es obligatorio",
             "emailFormat-error": "El formato de correo no es válido",
             "adress-error": "La dirección es obligatoria",
-            "country-error":"El país es obligatorio",
+            "country-error": "El país es obligatorio",
             "province-error": "La provincia es obligatoria",
             "city-error": "La ciudad es obligatoria",
             "zip-error": "El codigo postal es obligatorio",
@@ -117,7 +117,7 @@
             "last-name": "Apellido",
             "dni": "DNI",
             "email": "Correo",
-            "address":"Dirección",
+            "address": "Dirección",
             "shipping-information": "Información de envío",
             "alternative-adress": "Enviar a otra dirección"
         }
@@ -183,7 +183,9 @@
         }
     },
     "Employee": {
-        "back-to-employee-list": "Volver a la administración de empleados"
+        "back-to-employee-list": "Volver a la administración de empleados",
+        "updateOkMessage": "Se ha actualizado correctamente",
+        "updateErrorMessage": "Ha ocurrido un error"
     },
     "Validation": {
         "required-field": "Campo obligatorio"
@@ -207,25 +209,25 @@
         "text-2": "Somos un equipo multicultural al que nos gusta pasar tiempo juntos: reírnos o resolver los problemas que a veces aparecen y esperamos que pronto disfrutemos juntos de unas cervezas multiculturales y nos olvidemos de los problemas. Será una situación en la que todos saldremos ganando.",
         "text-goodbye": "¡Saludos!"
     },
-    "pageNotFound":{
-      "h1": "Error 404",
-      "text-1": "¡No te preocupes, no eres tú, somos nosotros!",
-      "text-2": "¡No pudimos encontrar esa página!",
-      "btn-goBack": "Ir atras!"
+    "pageNotFound": {
+        "h1": "Error 404",
+        "text-1": "¡No te preocupes, no eres tú, somos nosotros!",
+        "text-2": "¡No pudimos encontrar esa página!",
+        "btn-goBack": "Ir atras!"
     },
 
-    "client":         "cliente",
-	  "clients":        "clientes",
-	  "order":          "pedido",
-	  "orders":         "pedidos",
-	  "contact":        "contacto",
-	  "contacts":       "contactos",
-	  "profile":        "perfil",
-	  "delete":         "eliminar",
-	  "stats":          "stats",
-	  "product":        "producto",
-	  "products":       "productos",
-	  "employee":       "empleado",
-	  "employees":      "empleados",
-	  "clock":          "horario"
+    "client": "cliente",
+    "clients": "clientes",
+    "order": "pedido",
+    "orders": "pedidos",
+    "contact": "contacto",
+    "contacts": "contactos",
+    "profile": "perfil",
+    "delete": "eliminar",
+    "stats": "stats",
+    "product": "producto",
+    "products": "productos",
+    "employee": "empleado",
+    "employees": "empleados",
+    "clock": "horario"
 }

@@ -28,14 +28,14 @@ export class EmployeeComponent implements OnInit {
   showAlert      : boolean = false;
   success        : boolean = false;
   alertMessage  : string;
-  
+
 
   form: FormGroup;
 
   constructor(private employeesService: EmployeesService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              private fb: FormBuilder) { 
+              private fb: FormBuilder) {
     this.resetEmployee();
     this.createForm();
   }
@@ -108,7 +108,7 @@ export class EmployeeComponent implements OnInit {
         control.markAsTouched();
       });
     }
-    
+
     this.updateEmployee();
     this.doValidations = false;
   }
@@ -134,7 +134,7 @@ export class EmployeeComponent implements OnInit {
         console.log(data);
         console.log("data.user");
         console.log(data.employee);
-        
+
         if (!data || !data.employee) {
           this.router.navigateByUrl('employees-list'); // redirect to client-list
         } else {
@@ -147,7 +147,7 @@ export class EmployeeComponent implements OnInit {
             this.employee.phone = data.employee.phone;
             this.employee.ordersAssigned = data.employee.salary;
             this.employee.ordersAttended = data.employee.salary;
-            
+
             this.employeeToForm();
         }
       }, (err) => {
@@ -194,8 +194,8 @@ export class EmployeeComponent implements OnInit {
     .subscribe(resp => {
       this.showAlert = true;
       this.success = true;
-      this.alertMessage = 'Employee updated!!!'
-      
+
+
       // let alert show up and then redirect
       setTimeout(() => {
         this.showAlert = false; // alert OK
@@ -209,13 +209,14 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
+
   deleteEmployee() {
     this.employeesService.deleteEmployee(this.employee.id)
     .subscribe(resp => {
       this.showAlert = true;
       this.success = true;
       this.alertMessage = 'Employee deleted!!!'
-      
+
       // let alert show up and then redirect
       setTimeout(() => {
         this.showAlert = false; // alert OK

@@ -17,9 +17,7 @@
         </div>
     </div>
 
-    <form method="post" role="form" class="php-email-form" autocomplete="off"
-          [formGroup]='form'
-          (ngSubmit)="submit()">
+    <form method="post" role="form" class="php-email-form" autocomplete="off" [formGroup]='form' (ngSubmit)="submit()">
         <!-- Employee fields -->
         <div class="row mb-3">
             <!-- Left Column -->
@@ -30,14 +28,7 @@
                         <label for="name" class="col-form-label">{{ 'Employee.name' | translate}}:</label>
                     </div>
                     <div class="col">
-                        <input id="name"
-                               name="name"
-                               type="text"
-                               class="form-control"
-                               autocomplete="off"
-                               formControlName="name"
-                               [class.is-invalid]="isNameEmpty"
-                               autofocus />
+                        <input id="name" name="name" type="text" class="form-control" autocomplete="off" formControlName="name" [class.is-invalid]="isNameEmpty" autofocus />
                         <div *ngIf="isNameEmpty" class="invalid-feedback">
                             {{ 'Validation.required-field' | translate}}
                         </div>
@@ -51,13 +42,7 @@
                         <label for="salary" class="col-form-label">{{ 'Employee.salary' | translate}}:</label>
                     </div>
                     <div class="col">
-                        <input id="salary"
-                               name="salary"
-                               type="text"
-                               class="form-control medium-field"
-                               autocomplete="off"
-                               formControlName="salary"
-                               [class.is-invalid]="isSalaryEmpty" />
+                        <input id="salary" name="salary" type="text" class="form-control medium-field" autocomplete="off" formControlName="salary" [class.is-invalid]="isSalaryEmpty" />
                         <div *ngIf="isSalaryEmpty" class="invalid-feedback">
                             {{ 'Validation.required-field' | translate}}
                         </div>
@@ -71,12 +56,7 @@
                             translate}}:</label>
                     </div>
                     <div class="col">
-                        <input id="totalSellings"
-                               name="totalSellings"
-                               type="text"
-                               class="form-control"
-                               autocomplete="off"
-                               formControlName="totalSellings" />
+                        <input id="totalSellings" name="totalSellings" type="text" class="form-control" autocomplete="off" formControlName="totalSellings" />
                     </div>
                 </div>
 
@@ -87,12 +67,7 @@
                             translate}}:</label>
                     </div>
                     <div class="col">
-                        <input id="ordersAttended"
-                               name="ordersAttended"
-                               type="text"
-                               class="form-control short-field"
-                               autocomplete="off"
-                               formControlName="ordersAttended" />
+                        <input id="ordersAttended" name="ordersAttended" type="text" class="form-control short-field" autocomplete="off" formControlName="ordersAttended" />
                     </div>
                 </div>
             </div>
@@ -105,14 +80,7 @@
                         <label for="email" class="col-form-label">{{ 'Employee.email' | translate}}:</label>
                     </div>
                     <div class="col">
-                        <input id="email"
-                               name="email"
-                               type="text"
-                               class="form-control"
-                               autocomplete="off"
-                               formControlName="email"
-                               [class.is-invalid]="isEmailEmpty"
-                               autofocus />
+                        <input id="email" name="email" type="text" class="form-control" autocomplete="off" formControlName="email" [class.is-invalid]="isEmailEmpty" autofocus />
                         <div *ngIf="isEmailEmpty" class="invalid-feedback">{{ 'Validation.required-field' | translate}}
                         </div>
                     </div>
@@ -124,13 +92,7 @@
                         <label for="dni" class="col-form-label">{{ 'Employee.dni' | translate}}:</label>
                     </div>
                     <div class="col">
-                        <input id="dni"
-                               name="dni"
-                               type="text"
-                               class="form-control"
-                               autocomplete="off"
-                               formControlName="dni"
-                               [class.is-invalid]="isDniEmpty" />
+                        <input id="dni" name="dni" type="text" class="form-control" autocomplete="off" formControlName="dni" [class.is-invalid]="isDniEmpty" />
                         <div *ngIf="isDniEmpty" class="invalid-feedback">
                             {{ 'Validation.required-field' | translate}}
                         </div>
@@ -143,13 +105,7 @@
                         <label for="phone" class="col-form-label">{{ 'Employee.phone' | translate}}:</label>
                     </div>
                     <div class="col">
-                        <input id="phone"
-                               name="phone"
-                               type="text"
-                               class="form-control"
-                               autocomplete="off"
-                               formControlName="phone"
-                               [class.is-invalid]="isPhoneEmpty" />
+                        <input id="phone" name="phone" type="text" class="form-control" autocomplete="off" formControlName="phone" [class.is-invalid]="isPhoneEmpty" />
                         <div *ngIf="isPhoneEmpty" class="invalid-feedback">
                             {{ 'Validation.required-field' | translate}}
                         </div>
@@ -163,39 +119,28 @@
                             translate}}:</label>
                     </div>
                     <div class="col">
-                        <input id="ordersAssigned"
-                               name="ordersAssigned"
-                               type="text"
-                               class="form-control short-field"
-                               autocomplete="off"
-                               formControlName="ordersAssigned" />
+                        <input id="ordersAssigned" name="ordersAssigned" type="text" class="form-control short-field" autocomplete="off" formControlName="ordersAssigned" />
                     </div>
                 </div>
 
             </div>
-        </div><!-- /.row -->
+        </div>
+        <!-- /.row -->
 
         <div class="row py-2">
             <div class="col-12 d-flex">
-                <button type="submit"
-                        class="btn btn-erp-blue text-erp-white me-3">
+                <button type="submit" class="btn btn-erp-blue text-erp-white me-3">
                     <span *ngIf="isNew; else employeeEditLabel">{{ 'Employee.buttons.save' | translate}}</span>
                     <ng-template #employeeEditLabel>
                         <span>{{ 'Employee.buttons.update' | translate}}</span>
                     </ng-template>
                 </button>
                 <!-- Delete button (!isNEw) -->
-                <button type="button"
-                        class="btn btn-default btn-erp-red text-erp-white me-3"
-                        data-bs-toggle="modal"
-                        data-bs-target="#deleteModal" *ngIf="!isNew">
+                <button type="button" class="btn btn-default btn-erp-red text-erp-white me-3" data-bs-toggle="modal" data-bs-target="#deleteModal" *ngIf="!isNew">
                     {{ 'Employee.buttons.delete' | translate}}
                 </button>
                 <!-- Cancel button (isNew) -->
-                <button type="button"
-                        class="btn btn-default btn-erp-red text-erp-white me-3"
-                        [routerLink]="['/employees-list']"
-                        *ngIf="isNew">
+                <button type="button" class="btn btn-default btn-erp-red text-erp-white me-3" [routerLink]="['/employees-list']" *ngIf="isNew">
                     {{ 'Employee.buttons.cancel' | translate}}
                 </button>
             </div>
@@ -203,10 +148,7 @@
     </form>
 
     <!-- Modal - Delete Confirmation -->
-    <div class="modal fade"
-         id="deleteModal"
-         tabindex="-1"
-         aria-hidden="true">
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -224,8 +166,7 @@
                     <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
                         {{ 'Employee.modal.delete.button-no' | translate }}
                     </button>
-                    <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="deleteEmployee()"
-                            data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="deleteEmployee()" data-bs-dismiss="modal">
                         {{ 'Employee.modal.delete.button-delete' | translate }}
                     </button>
                 </div>
@@ -233,6 +174,14 @@
         </div>
     </div>
 
+    <!-- Alert to show newest updates of Employee Detail  -->
+
+    <div *ngIf="showAlert && success" id="alertMessage" class="col-md-6 alert alert-success show fade mt-2" role="alert">
+        {{ "Employee.updateOkMessage" | translate }}
+    </div>
+    <div *ngIf="showAlert && !success" id="alertMessage" class="col-md-6 alert alert-danger show fade mt-2" role="alert">
+        {{ "Employee.updateErrorMessage" | translate }} <br /> {{ alertMessage }}
+    </div>
     <!-- -------------------------------------------------------------- -->
     <!-- ORDERS SECTION REMAINS TO BE IMPLEMENTED !!!-->
     <!-- -------------------------------------------------------------- -->

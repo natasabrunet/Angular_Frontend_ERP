@@ -28,14 +28,14 @@ export class EmployeeComponent implements OnInit {
   showAlert      : boolean = false;
   success        : boolean = false;
   alertMessage  : string;
-  
+
 
   form: FormGroup;
 
   constructor(private employeesService: EmployeesService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              private fb: FormBuilder) { 
+              private fb: FormBuilder) {
     this.resetEmployee();
     this.createForm();
   }
@@ -81,7 +81,7 @@ export class EmployeeComponent implements OnInit {
   }
   get isEmailEmpty() {
     // return this.form.get('email').value.trim() === '' && this.form.get('email').invalid && this.form.get('email').touched;
-    return this.doValidations && this.form.get('email').invalid && this.form.get('email').value.trim() === '' && this.form.get('email').touched;
+    return this.doValidations && this.form.get('email').invalid && this.form.get('email').value?.trim() === '' && this.form.get('email').touched;
   }
   get isEmailInvalid() {
     // return this.form.get('email').value.trim() !== '' && this.form.get('email').invalid && this.form.get('email').touched;
@@ -108,7 +108,7 @@ export class EmployeeComponent implements OnInit {
         control.markAsTouched();
       });
     }
-    
+
     this.updateEmployee();
     this.doValidations = false;
   }
@@ -130,28 +130,24 @@ export class EmployeeComponent implements OnInit {
   loadEmployee(id: string) {
     this.employeesService.getEmployeeByID(id)
       .subscribe( (data:any) => {
-        console.log("data");
-        console.log(data);
-        console.log("data.user");
-        console.log(data.employee);
-        
+
+
         if (!data || !data.employee) {
           this.router.navigateByUrl('employees-list'); // redirect to client-list
         } else {
             this.employee.id = data.employee.id; //Guardamos el ID para poder usarlo en todo el componente (necesario para update y delete)
             this.employee.name = data.employee.user.username;
-            this.employee.email = data.employee.email;
+            this.employee.email = data.employee.user.username;
             this.employee.salary = data.employee.salary;
             this.employee.dni = data.employee.dni;
             this.employee.totalSellings = data.employee.salary;
             this.employee.phone = data.employee.phone;
             this.employee.ordersAssigned = data.employee.salary;
             this.employee.ordersAttended = data.employee.salary;
-            
+
             this.employeeToForm();
         }
       }, (err) => {
-        console.log(err);
         // this.showAlert = true;
         // this.success = false;
         // this.returnMessage = err.error;
@@ -194,20 +190,22 @@ export class EmployeeComponent implements OnInit {
     .subscribe(resp => {
       this.showAlert = true;
       this.success = true;
-      this.alertMessage = 'Employee updated!!!'
-      
+
+
+
+
       // let alert show up and then redirect
       setTimeout(() => {
         this.showAlert = false; // alert OK
         this.alertMessage = ''
       }, 2000);
     }, (err) => {
-      // console.log(err);
       this.showAlert = true;
       this.success = false;
       this.alertMessage = err.error.message;
     });
   }
+
 
   deleteEmployee() {
     this.employeesService.deleteEmployee(this.employee.id)
@@ -215,7 +213,7 @@ export class EmployeeComponent implements OnInit {
       this.showAlert = true;
       this.success = true;
       this.alertMessage = 'Employee deleted!!!'
-      
+
       // let alert show up and then redirect
       setTimeout(() => {
         this.showAlert = false; // alert OK

@@ -69,8 +69,8 @@ export class EmployeesListComponent implements OnInit {
     // The API does not implement employee paging, so for now, we get them all
     this.employeesService.getAllEmployees()
       .subscribe((data: any) => {
-        console.log(data);
-        
+
+
         this.currentPage = pageNumber;
         this.employees = data.employee;
         // this.totalPages = this.getTotalPages(data.totalEmployees, this.employeesService.employeesPerPage);
@@ -83,7 +83,7 @@ export class EmployeesListComponent implements OnInit {
 
 
     // Scafolding for Employees Pagination (same as did in Clients Pagination)
-    // 
+    //
     // this.employeesService.getEmployees(this.employeesService.employeesPerPage, pageNumber - 1) // -1 proque el paginador empieza en la página 0
     // .subscribe((data: any) => {
     //   this.currentPage = pageNumber;
@@ -115,10 +115,10 @@ export class EmployeesListComponent implements OnInit {
       }
     }
   }
-  
-  numSequence(n: number): Array<number> { 
-    return Array(n); 
-  } 
+
+  numSequence(n: number): Array<number> {
+    return Array(n);
+  }
   delete(i: number) {
     // const id = this.clients[i].id;
 

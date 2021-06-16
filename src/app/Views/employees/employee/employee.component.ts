@@ -137,7 +137,7 @@ export class EmployeeComponent implements OnInit {
         } else {
             this.employee.id = data.employee.id; //Guardamos el ID para poder usarlo en todo el componente (necesario para update y delete)
             this.employee.name = data.employee.user.username;
-            this.employee.email = data.employee.email;
+            this.employee.email = data.employee.user.username;
             this.employee.salary = data.employee.salary;
             this.employee.dni = data.employee.dni;
             this.employee.totalSellings = data.employee.salary;

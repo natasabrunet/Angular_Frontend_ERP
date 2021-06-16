@@ -5,12 +5,14 @@ import { StatsService } from '../../Services/stats.service';
 
 
 
+
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss']
 })
 export class StatsComponent implements OnInit {
+
   // Pie
   public pieChartOptions: ChartOptions = {    responsive: true,
     legend: {
@@ -34,12 +36,26 @@ export class StatsComponent implements OnInit {
       backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
     },
   ];
+/* bestEmployeeInfo: */
+public username:  string;
+public dni:string;
+public phone:number;
+public total_sales:number;
+/* bestEmployeeInfo: */
+public usernameWorstEmployee:  string;
+public dniWorstEmployee:string;
+public phoneWorstEmployee:number;
+public total_sales_WorstEmployee:number;
+
 
   constructor( private stasService : StatsService ) { 
+    
   }
 
   ngOnInit(): void {
     this.dataOrders()
+   this.bestEmployee()
+    this.worstEmployee() 
   }
 
   dataOrders(){
@@ -55,6 +71,33 @@ export class StatsComponent implements OnInit {
         console.log( error);
         });
   }
+  bestEmployee(){
+    this.stasService.getBestEmployee()
+    .subscribe(
+      (resp:any) => {
+        this.username=resp.employee.employee.user.username;
+        this.dni=resp.employee.employee.dni;
+        this.phone=resp.employee.employee.phone;
+        this.total_sales=resp.employee.total_sales; 
+      },
+      error => {
+      console.log( error);
+      });
+  }
+  worstEmployee(){
+    this.stasService.getWorstEmployee()
+    .subscribe(
+      (data:any) => {
+        this.usernameWorstEmployee=data.employee.employee.user.username;
+        this.dniWorstEmployee=data.employee.employee.dni;
+        this.phoneWorstEmployee=data.employee.employee.phone;
+        this.total_sales_WorstEmployee=data.employee.total_sales;
+      },
+      error => {
+      console.log( error);
+      });
+  }
+
   
   
   // events

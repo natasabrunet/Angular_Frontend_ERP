@@ -81,7 +81,7 @@ export class EmployeeComponent implements OnInit {
   }
   get isEmailEmpty() {
     // return this.form.get('email').value.trim() === '' && this.form.get('email').invalid && this.form.get('email').touched;
-    return this.doValidations && this.form.get('email').invalid && this.form.get('email').value.trim() === '' && this.form.get('email').touched;
+    return this.doValidations && this.form.get('email').invalid && this.form.get('email').value?.trim() === '' && this.form.get('email').touched;
   }
   get isEmailInvalid() {
     // return this.form.get('email').value.trim() !== '' && this.form.get('email').invalid && this.form.get('email').touched;
@@ -130,10 +130,7 @@ export class EmployeeComponent implements OnInit {
   loadEmployee(id: string) {
     this.employeesService.getEmployeeByID(id)
       .subscribe( (data:any) => {
-        console.log("data");
-        console.log(data);
-        console.log("data.user");
-        console.log(data.employee);
+
 
         if (!data || !data.employee) {
           this.router.navigateByUrl('employees-list'); // redirect to client-list
@@ -151,7 +148,6 @@ export class EmployeeComponent implements OnInit {
             this.employeeToForm();
         }
       }, (err) => {
-        console.log(err);
         // this.showAlert = true;
         // this.success = false;
         // this.returnMessage = err.error;
@@ -196,13 +192,14 @@ export class EmployeeComponent implements OnInit {
       this.success = true;
 
 
+
+
       // let alert show up and then redirect
       setTimeout(() => {
         this.showAlert = false; // alert OK
         this.alertMessage = ''
       }, 2000);
     }, (err) => {
-      // console.log(err);
       this.showAlert = true;
       this.success = false;
       this.alertMessage = err.error.message;

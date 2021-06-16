@@ -190,6 +190,9 @@
     "Validation": {
         "required-field": "Campo obligatorio"
     },
+    "Format": {
+        "email-field": "Correo eletrónico no válido"
+    },
     "homepage": {
         "welcome-msg": "Bienvenidos a ERP!",
         "cheers-msg": "SALUD!!!"

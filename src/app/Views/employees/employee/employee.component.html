@@ -80,8 +80,11 @@
                         <label for="email" class="col-form-label">{{ 'Employee.email' | translate}}:</label>
                     </div>
                     <div class="col">
-                        <input id="email" name="email" type="text" class="form-control" autocomplete="off" formControlName="email" [class.is-invalid]="isEmailEmpty" autofocus />
+                        <input id="email" name="email" type="text" class="form-control" autocomplete="off" formControlName="email" [class.is-invalid]="isEmailEmpty || form.get('email').errors?.pattern" autofocus pattern="^\w{1,}@\w{1,}\.\w{1,}$" />
                         <div *ngIf="isEmailEmpty" class="invalid-feedback">{{ 'Validation.required-field' | translate}}
+                        </div>
+                        <div *ngIf="form.get('email').errors?.pattern" class="invalid-feedback">
+                            {{ 'Format.email-field' | translate}}
                         </div>
                     </div>
                 </div>

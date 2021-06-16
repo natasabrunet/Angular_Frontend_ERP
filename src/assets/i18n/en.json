@@ -216,6 +216,9 @@
     "Validation": {
         "required-field": "Required field"
     },
+    "Format": {
+        "email-field": "Email not valid"
+    },
     "homepage": {
         "welcome-msg": "Welcome to ERP!",
         "cheers-msg": "CHEERS!!!"

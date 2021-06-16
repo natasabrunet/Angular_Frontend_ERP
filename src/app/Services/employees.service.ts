@@ -46,6 +46,7 @@ export class EmployeesService {
       Authorization: this.token
     });
     return this.httpClient.put( `${this.url}${this.endPoint}`, employee, {headers} );
+
   }
 
   deleteEmployee(id: string) {

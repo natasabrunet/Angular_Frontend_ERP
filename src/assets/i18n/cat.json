@@ -190,6 +190,9 @@
     "Validation": {
         "required-field": "Camp obligatori"
     },
+    "Format": {
+        "email-field": "Correu electrònic no vàlid"
+    },
     "homepage": {
         "welcome-msg": "Benvinguts a ERP!",
         "cheers-msg": "SALUT!!!"

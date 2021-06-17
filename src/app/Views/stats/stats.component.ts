@@ -36,16 +36,18 @@ export class StatsComponent implements OnInit {
       backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
     },
   ];
-/* bestEmployeeInfo: */
+/* Best Employee Info: */
 public username:  string;
 public dni:string;
 public phone:number;
 public total_sales:number;
-/* bestEmployeeInfo: */
+public salary:number;
+/* Worst Employee Info: */
 public usernameWorstEmployee:  string;
 public dniWorstEmployee:string;
 public phoneWorstEmployee:number;
 public total_sales_WorstEmployee:number;
+public salaryWorstEmployee:number;
 
 
   constructor( private stasService : StatsService ) { 
@@ -79,6 +81,8 @@ public total_sales_WorstEmployee:number;
         this.dni=resp.employee.employee.dni;
         this.phone=resp.employee.employee.phone;
         this.total_sales=resp.employee.total_sales; 
+        this.salary=resp.employee.employee.salary;
+      
       },
       error => {
       console.log( error);
@@ -92,6 +96,8 @@ public total_sales_WorstEmployee:number;
         this.dniWorstEmployee=data.employee.employee.dni;
         this.phoneWorstEmployee=data.employee.employee.phone;
         this.total_sales_WorstEmployee=data.employee.total_sales;
+        this.salaryWorstEmployee=data.employee.employee.salary;
+        
       },
       error => {
       console.log( error);

@@ -12,51 +12,34 @@
     </div>
   </div>
 </div>
-<div class="m-2">
+<div class="m-4">
   <button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
   <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()" class="m-2">Change Legend Position</button>
 </div>
 <hr>
-<h4>Best Employee By Total Sales</h4>
-<div class="table-responsive mb-5" >
-         <table class="table align-middle">
-            <thead>
-                <tr>
-                    <th scope="col">{{ 'Employee.email' | translate}}</th>
-                    <th scope="col">{{ 'Employee.dni' | translate}}</th>
-                    <th scope="col">{{ 'Employee.phone' | translate}}</th>
-                    <th scope="col">{{ 'Employee.total-sellings' | translate}}</th>                   
-                </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="col">{{ username}}</th>
-                <th scope="col">{{ dni}}</th>
-                <th scope="col">{{ phone}}</th>
-                <th scope="col">{{ total_sales}}</th>             
-              </tr>                        
-            </tbody>
-        </table>      
-    </div>
-    <hr>
-<h4>Worst Employee By Total Sales</h4>
-<div class="table-responsive mb-5" >
-         <table class="table align-middle">
-            <thead>
-                <tr>
-                    <th scope="col">{{ 'Employee.email' | translate}}</th>
-                    <th scope="col">{{ 'Employee.dni' | translate}}</th>
-                    <th scope="col">{{ 'Employee.phone' | translate}}</th>
-                    <th scope="col">{{ 'Employee.total-sellings' | translate}}</th>                   
-                </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="col">{{ usernameWorstEmployee}}</th>
-                <th scope="col">{{ dniWorstEmployee}}</th>
-                <th scope="col">{{ phoneWorstEmployee}}</th>
-                <th scope="col">{{ total_sales_WorstEmployee}}</th>             
-              </tr>                        
-            </tbody>
-        </table>      
-    </div>
+<div class="row" style="justify-content: space-around;">
+<div class="col-sm-6" style="width: 25rem;">
+  <div>
+    <h5 class="card-header">Best Employee By Total Sales</h5>
+    <div class="mt-1">
+    <p> <b>{{ 'Employee.email' | translate}}:</b> {{ username}}</p>
+    <p><b>{{ 'Employee.dni' | translate}}: </b>{{ dni}}</p>
+    <p><b>{{ 'Employee.phone' | translate}}: </b>{{ phone}} </p>
+    <p><b>{{ 'Employee.salary' | translate}}: </b>{{ salary}}</p>
+    <p><b>{{ 'Employee.total-sellings' | translate}}: </b>{{ total_sales}}</p>
+  </div>
+  </div>
+</div>
+<div class="col-sm-6" style="width: 25rem;">
+  <div>
+    <h5 class="card-header">Worst Employee By Total Sales</h5>
+    <div class="mt-1">
+    <p> <b>{{ 'Employee.email' | translate}}:</b> {{ usernameWorstEmployee}} </p>
+    <p><b>{{ 'Employee.dni' | translate}}:</b> {{ dniWorstEmployee}}</p>
+    <p><b>{{ 'Employee.phone' | translate}}:</b> {{ phoneWorstEmployee}} </p>
+    <p><b>{{ 'Employee.salary' | translate}}: </b>{{ salaryWorstEmployee}}</p>
+    <p><b>{{ 'Employee.total-sellings' | translate}}:</b> {{ total_sales_WorstEmployee}}</p>
+  </div>
+  </div>
+</div>
+</div>

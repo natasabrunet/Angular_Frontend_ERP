@@ -11,10 +11,10 @@
 
                     <div class="row">
                         <div class="col">
-                            <p class="price-text">{{ product.price | currency | translate}}</p>
+                            <p class="price-text">{{ product.price | currency : 'EUR' | translate}}</p>
                         </div>
                         <div class="col">
-                            <p class="second-price-text">{{ product.wholesale_price | currency | translate}}</p>
+                            <p class="second-price-text">{{ product.wholesale_price | currency : 'EUR' | translate}}</p>
                             <span class="units-text">from {{product.wholesale_quantity}} units</span>
                         </div>
                     </div>

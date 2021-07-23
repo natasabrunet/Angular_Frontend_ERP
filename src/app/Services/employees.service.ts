@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginService } from './login.service';
+import { Observable } from 'rxjs';
+import { ReqResponseEmployees } from '../Models/reqResponse';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,18 +23,21 @@ export class EmployeesService {
   }
 
 
-  getAllEmployees() {
+  getAllEmployees(): Observable<ReqResponseEmployees> {
     const headers = new HttpHeaders({
       Authorization: this.token
     });
-    return this.httpClient.get( `${this.url}${this.endPoint}`, {headers} );
+    //console.log(headers)
+    return this.httpClient.get<ReqResponseEmployees>( `${this.url}${this.endPoint}`, {headers} )
+
   }
 
   getEmployees(amount: number, page: number ) {
     const headers = new HttpHeaders({
       Authorization: this.token
     });
-    return this.httpClient.get( `${this.url}${this.endPoint}/list/${amount}/${page}`, {headers} );
+    return this.httpClient.get( `${this.url}${this.endPoint}/list/${amount}/${page}`, {headers} )
+
   }
 
   getEmployeeByID(id: string ) {

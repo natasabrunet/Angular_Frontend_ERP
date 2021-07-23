@@ -76,6 +76,7 @@ export class ClientListComponent implements OnInit {
       this.totalPages = this.getTotalPages(data.totalClients, this.clientsService.clientsPerPage);
       this.setupArrayOfPages();
       this.pageToGo = null;
+      console.log(data);
     });
     return false;
   }
@@ -98,10 +99,10 @@ export class ClientListComponent implements OnInit {
       }
     }
   }
-  
-  numSequence(n: number): Array<number> { 
-    return Array(n); 
-} 
+
+  numSequence(n: number): Array<number> {
+    return Array(n);
+}
 
   //Función eliminar un cliente
   delete(i: number) {

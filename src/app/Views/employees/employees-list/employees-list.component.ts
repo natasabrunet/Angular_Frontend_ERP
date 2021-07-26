@@ -86,7 +86,7 @@ export class EmployeesListComponent implements OnInit {
     }
     /*this.employeesService.getAllEmployees()
       .subscribe((data: any) => {
-        console.log(data);
+
 
         this.currentPage = pageNumber;
         this.employees = data.employee;

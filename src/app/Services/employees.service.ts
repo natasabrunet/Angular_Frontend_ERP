@@ -27,7 +27,7 @@ export class EmployeesService {
     const headers = new HttpHeaders({
       Authorization: this.token
     });
-    //console.log(headers)
+
     return this.httpClient.get<ReqResponseEmployees>( `${this.url}${this.endPoint}`, {headers} )
 
   }

@@ -1,7 +1,11 @@
+
+import { I_Employee } from './../../../Models/employee';
 import { Component, OnInit } from '@angular/core';
 import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
 import { EmployeesService } from '../../../Services/employees.service';
+
+
 
 
 @Component({
@@ -13,7 +17,7 @@ export class EmployeesListComponent implements OnInit {
     //Icons
     faTrashAlt = faTrashAlt;
     faEdit = faEdit;
-    employees: any[];
+    employees:any[];
     currentPage: number;
     totalPages: number;
     pageToGo: number;
@@ -26,6 +30,12 @@ export class EmployeesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.goToPage(this.currentPage);
+
+
+    /*this.employeesService.getAllEmployees().subscribe(resp=>{
+      this.employees = resp.employees;
+      console.log(resp.employees);
+    });*/
   }
 
   //Función para que se abra la página de single Employee
@@ -67,7 +77,14 @@ export class EmployeesListComponent implements OnInit {
     this.pagesArray = new Array();
     // TODO: 26/03/2021
     // The API does not implement employee paging, so for now, we get them all
-    this.employeesService.getAllEmployees()
+    //show all employee list
+    this.employeesService.getAllEmployees().subscribe(resp=>{
+      this.employees = resp.employees;
+
+    }), ( err ) => {
+      console.log( err );
+    }
+    /*this.employeesService.getAllEmployees()
       .subscribe((data: any) => {
 
 
@@ -80,7 +97,7 @@ export class EmployeesListComponent implements OnInit {
       }, (err) => {
         console.log(err);
       });
-
+      */
 
     // Scafolding for Employees Pagination (same as did in Clients Pagination)
     //

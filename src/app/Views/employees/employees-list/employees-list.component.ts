@@ -80,7 +80,7 @@ export class EmployeesListComponent implements OnInit {
     //show all employee list
     this.employeesService.getAllEmployees().subscribe(resp=>{
       this.employees = resp.employees;
-      console.log(resp.employees);
+
     }), ( err ) => {
       console.log( err );
     }

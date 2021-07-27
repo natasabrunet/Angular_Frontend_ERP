@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { NgbPaginationEllipsis } from '@ng-bootstrap/ng-bootstrap';
 import { ClientsService } from 'src/app/Services/clients.service';
+import { Clients } from '../../../Models/clients';
 
 @Component({
   selector: 'app-client-list',
@@ -13,7 +14,7 @@ export class ClientListComponent implements OnInit {
   //Icons
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
-  clients: any[];
+  clients: Clients[];
   currentPage: number;
   totalPages: number;
   pageToGo: number;
@@ -63,22 +64,23 @@ export class ClientListComponent implements OnInit {
 
     return false;
   }
-
+  //view pagination
   goToPage(pageNumber: number): boolean {
     if (pageNumber > this.totalPages) {
       pageNumber = this.totalPages;
     }
-    this.pagesArray = new Array();
+
     this.clientsService.getClients(this.clientsService.clientsPerPage, pageNumber - 1) // -1 proque el paginador empieza en la página 0
-    .subscribe((data: any) => {
+    .subscribe((data : any) => {
+
       this.currentPage = pageNumber;
-      this.clients = data.ClientsOfThePage;
-      this.totalPages = this.getTotalPages(data.totalClients, this.clientsService.clientsPerPage);
+      this.clients = data.clients_of_the_page;
+      this.totalPages = this.getTotalPages(data.total_clients, this.clientsService.clientsPerPage);
       this.setupArrayOfPages();
       this.pageToGo = null;
-      console.log(data);
+
     });
-    return false;
+      return false;
   }
 
   getTotalPages(totalClients: number, clientsPerPage: number) :number {
@@ -90,14 +92,16 @@ export class ClientListComponent implements OnInit {
   }
 
   //function to return array of pages
-  setupArrayOfPages() {
+  setupArrayOfPages(): number[] {
     this.pagesArray = new Array();
     if (this.totalPages > 0) {
       this.pagesArray = Array(this.totalPages - 1);
       for (let i=0; i<this.totalPages; i++) {
         this.pagesArray[i] = i+1;
       }
+      return this.pagesArray;
     }
+
   }
 
   numSequence(n: number): Array<number> {

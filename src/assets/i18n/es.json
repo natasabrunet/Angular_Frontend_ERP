@@ -183,9 +183,29 @@
         }
     },
     "Employee": {
-        "back-to-employee-list": "Volver a la administración de empleados",
+        "new-employee": "Nuevo empleado",
+        "employee-detail": "Detalles del empleado",
+        "back-to-employees-list":"Regresar a la lista de empleados",
         "updateOkMessage": "Se ha actualizado correctamente",
-        "updateErrorMessage": "Ha ocurrido un error"
+        "updateErrorMessage": "Ha ocurrido un error",
+        "name": "Nombre",
+        "salary": "Sueldo",
+        "total-sellings": "Total de ventas",
+        "orders-attended": "Pedidos atendidos",
+        "phone": "Teléfono",
+        "orders-assigned": "Pedidos asignados",
+        "buttons": {
+          "update": "Guardar",
+          "delete": "Borrar"
+        },
+        "modal":{
+          "delete": {
+            "title":"Borrando…",
+            "message": "¿Seguro quieres borrar este empleado/a?",
+            "button-delete":"Borrar"
+          }
+        }
+
     },
     "Validation": {
         "required-field": "Campo obligatorio"

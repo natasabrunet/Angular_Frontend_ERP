@@ -182,11 +182,32 @@
             "new-employee": "Afegir empleat"
         }
     },
+
     "Employee": {
-        "back-to-employee-list": "Tornar a l'administració d'empleats",
-        "updateOkMessage": "S'ha actualitzat correctament",
-        "updateErrorMessage": "Ha ocorregut un error"
-    },
+      "new-employee": "Nou treballador/a",
+      "employee-detail": "Detalls de l'empleat/ada",
+      "back-to-employees-list":"Tornar a la llista de treballadors",
+      "updateOkMessage": "S'ha actualitzat correctament",
+      "updateErrorMessage": "Ha ocorregut un error",
+      "name": "Nom",
+      "salary": "Sou",
+      "total-sellings": "Total de vendes",
+      "orders-attended": "Comandes ateses",
+      "phone": "Telèfon",
+      "orders-assigned": "Comandes asignades",
+      "buttons": {
+        "update": "Guardar",
+        "delete": "Esborrar"
+      },
+      "modal":{
+        "delete": {
+          "title":"Esborrant…",
+          "message": "¿Segur vols esborrar l'empleat/da?",
+          "button-delete":"Esborrar"
+        }
+      }
+
+  },
     "Validation": {
         "required-field": "Camp obligatori"
     },

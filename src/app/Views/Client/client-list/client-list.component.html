@@ -25,9 +25,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let client of clients; let i = index">
-          <td>{{ client.nameAndSurname }}</td>
-          <td>{{ client.address }}</td>
+          <td>{{ client.name_and_surname }}</td>
+          <td>{{ client.address.street }}</td>
           <td>{{ client.dni }}</td>
+
           <!-- Edit/Delete -->
           <td class="pr-td">
             <div class="d-flex justify-content-center align-items-center">
@@ -101,7 +102,7 @@
           <li *ngFor="let page of pagesArray"
               class="page-item"
               [ngClass]="{'disabled': page == currentPage}">
-            <a class="page-link rounded-circle" href="#" (click)="goToPage(page)">{{page}}</a>
+            <a class="page-link rounded-circle" href="#" (click)="goToPage(page)">{{ page }}</a>
           </li>
           <li class="page-item"
               [ngClass]="{'disabled': isLastPage()}">

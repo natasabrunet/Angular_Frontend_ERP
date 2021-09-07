@@ -3,9 +3,9 @@
     <div class="col-1">
       <app-toggler (showSidebar)="toggleShowSidebar($event)"></app-toggler>
     </div>
-    <div class="col">
+    <!-- <div class="col">
       <app-header-search></app-header-search>
-    </div>
+    </div>  -->
 
     <div class="col d-flex justify-content-end align-items-center">
       <app-notifications></app-notifications>
@@ -13,8 +13,7 @@
       <app-shopping-cart></app-shopping-cart>
     </div>
 
-    <select #langSelect
-            (change)="changeLanguage(langSelect.value)">
+    <select #langSelect (change)="changeLanguage(langSelect.value)">
       <option *ngFor="let lang of langs">{{ lang }}</option>
     </select>
   </div>

@@ -42,11 +42,7 @@
                             <!-- Image -->
                             <td class="text-center">
                                 <button type="button" class="btn p-0" data-bs-toggle="modal" [attr.data-bs-target]="'#' + product.name">
-                  <img
-                    class="product-img-thumb"
-                    *ngIf="product.image > 0"
-                    [src]="product.image | noProductImage"
-                  />
+                  <img class="product-img-thumb" *ngIf="product.image != ''" [src]="product.image | noProductImage" /> <!--Cambiada condición de 'product.image' > 0 a si el valor no es vacío -->
                 </button>
                             </td>
 

@@ -1,36 +1,21 @@
 <div class="d-flex align-items-center ">
   <div class="nav-profile dropdown mx-2">
-    <a
-      class="nav-link text-decoration-none"
-      id="profileDropdown"
-      role="button"
-      data-bs-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-    <div class="d-flex flex-row align-items-center">
-      <img
-        class="nav-profile-img"
-        src="assets/images/mockup-portrait.jpg"
-        alt="admin image"
-      />
-      <div class="ms-3">
-        <a class="nav-profile-name mb-0 text-erp-black">{{ name }}</a>
+    <a class="nav-link text-decoration-none" id="profileDropdown" role="button" data-bs-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      <div class="d-flex flex-row align-items-center">
+        <img class="nav-profile-img" src="assets/images/mockup-portrait.jpg" alt="admin image" />
+        <div class="ms-3">
+          <a class="nav-profile-name mb-0 text-erp-black">{{ name }}</a>
+        </div>
       </div>
-    </div>
     </a>
 
     <!-- Dropdown menu -->
 
-    <div
-      class="dropdown-menu dropdown-menu-end admin-menu mt-4"
-      aria-labelledby="profileDropdown"
-    >
+    <div class="dropdown-menu dropdown-menu-end admin-menu mt-4" aria-labelledby="profileDropdown">
 
       <a class="dropdown-item admin-menu__item">
-        <div
-          class="d-flex align-items-center"
-        >
+        <div class="d-flex align-items-center">
           <div class="admin-menu__item--thumbnail">
             <fa-icon [icon]="faUserCircle" size="lg"></fa-icon>
           </div>
@@ -40,24 +25,9 @@
         </div>
       </a>
 
-      <a class="dropdown-item admin-menu__item">
-        <div
-          class="d-flex align-items-center"
-        >
-          <div class="admin-menu__item--thumbnail">
-            <fa-icon [icon]="faEnvelopeOpen" size="lg"></fa-icon>
-          </div>
-          <p class="admin-menu__item--text mb-0">
-            {{ 'Admin.header.inbox' | translate }}
-          </p>
-        </div>
-      </a>
-
 
       <a class="dropdown-item admin-menu__item">
-        <div
-          class="d-flex align-items-center"
-        >
+        <div class="d-flex align-items-center">
           <div class="admin-menu__item--thumbnail">
             <fa-icon [icon]="faCog" size="lg"></fa-icon>
           </div>
@@ -69,9 +39,7 @@
 
 
       <a class="dropdown-item admin-menu__item">
-        <div
-          class="d-flex align-items-center"
-        >
+        <div class="d-flex align-items-center">
           <div class="admin-menu__item--thumbnail">
             <fa-icon [icon]="faPowerOff" size="lg"></fa-icon>
           </div>

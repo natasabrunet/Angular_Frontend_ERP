@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { translate } from '@angular/localize/src/translate';
+import { AppComponent } from 'src/app/app.component';
 @Component({
   selector: 'app-client-contact',
   templateUrl: './client-contact.component.html',
@@ -8,19 +9,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ClientContactComponent implements OnInit {
   selectedOption: string = '';
-  contactOptions: string[] = [
-    'Información producto',
-    'Proceso de compra',
-    'Pago y facturación',
-    'Envíos y devoluciones',
-    'Ofertas',
-    'Otra consulta',
-  ];
+  contactOptions: any[];
+  langs: string[] = [];
+  constructor(public appComponent: AppComponent) {
+    this.langs = appComponent.langs;
+  }
   showSelected() {}
-  constructor() {}
+
+  ngOnInit(): void {}
+
+  changeLanguage(lang: string) {
+    this.appComponent.changeLang(lang);
+  }
 
   clientSubmit() {
     alert('enviando');
   }
-  ngOnInit(): void {}
 }

@@ -4,7 +4,6 @@ import { AppRoutingModule } from './../../app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 // import components
 import { NewClientComponent } from './new-client/new-client.component';
 import { ClientListComponent } from './client-list/client-list.component';
@@ -14,12 +13,11 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-
 @NgModule({
   declarations: [
     NewClientComponent,
     ClientListComponent,
-    ClientDetailComponent
+    ClientDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -38,4 +36,4 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
   ],
   exports: [NewClientComponent],
 })
-export class ClientModule {   }
+export class ClientModule {}

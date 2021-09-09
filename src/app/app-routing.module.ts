@@ -16,24 +16,21 @@ import { ContactPageComponent } from './Views/contact-page/contact-page.componen
 import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
 
-
 // Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
 import { ClientListComponent } from './Views/Client/client-list/client-list.component';
 import { ClientDetailComponent } from './Views/Client/client-detail/client-detail.component';
 
 // Orders import
-import { OrdersComponent } from "./Views/orders/orders.component";
+import { OrdersComponent } from './Views/orders/orders.component';
 
 // Employees import
 import { EmployeesListComponent } from './Views/employees/employees-list/employees-list.component';
 import { EmployeeComponent } from './Views/employees/employee/employee.component';
 
 // Stats import
-import { StatsComponent } from "./Views/stats/stats.component";
-
-
-
+import { StatsComponent } from './Views/stats/stats.component';
+import { ClientContactComponent } from './Views/client-contact/client-contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -47,16 +44,28 @@ const routes: Routes = [
   { path: 'licence', component: LicenceComponent },
   { path: 'product-list', component: ProductsListComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
-  { path: 'client-list', component: ClientListComponent, canActivate: [AuthGuard] },
+  {
+    path: 'client-list',
+    component: ClientListComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'new-client', component: NewClientComponent },
   { path: 'client-detail/:id', component: ClientDetailComponent },
   { path: '404', component: PageNotFoundComponent },
-  { path: 'products-without-session', component: ProductsWithoutSessionComponent },
+  {
+    path: 'products-without-session',
+    component: ProductsWithoutSessionComponent,
+  },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
-  { path: 'employees-list', component: EmployeesListComponent, canActivate: [AuthGuard] },
+  {
+    path: 'employees-list',
+    component: EmployeesListComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'employee/:id', component: EmployeeComponent },
   { path: 'stats', component: StatsComponent, canActivate: [AuthGuard] },
-  { path: 'checkout', component: CheckoutComponent},
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'client-contact', component: ClientContactComponent },
 
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },
@@ -70,15 +79,14 @@ const routes: Routes = [
   { path: 'dev/new-client', component: NewClientComponent },
   { path: 'dev/client-list', component: ClientListComponent },
   { path: 'dev/client-detail', component: ClientDetailComponent },
-  { path: 'dev/employee-list', component:EmployeesListComponent },
-  { path: 'dev/checkout', component: CheckoutComponent},
+  { path: 'dev/employee-list', component: EmployeesListComponent },
+  { path: 'dev/checkout', component: CheckoutComponent },
   // Path ** MUST be always the last route
   { path: '**', redirectTo: '404', pathMatch: 'full' },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -44,6 +44,7 @@ import { EmployeesListComponent } from './views/employees/employees-list/employe
 import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 import { ShoppingCartComponent } from './Components/header/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
+import { ClientContactComponent } from './Views/client-contact/client-contact.component';
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
@@ -51,7 +52,7 @@ import { OrderReviewComponent } from './Views/checkout/order-review/order-review
 import { BillingInformationComponent } from './Views/checkout/billing-information/billing-information.component';
 
 //pagination
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // popUps UI/UX answers
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -90,7 +91,8 @@ registerLocaleData(localeESP);
     ShoppingCartComponent,
     OrderReviewComponent,
     BillingInformationComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ClientContactComponent,
   ],
 
   imports: [
@@ -99,7 +101,7 @@ registerLocaleData(localeESP);
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      preventDuplicates: true
+      preventDuplicates: true,
     }), // ngx-toastr
     FontAwesomeModule,
     FormsModule,
@@ -117,11 +119,9 @@ registerLocaleData(localeESP);
         deps: [HttpClient],
       },
     }),
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
-  exports: [
-    TranslateModule
-  ],
+  exports: [TranslateModule],
   providers: [
     {
       provide: LOCALE_ID,
@@ -130,7 +130,7 @@ registerLocaleData(localeESP);
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {

@@ -56,6 +56,7 @@ import {
   faEdit,
   faEnvelope,
   faPhone,
+  faPercentage,
 } from '@fortawesome/free-solid-svg-icons'; // solids
 import {
   faPaperPlane,
@@ -120,6 +121,7 @@ export class AppComponent implements OnInit, DoCheck {
       faEdit,
       faEnvelope,
       faPhone,
+      faPercentage,
     );
     dom.watch(); // Replace any existing <i> tags with <svg> icon
 

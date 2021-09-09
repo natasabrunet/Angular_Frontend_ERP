@@ -53,8 +53,11 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
             operations: [
               // ['fas fa-eye', 'list', 'client-list'], // TODO: app-routing.module.ts
               ['fas fa-list-alt', 'orders', 'orders'], // TODO: app-routing.module.ts
+
               ['far fa-paper-plane', 'client-contact', 'client-contact'], // TODO: app-routing.module.ts
-              ['far fa-address-card', 'profile', 'profile'], // TODO: app-routing.module.ts
+
+              // ['far fa-address-card', 'profile', 'profile'], // TODO: app-routing.module.ts
+
               ['fas fa-chart-line', 'stats', 'stats'], // TODO: app-routing.module.ts
             ],
           };
@@ -81,6 +84,7 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
             operations: [
               ['fas fa-list-alt', 'orders', 'orders'], // TODO: app-routing.module.ts
               ['fas fa-clock', 'clock', 'clock'], // TODO: app-routing.module.ts
+              ['fas fa-percentage', 'offers', 'offers'], // TODO: app-routing.module.ts
             ],
           };
         })();

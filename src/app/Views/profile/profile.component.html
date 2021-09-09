@@ -1,0 +1,97 @@
+<div class="container justify-content-center">
+  <div class="row py-5">
+    <div class="col-sm-12 d-flex justify-content-end"></div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-6">
+      <!-- Client image -->
+      <div class="col-md-6 text-center">
+        <img src="assets/images/mockup-portrait.jpg" class="client-avatar" />
+        <i class="fas fa-edit fa-lg client-avatar-edit-button"></i>
+      </div>
+    </div>
+
+    <!-- Client fields -->
+    <div class="col-md-6">
+      <form method="post" role="form" class="php-email-form" autocomplete="off">
+        <!-- Name -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="name" class="col-form-label">Name: </label>
+          </div>
+          <div class="col">
+            <input
+              id="name"
+              name="name"
+              type="text"
+              class="form-control"
+              autocomplete="off"
+              formControlName="name"
+            />
+            <div class="invalid-feedback"></div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="clientAddress" class="col-form-label">Address:</label>
+          </div>
+          <div class="col">
+            <input
+              id="address"
+              name="address"
+              type="text"
+              class="form-control"
+              autocomplete="off"
+              formControlName="address"
+            />
+            <div class="invalid-feedback"></div>
+          </div>
+        </div>
+
+        <!-- CIF -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="clientCif" class="col-form-label">cif:</label>
+          </div>
+          <div class="col">
+            <input
+              id="cif"
+              name="cif"
+              type="text"
+              class="form-control"
+              autocomplete="off"
+              formControlName="cif"
+            />
+            <div class="invalid-feedback"></div>
+          </div>
+        </div>
+        <!-- PASSWORD -->
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="clientCif" class="col-form-label">Password:</label>
+          </div>
+          <div class="col">
+            <input
+              id="cif"
+              name="cif"
+              type="text"
+              class="form-control"
+              autocomplete="off"
+              formControlName="password"
+            />
+            <div class="invalid-feedback"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row py-2">
+    <div class="col-12 d-flex justify-content-end">
+      <button type="submit" class="btn btn-erp-blue text-erp-white me-3">
+        Save
+      </button>
+    </div>
+  </div>
+</div>

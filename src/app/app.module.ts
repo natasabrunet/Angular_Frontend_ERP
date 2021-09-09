@@ -45,6 +45,7 @@ import { ProductsWithoutSessionComponent } from './Views/Product/products-withou
 import { ShoppingCartComponent } from './Components/header/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
 import { ClientContactComponent } from './Views/client-contact/client-contact.component';
+import { ProfileComponent } from './Views/profile/profile.component';
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
@@ -93,6 +94,7 @@ registerLocaleData(localeESP);
     BillingInformationComponent,
     CheckoutComponent,
     ClientContactComponent,
+    ProfileComponent,
   ],
 
   imports: [

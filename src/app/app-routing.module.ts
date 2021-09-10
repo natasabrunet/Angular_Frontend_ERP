@@ -44,7 +44,11 @@ const routes: Routes = [
   { path: 'licence', component: LicenceComponent },
   { path: 'product-list', component: ProductsListComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'client-list',
     component: ClientListComponent,

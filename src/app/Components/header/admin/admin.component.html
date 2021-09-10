@@ -31,8 +31,11 @@
           <div class="admin-menu__item--thumbnail">
             <fa-icon [icon]="faUserCircle" size="lg"></fa-icon>
           </div>
-          <p class="admin-menu__item--text mb-0">
-            <a routerLink="/profile" class="text-erp-white"></a>
+          <p
+            class="admin-menu__item--text mb-0"
+            (click)="profile()"
+            class="admin-menu__item--text mb-0"
+          >
             {{ "Admin.header.profile" | translate }}
           </p>
         </div>

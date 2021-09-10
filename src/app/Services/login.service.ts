@@ -59,6 +59,7 @@ export class LoginService {
   }
 
   get getBearerToken(): string {
+    this.APIres.bearer = 'Bearer'; // La variable Bearer venia vacía (undefined), se asigna valor 'Bearer'
     if (this.APIres && this.APIres.token && this.APIres.bearer)
       return `${this.APIres.bearer} ${this.APIres.token}`;
   }

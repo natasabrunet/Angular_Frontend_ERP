@@ -256,7 +256,12 @@
       "cancel": "Cancelar"
     }
   },
-
+  "client-error": {
+    "select-error": "Por favor seleciona una opción",
+    "subject-error": "El asunto debe tener mínimo 2 letras",
+    "message-error": "Por favor escribe un mensage de máximo 500 caracteres",
+    "privacy-error": "Por favor acepta nuestra política de privacidad"
+  },
   "client": "cliente",
   "clients": "clientes",
   "order": "pedido",

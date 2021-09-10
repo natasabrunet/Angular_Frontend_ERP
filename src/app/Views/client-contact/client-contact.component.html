@@ -1,6 +1,11 @@
 <h2 class="mt-5 mx-5">{{ "client-contact.page-head" | translate }}</h2>
 
-<form class="d-flex-column justify-content-center p-4 m-4">
+<form
+  class="d-flex-column justify-content-center p-4 m-4"
+  [formGroup]="cliContactForm"
+  (ngSubmit)="clientSubmit()"
+  novalidate
+>
   <div class="form-group row m-4">
     <div class="col-sm-2 col-form-label">
       <label for="Tipo de Consulta">{{
@@ -11,12 +16,12 @@
     <div class="col-sm-6">
       <select
         class="form-control"
-        [(ngModel)]="contactOptions"
+        [(ngModel)]="selectedOption"
+        formControlName="inputSelect"
         (change)="showSelected()"
+        [ngClass]="{ 'is-invalid': isValidInput('inputSelect') }"
       >
-        <option value="" selected>
-          {{ "client-contact.list.option-default" | translate }}
-        </option>
+        <option disabled selected value=""></option>
         <option value="1">
           {{ "client-contact.list.option-1" | translate }}
         </option>
@@ -35,8 +40,17 @@
         <option value="6">
           {{ "client-contact.list.option-6" | translate }}
         </option>
+        -->
         <!-- <option *ngFor="let option of contactOptions">{{ option }}</option> -->
       </select>
+      <div class="invalid-feedback">
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputSelect')?.errors?.required"
+        >
+          {{ "client-error.select-error" | translate }}
+        </span>
+      </div>
     </div>
   </div>
   <div class="form-group row m-4">
@@ -45,7 +59,20 @@
     </div>
 
     <div class="col-sm-8">
-      <input type="text" class="form-control" />
+      <input
+        type="text"
+        class="form-control"
+        formControlName="inputSubject"
+        [ngClass]="{ 'is-invalid': isValidInput('inputSubject') }"
+      />
+      <div class="invalid-feedback">
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputSubject')?.errors?.required"
+        >
+          {{ "client-error.subject-error" | translate }}
+        </span>
+      </div>
     </div>
   </div>
   <div class="form-group row m-4">
@@ -54,16 +81,43 @@
     </div>
 
     <div class="col-sm-8">
-      <textarea class="form-control" cols="30" rows="10"></textarea>
+      <textarea
+        class="form-control"
+        cols="30"
+        rows="10"
+        formControlName="inputMessage"
+        [ngClass]="{ 'is-invalid': isValidInput('inputMessage') }"
+      ></textarea>
+      <div class="invalid-feedback">
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputMessage')?.errors?.maxlength"
+        >
+          {{ "client-error.message-error" | translate }}
+        </span>
+      </div>
     </div>
   </div>
   <div class="form-group row m-4">
     <div class="col-sm-2 col-form-label"></div>
     <div class="form-check col-sm-8 m-3">
-      <input class="form-check-input" type="checkbox" />
+      <input
+        class="form-check-input"
+        type="checkbox"
+        formControlName="inputPrivacy"
+        [ngClass]="{ 'is-invalid': isValidInput('inputPrivacy') }"
+      />
       <label class="form-check-label" for="">
         {{ "client-contact.privacy" | translate }}
       </label>
+      <div class="invalid-feedback">
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputMessage')?.errors?.maxlength"
+        >
+          {{ "client-error.privacy-error" | translate }}
+        </span>
+      </div>
     </div>
   </div>
   <div class="form-group row m-4">

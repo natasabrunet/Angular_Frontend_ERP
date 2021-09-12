@@ -257,6 +257,7 @@
   "client-error": {
     "select-error": "Please select an option",
     "subject-error": "Subject must be at least 2 characters long",
+    "maxlength-error": "Subject must be maximum 50 characters long",
     "message-error": "Please write a message of maximum 500 characters",
     "privacy-error": "Please accept our privacy policy"
   },

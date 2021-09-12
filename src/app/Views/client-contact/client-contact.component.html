@@ -70,14 +70,26 @@
           class="form-text text-danger"
           *ngIf="cliContactForm.get('inputSubject')?.errors?.required"
         >
+          {{ "Validation.required-field" | translate }}
+        </span>
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputSubject')?.errors?.minlength"
+        >
           {{ "client-error.subject-error" | translate }}
+        </span>
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputSubject')?.errors?.maxlength"
+        >
+          {{ "client-error.maxlength-error" | translate }}
         </span>
       </div>
     </div>
   </div>
   <div class="form-group row m-4">
     <div class="col-sm-2 col-form-label">
-      <label for="Asunto">{{ "client-contact.message" | translate }}</label>
+      <label for="message">{{ "client-contact.message" | translate }}</label>
     </div>
 
     <div class="col-sm-8">
@@ -89,6 +101,12 @@
         [ngClass]="{ 'is-invalid': isValidInput('inputMessage') }"
       ></textarea>
       <div class="invalid-feedback">
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputMessage')?.errors?.required"
+        >
+          {{ "Validation.required-field" | translate }}
+        </span>
         <span
           class="form-text text-danger"
           *ngIf="cliContactForm.get('inputMessage')?.errors?.maxlength"

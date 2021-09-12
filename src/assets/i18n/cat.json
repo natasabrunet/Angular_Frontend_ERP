@@ -260,6 +260,7 @@
   "client-error": {
     "select-error": "Si us plau selecciona un opció",
     "subject-error": "L'assumpte a de tenir un mínim de 2 lletres",
+    "maxlength-error": "L'assumpte ha de tenir un màxim de 50 carcters",
     "message-error": "Si us plau escriu un missatge de màxim 500 caracters",
     "privacy-error": "Su us plau accepta la nostre política de pivacitat"
   },

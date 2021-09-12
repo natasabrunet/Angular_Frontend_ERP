@@ -33,7 +33,14 @@ export class ClientContactComponent implements OnInit {
   createForm() {
     this.cliContactForm = this.fb.group({
       inputSelect: ['', [Validators.required]],
-      inputSubject: ['', [Validators.required, Validators.minLength(2)]],
+      inputSubject: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(50),
+        ],
+      ],
       inputMessage: ['', [Validators.required, Validators.maxLength(500)]],
       inputPrivacy: ['false', [Validators.required, Validators.requiredTrue]],
     });

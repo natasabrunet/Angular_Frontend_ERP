@@ -15,10 +15,10 @@ export class ProductsListComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
 
-  products: any[]=[];
+  products: any[] = [];
 
-  page:number=0;
-  limit:number=5;
+  page: number = 0;
+  limit: number = 5;
 
   paginatedProducts: any[];
   pagesArray: number[];
@@ -26,45 +26,45 @@ export class ProductsListComponent implements OnInit {
   constructor(
     private productsService: ProductsService,
     private router: Router
-  ) {}
+  ) { }
 
-  nextPage():void{
+  nextPage(): void {
     this.page += PAGE_SIZE;
     this.limit += PAGE_SIZE;
     this.paginatedProducts = this.products.slice(this.page, this.limit);
   }
 
-  currentPage():number{
-    const result = this.page/PAGE_SIZE
+  currentPage(): number {
+    const result = this.page / PAGE_SIZE
     return result
   }
 
-  goToPage(index:number){
+  goToPage(index: number) {
 
-   this.page = index*PAGE_SIZE;
-   this.limit = this.page +PAGE_SIZE
-   this.paginatedProducts = this.products.slice(this.page, this.limit);
+    this.page = index * PAGE_SIZE;
+    this.limit = this.page + PAGE_SIZE
+    this.paginatedProducts = this.products.slice(this.page, this.limit);
   };
 
-  getTotalPages(){
-    return Math.ceil(this.products.length/PAGE_SIZE)
+  getTotalPages() {
+    return Math.ceil(this.products.length / PAGE_SIZE)
   }
 
-  setPagesArray():void {
+  setPagesArray(): void {
     this.pagesArray = [...new Array<number>(this.getTotalPages()).keys()];
   }
 
-  previousPage():void{
+  previousPage(): void {
     this.page -= PAGE_SIZE;
     this.limit -= PAGE_SIZE;
     this.paginatedProducts = this.products.slice(this.page, this.limit);
   }
 
-  isFirstPage():boolean{
+  isFirstPage(): boolean {
     return this.page === 0
   }
 
-  isLastPage():boolean{
+  isLastPage(): boolean {
     return this.limit >= this.products.length
   }
 

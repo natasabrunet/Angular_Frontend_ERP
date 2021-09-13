@@ -1,5 +1,5 @@
-<div class="container justify-content-center mb-5">
-  <h4 class="mt-5">User Profile</h4>
+<div class="container ustify-content-center mb-5">
+  <h4 class="mt-5">{{ "Profile.page-head" | translate }}</h4>
   <hr />
   <div class="container mt-5">
     <div class="row mb-3">
@@ -23,7 +23,9 @@
           <!-- Name -->
           <div class="row mb-3">
             <div class="col-md-3">
-              <label class="col-form-label">Name:</label>
+              <label class="col-form-label"
+                >{{ "Profile.Client-fields.name" | translate }}:</label
+              >
             </div>
             <div class="col">
               <input
@@ -39,7 +41,9 @@
           <!-- Address -->
           <div class="row mb-3">
             <div class="col-md-3">
-              <label class="col-form-label">Address:</label>
+              <label class="col-form-label"
+                >{{ "Profile.Client-fields.address" | translate }}:</label
+              >
             </div>
             <div class="col">
               <input
@@ -54,7 +58,9 @@
           <!-- DNI -->
           <div class="row mb-3">
             <div class="col-md-3">
-              <label class="col-form-label">DNI:</label>
+              <label class="col-form-label"
+                >{{ "Profile.Client-fields.cif" | translate }}:</label
+              >
             </div>
             <div class="col">
               <input
@@ -63,6 +69,7 @@
                 class="form-control"
                 formControlName="dni"
                 [value]="Profile.dni"
+                disabled
               />
             </div>
           </div>
@@ -70,7 +77,9 @@
           <!-- PASSWORD -->
           <div class="row mb-3">
             <div class="col-md-3">
-              <label class="col-form-label">Password:</label>
+              <label class="col-form-label"
+                >{{ "Profile.Client-fields.password" | translate }}:</label
+              >
             </div>
             <div class="col">
               <input
@@ -85,7 +94,9 @@
           <!-- NEW PASSWORD -->
           <div class="row mb-3">
             <div class="col-md-3">
-              <label class="col-form-label"> New Password:</label>
+              <label class="col-form-label">
+                {{ "Profile.Client-fields.new-password" | translate }}:</label
+              >
             </div>
             <div class="col">
               <input
@@ -104,7 +115,7 @@
                 type="submit"
                 class="btn btn-erp-blue text-erp-white me-3"
               >
-                Save
+                {{ "Profile.Client-fields.buttons.save" | translate }}
               </button>
             </div>
           </div>

@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   Profile: any = {
     name_and_surname: 'Jane Doe',
-    dni: '45991142C',
-    address: 'Carrer Horta 161',
+    dni: '45991142 C',
+    address: 'Carrer First St SE, DC 20004',
     email: 'janedoe@gmail.com',
-    password: '12548H',
+    password: '************',
     image: 'assets/images/mockup-portrait.jpg',
   };
 
@@ -21,6 +21,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {}
 
   save() {
-    console.log('No pasa nada');
+    console.log('Profile');
   }
 }

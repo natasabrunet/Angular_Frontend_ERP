@@ -1,255 +1,265 @@
 {
-    "Search": {
-        "searchph": "cercar"
-    },
-    "Header": {
-        "notifications": {
-            "head": "Notificacions",
-            "event_head_today": "Esdeveniment avui",
-            "event_description": "Recordatori de l'esdeveniment d'avui"
-        }
-    },
-    "Admin": {
-        "header": {
-            "profile": "Perfil",
-            "inbox": "safata d'entrada",
-            "settings": "ajustos",
-            "logout": "sortir"
-        }
-    },
-    "btn": {
-        "add": "Afegir",
-        "add-to-cart": "Afegir al carretó",
-        "delete": "Esborrar",
-        "update": "Modificar",
-        "edit": "Editar",
-        "go": "Anar",
-        "go-to-page": "Anar a la pàgina"
-    },
-    "footer": {
-        "developer": "Desenvolupat per"
-    },
-    "singleProd": {
-        "tittleNew": "NOU PRODUCTE",
-        "tittleUpdate": "MODIFICAR PRODUCTE",
-        "name": "Nom",
-        "namePlaceHolder": "Introdueixi el nom del producte",
-        "stock": "Stock",
-        "stockPlaceHolder": "Introdueixi la quantitat de productes",
-        "price": "Preu",
-        "pricePlaceHolder": "Introdueixi el preu",
-        "addOkMessage": "El producte ha sigut afegit correctament.",
-        "addErrorMessage": "No s'ha pogut donar d'alta el producte. Si us plau, contacte amb el equip IT.",
-        "updateOkMessage": "El producte ha sigut actualitzat correctament.",
-        "updateErrorMessage": "No s'ha pogut actualitzar el producte. Si us plau, contacte amb el equip IT.",
-        "deleteOkMessage": "El producte ha sigut borrat correctament.",
-        "deleteErrorMessage": "No s'ha pogut esborrar el producte. Si us plau, contacte amb el equip IT."
-    },
-    "Products-list": {
-        "page-head": "Lista de productes",
-        "list": {
-            "head-name": "Nom",
-            "head-stock": "Stock",
-            "head-price": "Preu",
-            "head-image": "Imatge",
-            "head-options": "Opcions"
-        },
-        "modal": {
-            "title": "Esborrant…",
-            "message": "Estàs segur que vols esborrar el producte ",
-            "button-no": "No",
-            "button-delete": "Esborrar"
-        },
-        "button": {
-            "new-product": "afegir producte"
-        }
-    },
-    "order-review": {
-        "page-head": "Revisió de comanda",
-        "list": {
-            "head-list": "Detalls",
-            "head-price": "Preu:",
-            "head-subTotal": "Subtotal:",
-            "head-quantity": "QUANT:"
-        }
-
-    },
-    "payment-methods": {
-        "page-head": "Mètodes de pagament",
-        "list": {
-            "credit-card": "Targeta de crèdit",
-            "paypal": "PayPal",
-            "cash": "Efectiu",
-            "shipping": "Enviament:",
-            "head-total": "Total:"
-        },
-        "button": {
-            "buy-now": "FINALITZA LA COMPRA"
-        }
-
-    },
-    "billing-information": {
-        "page-head": "Informació de facturació",
-        "error-list": {
-            "name-error": "El nom és obligatori",
-            "surname-error": "El cognom és obligatori",
-            "id-error": "L'ID és obligatori",
-            "cif-error": "Proporcionar un CIF vàlid (1 lletra 7 nombres 1 lletra)",
-            "dni-error": "o DNI vàlid (8 nombres 1 lletra)",
-            "email-error": "El correu és obligatori",
-            "emailFormat-error": "El format de correu no és vàlid",
-            "adress-error": "L'adreça és obligatòria",
-            "country-error": "El país és obligatori",
-            "province-error": "La província és obligatòria",
-            "city-error": "La ciutat és obligatòria",
-            "zip-error": "El codi postal és obligatori",
-            "minimum": "Mínim",
-            "characters-required": "caràcters necessaris"
-        },
-        "list": {
-            "country": "País ",
-            "province": "Província",
-            "city": "Ciutat",
-            "zip-code": "Codi postal",
-            "shipping-address": "Adreça d'enviament",
-            "name": "Nom",
-            "first-name": "Nom",
-            "last-name": "Cognom",
-            "dni": "DNI",
-            "email": "Correu",
-            "address": "Direcció",
-            "shipping-information": "Informació d'enviament",
-            "alternative-adress": "Enviar a una altra direcció"
-        }
-    },
-    "Clients-list": {
-        "page-head": "Llista de clients",
-        "list": {
-            "head-name": "Nom",
-            "head-address": "Adreça",
-            "head-cif": "CIF",
-            "head-options": "Opcions"
-        },
-        "modal": {
-            "title": "Esborrant…",
-            "message": "Estàs segur que vols esborrar el client ",
-            "button-no": "No",
-            "button-delete": "Esborrar"
-        },
-        "button": {
-            "new-client": "afegir client",
-            "go": "anar"
-        },
-        "literals": {
-            "go-to-page": "anar a la pàgina"
-        }
-    },
-    "Client": {
-        "back-to-client-list": "Tornar a l'administració de clients",
-        "client-detail": "Detall del Client",
-        "name": "Nom",
-        "address": "Adreça",
-        "cif": "CIF",
-        "buttons": {
-            "delete": "Esborrar",
-            "save": "Guardar"
-        },
-        "modal": {
-            "delete": {
-                "title": "Esborrant…",
-                "message": "Estàs segur que vols esborrar aquest client?",
-                "button-no": "No",
-                "button-delete": "Esborrar"
-            }
-        }
-    },
-    "Employees-list": {
-        "page-head": "Llista d'empleats",
-        "list": {
-            "head-id": "ID",
-            "head-name": "Nom",
-            "head-total-sellings": "Vendes Totals",
-            "head-orders-attended": "# Comandes Ateses",
-            "head-options": "Opcions"
-        },
-        "modal": {
-            "title": "Esborrant…",
-            "message": "Estàs segur que vols esborrar l'empleat ",
-            "button-no": "No",
-            "button-delete": "Esborrar"
-        },
-        "button": {
-            "new-employee": "Afegir empleat"
-        }
-    },
-
-    "Employee": {
-      "new-employee": "Nou treballador/a",
-      "employee-detail": "Detalls de l'empleat/ada",
-      "back-to-employees-list":"Tornar a la llista de treballadors",
-      "updateOkMessage": "S'ha actualitzat correctament",
-      "updateErrorMessage": "Ha ocorregut un error",
-      "name": "Nom",
-      "salary": "Sou",
-      "total-sellings": "Total de vendes",
-      "orders-attended": "Comandes ateses",
-      "phone": "Telèfon",
-      "orders-assigned": "Comandes asignades",
-      "buttons": {
-        "update": "Guardar",
-        "delete": "Esborrar"
-      },
-      "modal":{
-        "delete": {
-          "title":"Esborrant…",
-          "message": "¿Segur vols esborrar l'empleat/da?",
-          "button-delete":"Esborrar"
-        }
-      }
-
+  "Search": {
+    "searchph": "cercar"
   },
-    "Validation": {
-        "required-field": "Camp obligatori"
+  "Header": {
+    "notifications": {
+      "head": "Notificacions",
+      "event_head_today": "Esdeveniment avui",
+      "event_description": "Recordatori de l'esdeveniment d'avui"
+    }
+  },
+  "Admin": {
+    "header": {
+      "profile": "Perfil",
+      "inbox": "safata d'entrada",
+      "settings": "ajustos",
+      "logout": "sortir"
+    }
+  },
+  "Profile": {
+    "page-head": "Perfil Usuari",
+    "Client-fields": {
+      "name": "Nom",
+      "address": "Adreça",
+      "cif": "CIF",
+      "password": "Password",
+      "new-password": "Nou Password",
+      "buttons": {
+        "save": "Guardar"
+      }
+    }
+  },
+  "btn": {
+    "add": "Afegir",
+    "add-to-cart": "Afegir al carretó",
+    "delete": "Esborrar",
+    "update": "Modificar",
+    "edit": "Editar",
+    "go": "Anar",
+    "go-to-page": "Anar a la pàgina"
+  },
+  "footer": {
+    "developer": "Desenvolupat per"
+  },
+  "singleProd": {
+    "tittleNew": "NOU PRODUCTE",
+    "tittleUpdate": "MODIFICAR PRODUCTE",
+    "name": "Nom",
+    "namePlaceHolder": "Introdueixi el nom del producte",
+    "stock": "Stock",
+    "stockPlaceHolder": "Introdueixi la quantitat de productes",
+    "price": "Preu",
+    "pricePlaceHolder": "Introdueixi el preu",
+    "addOkMessage": "El producte ha sigut afegit correctament.",
+    "addErrorMessage": "No s'ha pogut donar d'alta el producte. Si us plau, contacte amb el equip IT.",
+    "updateOkMessage": "El producte ha sigut actualitzat correctament.",
+    "updateErrorMessage": "No s'ha pogut actualitzar el producte. Si us plau, contacte amb el equip IT.",
+    "deleteOkMessage": "El producte ha sigut borrat correctament.",
+    "deleteErrorMessage": "No s'ha pogut esborrar el producte. Si us plau, contacte amb el equip IT."
+  },
+  "Products-list": {
+    "page-head": "Lista de productes",
+    "list": {
+      "head-name": "Nom",
+      "head-stock": "Stock",
+      "head-price": "Preu",
+      "head-image": "Imatge",
+      "head-options": "Opcions"
     },
-    "Format": {
-        "email-field": "Correu electrònic no vàlid"
+    "modal": {
+      "title": "Esborrant…",
+      "message": "Estàs segur que vols esborrar el producte ",
+      "button-no": "No",
+      "button-delete": "Esborrar"
     },
-    "homepage": {
-        "welcome-msg": "Benvinguts a ERP!",
-        "cheers-msg": "SALUT!!!"
+    "button": {
+      "new-product": "afegir producte"
+    }
+  },
+  "order-review": {
+    "page-head": "Revisió de comanda",
+    "list": {
+      "head-list": "Detalls",
+      "head-price": "Preu:",
+      "head-subTotal": "Subtotal:",
+      "head-quantity": "QUANT:"
+    }
+  },
+  "payment-methods": {
+    "page-head": "Mètodes de pagament",
+    "list": {
+      "credit-card": "Targeta de crèdit",
+      "paypal": "PayPal",
+      "cash": "Efectiu",
+      "shipping": "Enviament:",
+      "head-total": "Total:"
     },
-    "navbar-client": {
-        "navbar-home": "Inici",
-        "navbar-about": "Nosaltres",
-        "navbar-products": "Productes",
-        "navbar-contact": "Contacte",
-        "navbar-login": "Entrar",
-        "navbar-signup": "Registrar-se"
+    "button": {
+      "buy-now": "FINALITZA LA COMPRA"
+    }
+  },
+  "billing-information": {
+    "page-head": "Informació de facturació",
+    "error-list": {
+      "name-error": "El nom és obligatori",
+      "surname-error": "El cognom és obligatori",
+      "id-error": "L'ID és obligatori",
+      "cif-error": "Proporcionar un CIF vàlid (1 lletra 7 nombres 1 lletra)",
+      "dni-error": "o DNI vàlid (8 nombres 1 lletra)",
+      "email-error": "El correu és obligatori",
+      "emailFormat-error": "El format de correu no és vàlid",
+      "adress-error": "L'adreça és obligatòria",
+      "country-error": "El país és obligatori",
+      "province-error": "La província és obligatòria",
+      "city-error": "La ciutat és obligatòria",
+      "zip-error": "El codi postal és obligatori",
+      "minimum": "Mínim",
+      "characters-required": "caràcters necessaris"
     },
-    "about": {
-        "text-greeting": "¡Hola!",
-        "text-1": "Som uns estudiants afortunats de la IT Academy que acabem d'acabar l'itinerari escollit i vam tenir l'oportunitat de treballar junts en el projecte beer-nice.",
-        "text-2": "Som un equip multicultural a què ens agrada passar temps junts: riure'ns o resoldre els problemes que de vegades apareixen i esperem que aviat gaudim junts d'unes cerveses multiculturals i ens oblidem dels problemes. Bé, serà una situació en què tots sortirem guanyant.",
-        "text-goodbye": "¡Salutacions!"
+    "list": {
+      "country": "País ",
+      "province": "Província",
+      "city": "Ciutat",
+      "zip-code": "Codi postal",
+      "shipping-address": "Adreça d'enviament",
+      "name": "Nom",
+      "first-name": "Nom",
+      "last-name": "Cognom",
+      "dni": "DNI",
+      "email": "Correu",
+      "address": "Direcció",
+      "shipping-information": "Informació d'enviament",
+      "alternative-adress": "Enviar a una altra direcció"
+    }
+  },
+  "Clients-list": {
+    "page-head": "Llista de clients",
+    "list": {
+      "head-name": "Nom",
+      "head-address": "Adreça",
+      "head-cif": "CIF",
+      "head-options": "Opcions"
     },
-    "pageNotFound": {
-        "h1": "Error 404",
-        "text-1": "¡No et preocupis, no ets tu, som nosaltres!",
-        "text-2": "¡No hem pogut trobar aquesta pàgina!",
-        "btn-goBack": "Torna"
+    "modal": {
+      "title": "Esborrant…",
+      "message": "Estàs segur que vols esborrar el client ",
+      "button-no": "No",
+      "button-delete": "Esborrar"
     },
-    "client": "client",
-    "clients": "clients",
-    "order": "comanda",
-    "orders": "comandes",
-    "contact": "contacte",
-    "contacts": "contactes",
-    "profile": "perfil",
-    "delete": "eliminar",
-    "stats": "stats",
-    "product": "producte",
-    "products": "productes",
-    "employee": "empleat",
-    "employees": "empleats",
-    "clock": "horari"
+    "button": {
+      "new-client": "afegir client",
+      "go": "anar"
+    },
+    "literals": {
+      "go-to-page": "anar a la pàgina"
+    }
+  },
+  "Client": {
+    "back-to-client-list": "Tornar a l'administració de clients",
+    "client-detail": "Detall del Client",
+    "name": "Nom",
+    "address": "Adreça",
+    "cif": "CIF",
+    "buttons": {
+      "delete": "Esborrar",
+      "save": "Guardar"
+    },
+    "modal": {
+      "delete": {
+        "title": "Esborrant…",
+        "message": "Estàs segur que vols esborrar aquest client?",
+        "button-no": "No",
+        "button-delete": "Esborrar"
+      }
+    }
+  },
+  "Employees-list": {
+    "page-head": "Llista d'empleats",
+    "list": {
+      "head-id": "ID",
+      "head-name": "Nom",
+      "head-total-sellings": "Vendes Totals",
+      "head-orders-attended": "# Comandes Ateses",
+      "head-options": "Opcions"
+    },
+    "modal": {
+      "title": "Esborrant…",
+      "message": "Estàs segur que vols esborrar l'empleat ",
+      "button-no": "No",
+      "button-delete": "Esborrar"
+    },
+    "button": {
+      "new-employee": "Afegir empleat"
+    }
+  },
+
+  "Employee": {
+    "new-employee": "Nou treballador/a",
+    "employee-detail": "Detalls de l'empleat/ada",
+    "back-to-employees-list": "Tornar a la llista de treballadors",
+    "updateOkMessage": "S'ha actualitzat correctament",
+    "updateErrorMessage": "Ha ocorregut un error",
+    "name": "Nom",
+    "salary": "Sou",
+    "total-sellings": "Total de vendes",
+    "orders-attended": "Comandes ateses",
+    "phone": "Telèfon",
+    "orders-assigned": "Comandes asignades",
+    "buttons": {
+      "update": "Guardar",
+      "delete": "Esborrar"
+    },
+    "modal": {
+      "delete": {
+        "title": "Esborrant…",
+        "message": "¿Segur vols esborrar l'empleat/da?",
+        "button-delete": "Esborrar"
+      }
+    }
+  },
+  "Validation": {
+    "required-field": "Camp obligatori"
+  },
+  "Format": {
+    "email-field": "Correu electrònic no vàlid"
+  },
+  "homepage": {
+    "welcome-msg": "Benvinguts a ERP!",
+    "cheers-msg": "SALUT!!!"
+  },
+  "navbar-client": {
+    "navbar-home": "Inici",
+    "navbar-about": "Nosaltres",
+    "navbar-products": "Productes",
+    "navbar-contact": "Contacte",
+    "navbar-login": "Entrar",
+    "navbar-signup": "Registrar-se"
+  },
+  "about": {
+    "text-greeting": "¡Hola!",
+    "text-1": "Som uns estudiants afortunats de la IT Academy que acabem d'acabar l'itinerari escollit i vam tenir l'oportunitat de treballar junts en el projecte beer-nice.",
+    "text-2": "Som un equip multicultural a què ens agrada passar temps junts: riure'ns o resoldre els problemes que de vegades apareixen i esperem que aviat gaudim junts d'unes cerveses multiculturals i ens oblidem dels problemes. Bé, serà una situació en què tots sortirem guanyant.",
+    "text-goodbye": "¡Salutacions!"
+  },
+  "pageNotFound": {
+    "h1": "Error 404",
+    "text-1": "¡No et preocupis, no ets tu, som nosaltres!",
+    "text-2": "¡No hem pogut trobar aquesta pàgina!",
+    "btn-goBack": "Torna"
+  },
+  "client": "client",
+  "clients": "clients",
+  "order": "comanda",
+  "orders": "comandes",
+  "contact": "contacte",
+  "contacts": "contactes",
+  "profile": "perfil",
+  "delete": "eliminar",
+  "stats": "stats",
+  "product": "producte",
+  "products": "productes",
+  "employee": "empleat",
+  "employees": "empleats",
+  "clock": "horari"
 }

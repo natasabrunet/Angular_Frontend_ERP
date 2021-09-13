@@ -17,6 +17,19 @@
       "logout": "Logout"
     }
   },
+  "Profile": {
+    "page-head": "User Profile",
+    "Client-fields": {
+      "name": "Name",
+      "address": "Addresss",
+      "cif": "CIF",
+      "password": "Password",
+      "new-password": "New Password",
+      "buttons": {
+        "save": "Save"
+      }
+    }
+  },
   "btn": {
     "add": "Add",
     "add-to-cart": "Add to cart",
@@ -254,6 +267,7 @@
       "cancel": "Cancel"
     }
   },
+
   "client-error": {
     "select-error": "Please select an option",
     "subject-error": "Subject must be at least 2 characters long",

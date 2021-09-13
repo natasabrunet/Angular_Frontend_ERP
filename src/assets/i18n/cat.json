@@ -17,6 +17,19 @@
       "logout": "sortir"
     }
   },
+  "Profile": {
+    "page-head": "Perfil Usuari",
+    "Client-fields": {
+      "name": "Nom",
+      "address": "Adreça",
+      "cif": "CIF",
+      "password": "Password",
+      "new-password": "Nou Password",
+      "buttons": {
+        "save": "Guardar"
+      }
+    }
+  },
   "btn": {
     "add": "Afegir",
     "add-to-cart": "Afegir al carretó",
@@ -180,7 +193,6 @@
       "new-employee": "Afegir empleat"
     }
   },
-
   "Employee": {
     "new-employee": "Nou treballador/a",
     "employee-detail": "Detalls de l'empleat/ada",
@@ -223,6 +235,7 @@
     "navbar-login": "Entrar",
     "navbar-signup": "Registrar-se"
   },
+
   "about": {
     "text-greeting": "¡Hola!",
     "text-1": "Som uns estudiants afortunats de la IT Academy que acabem d'acabar l'itinerari escollit i vam tenir l'oportunitat de treballar junts en el projecte beer-nice.",
@@ -237,7 +250,6 @@
   },
   "client-contact": {
     "page-head": "Enviar una Consulta",
-
     "type": "Tipus de Consulta",
     "list": {
       "option-default": "Selecciona una opció",
@@ -251,7 +263,6 @@
     "subject": "Assumpte",
     "message": "Missatge",
     "privacy": "Accepta la política de Privacitat",
-
     "button": {
       "submit": "Enviar",
       "cancel": "Cancel.lar"

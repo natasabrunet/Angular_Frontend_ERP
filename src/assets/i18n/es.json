@@ -17,6 +17,19 @@
       "logout": "Salir"
     }
   },
+  "Profile": {
+    "page-head": "Perfil de Usuario",
+    "Client-fields": {
+      "name": "Nombre",
+      "address": "Dirección",
+      "cif": "CIF",
+      "password": "Contraseña",
+      "new-password": "Nueva Contraseña",
+      "buttons": {
+        "save": "Guardar"
+      }
+    }
+  },
   "btn": {
     "add": "Añadir",
     "add-to-cart": "Añadir al carrito",
@@ -250,7 +263,6 @@
     "subject": "Asunto",
     "message": "Mensaje",
     "privacy": "Acepta la política de Privacidad",
-
     "button": {
       "submit": "Enviar",
       "cancel": "Cancelar"

@@ -1,0 +1,126 @@
+<div class="container ustify-content-center mb-5">
+  <h4 class="mt-5">{{ "Profile.page-head" | translate }}</h4>
+  <hr />
+  <div class="container mt-5">
+    <div class="row mb-3">
+      <div class="col-6 justify-content-center align-center">
+        <!-- Client image -->
+
+        <div class="col-md-12 text-center">
+          <img
+            src="assets/images/mockup-portrait.jpg"
+            class="client-avatar m-2"
+          />
+          <i class="fas fa-edit fa-lg client-avatar-edit-button"></i>
+          <h4 class="text-center">{{ Profile.name_and_surname }}</h4>
+          <h4 class="text-center">{{ Profile.email }}</h4>
+        </div>
+      </div>
+
+      <!-- Client fields -->
+      <div class="col-md-6">
+        <form (ngSubmit)="save()" class="form-control m-2">
+          <!-- Name -->
+          <div class="row mb-3">
+            <div class="col-md-3">
+              <label class="col-form-label"
+                >{{ "Profile.Client-fields.name" | translate }}:</label
+              >
+            </div>
+            <div class="col">
+              <input
+                name="name"
+                type="text"
+                class="form-control"
+                formControlName="name"
+                [value]="Profile.name_and_surname"
+              />
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="row mb-3">
+            <div class="col-md-3">
+              <label class="col-form-label"
+                >{{ "Profile.Client-fields.address" | translate }}:</label
+              >
+            </div>
+            <div class="col">
+              <input
+                name="address"
+                type="text"
+                class="form-control"
+                formControlName="address"
+                [value]="Profile.address"
+              />
+            </div>
+          </div>
+          <!-- DNI -->
+          <div class="row mb-3">
+            <div class="col-md-3">
+              <label class="col-form-label"
+                >{{ "Profile.Client-fields.cif" | translate }}:</label
+              >
+            </div>
+            <div class="col">
+              <input
+                name="dni"
+                type="text"
+                class="form-control"
+                formControlName="dni"
+                [value]="Profile.dni"
+                disabled
+              />
+            </div>
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="row mb-3">
+            <div class="col-md-3">
+              <label class="col-form-label"
+                >{{ "Profile.Client-fields.password" | translate }}:</label
+              >
+            </div>
+            <div class="col">
+              <input
+                name="password"
+                type="text"
+                class="form-control"
+                formControlName="password"
+                [value]="Profile.password"
+              />
+            </div>
+          </div>
+          <!-- NEW PASSWORD -->
+          <div class="row mb-3">
+            <div class="col-md-3">
+              <label class="col-form-label">
+                {{ "Profile.Client-fields.new-password" | translate }}:</label
+              >
+            </div>
+            <div class="col">
+              <input
+                name="Newpassword"
+                type="text"
+                class="form-control"
+                formControlName="Newpassword"
+                [value]=""
+              />
+            </div>
+          </div>
+
+          <div class="row py-2">
+            <div class="col-12 d-flex justify-content-end">
+              <button
+                type="submit"
+                class="btn btn-erp-blue text-erp-white me-3"
+              >
+                {{ "Profile.Client-fields.buttons.save" | translate }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

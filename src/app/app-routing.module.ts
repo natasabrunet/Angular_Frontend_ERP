@@ -15,7 +15,7 @@ import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
 import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
-
+import { ProfileComponent } from './Views/profile/profile.component';
 // Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
 import { ClientListComponent } from './Views/Client/client-list/client-list.component';
@@ -44,6 +44,11 @@ const routes: Routes = [
   { path: 'licence', component: LicenceComponent },
   { path: 'product-list', component: ProductsListComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'client-list',
     component: ClientListComponent,

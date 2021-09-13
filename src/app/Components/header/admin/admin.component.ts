@@ -14,18 +14,20 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
   name = 'Jane Doe';
-
   faUserCircle = faUserCircle;
   faEnvelopeOpen = faEnvelopeOpen;
   faCog = faCog;
   faPowerOff = faPowerOff;
 
-  constructor(private loginService: LoginService,
-    private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {}
   logout() {
     this.loginService.clearSession();
     this.router.navigateByUrl('log-in'); // redirect to Log-in
+  }
+
+  profile() {
+    this.router.navigateByUrl('profile');
   }
 }

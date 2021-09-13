@@ -129,6 +129,18 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <div id="alertMessage" class="alert alert-dismissible show visually-hidden fade mt-2" role="alert">
+                  <p *ngIf="
+                  (errorAPI || (!errorAPI && success == 'false'))
+                ">
+                          {{ "singleProd.deleteErrorMessage" | translate }} <br /> {{ errorMessage }}
+                      </p>
+                      <p *ngIf=" !errorAPI && success == 'true'">
+                        {{ "singleProd.deleteOkMessage" | translate }}
+                    </p>
+
+                </div>
                 <div class="d-flex justify-content-center mb-2">
                     <button class="btn appButton" [disabled]="isFirstPage()" (click)="previousPage()">Previous</button>
                     <button (click)="goToPage(page)" class="btn appButton ms-2" *ngFor="let page of pagesArray" [disabled]="currentPage() === page">{{page + 1}}</button>

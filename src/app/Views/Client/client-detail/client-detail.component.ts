@@ -13,28 +13,28 @@ import { stringify } from '@angular/compiler/src/util';
 export class ClientDetailComponent implements OnInit {
 
   // TODO: Create Interface for client object?
-  id             : string;
-  name           : string;
-  address        : string;
-  cif            : string;
-  image          : string;
+  id: string;
+  name: string;
+  address: string;
+  cif: string;
+  image: string;
 
-  showAlert      : boolean = false;
-  success        : boolean = false;
-  alertMessage  : string;
+  showAlert: boolean = false;
+  success: boolean = false;
+  alertMessage: string;
 
   form: FormGroup;
 
   constructor(private clientsService: ClientsService,
-              private activatedRoute: ActivatedRoute,
-              private router: Router,
-              private fb: FormBuilder) { 
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder) {
     this.createForm();
   }
 
   ngOnInit(): void {
     //Recuperamos el parámetro (id) del cliente y cargamos su info
-    this.activatedRoute.params.subscribe( params => {
+    this.activatedRoute.params.subscribe(params => {
       this.loadClient(params['id']);
     });
 
@@ -64,26 +64,26 @@ export class ClientDetailComponent implements OnInit {
   submit() {
     if (this.form.invalid) {
       // Si el form es inválido, márcamos los controles como "touched" para que se marquen/muestren los errores
-      return Object.values(this.form.controls).forEach( control => {
+      return Object.values(this.form.controls).forEach(control => {
         control.markAsTouched();
       });
     }
-    
+
     this.updateClient();
   }
 
   loadClient(id: string) {
     this.clientsService.getClientByID(id)
-      .subscribe( (data:any) => {
+      .subscribe((data: any) => {
         if (!data) {
           this.router.navigateByUrl('client-list'); // redirect to client-list
         } else {
-          this.id = data.id; //Guardamos el ID para poder usarlo en todo el componente (necesario para update y delete)
-          this.name = data.nameAndSurname;
-          this.address = data.address;
-          this.cif = data.dni;
-          this.image = data.image;
-  
+          this.id = data.client.id; //Guardamos el ID para poder usarlo en todo el componente (necesario para update y delete)
+          this.name = data.client.name_and_surname;
+          this.address = data.client.address.street;
+          this.cif = data.client.dni;
+          this.image = data.client.image;
+
           this.form.get("name").setValue(this.name);
           this.form.get("address").setValue(this.address);
           this.form.get("cif").setValue(this.cif);
@@ -98,49 +98,49 @@ export class ClientDetailComponent implements OnInit {
 
   updateClient() {
     const client = {
-      id             : this.id,
-      nameAndSurname : this.form.get("name").value,
-      address        : this.form.get("address").value,
-      dni            : this.form.get("cif").value,
-      image          : this.image
+      id: this.id,
+      nameAndSurname: this.form.get("name").value,
+      address: this.form.get("address").value,
+      dni: this.form.get("cif").value,
+      image: this.image
     };
     this.clientsService.updateClient(client)
-    .subscribe(resp => {
-      this.showAlert = true;
-      this.success = true;
-      this.alertMessage = 'Client updated!!!'
-      
-      // let alert show up and then redirect
-      setTimeout(() => {
-        this.showAlert = false; // alert OK
-        this.alertMessage = ''
-      }, 2000);
-    }, (err) => {
-      // console.log(err);
-      this.showAlert = true;
-      this.success = false;
-      this.alertMessage = err.error.message;
-    });
+      .subscribe(resp => {
+        this.showAlert = true;
+        this.success = true;
+        this.alertMessage = 'Client updated!!!'
+
+        // let alert show up and then redirect
+        setTimeout(() => {
+          this.showAlert = false; // alert OK
+          this.alertMessage = ''
+        }, 2000);
+      }, (err) => {
+        // console.log(err);
+        this.showAlert = true;
+        this.success = false;
+        this.alertMessage = err.error.message;
+      });
   }
 
   deleteClient() {
     this.clientsService.deleteClient(this.id)
-    .subscribe(resp => {
-      this.showAlert = true;
-      this.success = true;
-      this.alertMessage = 'Client deleted!!!'
-      
-      // let alert show up and then redirect
-      setTimeout(() => {
-        this.showAlert = false; // alert OK
-        this.alertMessage = '';
-        this.router.navigateByUrl('client-list'); // redirect to client-list
-      }, 2000);
-    }, (err) => {
-      console.log(err);
-      this.showAlert = true;
-      this.success = false;
-      this.alertMessage = err.error;
-    });
+      .subscribe(resp => {
+        this.showAlert = true;
+        this.success = true;
+        this.alertMessage = 'Client deleted!!!'
+
+        // let alert show up and then redirect
+        setTimeout(() => {
+          this.showAlert = false; // alert OK
+          this.alertMessage = '';
+          this.router.navigateByUrl('client-list'); // redirect to client-list
+        }, 2000);
+      }, (err) => {
+        console.log(err);
+        this.showAlert = true;
+        this.success = false;
+        this.alertMessage = err.error;
+      });
   }
 }

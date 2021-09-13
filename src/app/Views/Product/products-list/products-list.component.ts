@@ -23,6 +23,10 @@ export class ProductsListComponent implements OnInit {
   paginatedProducts: any[];
   pagesArray: number[];
 
+  errorAPI:boolean;
+  success:string;
+  errorMessage:string;
+
   constructor(
     private productsService: ProductsService,
     private router: Router
@@ -83,13 +87,44 @@ export class ProductsListComponent implements OnInit {
 
   delete(i: number) {
     const id = this.products[i].id;
+    console.log(id);
+    this.productsService.deleteProduct(id).subscribe(
+      ( response:any ) => {
+        this.errorAPI = false;
+        this.success=response.success;
+        this.messageManagement( response );
+        console.log(response);
 
-    this.productsService.deleteProduct(id).subscribe();
+      }, ( errorServicio ) => {
+        this.errorAPI = true;
+        this.messageManagement( errorServicio );
+        console.log(errorServicio);
+      }
+    );
+    console.log(this.productsService);
     this.products.splice(i, 1);
+    console.log(this.products);
   }
+
+
 
   //Función para que se abra la página de single product
   goSingleProduct(id: number) {
     this.router.navigate(['/single-product', id]);
+  }
+
+  //Gestion de mensajes y errores para el usuario
+  messageManagement( param:any )  {
+    const alertMessage = document.getElementById( "alertMessage" );
+    if( this.errorAPI==true || ( this.errorAPI==false &&  param.success=="false" ) ){
+      alertMessage.classList.add( "alert-danger" );
+      alertMessage.classList.remove( "visually-hidden" );
+      this.errorMessage = param.message;
+
+    } else {
+      alertMessage.classList.add( "alert-success" );
+      alertMessage.classList.remove( "visually-hidden", "alert-danger" );
+
+    }
   }
 }

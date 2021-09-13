@@ -65,7 +65,11 @@ const routes: Routes = [
   { path: 'employee/:id', component: EmployeeComponent },
   { path: 'stats', component: StatsComponent, canActivate: [AuthGuard] },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'client-contact', component: ClientContactComponent },
+  {
+    path: 'client-contact',
+    component: ClientContactComponent,
+    canActivate: [AuthGuard],
+  },
 
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },

@@ -193,7 +193,6 @@
       "new-employee": "Afegir empleat"
     }
   },
-
   "Employee": {
     "new-employee": "Nou treballador/a",
     "employee-detail": "Detalls de l'empleat/ada",
@@ -236,6 +235,7 @@
     "navbar-login": "Entrar",
     "navbar-signup": "Registrar-se"
   },
+
   "about": {
     "text-greeting": "¡Hola!",
     "text-1": "Som uns estudiants afortunats de la IT Academy que acabem d'acabar l'itinerari escollit i vam tenir l'oportunitat de treballar junts en el projecte beer-nice.",
@@ -247,6 +247,33 @@
     "text-1": "¡No et preocupis, no ets tu, som nosaltres!",
     "text-2": "¡No hem pogut trobar aquesta pàgina!",
     "btn-goBack": "Torna"
+  },
+  "client-contact": {
+    "page-head": "Enviar una Consulta",
+    "type": "Tipus de Consulta",
+    "list": {
+      "option-default": "Selecciona una opció",
+      "option-1": "Informació producte",
+      "option-2": "Procés de compra",
+      "option-3": "Pagament y facturació",
+      "option-4": "Enviaments y devolucions",
+      "option-5": "Ofertes",
+      "option-6": "Una altre consulta"
+    },
+    "subject": "Assumpte",
+    "message": "Missatge",
+    "privacy": "Accepta la política de Privacitat",
+    "button": {
+      "submit": "Enviar",
+      "cancel": "Cancel.lar"
+    }
+  },
+  "client-error": {
+    "select-error": "Si us plau selecciona un opció",
+    "subject-error": "L'assumpte a de tenir un mínim de 2 lletres",
+    "maxlength-error": "L'assumpte ha de tenir un màxim de 50 carcters",
+    "message-error": "Si us plau escriu un missatge de màxim 500 caracters",
+    "privacy-error": "Su us plau accepta la nostre política de pivacitat"
   },
   "client": "client",
   "clients": "clients",

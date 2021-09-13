@@ -247,6 +247,34 @@
     "text-2": "We are a multicultural team who enjoy spending time together: laughing or resolving the problems that sometimes appear and we hope that soon we'll enjoy some multicultural beers together and forget about the problems. Well, It'll be a win-win situation.",
     "text-goodbye": "Cheers to that!"
   },
+  "client-contact": {
+    "page-head": "Submit a request",
+    "type": "Request Type",
+    "list": {
+      "option-default": "Please select your request type",
+      "option-1": "Product information",
+      "option-2": "Purchasing Process",
+      "option-3": "Payment and billing",
+      "option-4": "Shipping & returns",
+      "option-5": "Offers",
+      "option-6": "Another request"
+    },
+    "subject": "Subject",
+    "message": "Message",
+    "privacy": "Accept privacy policy",
+    "button": {
+      "submit": "Submit",
+      "cancel": "Cancel"
+    }
+  },
+
+  "client-error": {
+    "select-error": "Please select an option",
+    "subject-error": "Subject must be at least 2 characters long",
+    "maxlength-error": "Subject must be maximum 50 characters long",
+    "message-error": "Please write a message of maximum 500 characters",
+    "privacy-error": "Please accept our privacy policy"
+  },
   "client": "client",
   "clients": "clients",
   "order": "order",

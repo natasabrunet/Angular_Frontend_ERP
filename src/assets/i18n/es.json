@@ -248,7 +248,33 @@
     "text-2": "¡No pudimos encontrar esa página!",
     "btn-goBack": "Ir atras!"
   },
-
+  "client-contact": {
+    "page-head": "Enviar una Consulta",
+    "type": "Tipo de Consulta",
+    "list": {
+      "option-default": "Selecciona una opción",
+      "option-1": "Información producto",
+      "option-2": "Proceso de compra",
+      "option-3": "Pago y facturación",
+      "option-4": "Envíos y devoluciones",
+      "option-5": "Ofertas",
+      "option-6": "Otra consulta"
+    },
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "privacy": "Acepta la política de Privacidad",
+    "button": {
+      "submit": "Enviar",
+      "cancel": "Cancelar"
+    }
+  },
+  "client-error": {
+    "select-error": "Por favor seleciona una opción",
+    "subject-error": "El asunto debe tener mínimo 2 letras",
+    "maxlength-error": "El asunto debe tener un máximo de 50 caracteres",
+    "message-error": "Por favor escribe un mensage de máximo 500 caracteres",
+    "privacy-error": "Por favor acepta nuestra política de privacidad"
+  },
   "client": "cliente",
   "clients": "clientes",
   "order": "pedido",

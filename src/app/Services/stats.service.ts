@@ -12,7 +12,6 @@ export class StatsService {
   endPoint: string = '/api/stats/employees/sells';
   endPoint2: string = '/api/stats/employees/bestsales';
   endPoint3:string = '/api/stats/employees/worstsales';
-  endPoint4:string = '/api/stats/employees/toptensales';
   endPoint5:string = '/api/stats/salaries/year';
   endPoint6:string = '/api/stats/salaries/month';
   endPoint7:string = '/api/stats/profits/{year}';
@@ -39,10 +38,6 @@ export class StatsService {
     return this.httpClient.get(`${this.url}${this.endPoint3}`, { headers: this.headers });
   }
 
-  gettoptensales(){
-    return this.httpClient.get(`${this.url}${this.endPoint4}`, { headers: this.headers });
-  }
-
   getsalariesyear(){
     return this.httpClient.get(`${this.url}${this.endPoint5}`, { headers: this.headers });
   }
@@ -66,13 +61,14 @@ export class StatsService {
     const options = {
       headers: new HttpHeaders({
         Authorization: this.token
+
       }),
-      body: {
-          begin_date: "2021-01-01T00:00:00",
-          end_date: "2021-04-29T23:59:59"
+      body : {
+          begin_date: "",
+          end_date: ""
       }
 
     };
-    return this.httpClient.get(`${this.url}${this.endPoint9}`, options);
+    return this.httpClient.request('GET', `${this.url}${this.endPoint9}`, options);
   }
 }

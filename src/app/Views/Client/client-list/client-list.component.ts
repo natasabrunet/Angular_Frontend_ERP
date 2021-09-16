@@ -123,7 +123,7 @@ export class ClientListComponent implements OnInit {
         console.log(response);
         Swal.fire({
           icon: 'success',
-          title: 'Your work has been saved',
+          title: 'The client it"s been deleted',
           showConfirmButton: false,
           timer: 1500
         })

@@ -1,24 +1,135 @@
 <div>
   <div>
-    <div class="chart w-50 h-auto m-auto">
-      <canvas baseChart
-        [data]="pieChartData"
-        [labels]="pieChartLabels"
-        [chartType]="pieChartType"
-        [options]="pieChartOptions"
-        [colors]="pieChartColors"
-        [legend]="pieChartLegend">
+    <div class="m-4">
+      <button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle
+        Legend</button>
+      <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()" class="m-2">Change Legend
+        Position</button>
+
+    </div>
+
+    <div class="d-flex chart w-50 h-auto m-auto">
+      <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+        [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
       </canvas>
+          <!--Tabla Top 10 Employees-->
+          <div class="d-flex text-center m-auto">
+            <table class="table table-sm table-bordered table-hover tablaRating2">
+              <thead>
+                <tr class="card-header">
+                  <th colspan="3">Top 10 Employees</th>
+                </tr>
+                <tr class="card-header">
+                  <th>DNI</th>
+                  <th>Sales</th>
+                </tr>
+                <tr>
+                  <td>{{ toptenDni }}</td>
+                  <td>{{ toptenQty }}</td>
+                </tr>
+
+              </thead>
+            </table>
+          </div>
+    </div>
+
+
+
+
+    <div class="d-flex text-center tablaRating">
+      <!--Tabla Salary Year and Month-->
+      <table class="table table-bordered table-hover" style="width: 25%;">
+        <thead>
+          <tr class="card-header">
+            <th colspan="2" >{{'Employee.salary' | translate}}</th>
+          </tr>
+          <tr class="card-header">
+            <th>Year</th>
+            <th>Month</th>
+          </tr>
+          <tr>
+            <td>{{ salariesyear}} </td>
+            <td>{{ salariesmonth}} </td>
+          </tr>
+        </thead>
+      </table>
+
+      <!--Tabla Profit by Year and Month-->
+      <table class="table table-bordered table-hover salaryprofit" style="width: 25%;">
+        <thead>
+          <tr class="card-header">
+            <th colspan="13" >Profit</th>
+          </tr>
+          <tr class="card-header">
+            <th>Year/Month</th>
+            <th>01</th>
+            <th>02</th>
+            <th>03</th>
+            <th>04</th>
+            <th>05</th>
+            <th>06</th>
+            <th>07</th>
+            <th>08</th>
+            <th>09</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+          </tr>
+          <tr>
+            <th>2021</th>
+            <td  *ngFor="let p of profits">{{p}}</td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <!--Tabla Best and Worst Employee-->
+    <div class="d-flex text-center tablaRating">
+      <table class="table table-bordered table-hover">
+        <thead class="card-header">
+          <tr>
+            <th>Rating Employee</th>
+            <th>{{'Employees-list.list.head-id' | translate}}</th>
+            <th>{{'Employee.name' | translate}} </th>
+            <th>{{ 'Employee.email' | translate}}</th>
+            <th>{{ 'Employee.dni' | translate}}</th>
+            <th>{{ 'Employee.phone' | translate}}</th>
+            <th>{{ 'Employee.salary' | translate}}</th>
+            <th>{{ 'Employee.total-sellings' | translate}}</th>
+            <th>{{ 'Employees-list.list.head-orders-attended' | translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Best</td>
+            <td>{{idemployee}}</td>
+            <td>{{name}}</td>
+            <td>{{ username}}</td>
+            <td>{{dni}}</td>
+            <td>{{phone}}</td>
+            <td>{{salary}}</td>
+            <td>{{total_sales}}</td>
+            <td>{{orders}}</td>
+          </tr>
+          <tr>
+            <td>Worst</td>
+            <td>{{ideWorstEmployee}}</td>
+            <td>{{nameWorstEmployee}}</td>
+            <td>{{ usernameWorstEmployee}}</td>
+            <td>{{dniWorstEmployee}}</td>
+            <td>{{phoneWorstEmployee}}</td>
+            <td>{{salaryWorstEmployee}}</td>
+            <td>{{total_sales_WorstEmployee}}</td>
+            <td>{{ordersWorstEmployee}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
-<div class="m-4">
-  <button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
-  <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()" class="m-2">Change Legend Position</button>
-</div>
-<hr>
+
+<!--<hr>-->
 <div class="row" style="justify-content: space-around;">
-<div class="col-sm-6" style="width: 25rem;">
+  <!--<div class="col-sm-6" style="width: 25rem;">
   <div>
     <h5 class="card-header">Best Employee By Total Sales</h5>
     <div class="mt-1">
@@ -41,5 +152,6 @@
     <p><b>{{ 'Employee.total-sellings' | translate}}:</b> {{ total_sales_WorstEmployee}}</p>
   </div>
   </div>
-</div>
+</div>-->
+
 </div>

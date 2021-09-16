@@ -1,36 +1,33 @@
-
 import { I_Employee } from './../../../Models/employee';
 import { Component, OnInit } from '@angular/core';
 import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
 import { EmployeesService } from '../../../Services/employees.service';
 
-
-
-
 @Component({
   selector: 'app-employees-list',
   templateUrl: './employees-list.component.html',
-  styleUrls: ['./employees-list.component.scss']
+  styleUrls: ['./employees-list.component.scss'],
 })
 export class EmployeesListComponent implements OnInit {
-    //Icons
-    faTrashAlt = faTrashAlt;
-    faEdit = faEdit;
-    employees:any[];
-    currentPage: number;
-    totalPages: number;
-    pageToGo: number;
-    pagesArray: Array<number>;
+  //Icons
+  faTrashAlt = faTrashAlt;
+  faEdit = faEdit;
+  employees: any[];
+  currentPage: number;
+  totalPages: number;
+  pageToGo: number;
+  pagesArray: Array<number>;
 
-  constructor(private employeesService: EmployeesService,
-              private router: Router) {
-      this.currentPage = 1;
-    }
+  constructor(
+    private employeesService: EmployeesService,
+    private router: Router
+  ) {
+    this.currentPage = 1;
+  }
 
   ngOnInit(): void {
     this.goToPage(this.currentPage);
-
 
     /*this.employeesService.getAllEmployees().subscribe(resp=>{
       this.employees = resp.employees;
@@ -78,12 +75,12 @@ export class EmployeesListComponent implements OnInit {
     // TODO: 26/03/2021
     // The API does not implement employee paging, so for now, we get them all
     //show all employee list
-    this.employeesService.getAllEmployees().subscribe(resp=>{
+    this.employeesService.getAllEmployees().subscribe((resp) => {
       this.employees = resp.employees;
-
-    }), ( err ) => {
-      console.log( err );
-    }
+    }),
+      (err) => {
+        console.log(err);
+      };
     /*this.employeesService.getAllEmployees()
       .subscribe((data: any) => {
 
@@ -114,7 +111,7 @@ export class EmployeesListComponent implements OnInit {
     return false;
   }
 
-  getTotalPages(totalRecords: number, recordsPerPage: number) :number {
+  getTotalPages(totalRecords: number, recordsPerPage: number): number {
     let _totalPages = 0;
     if (recordsPerPage > 0) {
       _totalPages = Math.ceil(totalRecords / recordsPerPage);
@@ -127,8 +124,8 @@ export class EmployeesListComponent implements OnInit {
     this.pagesArray = new Array();
     if (this.totalPages > 0) {
       this.pagesArray = Array(this.totalPages - 1);
-      for (let i=0; i<this.totalPages; i++) {
-        this.pagesArray[i] = i+1;
+      for (let i = 0; i < this.totalPages; i++) {
+        this.pagesArray[i] = i + 1;
       }
     }
   }
@@ -137,10 +134,9 @@ export class EmployeesListComponent implements OnInit {
     return Array(n);
   }
   delete(i: number) {
-    // const id = this.clients[i].id;
+    const id = this.employees[i].id;
 
-    // this.clientsService.deleteClient(id)
-    //   .subscribe();
-    // this.clients.splice(i, 1);
+    this.employeesService.deleteEmployee(id).subscribe();
+    this.employees.splice(i, 1);
   }
 }

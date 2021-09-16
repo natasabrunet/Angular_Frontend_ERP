@@ -172,7 +172,9 @@
         "button-no": "No",
         "button-delete": "Esborrar"
       }
-    }
+    },
+    "deleteOkMessage": "El client ha estat esborrat correctament.",
+    "deleteErrorMessage": "El client no ha estat esborrat. Si us plau contcta amb l'equip IT."
   },
   "Employees-list": {
     "page-head": "Llista d'empleats",

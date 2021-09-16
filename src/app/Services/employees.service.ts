@@ -4,9 +4,8 @@ import { LoginService } from './login.service';
 import { Observable } from 'rxjs';
 import { ReqResponseEmployees } from '../Models/reqResponse';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmployeesService {
   url: string = 'http://217.76.158.200:8080';
@@ -22,45 +21,55 @@ export class EmployeesService {
     this.token = this.loginService.getBearerToken;
   }
 
-
-  getAllEmployees(): Observable<ReqResponseEmployees> {
+  getAllEmployees() {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
 
-    return this.httpClient.get<ReqResponseEmployees>( `${this.url}${this.endPoint}`, {headers} )
-
+    return this.httpClient.get<ReqResponseEmployees>(
+      `${this.url}${this.endPoint}`,
+      { headers }
+    );
   }
 
-  getEmployees(amount: number, page: number ) {
+  getEmployees(amount: number, page: number) {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
-    return this.httpClient.get( `${this.url}${this.endPoint}/list/${amount}/${page}`, {headers} )
-
+    return this.httpClient.get(
+      `${this.url}${this.endPoint}/list/${amount}/${page}`,
+      { headers }
+    );
   }
 
-  getEmployeeByID(id: string ) {
+  getEmployeeByID(id: string) {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
-    return this.httpClient.get( `${this.url}${this.endPoint}/${id}`, {headers} );
+    return this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {
+      headers,
+    });
   }
 
   updateEmployee(employee) {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
-    return this.httpClient.put( `${this.url}${this.endPoint}`, employee, {headers} );
-
+    return this.httpClient.put(`${this.url}${this.endPoint}`, employee, {
+      headers,
+    });
   }
 
   deleteEmployee(id: string) {
-    const headers = new HttpHeaders({
-      Authorization: this.token
-    });
+    const options = {
+      headers: new HttpHeaders({
+        Authorization: this.token,
+      }),
+      body: {
+        id: id,
+      },
+    };
 
-    return this.httpClient.delete( `${this.url}${this.endPoint}/${id}`, {headers} );
+    return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
   }
-
 }

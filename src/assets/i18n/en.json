@@ -172,7 +172,9 @@
         "button-no": "No",
         "button-delete": "Delete"
       }
-    }
+    },
+    "deleteOkMessage": "Client has been deleted correclty.",
+    "deleteErrorMessage": "Client has not been deleted. Please, contact with IT team."
   },
   "Employees-list": {
     "page-head": "Employees list",

@@ -71,6 +71,7 @@ export class StatsService {
           begin_date: "2021-01-01T00:00:00",
           end_date: "2021-04-29T23:59:59"
       }
+
     };
     return this.httpClient.get(`${this.url}${this.endPoint9}`, options);
   }

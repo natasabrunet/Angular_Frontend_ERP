@@ -181,7 +181,7 @@ public positiontopten: number = 0;
 
   salestopten(){
 
-    this.stasService.getToptensales("", "")
+    this.stasService.getToptensales("date1", "date2")
     .subscribe(
       (resp:any)=>{
         this.toptenDni = resp.employees.dni;

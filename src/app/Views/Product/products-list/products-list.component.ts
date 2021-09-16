@@ -23,14 +23,14 @@ export class ProductsListComponent implements OnInit {
   paginatedProducts: any[];
   pagesArray: number[];
 
-  errorAPI:boolean;
-  success:string;
-  errorMessage:string;
+  errorAPI: boolean;
+  success: string;
+  errorMessage: string;
 
   constructor(
     private productsService: ProductsService,
     private router: Router
-  ) { }
+  ) {}
 
   nextPage(): void {
     this.page += PAGE_SIZE;
@@ -39,19 +39,18 @@ export class ProductsListComponent implements OnInit {
   }
 
   currentPage(): number {
-    const result = this.page / PAGE_SIZE
-    return result
+    const result = this.page / PAGE_SIZE;
+    return result;
   }
 
   goToPage(index: number) {
-
     this.page = index * PAGE_SIZE;
-    this.limit = this.page + PAGE_SIZE
+    this.limit = this.page + PAGE_SIZE;
     this.paginatedProducts = this.products.slice(this.page, this.limit);
-  };
+  }
 
   getTotalPages() {
-    return Math.ceil(this.products.length / PAGE_SIZE)
+    return Math.ceil(this.products.length / PAGE_SIZE);
   }
 
   setPagesArray(): void {
@@ -65,17 +64,18 @@ export class ProductsListComponent implements OnInit {
   }
 
   isFirstPage(): boolean {
-    return this.page === 0
+    return this.page === 0;
   }
 
   isLastPage(): boolean {
-    return this.limit >= this.products.length
+    return this.limit >= this.products.length;
   }
 
   ngOnInit(): void {
     this.productsService.getProducts().subscribe(
       (data: any) => {
         this.products = data.products;
+        console.log(data);
         this.paginatedProducts = this.products.slice(this.page, this.limit);
         this.setPagesArray();
       },
@@ -89,15 +89,15 @@ export class ProductsListComponent implements OnInit {
     const id = this.products[i].id;
     console.log(id);
     this.productsService.deleteProduct(id).subscribe(
-      ( response:any ) => {
+      (response: any) => {
         this.errorAPI = false;
-        this.success=response.success;
-        this.messageManagement( response );
+        this.success = response.success;
+        this.messageManagement(response);
         console.log(response);
-
-      }, ( errorServicio ) => {
+      },
+      (errorServicio) => {
         this.errorAPI = true;
-        this.messageManagement( errorServicio );
+        this.messageManagement(errorServicio);
         console.log(errorServicio);
       }
     );
@@ -106,25 +106,24 @@ export class ProductsListComponent implements OnInit {
     console.log(this.products);
   }
 
-
-
   //Función para que se abra la página de single product
   goSingleProduct(id: number) {
     this.router.navigate(['/single-product', id]);
   }
 
   //Gestion de mensajes y errores para el usuario
-  messageManagement( param:any )  {
-    const alertMessage = document.getElementById( "alertMessage" );
-    if( this.errorAPI==true || ( this.errorAPI==false &&  param.success=="false" ) ){
-      alertMessage.classList.add( "alert-danger" );
-      alertMessage.classList.remove( "visually-hidden" );
+  messageManagement(param: any) {
+    const alertMessage = document.getElementById('alertMessage');
+    if (
+      this.errorAPI == true ||
+      (this.errorAPI == false && param.success == 'false')
+    ) {
+      alertMessage.classList.add('alert-danger');
+      alertMessage.classList.remove('visually-hidden');
       this.errorMessage = param.message;
-
     } else {
-      alertMessage.classList.add( "alert-success" );
-      alertMessage.classList.remove( "visually-hidden", "alert-danger" );
-
+      alertMessage.classList.add('alert-success');
+      alertMessage.classList.remove('visually-hidden', 'alert-danger');
     }
   }
 }

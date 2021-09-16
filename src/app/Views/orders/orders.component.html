@@ -1,87 +1,103 @@
 <div class="container mt-5">
-    <div class="row">
-        <h2>Orders list</h2>
-    </div>
-    <div class="row">
-        <table class="table table-responsive-md mt-5 productTable align-middle">
-            <thead>
-                <tr>
-                    <th scope="col">Order ID</th>
-                    <th scope="col">Client Name</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                    <th scope="col"
-                        class="text-center">Options</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let elm of orders, let i = index">
-                    <td>{{elm.id}}</td>
-                    <td>{{elm.clientName}}</td>
-                    <td>{{elm.date | date:'dd-MM-yyy'}}</td>
-                    <td>199,99</td>
-                    <td>{{elm.status}}</td>
-                    <td class="text-center">
-                        <!-- Edit -->
-                        <button class="btn"
-                                (click)="goOrderDetail(elm.id)">
-                            <fa-icon class="mx-md-3"
-                                     [icon]="faEdit"
-                                     size="lg"
-                                     role="button"></fa-icon>
-                        </button>
+  <div class="row">
+    <h2>Orders list</h2>
+  </div>
+  <div class="row">
+    <table class="table table-responsive-md mt-5 productTable align-middle">
+      <thead>
+        <tr>
+          <th scope="col">Order ID</th>
+          <th scope="col">Client Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Price</th>
+          <th scope="col">Status</th>
+          <th scope="col" class="text-center">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; let i = index">
+          <td>{{ order.id }}</td>
+          <td>{{ order.clientName }}</td>
+          <td>{{ order.date | date: "dd-MM-yyy" }}</td>
+          <td>{{ order.price }}</td>
+          <td>{{ order.status }}</td>
 
-                        <!-- Delete -->
-                        <button type="button"
-                                class="btn"
-                                data-bs-toggle="modal"
-                                [attr.data-bs-target]="'#delete'+i">
-                            <fa-icon class="mx-md-3 deleteIcon"
-                                     [icon]="faTrashAlt"
-                                     size="lg"
-                                     role="button"></fa-icon>
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade"
-                             tabindex="-1"
-                             [id]="'delete'+i">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Confirm delete</h5>
-                                        <button type="button"
-                                                class="btn-close"
-                                                data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Delete order {{elm.id}}?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button"
-                                                class="btn appButton text-uppercase"
-                                                data-bs-dismiss="modal">No</button>
-                                        <button type="button"
-                                                data-bs-dismiss="modal"
-                                                class="btn btn-primary deleteButton text-uppercase"
-                                                (click)="confirmDelete(i)">Delete order</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="row my-5">
-        <div class="col text-end">
-            <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para 
+          <td class="text-center">
+            <!-- Edit -->
+            <button class="btn" (click)="goOrderDetail(order.id)">
+              <fa-icon
+                class="mx-md-3"
+                [icon]="faEdit"
+                size="lg"
+                role="button"
+              ></fa-icon>
+            </button>
+
+            <!-- Delete -->
+            <button
+              type="button"
+              class="btn"
+              data-bs-toggle="modal"
+              [attr.data-bs-target]="'#delete' + i"
+            >
+              <fa-icon
+                class="mx-md-3 deleteIcon"
+                [icon]="faTrashAlt"
+                size="lg"
+                role="button"
+              ></fa-icon>
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" tabindex="-1" [id]="'delete' + i">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Confirm delete</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Delete order {{ order.id }}?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn appButton text-uppercase"
+                      data-bs-dismiss="modal"
+                    >
+                      No
+                    </button>
+                    <button
+                      type="button"
+                      data-bs-dismiss="modal"
+                      class="btn btn-primary deleteButton text-uppercase"
+                      (click)="confirmDelete(i)"
+                    >
+                      Delete order
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row my-5">
+    <div class="col text-end">
+      <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para
             que la página de single product sepa si está en modo alta o mantenimiento  -->
-            <button (click)="goOrderDetail(0)"
-                    class="btn appButton">New Order</button>
-        </div>
+      <button (click)="goOrderDetail(0)" class="btn appButton">
+        New Order
+      </button>
     </div>
-    <pre>Mejor no eliminar el order existente pq todavía no se pueden crear orders nuevos desde front!!</pre>
+  </div>
+  <pre>
+Mejor no eliminar el order existente pq todavía no se pueden crear orders nuevos desde front!!</pre
+  >
 </div>

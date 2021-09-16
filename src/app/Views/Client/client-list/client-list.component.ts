@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { NgbPaginationEllipsis } from '@ng-bootstrap/ng-bootstrap';
 import { ClientsService } from 'src/app/Services/clients.service';
+import Swal from 'sweetalert2';
 import { Clients } from '../../../Models/clients';
 
 @Component({
@@ -19,6 +20,10 @@ export class ClientListComponent implements OnInit {
   totalPages: number;
   pageToGo: number;
   pagesArray: Array<number>;
+  success: string;
+  action: string;
+  errorAPI: boolean;
+  errorMessage: string;
 
   constructor(private clientsService: ClientsService,
     private router: Router) {
@@ -108,11 +113,31 @@ export class ClientListComponent implements OnInit {
   }
 
   //Función eliminar un cliente
-  delete(i: number) {
-    // const id = this.clients[i].id;
+  delete(i) {
+    const id = this.clients[i].id;
 
-    // this.clientsService.deleteClient(id)
-    //   .subscribe();
-    // this.clients.splice(i, 1);
+    this.clientsService.deleteClient(id)
+      .subscribe((response: any) => {
+        this.errorAPI = false;
+        this.success = response.success;
+        console.log(response);
+        Swal.fire({
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      },
+        (error) => {
+          this.errorAPI = true;
+          // console.log(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="#">Why do I have this issue?</a>'
+          })
+        });
+    this.clients.splice(i, 1);
   }
 }

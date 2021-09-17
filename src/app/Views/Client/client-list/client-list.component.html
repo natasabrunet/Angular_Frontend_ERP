@@ -12,14 +12,7 @@
       </button>
     </div>
   </div>
-  <!-- Alerta para confirmar al usuario que si se ha creado/modificado nuevo producto correctamente o ha habido algún error-->
-  <div id="alertMessage" class="alert alert-dismissible show visually-hidden fade mt-2" role="alert">
-    <p *ngIf="action == 'dlt' && (errorAPI || (!errorAPI && success == 'false'))">
-      {{ "Client.deleteErrorMessage" | translate }} <br />
-      {{ errorMessage }}
-    </p>
-    <button type="button" (click)="hiddeMessage()" class="btn-close"></button>
-  </div>
+
   <!-- Client data -->
   <div class="table-responsive mb-5">
     <table class="table align-middle">

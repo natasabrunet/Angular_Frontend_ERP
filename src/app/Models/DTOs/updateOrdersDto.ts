@@ -1,27 +1,25 @@
-export class OrderList {
-  id: number;
-  name: string;
-  created: number;
-  // date_created: string;
-  stock: number;
-  price: number;
-  status: string;
+export class updateOrderstDto {
+  static orderJson(obj: Object) {
+    return new updateOrderstDto(
+      obj['id'],
+      obj['name'],
+      obj['date:created'],
+      obj['price'],
+      obj['status']
+    );
+  }
+
+  public id: number;
+  public name: string;
+  public date_created: string;
+  public price: number;
+  public status: string;
 
   constructor(
     id: number,
     name: string,
-    created: number,
-    stock: number,
+    date_created: string,
     price: number,
     status: string
-  ) {
-    this.id = id;
-    this.name = name;
-    this.created = created;
-    this.stock = stock;
-    this.price = price;
-    this.status = status;
-  }
+  ) {}
 }
-
-// `${this.id} ${this.name} ${this.created}${this.stock} ${this.price}${this.status}`;

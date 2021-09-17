@@ -15,16 +15,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let order of orders; let i = index">
-          <td>{{ order.id }}</td>
-          <td>{{ order.clientName }}</td>
-          <td>{{ order.date | date: "dd-MM-yyy" }}</td>
-          <td>{{ order.price }}</td>
-          <td>{{ order.status }}</td>
-
+        <tr *ngFor="let elm of orders; let i = index">
+          <td>{{ elm.id }}</td>
+          <td>{{ elm.name }}</td>
+          <td>{{ elm.date_created }}</td>
+          <td>{{ elm.price }}</td>
+          <td>{{ elm.status }}</td>
           <td class="text-center">
             <!-- Edit -->
-            <button class="btn" (click)="goOrderDetail(order.id)">
+            <button class="btn" (click)="goOrderDetail(elm.id)">
               <fa-icon
                 class="mx-md-3"
                 [icon]="faEdit"
@@ -61,7 +60,7 @@
                     ></button>
                   </div>
                   <div class="modal-body">
-                    <p>Delete order {{ order.id }}?</p>
+                    <p>Delete order {{ elm.id }}?</p>
                   </div>
                   <div class="modal-footer">
                     <button
@@ -91,7 +90,7 @@
   <div class="row my-5">
     <div class="col text-end">
       <!-- Cuando demos de alta un nuevo producto, le pasaremos un ID = 0 que no debería de existir en la BBDD para
-            que la página de single product sepa si está en modo alta o mantenimiento  -->
+          que la página de single product sepa si está en modo alta o mantenimiento  -->
       <button (click)="goOrderDetail(0)" class="btn appButton">
         New Order
       </button>

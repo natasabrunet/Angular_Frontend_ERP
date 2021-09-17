@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
+
 import { OrdersService } from 'src/app/Services/orders.service';
-import { OrderList } from 'src/app/Models/DTOs/updateOrdersDto';
-import { Product } from '../../Models/DTOs/allupdateOrdersDto';
-import { identity } from 'rxjs';
 
 // falta implementar el translate
 
@@ -23,15 +21,15 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.ordersService.getAllOrders().subscribe((data: any) => {
       this.orders = data.object;
-      console.log(data.object[3]);
+      console.log(data.object);
     });
   }
 
   getListOrders() {
     this.ordersService.getAllOrders().subscribe(
       (data: any) => {
-        this.orders = data.object.keys();
-        // console.log(data.object.keys());
+        this.orders = data.object;
+        console.log(data.object.product.name);
       },
       (error) => {
         console.log(error);

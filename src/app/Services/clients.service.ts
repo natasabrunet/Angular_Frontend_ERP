@@ -7,10 +7,9 @@ import { UserSignUpDto } from '../Models/DTOs/newUserDto';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClientsService {
-
   url: string = 'http://217.76.158.200:8080';
   endPoint: string = '/api/clients';
   token: string;
@@ -27,24 +26,33 @@ export class ClientsService {
 
   getClients(amount: number, page: number) {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
 
-    return this.httpClient.get(`${this.url}${this.endPoint}/list/${amount}/${page}`, { headers });
+    return this.httpClient.get(
+      `${this.url}${this.endPoint}/list/${amount}/${page}`,
+      { headers }
+    );
   }
 
   getClientByID(id: string) {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
-    return (this.httpClient.get(`${this.url}${this.endPoint}/${id}`, { headers }));
+    return this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {
+      headers,
+    });
   }
 
   updateClient(client) {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
-    return this.httpClient.put(`${this.url}${this.endPoint}/${client.id}`, client, { headers });
+    return this.httpClient.put(
+      `${this.url}${this.endPoint}/${client.id}`,
+      client,
+      { headers }
+    );
   }
 
 

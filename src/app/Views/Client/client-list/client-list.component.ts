@@ -9,7 +9,7 @@ import { Clients } from '../../../Models/clients';
 @Component({
   selector: 'app-client-list',
   templateUrl: './client-list.component.html',
-  styleUrls: ['./client-list.component.scss']
+  styleUrls: ['./client-list.component.scss'],
 })
 export class ClientListComponent implements OnInit {
   //Icons
@@ -25,8 +25,7 @@ export class ClientListComponent implements OnInit {
   errorAPI: boolean;
   errorMessage: string;
 
-  constructor(private clientsService: ClientsService,
-    private router: Router) {
+  constructor(private clientsService: ClientsService, private router: Router) {
     this.currentPage = 1;
   }
 
@@ -34,13 +33,12 @@ export class ClientListComponent implements OnInit {
     this.goToPage(this.currentPage);
   }
 
-
   //Función para que se abra la página de single client
   goEditClient(id: number) {
     this.router.navigate(['/client-detail', id]);
   }
-  goNewClient(id: number) {
-    this.router.navigate(['/new-client', id]);
+  goNewClient() {
+    this.router.navigate(['/new-client']);
   }
 
   isLastPage() {
@@ -50,7 +48,6 @@ export class ClientListComponent implements OnInit {
   isFirstPage() {
     return this.currentPage == 1;
   }
-
 
   gotoNextPage(): boolean {
     let _pageNumber = this.currentPage + 1;
@@ -76,11 +73,16 @@ export class ClientListComponent implements OnInit {
       pageNumber = this.totalPages;
     }
 
-    this.clientsService.getClients(this.clientsService.clientsPerPage, pageNumber - 1) // -1 proque el paginador empieza en la página 0
+    this.clientsService
+      .getClients(this.clientsService.clientsPerPage, pageNumber - 1) // -1 proque el paginador empieza en la página 0
       .subscribe((data: any) => {
         this.currentPage = pageNumber;
         this.clients = data.clients_of_the_page;
-        this.totalPages = this.getTotalPages(data.total_clients, this.clientsService.clientsPerPage);
+        console.log(this.clients);
+        this.totalPages = this.getTotalPages(
+          data.total_clients,
+          this.clientsService.clientsPerPage
+        );
         this.setupArrayOfPages();
         this.pageToGo = null;
       });
@@ -105,13 +107,29 @@ export class ClientListComponent implements OnInit {
       }
       return this.pagesArray;
     }
-
   }
 
   numSequence(n: number): Array<number> {
     return Array(n);
   }
-
+  //Gestion de mensajes y errores para el usuario
+  messageManagement(param: any) {
+    const alertMessage = document.getElementById('alertMessage');
+    if (
+      this.errorAPI == true ||
+      (this.errorAPI == false && param.success == 'false')
+    ) {
+      alertMessage.classList.add('alert-danger');
+      alertMessage.classList.remove('visually-hidden');
+      this.errorMessage = param.message;
+    } else {
+      alertMessage.classList.add('alert-success');
+      alertMessage.classList.remove('visually-hidden', 'alert-danger');
+      if (this.action == 'add' || this.action == 'dlt') {
+        this.clients = [];
+      }
+    }
+  }
   //Función eliminar un cliente
   delete(i) {
     const id = this.clients[i].id;

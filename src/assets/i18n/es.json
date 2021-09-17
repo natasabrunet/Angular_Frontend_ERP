@@ -172,7 +172,9 @@
         "button-no": "No",
         "button-delete": "Borrar"
       }
-    }
+    },
+    "deleteOkMessage": "El cliente ha sido borrado correctament.",
+    "deleteErrorMessage": "El cliente no ha sido borrado. Por favor contacta con el equipo de IT."
   },
   "Employees-list": {
     "page-head": "Lista de empleados",

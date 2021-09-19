@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginService } from './login.service';
 import { Clients } from '../Models/clients';
 import { Observable } from 'rxjs';
+import { UserSignUpDto } from '../Models/DTOs/newUserDto';
+
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +14,7 @@ export class ClientsService {
   endPoint: string = '/api/clients';
   token: string;
   clientsPerPage: number = 5;
+
 
   constructor(
     private httpClient: HttpClient,
@@ -52,16 +55,19 @@ export class ClientsService {
     );
   }
 
+
   deleteClient(id: string) {
     const options = {
       headers: new HttpHeaders({
-        Authorization: this.token,
+        Authorization: this.token
       }),
       body: {
-        id: id,
-      },
+        id: id
+      }
     };
 
     return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
   }
 }
+
+

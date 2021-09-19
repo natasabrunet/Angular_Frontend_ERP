@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { NgbPaginationEllipsis } from '@ng-bootstrap/ng-bootstrap';
 import { ClientsService } from 'src/app/Services/clients.service';
+import Swal from 'sweetalert2';
 import { Clients } from '../../../Models/clients';
 
 @Component({
@@ -19,10 +20,10 @@ export class ClientListComponent implements OnInit {
   totalPages: number;
   pageToGo: number;
   pagesArray: Array<number>;
-  errorAPI: boolean;
-  errorMessage: string;
   success: string;
   action: string;
+  errorAPI: boolean;
+  errorMessage: string;
 
   constructor(private clientsService: ClientsService, private router: Router) {
     this.currentPage = 1;
@@ -130,29 +131,31 @@ export class ClientListComponent implements OnInit {
     }
   }
   //Función eliminar un cliente
-  delete(i: number) {
+  delete(i) {
     const id = this.clients[i].id;
-    this.clientsService.deleteClient(id).subscribe();
-    this.clients.splice(i, 1);
-    //Llamamos al servicio que accede a la API para eliminar un producto por ID
 
-    this.action = 'dlt';
-    this.clientsService.deleteClient(id).subscribe(
-      (response: any) => {
+    this.clientsService.deleteClient(id)
+      .subscribe((response: any) => {
         this.errorAPI = false;
         this.success = response.success;
-        this.messageManagement(response);
         console.log(response);
+        Swal.fire({
+          icon: 'success',
+          title: 'The client it"s been deleted',
+          showConfirmButton: false,
+          timer: 1500
+        })
       },
-      (errorServicio) => {
-        this.errorAPI = true;
-        this.messageManagement(errorServicio);
-        console.log(errorServicio);
-      }
-    );
-  }
-  hiddeMessage() {
-    const alertMessage = document.getElementById('alertMessage');
-    alertMessage.classList.add('visually-hidden');
+        (error) => {
+          this.errorAPI = true;
+          // console.log(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="#">Why do I have this issue?</a>'
+          })
+        });
+    this.clients.splice(i, 1);
   }
 }

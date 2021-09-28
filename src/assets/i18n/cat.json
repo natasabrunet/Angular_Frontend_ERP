@@ -190,6 +190,7 @@
       "updateOkMessage": "S'ha actualitzat correctament",
       "updateErrorMessage": "Ha ocorregut un error",
       "name": "Nom",
+      "surname": "Cognom",
       "salary": "Sou",
       "total-sellings": "Total de vendes",
       "orders-attended": "Comandes ateses",

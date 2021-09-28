@@ -5,12 +5,12 @@ import { delay } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { I_ShoppingCartItem } from '../../../Models/shoppingCartItem';
 import { ShoppingCartService } from '../../../Services/shopping-cart.service';
-
+import { Product } from 'src/app/Models/Product';
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.scss']
+  styleUrls: ['./shopping-cart.component.scss'],
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
   @Input() iconClass: string = 'text-erp-black';
@@ -20,24 +20,29 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   faTrashAlt = faTrashAlt;
   faShoppingCart = faShoppingCart;
 
-  public cartItems: I_ShoppingCartItem[] = [];
+  public cartItems: Product[] = [];
   public cartTotal: number = 0;
+  items = this.shoppingCartService.getItems();
 
   // To unsubscribe from ngOnDestroy
   public cartSubscription: Subscription;
 
-  constructor(public shoppingCartService: ShoppingCartService, private route: Router) { 
-  }
+  constructor(
+    public shoppingCartService: ShoppingCartService,
+
+    private route: Router
+  ) {}
 
   ngOnInit(): void {
     // Subscription to the cart update observable
     this.cartSubscription = this.shoppingCartService.cartUpdated
       .pipe(delay(100))
-      .subscribe(id => { 
+      .subscribe((id) => {
         this.cartTotal = this.shoppingCartService.cartTotal;
         this.cartItems = this.shoppingCartService.cartItems;
       });
     this.loadCartItems();
+    console.log(this.cartItems);
   }
 
   ngOnDestroy(): void {
@@ -48,10 +53,11 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.cartTotal = this.shoppingCartService.cartTotal;
     this.cartItems = this.shoppingCartService.cartItems;
   }
-  
-  updateItemTotal(i:number) {
+
+  updateItemTotal(i: number) {
     let item = this.cartItems[i];
-    if(item.quantity < 0){
+    console.log(item.quantity);
+    if (item.quantity < 0) {
       item.quantity = 1;
       console.log(item);
     }
@@ -59,7 +65,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.shoppingCartService.updateItem(item);
   }
 
-  removeItem(i:number) {
+  removeItem(i: number) {
     let item = this.cartItems[i];
     this.shoppingCartService.removeItem(item);
     this.cartItems.splice(i, 1);
@@ -72,15 +78,14 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     }
   }
 
-  checkoutRoute(){
+  checkoutRoute() {
     this.route.navigate(['checkout']);
   }
 
-  validateQty(qty){
-    if(qty.value < 0){
+  validateQty(qty) {
+    if (qty.value < 0) {
       qty.value = 1;
       console.log(qty);
     }
   }
-
 }

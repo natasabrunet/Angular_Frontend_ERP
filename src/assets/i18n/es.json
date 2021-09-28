@@ -189,6 +189,7 @@
         "updateOkMessage": "Se ha actualizado correctamente",
         "updateErrorMessage": "Ha ocurrido un error",
         "name": "Nombre",
+        "surname": "Apellido",
         "salary": "Sueldo",
         "total-sellings": "Total de ventas",
         "orders-attended": "Pedidos atendidos",

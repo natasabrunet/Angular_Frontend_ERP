@@ -187,6 +187,7 @@
         "employee-detail": "Employee detail",
         "new-employee": "New Employee",
         "name": "Name",
+        "surname": "Surname",
         "email": "Email",
         "salary": "Salary",
         "dni": "DNI",

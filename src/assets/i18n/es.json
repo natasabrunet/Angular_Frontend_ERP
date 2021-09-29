@@ -290,5 +290,28 @@
   "products": "productos",
   "employee": "empleado",
   "employees": "empleados",
-  "clock": "horario"
+  "clock": "horario",
+
+  "contact-page":{
+    "page-head":"Contacta con nosotr@s!",
+    "form":{
+      "title": "Tienes algo que decir?",
+      "name":"Nombre",
+      "email":"Correo electrónico",
+      "message":"Mensaje",
+      "news-letter":"Me gustaria recibir vuestro news letter",
+      "terms":"He leído y acepto los terminos y condiciones",
+      "button": "Enviar!"
+    },
+    "error":{
+      "name-missing":"Introduzca su nombre" ,
+      "name-minlength": "El nombre tiene que contener mínimo 2 carácteres",
+      "email-missing": "Introduzca su correo electrónico",
+      "email-invalid": "Introduzca un correo electrónico válido",
+      "message-missing": "Que quiere hacernos llegar? Introduzca su mensaje",
+      "message-maxlength":"El mensaje no puede tener más de 500 carácteres",
+      "terms-missing": "Los términos y condiciones deben ser acceptados"
+    }
+  }
+
 }

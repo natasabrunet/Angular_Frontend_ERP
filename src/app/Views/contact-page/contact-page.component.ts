@@ -7,7 +7,15 @@
  *     - Leaflet styles in "styles" section
  */
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  Validators} from '@angular/forms';
+import { translate } from '@angular/localize/src/translate';
+import { AppComponent } from 'src/app/app.component';
 import * as L from 'leaflet';
+
 
 // Must include Leaflet assets and styles in "angular.json"
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -31,6 +39,9 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./contact-page.component.scss']
 })
 export class ContactPageComponent implements OnInit, AfterViewInit {
+  constructor(private fb:FormBuilder, public appComponent:AppComponent) {
+    this.langs = appComponent.langs
+   }
   private map;
   private itAcademyMarker = {
     "type": "Feature",
@@ -42,10 +53,35 @@ export class ContactPageComponent implements OnInit, AfterViewInit {
       "name": "IT Academy"
     }
   }
-
-  constructor() { }
+  FormNotLogged: FormGroup = new FormGroup({
+    Sender: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    Email: new FormControl('',[Validators.required, Validators.email]),
+    Message: new FormControl('',[Validators.required, Validators.maxLength(500)]),
+    SubscribeNewsLetter: new FormControl(false),
+    Terms: new FormControl(false,[Validators.required, Validators.requiredTrue])
+  })
+  langs:string[]=[]
+get Sender(){return this.FormNotLogged.get('Sender')}
+get Email(){return this.FormNotLogged.get('Email')}
+get Message(){return this.FormNotLogged.get('Message')}
+get Terms(){return this.FormNotLogged.get('Terms')}
+  
 
   ngOnInit(): void {
+  }
+
+  
+  isValidInput(data:string):boolean{
+    const input:any = this.FormNotLogged.get(data)
+    return input.touched && input.invalid
+  }
+  onSubmit(e:Event, formdata:any):void{
+    if(this.FormNotLogged.valid){
+      console.log(formdata)
+    }
+  }
+  changeLanguage(lang: string) {
+    this.appComponent.changeLang(lang)
   }
   ngAfterViewInit(): void {
     this.initMap();

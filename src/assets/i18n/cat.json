@@ -290,5 +290,27 @@
   "products": "productes",
   "employee": "empleat",
   "employees": "empleats",
-  "clock": "horari"
+  "clock": "horari",
+
+  "contact-page":{
+    "page-head":"Contacta amb nosaltres!",
+    "form":{
+      "title": "Tens algo per dir-nos?",
+      "name":"Nom",
+      "email":"Correu electrònic",
+      "message":"Missatge",
+      "news-letter":"M'agradaria rebre el vostre news letter",
+      "terms":"He llegit i estic dacord amb els termes i les condicions",
+      "button": "Enviar!"
+    },
+    "error":{
+      "name-missing":"Introdueixi el seu nom" ,
+      "name-minlength": "El nom ha de contenir com a mínim 2 caràcters",
+      "email-missing": "Introdueixi el seu correu electrònic",
+      "email-invalid": "Introdueixi un correu electrònic vàlid",
+      "message-missing": "Què vol fer-nos saber? Introdueixi el missatge",
+      "message-maxlength":"El missatge no pot excedir els 500 caràcters",
+      "terms-missing": "Els termes i les condicions han de ser acceptades"
+    }
+  }
 }

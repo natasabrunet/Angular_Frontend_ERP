@@ -1,0 +1,34 @@
+<div class="shopping-cart">
+  <div class="shopping-cart-items">
+    <img
+      class="item-image"
+      src="../../assets/images/products.jpg"
+      [alt]="cartItem.name"
+    />
+    <span class="item-name">{{ cartItem.name }}</span> x
+    <!-- <span class="item.quantity">{{ cartItem.quantity }}</span> -->
+    <span class="item-quantity">
+      <input
+        type="number"
+        id="quantity"
+        value="{{ cartItem.quantity }}"
+        min="1"
+        [(ngModel)]="cartItem.quantity"
+    /></span>
+    <strong class="item-price">{{ cartItem.price | currency: "EUR" }}</strong>
+    <span class="item-removal">
+      <button class="btn btn-xs" (click)="removeItem()">
+        <fa-icon
+          class="mx-md-3 deleteIcon"
+          [icon]="faTrashAlt"
+          size="md"
+          title="remove"
+          role="button"
+        ></fa-icon>
+      </button>
+    </span>
+    <span class="item-line-price text-highlight"
+      >{{ cartItem.price * cartItem.quantity | number: "1.2-2" }} €</span
+    >
+  </div>
+</div>

@@ -10,6 +10,7 @@ export class ShoppingCartService {
   public cart = [];
   sesionCartName = 'erpCart';
   items: Product[] = [];
+  qty: number = 0;
 
   // Observable: used to emit a string (e.g.: item id) when the cart is updated (e.g.: used in "shopping-cart.component.ts")
   public cartUpdated: EventEmitter<number> = new EventEmitter<number>();
@@ -35,14 +36,28 @@ export class ShoppingCartService {
     return total;
   }
 
-  addItem(product: Product) {
+  addItem(product: any) {
+    let productExists = false;
+    let quantity = 1;
+
+    for (let i in this.cartItems) {
+      if (this.items[i].id === product.id) {
+        this.items[i].quantity++;
+        productExists = true;
+        break;
+      }
+    }
+
+    if (!productExists) {
+      this.items.push(product);
+    }
     // this.items.push(product);
     // this.cart = this.cartItems;
     // this.cart.find((product) => {
     //   if (product.id == itemToAdd.id) {
     //     product.quantity + itemToAdd.quantity;
     //   } else {
-    this.items.push(product);
+    // this.items.push(product);
     //   }
     // });
     this.saveSessionStorage(this.items);

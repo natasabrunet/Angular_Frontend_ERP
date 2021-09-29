@@ -58,6 +58,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // popUps UI/UX answers
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CartItemComponent } from './Components/header/shopping-cart/cart-item/cart-item.component';
+import { ProductItemComponent } from './Views/Product/products-without-session/product-item/product-item.component';
 
 registerLocaleData(localeESP);
 
@@ -95,6 +97,8 @@ registerLocaleData(localeESP);
     CheckoutComponent,
     ClientContactComponent,
     ProfileComponent,
+    CartItemComponent,
+    ProductItemComponent,
   ],
 
   imports: [

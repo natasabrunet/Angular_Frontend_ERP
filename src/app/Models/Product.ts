@@ -15,7 +15,7 @@ export class Product {
     name: string,
     stock: number,
     price: number,
-    image: string,
+    image: '../../assets/images/products.jpg',
     vat: number,
     wholesale_price: number,
     wholesale_quantity: number,

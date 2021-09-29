@@ -20,7 +20,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   faTrashAlt = faTrashAlt;
   faShoppingCart = faShoppingCart;
 
-  public cartItems: Product[] = [];
+  public cartItems = [];
   public cartTotal: number = 0;
   items = this.shoppingCartService.getItems();
 
@@ -57,7 +57,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   updateItemTotal(i: number) {
     let item = this.cartItems[i];
     console.log(item.quantity);
-    if (item.quantity < 0) {
+    if (!item.quantity) {
       item.quantity = 1;
       console.log(item);
     }

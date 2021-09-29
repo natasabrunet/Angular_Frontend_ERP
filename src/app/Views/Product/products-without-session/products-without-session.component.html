@@ -9,58 +9,8 @@
         let i = index
       "
     >
+      <app-product-item [productItem]="product"></app-product-item>
       <!-- <a href="goDetailProduct(product.id)"><img *ngIf="product.image> 0" [src]="product.image" class="img-fluid w-100" alt="product image"></a>-->
-      <a href="#"
-        ><img
-          src="../../assets/images/products.jpg"
-          class="img-fluid w-100"
-          alt="product image"
-      /></a>
-      <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <div class="row justify-content-center align-items-center text-center">
-          <div class="row">
-            <p *ngIf="product.description" class="price-text">
-              {{ product.description }}
-            </p>
-          </div>
-          <div class="row">
-            <div class="col">
-              <p class="price-text">
-                {{ product.price | currency: "EUR" | translate }}
-              </p>
-            </div>
-            <div class="col">
-              <p class="second-price-text">
-                {{ product.wholesale_price | currency: "EUR" | translate }}
-              </p>
-              <span class="units-text"
-                >from {{ product.wholesale_quantity }} units</span
-              >
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <!-- <a href="addProductCard(product.id)" (click)="addProductCart()" class="btn btn-erp-blue text-erp-white">ADD TO CART</a> -->
-              <a
-                (click)="addToCart(product)"
-                class="btn btn-erp-blue text-erp-white"
-                >{{ "btn.add-to-cart" | translate }}</a
-              >
-            </div>
-            <div class="col">
-              <!-- <a href="addProductWholesaleCard(product.id)" (click)="addProductWholesaleCart(product)" class="btn btn-erp-blue text-erp-white btn-second">ADD TO CART</a> -->
-              <a
-                href="#"
-                (click)="addProductWholesaleCart(product)"
-                class="btn btn-erp-blue text-erp-white btn-second"
-                >{{ "btn.add-to-cart" | translate }}</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="row text-center mt-5 mb-3">

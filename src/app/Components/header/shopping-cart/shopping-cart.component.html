@@ -39,8 +39,10 @@
           </div>
           <!-- /.shopping-cart-header -->
           <ul class="shopping-cart-items">
-            <li *ngFor="let item of cartItems; let i = index" class="clearfix">
-              <img src="../../assets/images/products.jpg" [alt]="item.name" />
+            <li *ngFor="let item of cartItems" class="clearfix">
+              <app-cart-item [cartItem]="item"></app-cart-item>
+            </li>
+            <!-- <img src="../../assets/images/products.jpg" [alt]="item.name" />
               <span class="item-name">{{ item.name }}</span>
               <span class="item-price"
                 >{{ item.price | number: "1.2-2" }} €</span
@@ -49,13 +51,13 @@
                 <input
                   type="number"
                   id="quantity"
-                  value="{{ cartItems[i].quantity }}"
+                  value="{{ item.quantity }}"
                   min="1"
-                  [(ngModel)]="cartItems[i].quantity"
+                   [(ngModel)]="item.quantity"
                   (ngModelChange)="updateItemTotal(i)"
-                />
-              </span>
-              <span class="item-removal">
+                /> -->
+            <!-- </span>  -->
+            <!-- <span class="item-removal">
                 <button class="btn btn-xs" (click)="removeItem(i)">
                   <fa-icon
                     class="mx-md-3 deleteIcon"
@@ -69,7 +71,7 @@
               <span class="item-line-price text-highlight"
                 >{{ item.total | number: "1.2-2" }} €</span
               >
-            </li>
+            </li> -->
             <!--
                     <li class="clearfix">
                         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item2" />
@@ -104,7 +106,9 @@
                         </span>
                         <span class="item-line-price text-highlight">129,99 €</span>
                     </li> -->
+            <!-- </li> -->
           </ul>
+
           <!-- /.shopping-cart-items -->
 
           <div class="shopping-cart-buttons">

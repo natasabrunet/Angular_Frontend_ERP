@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faTrashAlt, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { ShoppingCartService } from '../../../../Services/shopping-cart.service';
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
@@ -16,7 +17,5 @@ export class CartItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  removeItem() {
-    alert: 'deleting...';
-  }
+  removeItem(item) {}
 }

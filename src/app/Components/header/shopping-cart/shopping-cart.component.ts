@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { I_ShoppingCartItem } from '../../../Models/shoppingCartItem';
 import { ShoppingCartService } from '../../../Services/shopping-cart.service';
 import { Product } from 'src/app/Models/Product';
+import { ProductEmitterService } from '../../../Services/product-emitter.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -22,18 +23,22 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   public cartItems = [];
   public cartTotal: number = 0;
-  items = this.shoppingCartService.getItems();
 
   // To unsubscribe from ngOnDestroy
   public cartSubscription: Subscription;
 
   constructor(
-    public shoppingCartService: ShoppingCartService,
-
-    private route: Router
+    public ProductEmitterService: ProductEmitterService,
+    private route: Router,
+    public shoppingCartService: ShoppingCartService
   ) {}
 
   ngOnInit(): void {
+    this.ProductEmitterService.getDataProduct().subscribe(
+      (product: Product) => {
+        this.addProductToCart(product);
+      }
+    );
     // Subscription to the cart update observable
     this.cartSubscription = this.shoppingCartService.cartUpdated
       .pipe(delay(100))
@@ -43,6 +48,31 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       });
     this.loadCartItems();
     console.log(this.cartItems);
+  }
+  addProductToCart(product: Product) {
+    let productExists = false;
+
+    for (let i in this.cartItems) {
+      if (this.cartItems[i].productId === product.id) {
+        this.cartItems[i].quantity++;
+        productExists = true;
+        break;
+      }
+    }
+
+    if (!productExists) {
+      this.cartItems.push({
+        productId: product.id,
+        name: product.name,
+        quantity: 1,
+        price: product.price,
+      });
+    }
+
+    this.cartTotal = 0;
+    this.cartItems.forEach((item) => {
+      this.cartTotal += item.quantity * item.price;
+    });
   }
 
   ngOnDestroy(): void {
@@ -65,10 +95,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.shoppingCartService.updateItem(item);
   }
 
-  removeItem(i: number) {
-    let item = this.cartItems[i];
-    this.shoppingCartService.removeItem(item);
-    this.cartItems.splice(i, 1);
+  removeItem(itemToRemove: any) {
+    this.cartItems = this.cartItems.filter((cartItem) => {
+      return cartItem.id !== itemToRemove.id;
+    });
   }
 
   // Prevent DropDown from closing if the shopping cart is NOT empty
@@ -83,7 +113,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   validateQty(qty) {
-    if (qty.value < 0) {
+    if (!qty.value) {
       qty.value = 1;
       console.log(qty);
     }

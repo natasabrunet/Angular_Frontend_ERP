@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/Product';
 
+import { ProductEmitterService } from '../../../../Services/product-emitter.service';
+
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
@@ -8,11 +10,14 @@ import { Product } from 'src/app/Models/Product';
 })
 export class ProductItemComponent implements OnInit {
   @Input() productItem: Product;
-  constructor() {}
+  constructor(private ProductEmitterService: ProductEmitterService) {}
 
   ngOnInit(): void {}
+
+  //This emit the product
   addToCart() {
-    alert('adding product');
+    this.ProductEmitterService.SendDataProduct(this.productItem);
+    console.log(this.productItem);
   }
   addProductWholesaleCart() {
     alert('adding product');

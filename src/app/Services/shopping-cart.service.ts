@@ -1,7 +1,8 @@
 import { EventEmitter, Injectable } from '@angular/core';
 // import { I_ShoppingCartItem } from '../Models/shoppingCartItem';
 import { Product } from '../Models/Product';
-import { ProductNoSessionService } from './product-no-session.service';
+
+import { ProductEmitterService } from './product-emitter.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,22 +10,21 @@ import { ProductNoSessionService } from './product-no-session.service';
 export class ShoppingCartService {
   public cart = [];
   sesionCartName = 'erpCart';
-  items: Product[] = [];
-  qty: number = 0;
+  cartItems: any[];
+  quantity: number = 0;
 
   // Observable: used to emit a string (e.g.: item id) when the cart is updated (e.g.: used in "shopping-cart.component.ts")
   public cartUpdated: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() {
-    this.items = this.cartItems;
+  constructor(public ProductEmitterService: ProductEmitterService) {
     // TODO: Remove this "if" and the "createDummyItems" function
     // if (this.cart.length === 0) {
     //   this.createDummyItems();
     // }
-    this.saveSessionStorage(this.items);
+    this.saveSessionStorage(this.cartItems);
   }
 
-  get cartItems() {
+  get carts() {
     return JSON.parse(this.getSessionCart()) || [];
   }
 
@@ -38,18 +38,20 @@ export class ShoppingCartService {
 
   addItem(product: any) {
     let productExists = false;
-    let quantity = 1;
+    if (productExists == false) {
+      let quantity = 1;
+    }
 
     for (let i in this.cartItems) {
-      if (this.items[i].id === product.id) {
-        this.items[i].quantity++;
+      if (this.cartItems[i].id === product.id) {
+        this.cartItems[i].quantity++;
         productExists = true;
         break;
       }
     }
 
     if (!productExists) {
-      this.items.push(product);
+      this.cartItems.push(product);
     }
     // this.items.push(product);
     // this.cart = this.cartItems;
@@ -60,35 +62,35 @@ export class ShoppingCartService {
     // this.items.push(product);
     //   }
     // });
-    this.saveSessionStorage(this.items);
+    this.saveSessionStorage(this.cartItems);
     // Emit cart update observable
     this.cartUpdated.emit(product.id);
   }
   getItems() {
-    return this.items;
+    return this.cartItems;
   }
 
   clearCart() {
-    this.items = [];
-    return this.items;
+    this.cartItems = [];
+    return this.cartItems;
   }
 
   updateItem(itemToUpdate: any) {
-    this.items = this.cartItems.map((cartItem) => {
+    this.cartItems = this.cartItems.map((cartItem) => {
       return cartItem.id === itemToUpdate.id ? itemToUpdate : cartItem;
     });
 
     this.saveSessionStorage(this.cart);
-    // Emit cart update observable
+    //  Emit cart update observable
     this.cartUpdated.emit(itemToUpdate.id);
   }
 
   removeItem(itemToRemove: any) {
-    this.items = this.items.filter((cartItem) => {
+    this.cartItems = this.cartItems.filter((cartItem) => {
       return cartItem.id !== itemToRemove.id;
     });
 
-    this.saveSessionStorage(this.items);
+    this.saveSessionStorage(this.cartItems);
     // Emit cart update observable
     this.cartUpdated.emit(itemToRemove.id);
   }
@@ -96,13 +98,13 @@ export class ShoppingCartService {
   // If the sessionStorage item doesn't existe, it will create it
   getSessionCart() {
     if (sessionStorage.getItem(this.sesionCartName) == null) {
-      this.saveSessionStorage(this.items);
+      this.saveSessionStorage(this.cartItems);
     }
     return sessionStorage.getItem(this.sesionCartName);
   }
 
   saveSessionStorage(cart: any) {
-    sessionStorage.setItem(this.sesionCartName, JSON.stringify(this.items));
+    sessionStorage.setItem(this.sesionCartName, JSON.stringify(this.cartItems));
   }
 
   clearSessionStorage() {

@@ -13,20 +13,16 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
   styleUrls: ['./products-without-session.component.scss'],
 })
 export class ProductsWithoutSessionComponent implements OnInit {
-  products: any[];
+  products: Product[];
 
   public page: number;
 
-  productsCart: number = 0;
-  cart = Array();
-  showCart;
-  productWholesaleCard: number;
+  // productsCart: number = 0;
+  // cart = Array();
+  // showCart;
+  // productWholesaleCard: number;
 
-  constructor(
-    private ProductNoSessionService: ProductNoSessionService,
-    private ShoppingCartService: ShoppingCartService,
-    private router: Router
-  ) {}
+  constructor(private ProductNoSessionService: ProductNoSessionService) {}
 
   ngOnInit(): void {
     this.ProductNoSessionService.getProducts().subscribe(
@@ -39,12 +35,10 @@ export class ProductsWithoutSessionComponent implements OnInit {
     );
   }
 
-  goDetailProduct(id: number) {
-    this.router.navigate(['/detail-product', id]);
-  }
-  addToCart(product: Product) {
-    this.ShoppingCartService.addItem(product);
-  }
+  // goDetailProduct(id: number) {
+  //   this.router.navigate(['/detail-product', id]);
+  // }
+
   // addProductCart(product) {
   //   this.showCart = <HTMLInputElement>(
   //     document.getElementById('showProductsCard')
@@ -54,7 +48,7 @@ export class ProductsWithoutSessionComponent implements OnInit {
   //   console.log(this.cart);
   // }
 
-  addProductWholesaleCart(product) {
-    this.ShoppingCartService.addItem(product);
-  }
+  // addProductWholesaleCart(product) {
+  //   this.ShoppingCartService.addItem(product);
+  // }
 }

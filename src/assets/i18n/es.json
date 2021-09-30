@@ -235,7 +235,8 @@
     "navbar-products": "Productos",
     "navbar-contact": "Contacto",
     "navbar-login": "Entrar",
-    "navbar-signup": "Registrarse"
+    "navbar-signup": "Registrarse",
+    "navbar-terms": "Términos y condiciones"
   },
 
   "about": {
@@ -290,5 +291,10 @@
   "products": "productos",
   "employee": "empleado",
   "employees": "empleados",
-  "clock": "horario"
+  "clock": "horario",
+
+  "terms": {
+    "text-1":"Un acuerdo de Condiciones Generales recoge las condiciones que los visitantes deben aceptar si desean interactuar con el sitio web. Básicamente, si el visitante sigue utilizando el sitio web después de aceptar las Condiciones Generales, estará suscribiendo un contrato con usted.",
+    "text-2": "A diferencia de las Políticas de Privacidad, no está legalmente obligado a tener un acuerdo de Condiciones Generales. Sin embargo, existen muchos motivos por los que debería redactar uno y publicarlo en su sitio web."
+  }
 }

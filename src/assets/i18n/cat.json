@@ -239,6 +239,22 @@
         "text-2": "¡No hem pogut trobar aquesta pàgina!",
         "btn-goBack": "Torna"
     },
+    "Offers":{
+      "page-head": "Llista d'Ofertes",
+      "delete": "Eliminar",
+      "update": "Actualitzar",
+      "id": "Id Oferta",
+      "discount": "Descompte",
+      "paid_quantity": "Quantitat Pagada",
+      "free_quantity": "Quantitat Lliure",
+      "start_date": "Data Inici",
+      "end_date": "Data Fin",
+      "description": "Descripció Promoció",
+      "new_Offer": "Crear nova Oferta",
+      "previous": "Anterior",
+      "next": "Següent",
+      "search": "Escriu per buscar"
+    },
     "client": "client",
     "clients": "clients",
     "order": "comanda",

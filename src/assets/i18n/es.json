@@ -239,6 +239,22 @@
         "text-2": "¡No pudimos encontrar esa página!",
         "btn-goBack": "Ir atras!"
     },
+    "Offers":{
+      "page-head": "Lista de Ofertas",
+      "delete": "Eliminar",
+      "update": "Actualizar",
+      "id": "Id Oferta",
+      "discount": "Descuento",
+      "paid_quantity": "Cantidad Pagada",
+      "free_quantity": "Cantidad Libre",
+      "start_date": "Fecha Inicio",
+      "end_date": "Fecha Fin",
+      "description": "Descripción Promoción",
+      "new_Offer": "Crear Nueva Oferta",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "search": "Escribe para buscar"
+    },
 
     "client": "cliente",
     "clients": "clientes",

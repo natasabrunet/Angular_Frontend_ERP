@@ -15,16 +15,19 @@ height: 100%;
 .map {
     min-height: 200px;
 }
-.center-contact-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.contact-form-btn{
-    background-color: #4e78bb;
-    color: #fff;
-    font-weight: 500;
-}
-.form-check-input{
-    margin-right: 5px;
+form{
+    margin-bottom: 100px;
+    .center-contact-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-form-btn{
+        background-color: #4e78bb;
+        color: #fff;
+        font-weight: 500;
+    }
+    .form-check-input{
+        margin-right: 5px;
+    }
 }

@@ -295,21 +295,21 @@
   "contact-page":{
     "page-head":"Contact us!",
     "form":{
-      "title": "Anything to say?",
+      "title": "Any doubt?",
       "name":"Name",
       "email":"Email",
       "message":"Message",
-      "news-letter":"I would like to receive the news letter",
-      "terms":"I've read and I am agree with the terms and conditions",
+      "news-letter":"I would like to receive the newsletter",
+      "terms":"I've read and I agree with the terms and conditions",
       "button": "Send!" 
     },
     "error":{
       "name-missing":"Your name is required" ,
-      "name-minlength": "Name must be at least 2 characters long",
+      "name-minlength": "The name must be at least 2 characters long",
       "email-missing": "Your email is required",
       "email-invalid": "Insert a valid email please",
-      "message-missing": "what do you want to tell us? Insert your message",
-      "message-maxlength":"Message can not exceed 500 characters",
+      "message-missing": "What do you want to tell us? Insert your message",
+      "message-maxlength":"The message cannot exceed 500 characters",
       "terms-missing": "Terms and conditions must be accepted"
     }
   }

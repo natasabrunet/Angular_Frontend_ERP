@@ -295,12 +295,12 @@
   "contact-page":{
     "page-head":"Contacta amb nosaltres!",
     "form":{
-      "title": "Tens algo per dir-nos?",
+      "title": "Algun dubte?",
       "name":"Nom",
       "email":"Correu electrònic",
       "message":"Missatge",
-      "news-letter":"M'agradaria rebre el vostre news letter",
-      "terms":"He llegit i estic dacord amb els termes i les condicions",
+      "news-letter":"M'agradaria rebre el vostre newsletter",
+      "terms":"He llegit i estic d'acord amb els termes i les condicions",
       "button": "Enviar!"
     },
     "error":{

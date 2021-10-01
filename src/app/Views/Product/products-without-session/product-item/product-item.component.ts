@@ -17,7 +17,6 @@ export class ProductItemComponent implements OnInit {
   //This emit the product
   addToCart() {
     this.ProductEmitterService.SendDataProduct(this.productItem);
-    console.log(this.productItem);
   }
   addProductWholesaleCart() {
     alert('adding product');

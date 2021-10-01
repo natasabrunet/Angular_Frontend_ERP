@@ -14,10 +14,11 @@
         value="{{ cartItem.quantity }}"
         min="0"
         [(ngModel)]="cartItem.quantity"
+        (ngModelChange)="sendItemQuantity(cartItem.quantity)"
     /></span>
     <strong class="item-price">{{ cartItem.price | currency: "EUR" }}</strong>
     <span class="item-removal">
-      <button class="btn btn-xs" (click)="removeItem(cartItem)">
+      <button class="btn btn-xs" (click)="sendItemToRemove(cartItem)">
         <fa-icon
           class="mx-md-3 deleteIcon"
           [icon]="faTrashAlt"

@@ -40,7 +40,11 @@
           <!-- /.shopping-cart-header -->
           <ul class="shopping-cart-items">
             <li *ngFor="let item of cartItems" class="clearfix">
-              <app-cart-item [cartItem]="item"></app-cart-item>
+              <app-cart-item
+                [cartItem]="item"
+                (removeAction)="removeItem($event)"
+                (newItemEvent)="updateQuantity($event)"
+              ></app-cart-item>
             </li>
             <!-- <img src="../../assets/images/products.jpg" [alt]="item.name" />
               <span class="item-name">{{ item.name }}</span>

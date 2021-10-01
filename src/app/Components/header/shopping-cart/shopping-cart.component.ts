@@ -1,4 +1,10 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { faTrashAlt, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
@@ -23,7 +29,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   public cartItems = [];
   public cartTotal: number = 0;
-
+  sesionCartName = 'erpCart';
+  public cartUpdated: EventEmitter<number> = new EventEmitter<number>();
   // To unsubscribe from ngOnDestroy
   public cartSubscription: Subscription;
 
@@ -31,7 +38,9 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     public ProductEmitterService: ProductEmitterService,
     private route: Router,
     public shoppingCartService: ShoppingCartService
-  ) {}
+  ) {
+    this.saveSessionStorage(this.cartItems);
+  }
 
   ngOnInit(): void {
     this.ProductEmitterService.getDataProduct().subscribe(
@@ -55,6 +64,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     for (let i in this.cartItems) {
       if (this.cartItems[i].productId === product.id) {
         this.cartItems[i].quantity++;
+
         productExists = true;
         break;
       }
@@ -70,9 +80,14 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     }
 
     this.cartTotal = 0;
+
     this.cartItems.forEach((item) => {
       this.cartTotal += item.quantity * item.price;
     });
+    this.saveSessionStorage(this.cartItems);
+    // Emit cart update observable
+    // this.cartUpdated.emit(product.id);
+    // console.log(this.cartUpdated);
   }
 
   ngOnDestroy(): void {
@@ -80,25 +95,34 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   loadCartItems() {
-    this.cartTotal = this.shoppingCartService.cartTotal;
-    this.cartItems = this.shoppingCartService.cartItems;
+    this.cartTotal;
+    this.cartItems;
   }
 
   updateItemTotal(i: number) {
     let item = this.cartItems[i];
-    console.log(item.quantity);
+
     if (!item.quantity) {
       item.quantity = 1;
       console.log(item);
     }
     item.total = item.quantity * item.price;
-    this.shoppingCartService.updateItem(item);
   }
-
-  removeItem(itemToRemove: any) {
-    this.cartItems = this.cartItems.filter((cartItem) => {
-      return cartItem.id !== itemToRemove.id;
+  updateItem(itemToUpdate: any) {
+    this.cartItems = this.cartItems.map((cartItem) => {
+      return cartItem.id === itemToUpdate.id ? itemToUpdate : cartItem;
     });
+
+    this.saveSessionStorage(this.cartItems);
+    //  Emit cart update observable
+    // this.cartUpdated.emit(itemToUpdate.id);
+    // console.log(itemToUpdate.id);
+  }
+  removeItem(itemToRemove: any) {
+    this.cartItems.splice(itemToRemove, 1);
+  }
+  updateQuantity(qty: number): number {
+    return qty;
   }
 
   // Prevent DropDown from closing if the shopping cart is NOT empty
@@ -117,5 +141,20 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       qty.value = 1;
       console.log(qty);
     }
+  }
+  // If the sessionStorage item doesn't existe, it will create it
+  getSessionCart() {
+    if (sessionStorage.getItem(this.sesionCartName) == null) {
+      this.saveSessionStorage(this.cartItems);
+    }
+    return sessionStorage.getItem(this.sesionCartName);
+  }
+
+  saveSessionStorage(cart: any) {
+    sessionStorage.setItem(this.sesionCartName, JSON.stringify(this.cartItems));
+  }
+
+  clearSessionStorage() {
+    sessionStorage.removeItem(this.sesionCartName);
   }
 }

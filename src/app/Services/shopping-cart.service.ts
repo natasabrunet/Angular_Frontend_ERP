@@ -21,7 +21,7 @@ export class ShoppingCartService {
     // if (this.cart.length === 0) {
     //   this.createDummyItems();
     // }
-    this.saveSessionStorage(this.cartItems);
+    // this.saveSessionStorage(this.cartItems);
   }
 
   get carts() {
@@ -36,36 +36,36 @@ export class ShoppingCartService {
     return total;
   }
 
-  addItem(product: any) {
-    let productExists = false;
-    if (productExists == false) {
-      let quantity = 1;
-    }
+  // addItem(product: any) {
+  //   let productExists = false;
+  //   if (productExists == false) {
+  //     let quantity = 1;
+  //   }
 
-    for (let i in this.cartItems) {
-      if (this.cartItems[i].id === product.id) {
-        this.cartItems[i].quantity++;
-        productExists = true;
-        break;
-      }
-    }
+  //   for (let i in this.cartItems) {
+  //     if (this.cartItems[i].id === product.id) {
+  //       this.cartItems[i].quantity++;
+  //       productExists = true;
+  //       break;
+  //     }
+  //   }
 
-    if (!productExists) {
-      this.cartItems.push(product);
-    }
-    // this.items.push(product);
-    // this.cart = this.cartItems;
-    // this.cart.find((product) => {
-    //   if (product.id == itemToAdd.id) {
-    //     product.quantity + itemToAdd.quantity;
-    //   } else {
-    // this.items.push(product);
-    //   }
-    // });
-    this.saveSessionStorage(this.cartItems);
-    // Emit cart update observable
-    this.cartUpdated.emit(product.id);
-  }
+  //   if (!productExists) {
+  //     this.cartItems.push(product);
+  //   }
+  //   // this.items.push(product);
+  //   // this.cart = this.cartItems;
+  //   // this.cart.find((product) => {
+  //   //   if (product.id == itemToAdd.id) {
+  //   //     product.quantity + itemToAdd.quantity;
+  //   //   } else {
+  //   // this.items.push(product);
+  //   //   }
+  //   // });
+  //   this.saveSessionStorage(this.cartItems);
+  //   // Emit cart update observable
+  //   this.cartUpdated.emit(product.id);
+  // }
   getItems() {
     return this.cartItems;
   }

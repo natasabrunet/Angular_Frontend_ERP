@@ -45,7 +45,9 @@ export class CartItemComponent implements OnInit {
   sendItemToRemove(value: cartItem) {
     this.removeAction.emit(value);
   }
-
+  upDateQty(qty) {
+    this.quantity = qty;
+  }
   // updateItemTotal(i: number) {
   //   if (!this.cartItem.quantity) {
   //     this.cartItem.quantity = 1;

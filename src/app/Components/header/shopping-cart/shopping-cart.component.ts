@@ -60,6 +60,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     for (let i in this.cartItems) {
       if (this.cartItems[i].productId === product.id) {
         this.cartItems[i].quantity++;
+        this.cartItems[i].total =
+          this.cartItems[i].quantity * this.cartItems[i].total;
 
         productExists = true;
         if (this.cartItems[i].quantity > this.cartItems[i].stock) {
@@ -78,6 +80,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         quantity: 1,
         price: product.price,
         stock: product.stock,
+        total: product.price,
       });
       for (let i in this.cartItems) {
         if (this.cartItems[i].stock == 0) {
@@ -109,6 +112,9 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.shoppingCartService.saveSessionStorage(this.cartItems);
     this.cartUpdated.emit(itemToRemove.id);
   }
+  upDateQty(qty) {
+    console.dir(qty);
+  }
 
   ngOnDestroy(): void {
     this.cartSubscription.unsubscribe();
@@ -129,9 +135,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     cart.forEach((item) => {
       this.cartTotal += item.quantity * item.price;
     });
-  }
-  upDateQty(qty) {
-    console.log(qty);
   }
 
   // Prevent DropDown from closing if the shopping cart is NOT empty

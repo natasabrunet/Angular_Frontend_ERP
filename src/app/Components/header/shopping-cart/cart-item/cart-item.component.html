@@ -7,6 +7,7 @@
     />
     <span class="item-name">{{ cartItem.name }}</span> x
     <!-- <span class="item.quantity">{{ cartItem.quantity }}</span> -->
+
     <span class="item-quantity">
       <input
         type="number"
@@ -16,6 +17,7 @@
         [(ngModel)]="cartItem.quantity"
         (ngModelChange)="sendItemQuantity(cartItem.quantity)"
     /></span>
+
     <strong class="item-price">{{ cartItem.price | currency: "EUR" }}</strong>
     <span class="item-removal">
       <button class="btn btn-xs" (click)="sendItemToRemove(cartItem)">

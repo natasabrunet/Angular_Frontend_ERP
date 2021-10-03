@@ -66,6 +66,8 @@ $shopping-cart-text-color: #ffffff;
   .shopping-cart-items {
     list-style-type: none;
     padding-top: 10px;
+    max-width: 415px;
+    margin-right: 5px;
 
     li {
       margin-bottom: 18px;

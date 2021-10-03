@@ -19,11 +19,11 @@ import { cartItem } from '../../../../Models/cartItem';
   styleUrls: ['./cart-item.component.scss'],
 })
 export class CartItemComponent implements OnInit {
-  quantity: number = 0;
+  quantity: number;
   @Input() cartItem: any;
   @Input() iconClass: string = 'text-erp-black';
   @Input() badgeClass: string = 'blue-badge';
-  @Output() newItemEvent = new EventEmitter<number>();
+  @Output() UpdateQuantity = new EventEmitter<number>();
   @Output() removeAction = new EventEmitter<cartItem>();
 
   //Icons
@@ -34,9 +34,12 @@ export class CartItemComponent implements OnInit {
   ngOnInit(): void {
     this.quantity = this.cartItem.quantity;
   }
+  showItem(cartItem) {
+    console.log(cartItem);
+  }
 
   sendItemQuantity(value: number) {
-    this.newItemEvent.emit(value);
+    this.UpdateQuantity.emit(value);
   }
 
   sendItemToRemove(value: cartItem) {

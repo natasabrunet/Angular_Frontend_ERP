@@ -13,6 +13,7 @@ import { I_ShoppingCartItem } from '../../../Models/shoppingCartItem';
 import { ShoppingCartService } from '../../../Services/shopping-cart.service';
 import { Product } from 'src/app/Models/Product';
 import { ProductEmitterService } from '../../../Services/product-emitter.service';
+import { cartItem } from '../../../Models/cartItem';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -26,8 +27,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   //Icons
   faTrashAlt = faTrashAlt;
   faShoppingCart = faShoppingCart;
-
-  public cartItems = [];
+  // name of the serssion cart= 'erpCart';
+  public cartItems: any = [];
   public cartTotal: number = 0;
   sesionCartName = 'erpCart';
   public cartUpdated: EventEmitter<number> = new EventEmitter<number>();
@@ -39,7 +40,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     private route: Router,
     public shoppingCartService: ShoppingCartService
   ) {
-    this.saveSessionStorage(this.cartItems);
+    // this.shoppingCartService.saveSessionStorage(this.cartItems);
   }
 
   ngOnInit(): void {
@@ -48,14 +49,9 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         this.addProductToCart(product);
       }
     );
-    // Subscription to the cart update observable
-    this.cartSubscription = this.shoppingCartService.cartUpdated
-      .pipe(delay(100))
-      .subscribe((id) => {
-        this.cartTotal = this.shoppingCartService.cartTotal;
-        this.cartItems = this.shoppingCartService.cartItems;
-      });
+
     this.loadCartItems();
+    this.shoppingCartService.saveSessionStorage(this.cartItems);
     console.log(this.cartItems);
   }
   addProductToCart(product: Product) {
@@ -66,6 +62,11 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         this.cartItems[i].quantity++;
 
         productExists = true;
+        if (this.cartItems[i].quantity > this.cartItems[i].stock) {
+          alert('Sorry, this quantity is not available right now!');
+          this.cartItems[i].quantity = this.cartItems[i].stock;
+        }
+
         break;
       }
     }
@@ -76,7 +77,14 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         name: product.name,
         quantity: 1,
         price: product.price,
+        stock: product.stock,
       });
+      for (let i in this.cartItems) {
+        if (this.cartItems[i].stock == 0) {
+          alert(`Sorry! ${product.name} is out of stock right now`);
+          this.removeItem(this.cartItems[i]);
+        }
+      }
     }
 
     this.cartTotal = 0;
@@ -84,10 +92,22 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.cartItems.forEach((item) => {
       this.cartTotal += item.quantity * item.price;
     });
-    this.saveSessionStorage(this.cartItems);
+    this.shoppingCartService.saveSessionStorage(this.cartItems);
     // Emit cart update observable
-    // this.cartUpdated.emit(product.id);
-    // console.log(this.cartUpdated);
+
+    this.cartUpdated.emit(product.id);
+  }
+
+  removeItem(itemToRemove: any) {
+    this.cartItems.splice(itemToRemove, 1);
+
+    this.cartTotal = 0;
+
+    this.cartItems.forEach((item) => {
+      this.cartTotal += item.quantity * item.price;
+    });
+    this.shoppingCartService.saveSessionStorage(this.cartItems);
+    this.cartUpdated.emit(itemToRemove.id);
   }
 
   ngOnDestroy(): void {
@@ -95,34 +115,23 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   loadCartItems() {
-    this.cartTotal;
-    this.cartItems;
+    this.cartItems = this.cart;
+    this.getCarTotal(this.cartItems);
   }
 
-  updateItemTotal(i: number) {
-    let item = this.cartItems[i];
-
-    if (!item.quantity) {
-      item.quantity = 1;
-      console.log(item);
-    }
-    item.total = item.quantity * item.price;
+  get cart() {
+    return (
+      JSON.parse(this.shoppingCartService.getSessionCart(this.cartItems)) || []
+    );
   }
-  updateItem(itemToUpdate: any) {
-    this.cartItems = this.cartItems.map((cartItem) => {
-      return cartItem.id === itemToUpdate.id ? itemToUpdate : cartItem;
+
+  getCarTotal(cart: any) {
+    cart.forEach((item) => {
+      this.cartTotal += item.quantity * item.price;
     });
-
-    this.saveSessionStorage(this.cartItems);
-    //  Emit cart update observable
-    // this.cartUpdated.emit(itemToUpdate.id);
-    // console.log(itemToUpdate.id);
   }
-  removeItem(itemToRemove: any) {
-    this.cartItems.splice(itemToRemove, 1);
-  }
-  updateQuantity(qty: number): number {
-    return qty;
+  upDateQty(qty) {
+    console.log(qty);
   }
 
   // Prevent DropDown from closing if the shopping cart is NOT empty
@@ -141,17 +150,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       qty.value = 1;
       console.log(qty);
     }
-  }
-  // If the sessionStorage item doesn't existe, it will create it
-  getSessionCart() {
-    if (sessionStorage.getItem(this.sesionCartName) == null) {
-      this.saveSessionStorage(this.cartItems);
-    }
-    return sessionStorage.getItem(this.sesionCartName);
-  }
-
-  saveSessionStorage(cart: any) {
-    sessionStorage.setItem(this.sesionCartName, JSON.stringify(this.cartItems));
   }
 
   clearSessionStorage() {

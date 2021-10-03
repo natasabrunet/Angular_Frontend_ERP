@@ -235,7 +235,8 @@
     "navbar-products": "Productes",
     "navbar-contact": "Contacte",
     "navbar-login": "Entrar",
-    "navbar-signup": "Registrar-se"
+    "navbar-signup": "Registrar-se",
+    "navbar-terms": "Condicions legals"
   },
 
   "about": {
@@ -290,5 +291,10 @@
   "products": "productes",
   "employee": "empleat",
   "employees": "empleats",
-  "clock": "horari"
+  "clock": "horari",
+
+  "terms": {
+    "text-1":"Un acord de condicions generals recull les condicions que els visitants han d'acceptar si volen interactuar amb el lloc web. Bàsicament, si el visitant segueix utilitzant el lloc web després d'acceptar les condicions generals, estarà subscrivint un contracte amb vostè.",
+    "text-2": "A diferència de les polítiques de privacitat, no està legalment obligat a tenir un acord de condicions generals. No obstant això, hi ha molts motius pels quals hauria de redactar un i publicar al seu lloc web."
+  }
 }

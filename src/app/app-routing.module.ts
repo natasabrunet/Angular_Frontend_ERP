@@ -16,6 +16,7 @@ import { ContactPageComponent } from './Views/contact-page/contact-page.componen
 import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
 import { ProfileComponent } from './Views/profile/profile.component';
+import { TermsComponent } from './Views/terms/terms.component';
 // Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
 import { ClientListComponent } from './Views/Client/client-list/client-list.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'admin', component: AdminViewComponent, canActivate: [AuthGuard] },
+  { path: 'terms', component: TermsComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'log-in', component: LoginComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },

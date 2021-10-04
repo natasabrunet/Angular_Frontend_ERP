@@ -19,6 +19,6 @@ export class ProductItemComponent implements OnInit {
     this.ProductEmitterService.SendDataProduct(this.productItem);
   }
   addProductWholesaleCart() {
-    alert('adding product');
+    alert('wholeSales are not available at this moment!');
   }
 }

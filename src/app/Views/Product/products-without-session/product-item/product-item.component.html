@@ -27,18 +27,16 @@
     </div>
 
     <div class="row">
-      <div class="col">
-        <!-- <a href="addProductCard(product.id)" (click)="addProductCart()" class="btn btn-erp-blue text-erp-white">ADD TO CART</a> -->
+      <div class="col-sm-6">
         <a (click)="addToCart()" class="btn btn-erp-blue text-erp-white">{{
           "btn.add-to-cart" | translate
         }}</a>
       </div>
-      <div class="col">
-        <!-- <a href="addProductWholesaleCard(product.id)" (click)="addProductWholesaleCart(product)" class="btn btn-erp-blue text-erp-white btn-second">ADD TO CART</a> -->
+      <div class="col-sm-6">
         <a
           (click)="addProductWholesaleCart()"
           class="btn btn-erp-blue text-erp-white btn-second"
-          >{{ "btn.add-to-cart" | translate }}</a
+          >BUY WHOLESALE</a
         >
       </div>
     </div>

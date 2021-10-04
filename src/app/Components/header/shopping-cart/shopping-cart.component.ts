@@ -61,20 +61,13 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     for (let i in this.cartItems) {
       if (this.cartItems[i].productId === product.id) {
         this.cartItems[i].quantity++;
-        // this.cartItems[i].total =
-        //   this.cartItems[i].quantity * this.cartItems[i].total;
 
         if (this.cartItems[i].quantity > this.cartItems[i].stock) {
           alert('Sorry, this quantity is not available right now!');
           this.cartItems[i].quantity = this.cartItems[i].stock;
         }
-        //   this.cartItems[i].total =
-        //     this.cartItems[i].quantity * this.cartItems[i].total;
-        //   this.getCarTotal(this.cartItems);
-        // }
 
         productExists = true;
-
         break;
       }
     }
@@ -177,13 +170,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
   checkoutRoute() {
     this.route.navigate(['checkout']);
-  }
-
-  validateQty(qty) {
-    if (!qty.value) {
-      qty.value = 1;
-      console.log(qty);
-    }
   }
 
   clearSessionStorage() {

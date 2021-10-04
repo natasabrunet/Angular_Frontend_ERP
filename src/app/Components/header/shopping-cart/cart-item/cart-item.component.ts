@@ -19,7 +19,7 @@ import { cartItem } from '../../../../Models/cartItem';
   styleUrls: ['./cart-item.component.scss'],
 })
 export class CartItemComponent implements OnInit {
-  quantity: number;
+  quantity: number = 1;
   @Input() cartItem: any;
   @Input() iconClass: string = 'text-erp-black';
   @Input() badgeClass: string = 'blue-badge';
@@ -31,9 +31,7 @@ export class CartItemComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   constructor(private ShoppingCartService: ShoppingCartService) {}
 
-  ngOnInit(): void {
-    this.quantity = this.cartItem.quantity;
-  }
+  ngOnInit(): void {}
   showItem(cartItem) {
     console.log(cartItem);
   }
@@ -45,9 +43,7 @@ export class CartItemComponent implements OnInit {
   sendItemToRemove(value: cartItem) {
     this.removeAction.emit(value);
   }
-  upDateQty(qty) {
-    this.quantity = qty;
-  }
+
   // updateItemTotal(i: number) {
   //   if (!this.cartItem.quantity) {
   //     this.cartItem.quantity = 1;

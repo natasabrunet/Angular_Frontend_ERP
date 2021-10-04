@@ -14,6 +14,7 @@ import { ShoppingCartService } from '../../../Services/shopping-cart.service';
 import { Product } from 'src/app/Models/Product';
 import { ProductEmitterService } from '../../../Services/product-emitter.service';
 import { cartItem } from '../../../Models/cartItem';
+import { MyCart } from 'src/app/Models/myCart';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -60,45 +61,64 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     for (let i in this.cartItems) {
       if (this.cartItems[i].productId === product.id) {
         this.cartItems[i].quantity++;
-        this.cartItems[i].total =
-          this.cartItems[i].quantity * this.cartItems[i].total;
+        // this.cartItems[i].total =
+        //   this.cartItems[i].quantity * this.cartItems[i].total;
 
-        productExists = true;
         if (this.cartItems[i].quantity > this.cartItems[i].stock) {
           alert('Sorry, this quantity is not available right now!');
           this.cartItems[i].quantity = this.cartItems[i].stock;
         }
+        //   this.cartItems[i].total =
+        //     this.cartItems[i].quantity * this.cartItems[i].total;
+        //   this.getCarTotal(this.cartItems);
+        // }
+
+        productExists = true;
 
         break;
       }
     }
 
     if (!productExists) {
-      this.cartItems.push({
-        productId: product.id,
-        name: product.name,
-        quantity: 1,
-        price: product.price,
-        stock: product.stock,
-        total: product.price,
-      });
-      for (let i in this.cartItems) {
-        if (this.cartItems[i].stock == 0) {
-          alert(`Sorry! ${product.name} is out of stock right now`);
-          this.removeItem(this.cartItems[i]);
-        }
+      let newcartItem: cartItem = new cartItem(
+        product.id,
+        product.name,
+        product.quantity,
+        product.price,
+        product.stock,
+        product.total
+      );
+      newcartItem.id = product.id;
+      newcartItem.name = product.name;
+      newcartItem.quantity = 1;
+      newcartItem.price = product.price;
+      newcartItem.stock = product.stock;
+      newcartItem.total = this.getItemTotal(
+        newcartItem.price,
+        newcartItem.quantity
+      );
+
+      if (newcartItem.stock == 0) {
+        alert(`Sorry! ${cartItem.name} is out of stock right now`);
+      } else {
+        this.cartItems.push(newcartItem);
+        alert(`${product.name} has been added to your cart!`);
+        console.log(newcartItem);
       }
     }
-
     this.cartTotal = 0;
 
     this.cartItems.forEach((item) => {
       this.cartTotal += item.quantity * item.price;
     });
+    console.log(this.cartTotal);
     this.shoppingCartService.saveSessionStorage(this.cartItems);
     // Emit cart update observable
 
     this.cartUpdated.emit(product.id);
+  }
+  getItemTotal(qty: number, price: number) {
+    return qty * price;
   }
 
   removeItem(itemToRemove: any) {
@@ -113,7 +133,18 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.cartUpdated.emit(itemToRemove.id);
   }
   upDateQty(qty) {
-    console.dir(qty);
+    this.cartTotal = 0;
+    for (let item of this.cartItems) {
+      if (item.quantity != qty) {
+        break;
+      } else {
+        item.quantity = qty;
+      }
+      console.log(qty);
+    }
+    this.cartItems.forEach((item) => {
+      this.cartTotal += item.quantity * item.price;
+    });
   }
 
   ngOnDestroy(): void {

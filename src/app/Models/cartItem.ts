@@ -6,20 +6,23 @@ export class cartItem {
   name: string;
   price: number;
   quantity: number;
+  stock: number;
   total: number;
 
   constructor(
     id: number,
-    product: Product,
-    quantity = 1,
+    name: string,
+    quantity: number,
     price: number,
+    stock: number,
     total: number
   ) {
     this.id = id;
-    this.productId = product.id;
-    this.name = product.name;
-    this.price = product.price;
+    this.productId = id;
+    this.name = name;
+    this.price = price;
     this.quantity = quantity;
-    this.total = quantity * price;
+    this.stock = stock;
+    this.total = total;
   }
 }

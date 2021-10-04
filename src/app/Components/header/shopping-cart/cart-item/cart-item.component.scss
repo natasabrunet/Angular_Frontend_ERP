@@ -68,6 +68,7 @@ $shopping-cart-text-color: #ffffff;
     padding-top: 10px;
     max-width: 415px;
     margin-right: 5px;
+    margin-left: -15px;
 
     li {
       margin-bottom: 18px;
@@ -109,13 +110,12 @@ $shopping-cart-text-color: #ffffff;
       display: inline-block;
       width: 15%;
       color: red;
-      padding-left: 0.25em;
     }
 
     .item-line-price {
       display: inline-block;
       text-align: right;
-      width: 25%;
+      width: 20%;
     }
   }
 }

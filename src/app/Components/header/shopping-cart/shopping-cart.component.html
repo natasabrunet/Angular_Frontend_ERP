@@ -32,7 +32,7 @@
           <div class="shopping-cart-header">
             <div class="shopping-cart-total">
               <span class="p-r-05">Total:</span>
-              <span class="text-highlight"
+              <span class="text-highlight total"
                 >{{ cartTotal | number: "1.2-2" }} €</span
               >
             </div>
@@ -46,71 +46,6 @@
                 (UpdateQuantity)="upDateQty($event)"
               ></app-cart-item>
             </li>
-            <!-- <img src="../../assets/images/products.jpg" [alt]="item.name" />
-              <span class="item-name">{{ item.name }}</span>
-              <span class="item-price"
-                >{{ item.price | number: "1.2-2" }} €</span
-              >
-              <span class="item-quantity">
-                <input
-                  type="number"
-                  id="quantity"
-                  value="{{ item.quantity }}"
-                  min="1"
-                   [(ngModel)]="item.quantity"
-                  (ngModelChange)="updateItemTotal(i)"
-                /> -->
-            <!-- </span>  -->
-            <!-- <span class="item-removal">
-                <button class="btn btn-xs" (click)="removeItem(i)">
-                  <fa-icon
-                    class="mx-md-3 deleteIcon"
-                    [icon]="faTrashAlt"
-                    size="md"
-                    title="remove"
-                    role="button"
-                  ></fa-icon>
-                </button>
-              </span>
-              <span class="item-line-price text-highlight"
-                >{{ item.total | number: "1.2-2" }} €</span
-              >
-            </li> -->
-            <!--
-                    <li class="clearfix">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item2" />
-                        <span class="item-name">KS Automatic Mechanic...</span>
-                        <span class="item-price">1.249,99 €</span>
-                        <span class="item-quantity"><input type="number" value="1" min="1"></span>
-                        <span class="item-removal">
-                            <button class="btn btn-xs">
-                                <fa-icon class="mx-md-3 deleteIcon"
-                                         [icon]="faTrashAlt"
-                                         size="md"
-                                         title="remove"
-                                         role="button"></fa-icon>
-                            </button>
-                        </span>
-                        <span class="item-line-price text-highlight">1.249,99 €</span>
-                    </li>
-
-                    <li class="clearfix">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item3" />
-                        <span class="item-name">Kindle, 6" Glare-Free To...</span>
-                        <span class="item-price">129,99 €</span>
-                        <span class="item-quantity"><input type="number" value="1" min="1"></span>
-                        <span class="item-removal">
-                            <button class="btn btn-xs">
-                                <fa-icon class="mx-md-3 deleteIcon"
-                                         [icon]="faTrashAlt"
-                                         size="md"
-                                         title="remove"
-                                         role="button"></fa-icon>
-                            </button>
-                        </span>
-                        <span class="item-line-price text-highlight">129,99 €</span>
-                    </li> -->
-            <!-- </li> -->
           </ul>
 
           <!-- /.shopping-cart-items -->

@@ -241,7 +241,8 @@
     "navbar-products": "Products",
     "navbar-contact": "Contact",
     "navbar-login": "Log in",
-    "navbar-signup": "Sign up"
+    "navbar-signup": "Sign up",
+    "navbar-terms": "Terms & conditions"
   },
   "about": {
     "text-greeting": "Hi!",
@@ -290,5 +291,10 @@
   "products": "products",
   "employee": "employee",
   "employees": "employees",
-  "clock": "clock"
+  "clock": "clock",
+
+  "terms": {
+    "text-1":"A General Conditions agreement sets out the conditions that visitors must accept if they wish to interact with the website. Basically, if the visitor continues to use the website after accepting the General Conditions, she will be signing a contract with you.",
+    "text-2": "Unlike the Privacy Policies, you are not legally obliged to have a General Conditions agreement. However, there are many reasons why you should write one and post it on your website."
+  }
 }

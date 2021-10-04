@@ -92,7 +92,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       );
 
       if (newcartItem.stock == 0) {
-        alert(`Sorry! ${cartItem.name} is out of stock right now`);
+        alert(`Sorry! ${newcartItem.name} is out of stock right now`);
       } else {
         this.cartItems.push(newcartItem);
         alert(`${product.name} has been added to your cart!`);

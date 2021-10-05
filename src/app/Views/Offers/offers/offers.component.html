@@ -9,7 +9,7 @@
 
     </div>
     <div class="form-group col">
-      <input type="text" class="form-control" placeholder="{{'Offers.search'|translate}}" [(ngModel)]="data">
+      <input type="text" class="form-control" placeholder="{{'Offers.search'|translate}}" [(ngModel)]="description"(input)="Search()"/>
     </div>
 
   </div>

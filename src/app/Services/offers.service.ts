@@ -15,7 +15,9 @@ export class OffersService {
   endPoint: string = '/api/offers';
   token: string;
 
+
   offerById: Observable<any>;
+
 
   constructor(private httpClient: HttpClient, private loginService: LoginService) {
     this.token = this.loginService.getBearerToken;

@@ -24,6 +24,8 @@ export class OffersComponent implements OnInit {
 
   offers: any[] = [];
 
+  description: string;
+
   page:number = 0;
   limit:number = 2;
 
@@ -78,6 +80,17 @@ export class OffersComponent implements OnInit {
       this.paginatedOffers = this.offers.slice(this.page, this.limit);
       this.setPagesArray();
     })
+  }
+
+  Search(){
+    if(this.description !=""){
+      this.offers = this.offers.filter(res =>{
+        return res.description.toLocaleLowerCase().match(this.description.toLocaleLowerCase());
+      });
+    }else if(this.description == ""){
+      this.ngOnInit();
+    }
+
   }
 
 }

@@ -7,7 +7,7 @@ import { ProductEmitterService } from './product-emitter.service';
 })
 export class ShoppingCartService {
   sesionCartName: string = 'erpCart';
-
+  public cartUpdated: EventEmitter<any> = new EventEmitter<any>();
   constructor(public ProductEmitterService: ProductEmitterService) {}
 
   // If the sessionStorage item doesn't existe, it will create it

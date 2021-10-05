@@ -1,10 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { faTrashAlt, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
@@ -21,7 +15,7 @@ import { MyCart } from 'src/app/Models/myCart';
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss'],
 })
-export class ShoppingCartComponent implements OnInit, OnDestroy {
+export class ShoppingCartComponent implements OnInit {
   @Input() iconClass: string = 'text-erp-black';
   @Input() badgeClass: string = 'blue-badge';
 
@@ -32,9 +26,9 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   public cartItems: any = [];
   public cartTotal: number = 0;
   sesionCartName = 'erpCart';
-  public cartUpdated: EventEmitter<number> = new EventEmitter<number>();
+  // public cartUpdated: EventEmitter<number> = new EventEmitter<number>();
   // To unsubscribe from ngOnDestroy
-  public cartSubscription: Subscription;
+  // public cartSubscription: Subscription;
 
   constructor(
     public ProductEmitterService: ProductEmitterService,
@@ -112,7 +106,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.shoppingCartService.saveSessionStorage(this.cartItems);
     // Emit cart update observable
 
-    this.cartUpdated.emit(product.id);
+    // this.shoppinCartService.cartUpdated.emit(this.cartTotal);
   }
   getItemTotal(qty: number, price: number) {
     return qty * price;
@@ -127,7 +121,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       this.cartTotal += item.quantity * item.price;
     });
     this.shoppingCartService.saveSessionStorage(this.cartItems);
-    this.cartUpdated.emit(itemToRemove.id);
   }
   upDateQty(qty) {
     this.cartTotal = 0;
@@ -144,9 +137,9 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    this.cartSubscription.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.cartSubscription.unsubscribe();
+  // }
 
   loadCartItems() {
     this.cartItems = this.cart;

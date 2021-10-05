@@ -312,7 +312,7 @@
       "message-missing": "Què vol fer-nos saber? Introdueixi el missatge",
       "message-maxlength":"El missatge no pot excedir els 500 caràcters",
       "contact-terms-missing": "Els termes i les condicions han de ser acceptades"
-    }
+    } 
   },
   "terms": {
     "text-1":"Un acord de condicions generals recull les condicions que els visitants han d'acceptar si volen interactuar amb el lloc web. Bàsicament, si el visitant segueix utilitzant el lloc web després d'acceptar les condicions generals, estarà subscrivint un contracte amb vostè.",

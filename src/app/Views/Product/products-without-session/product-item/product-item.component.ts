@@ -10,6 +10,8 @@ import { ProductEmitterService } from '../../../../Services/product-emitter.serv
 })
 export class ProductItemComponent implements OnInit {
   @Input() productItem: Product;
+  price: number;
+  quantity: number;
   constructor(private ProductEmitterService: ProductEmitterService) {}
 
   ngOnInit(): void {}
@@ -18,7 +20,8 @@ export class ProductItemComponent implements OnInit {
   addToCart() {
     this.ProductEmitterService.SendDataProduct(this.productItem);
   }
+
   addProductWholesaleCart() {
-    alert('wholeSales are not available at this moment!');
+    alert('this option is still not available! ');
   }
 }

@@ -78,12 +78,16 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         product.name,
         product.quantity,
         product.price,
+        product.wholesale_price,
+        product.wholesale_quantity,
         product.stock,
         product.total
       );
       newcartItem.id = product.id;
       newcartItem.name = product.name;
       newcartItem.quantity = 1;
+      newcartItem.price = product.price;
+      newcartItem.wholesaleqty = product.wholesale_quantity;
       newcartItem.price = product.price;
       newcartItem.stock = product.stock;
       newcartItem.total = this.getItemTotal(

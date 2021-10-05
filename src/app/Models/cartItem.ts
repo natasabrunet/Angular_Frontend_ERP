@@ -6,6 +6,8 @@ export class cartItem {
   name: string;
   price: number;
   quantity: number;
+  wholesaleqty: number;
+  wholesaleprice: number;
   stock: number;
   total: number;
 
@@ -15,6 +17,8 @@ export class cartItem {
     quantity: number,
     price: number,
     stock: number,
+    wholesaleqty: number,
+    wholesaleprice: number,
     total: number
   ) {
     this.id = id;
@@ -22,6 +26,8 @@ export class cartItem {
     this.name = name;
     this.price = price;
     this.quantity = quantity;
+    this.wholesaleqty = wholesaleqty;
+    this.wholesaleprice = wholesaleprice;
     this.stock = stock;
     this.total = total;
   }

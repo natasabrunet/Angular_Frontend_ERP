@@ -27,10 +27,8 @@ export class ShoppingCartComponent implements OnInit {
   public cartItems: any = [];
   public cartTotal: number = 0;
   sesionCartName = 'erpCart';
-  // public cartUpdated: EventEmitter<number> = new EventEmitter<number>();
-  // To unsubscribe from ngOnDestroy
-  // public cartSubscription: Subscription;
 
+  cartIcon = document.getElementById('cartBasket');
   constructor(
     public ProductEmitterService: ProductEmitterService,
     private route: Router,
@@ -55,8 +53,10 @@ export class ShoppingCartComponent implements OnInit {
 
     for (let i in this.cartItems) {
       if (this.cartItems[i].productId === product.id) {
-        this.cartItems[i].quantity++;
+        // this.checkCartAnimation();
 
+        this.cartItems[i].quantity++;
+        // this.addCartAnimation();
         if (this.cartItems[i].quantity > this.cartItems[i].stock) {
           Swal.fire({
             title: 'Ups!',
@@ -101,10 +101,12 @@ export class ShoppingCartComponent implements OnInit {
         });
       } else {
         this.cartItems.push(newcartItem);
-        alert(`${product.name} has been added to your cart!`);
+
+        // this.addCartAnimation();
         console.log(newcartItem);
       }
     }
+    // this.checkCartAnimation();
     this.cartTotal = 0;
 
     this.cartItems.forEach((item) => {
@@ -133,11 +135,13 @@ export class ShoppingCartComponent implements OnInit {
   upDateQty(qty) {
     this.cartTotal = 0;
     for (let item of this.cartItems) {
+      // this.checkCartAnimation();
       if (item.quantity != qty) {
         break;
       } else {
         item.quantity = qty;
       }
+      // this.addCartAnimation();
 
       if (item.quantity > item.stock) {
         Swal.fire({
@@ -190,4 +194,14 @@ export class ShoppingCartComponent implements OnInit {
   clearSessionStorage() {
     sessionStorage.removeItem(this.sesionCartName);
   }
+
+  addCartAnimation() {
+    this.cartIcon.classList.add('ItemToCart');
+  }
+  checkCartAnimation() {
+    if (this.cartIcon.classList.contains('itemToCart')) {
+      this.cartIcon.classList.remove('itemToCart');
+    }
+  }
+  removeCartAnimation() {}
 }

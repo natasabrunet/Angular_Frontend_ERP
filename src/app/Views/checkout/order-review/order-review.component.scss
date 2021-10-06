@@ -1,64 +1,64 @@
-.shopping-cart {
-  font: 14px/22px "Lato", Arial, sans-serif;
-  width: 420px;
+// .shopping-cart {
+//   font: 14px/22px "Lato", Arial, sans-serif;
+//   width: 420px;
 
-  .deleteIcon {
-    color: #dd5d56;
-  }
+//   .deleteIcon {
+//     color: #dd5d56;
+//   }
 
-  .deleteButton {
-    background-color: #dd5d56;
-  }
+//   .deleteButton {
+//     background-color: #dd5d56;
+//   }
 
-  .shopping-cart-header {
-    border-bottom: 1px solid #e8e8e8;
-    padding-right: 0.5em;
-    text-align: right;
-  }
+//   .shopping-cart-header {
+//     border-bottom: 1px solid #e8e8e8;
+//     padding-right: 0.5em;
+//     text-align: right;
+//   }
 
-  .shopping-cart-buttons {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    & .btn-block {
-      width: 100%;
-    }
-  }
-  .shopping-cart-items {
-    li {
-      margin-bottom: 18px;
-    }
+//   .shopping-cart-buttons {
+//     padding-left: 0.5em;
+//     padding-right: 0.5em;
+//     & .btn-block {
+//       width: 100%;
+//     }
+//   }
+//   .shopping-cart-items {
+//     li {
+//       margin-bottom: 18px;
+//     }
 
-    img {
-      float: left;
-      margin-right: 12px;
-      max-width: 70px;
-      max-height: 70px;
-    }
+//     img {
+//       float: left;
+//       margin-right: 12px;
+//       max-width: 70px;
+//       max-height: 70px;
+//     }
 
-    .item-name {
-      display: block;
-      font-size: 16px;
-    }
+//     .item-name {
+//       display: block;
+//       font-size: 16px;
+//     }
 
-    .item-price {
-      display: inline-block;
-      text-align: right;
-      margin-right: 0.5em;
-    }
+//     .item-price {
+//       display: inline-block;
+//       text-align: right;
+//       margin-right: 0.5em;
+//     }
 
-    .item-quantity {
-      display: inline-block;
-    }
+//     .item-quantity {
+//       display: inline-block;
+//     }
 
-    .item-removal {
-      display: inline-block;
+//     .item-removal {
+//       display: inline-block;
 
-      color: red;
-    }
+//       color: red;
+//     }
 
-    .item-line-price {
-      display: inline-block;
-      text-align: right;
-    }
-  }
-}
+//     .item-line-price {
+//       display: inline-block;
+//       text-align: right;
+//     }
+//   }
+// }

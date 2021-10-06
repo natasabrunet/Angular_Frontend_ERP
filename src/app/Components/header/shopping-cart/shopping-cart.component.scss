@@ -115,6 +115,19 @@ $shopping-cart-text-color: #ffffff;
       text-align: right;
       width: 25%;
     }
+    .itemToCart {
+      animation: toCart 0.2s ease;
+      animation-iteration-count: 2;
+    }
+  }
+  @keyframes toCart {
+    0%,
+    100% {
+      transform: translateX(-2px);
+    }
+    50% {
+      transform: translateX(2px);
+    }
   }
 
   // // Triángula "flecha"

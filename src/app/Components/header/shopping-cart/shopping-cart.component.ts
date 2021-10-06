@@ -9,6 +9,7 @@ import { Product } from 'src/app/Models/Product';
 import { ProductEmitterService } from '../../../Services/product-emitter.service';
 import { cartItem } from '../../../Models/cartItem';
 import { MyCart } from 'src/app/Models/myCart';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -57,7 +58,11 @@ export class ShoppingCartComponent implements OnInit {
         this.cartItems[i].quantity++;
 
         if (this.cartItems[i].quantity > this.cartItems[i].stock) {
-          alert('Sorry, this quantity is not available right now!');
+          Swal.fire({
+            title: 'Ups!',
+            text: 'Sorry, this quantity is not available right now!',
+          });
+
           this.cartItems[i].quantity = this.cartItems[i].stock;
         }
 
@@ -90,7 +95,10 @@ export class ShoppingCartComponent implements OnInit {
       );
 
       if (newcartItem.stock == 0) {
-        alert(`Sorry! ${newcartItem.name} is out of stock right now`);
+        Swal.fire({
+          title: 'Ups!',
+          text: 'Sorry, ' + newcartItem.name + ' is out of stock right now.',
+        });
       } else {
         this.cartItems.push(newcartItem);
         alert(`${product.name} has been added to your cart!`);
@@ -130,11 +138,21 @@ export class ShoppingCartComponent implements OnInit {
       } else {
         item.quantity = qty;
       }
-      console.log(qty);
+
+      if (item.quantity > item.stock) {
+        Swal.fire({
+          title: 'Ups!',
+          text: 'Sorry, this quantity is not available right now!',
+        });
+
+        item.quantity = item.stock;
+      }
     }
+
     this.cartItems.forEach((item) => {
       this.cartTotal += item.quantity * item.price;
     });
+    this.shoppingCartService.saveSessionStorage(this.cartItems);
   }
 
   // ngOnDestroy(): void {

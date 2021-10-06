@@ -50,8 +50,8 @@ export class OrderReviewComponent implements OnInit {
   }
 
   loadCartItems() {
-    this.getCarTotal(this.cartItems);
     this.cartItems = this.cart;
+    this.getCarTotal(this.cartItems);
   }
 
   updateItemTotal(itemToUpdate) {

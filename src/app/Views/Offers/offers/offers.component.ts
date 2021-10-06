@@ -34,6 +34,8 @@ export class OffersComponent implements OnInit {
 
   constructor(private offersService: OffersService, private router: Router) { }
 
+
+  //Methods to show pages of the table
   isFirstPage(){
     return this.page === 0;
   }

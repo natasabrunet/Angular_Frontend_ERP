@@ -31,6 +31,7 @@ export class OffersService {
      return this.httpClient.get(`${this.url}${this.endPoint}`, {headers: this.headers});
    }
 
+   //Get offers by id
    getOfferById(id: string){
      return (this.offerById = this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {headers: this.headers}));
    }

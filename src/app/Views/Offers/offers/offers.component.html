@@ -4,12 +4,13 @@
     <h2>{{'Offers.page-head'|translate}}</h2>
   </div>
   <div class="row mt-5">
+
+    <div class="form-group col-3 buscador">
+      <input type="text" class="form-control" placeholder="{{'Offers.search'|translate}}" [(ngModel)]="description"(input)="Search()"/>
+    </div>
     <div class="col">
       <button class="btn btn-primary">{{'Offers.new_Offer'|translate}}</button>
 
-    </div>
-    <div class="form-group col">
-      <input type="text" class="form-control" placeholder="{{'Offers.search'|translate}}" [(ngModel)]="description"(input)="Search()"/>
     </div>
 
   </div>

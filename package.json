@@ -28,7 +28,7 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@popperjs/core": "^2.10.1",
-    "bootstrap": "^5.1.1",
+    "bootstrap": "5.0.0-beta1",
     "chart.js": "^2.9.4",
     "install": "^0.13.0",
     "leaflet": "^1.7.1",

@@ -293,6 +293,27 @@
   "employees": "empleados",
   "clock": "horario",
 
+  "contact-page":{
+    "page-head":"Contacta con nosotr@s!",
+    "form":{
+      "title": "Alguna duda?",
+      "name":"Nombre",
+      "email":"Correo electrónico",
+      "message":"Mensaje",
+      "news-letter":"Me gustaría recibir vuestro newsletter",
+      "terms":"He leído y acepto los términos y condiciones",
+      "button": "Enviar!"
+    },
+    "error":{
+      "name-missing":"Introduzca su nombre" ,
+      "name-minlength": "El nombre tiene que contener mínimo 2 caracteres",
+      "email-missing": "Introduzca su correo electrónico",
+      "email-invalid": "Introduzca un correo electrónico válido",
+      "message-missing": "¿Que quiere hacernos llegar? Introduzca su mensaje",
+      "message-maxlength":"El mensaje no puede tener más de 500 caracteres",
+      "contact-terms-missing": "Los términos y condiciones deben ser aceptados"
+    }
+  },
   "terms": {
     "text-1":"Un acuerdo de Condiciones Generales recoge las condiciones que los visitantes deben aceptar si desean interactuar con el sitio web. Básicamente, si el visitante sigue utilizando el sitio web después de aceptar las Condiciones Generales, estará suscribiendo un contrato con usted.",
     "text-2": "A diferencia de las Políticas de Privacidad, no está legalmente obligado a tener un acuerdo de Condiciones Generales. Sin embargo, existen muchos motivos por los que debería redactar uno y publicarlo en su sitio web."

@@ -293,6 +293,27 @@
   "employees": "employees",
   "clock": "clock",
 
+  "contact-page":{
+    "page-head":"Contact us!",
+    "form":{
+      "title": "Any doubt?",
+      "name":"Name",
+      "email":"Email",
+      "message":"Message",
+      "news-letter":"I would like to receive the newsletter",
+      "terms":"I've read and I agree with the terms and conditions",
+      "button": "Send!" 
+    },
+    "error":{
+      "name-missing":"Your name is required" ,
+      "name-minlength": "The name must be at least 2 characters long",
+      "email-missing": "Your email is required",
+      "email-invalid": "Insert a valid email please",
+      "message-missing": "What do you want to tell us? Insert your message",
+      "message-maxlength":"The message cannot exceed 500 characters",
+      "contact-terms-missing": "Terms and conditions must be accepted"
+    }
+  },
   "terms": {
     "text-1":"A General Conditions agreement sets out the conditions that visitors must accept if they wish to interact with the website. Basically, if the visitor continues to use the website after accepting the General Conditions, she will be signing a contract with you.",
     "text-2": "Unlike the Privacy Policies, you are not legally obliged to have a General Conditions agreement. However, there are many reasons why you should write one and post it on your website."

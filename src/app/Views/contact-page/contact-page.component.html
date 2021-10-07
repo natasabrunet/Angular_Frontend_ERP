@@ -4,7 +4,7 @@
 <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" /> -->
 
 <div class="container py-5">
-  <h4 class="mb-5">Contact us!</h4>
+  <h4 class="mb-5">{{ 'contact-page.page-head' | translate}}</h4>
   <div class="row">
     <div class="col-sm-12 col-md-6 mt-5 mt-lg-0 pt-lg-3">
       <div>
@@ -45,5 +45,91 @@
       <div id="map" class="map w-100 h-100">
       </div>
     </div>
+
+
+    <!-- Contact Form -->
+    <form class="form-group mt-5 col-sm-12" [formGroup]="FormNotLogged" (ngSubmit)="onSubmit($event,FormNotLogged.value)">
+      <h4 class="mt-5"> {{'contact-page.form.title' |translate}}</h4>
+      <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-5 center-contact-form">
+          <div class="col-form-label col-12 col-md-10">
+            <label for="PersonName">{{"contact-page.form.name"|translate}}</label>
+          </div>
+          <div class="col-12 col-md-10">
+            <input type="text" 
+            name="PersonName" 
+            class="form-control"
+            formControlName="Sender"
+            [ngClass]="{'is-invalid': Sender.invalid && Sender.touched }">
+            <div class="invalid-feedback">
+              <span class="form-text text-danger" *ngIf="FormNotLogged.get('Sender')?.errors?.required">{{'contact-page.error.name-missing' | translate}}</span>
+              <span class="form-text text-danger" *ngIf="FormNotLogged.get('Sender')?.errors?.minlength">{{'contact-page.error.name-minlength' | translate}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 center-contact-form">
+          <div class="col-form-label col-12 col-md-10">
+            <label for="PersonMail">{{"contact-page.form.email"|translate}}</label>
+          </div>
+          <div class="col-12 col-md-10">
+            <input type="text" 
+            name="PersonMail" 
+            class="form-control"
+            formControlName="Email"
+            [ngClass]="{'is-invalid': Email.invalid && Email.touched}">
+            <div class="invalid-feedback">
+              <span class="form-text text-danger" *ngIf="FormNotLogged.get('Email')?.errors?.required">{{'contact-page.error.email-missing'|translate}}</span>
+              <span class="form-text text-danger" *ngIf="FormNotLogged.get('Email')?.errors?.email">{{'contact-page.error.email-invalid'|translate}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 center-contact-form">
+          <div class="col-form-label col-12 col-md-11">
+            <label for="PersonMessage">{{"contact-page.form.message"|translate}}</label>
+          </div>
+          <div class=" col-12 col-md-11">
+            <textarea name="PersonMessage"
+              cols="30" rows="10" 
+              class="form-control"
+              formControlName="Message"
+              [ngClass]="{'is-invalid': Message.invalid && Message.touched}"></textarea>
+              <div class="invalid-feedback">
+                <span class="form-text text-danger" *ngIf="FormNotLogged.get('Message')?.errors?.required">{{'contact-page.error.message-missing'|translate}}</span>
+                <span class="form-text text-danger" *ngIf="FormNotLogged.get('Message')?.errors?.maxlength">{{'contact-page.error.message-maxlength'|translate}}</span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 row justify-content-center">
+        <div class="col-md-9 mt-1">
+          <input type="checkbox" id="NewsLetter" class="form-check-input" formControlName="SubscribeNewsLetter">
+          <label for="NewsLetter">{{"contact-page.form.news-letter"|translate}}</label>
+        </div>
+        <div  class="col-md-9 mt-1">
+          <input type="checkbox" id="Privacy" class="form-check-input"
+          formControlName="Terms"
+          [ngClass]="{'is-invalid':Terms.invalid && Terms.touched}">
+          <label for="Privacy">{{"contact-page.form.terms"|translate}}</label>
+          <div class="invalid-feedback text-danger"> {{'contact-page.error.terms-missing'|translate}}</div>
+        </div>
+        <div class="row justify-content-center mt-3">
+          <div class="col-md-4 d-flex justify-content-center">
+            <button type="submit" class="btn contact-form-btn w-100">{{"contact-page.form.button"|translate}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
   </div>
 </div>

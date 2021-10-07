@@ -1,0 +1,44 @@
+<a href="#"
+  ><img
+    src="../../assets/images/products.jpg"
+    class="img-fluid w-100"
+    alt="product image"
+/></a>
+<div class="card-body">
+  <h5 class="card-title">{{ productItem.name }}</h5>
+  <div class="row justify-content-center align-items-center text-center">
+    <div class="row">
+      <p>Here goes product description</p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="price-text">
+          {{ productItem.price | currency: "EUR" }}
+        </p>
+      </div>
+      <div class="col">
+        <p class="second-price-text">
+          {{ productItem.wholesale_price | currency: "EUR" }}
+        </p>
+        <span class="units-text"
+          >from {{ productItem.wholesale_quantity }} units</span
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <a (click)="addToCart()" class="btn btn-erp-blue text-erp-white">{{
+          "btn.add-to-cart" | translate
+        }}</a>
+      </div>
+      <div class="col-sm-6">
+        <a
+          (click)="addProductWholesaleCart()"
+          class="btn btn-erp-blue text-erp-white btn-second"
+          >BUY WHOLESALE</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

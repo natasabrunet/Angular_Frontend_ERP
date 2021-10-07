@@ -48,7 +48,6 @@ import { ClientContactComponent } from './Views/client-contact/client-contact.co
 import { ProfileComponent } from './Views/profile/profile.component';
 import { TermsComponent } from './Views/terms/terms.component';
 
-
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
 import { OrderReviewComponent } from './Views/checkout/order-review/order-review.component';
@@ -60,6 +59,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // popUps UI/UX answers
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CartItemComponent } from './Components/header/shopping-cart/cart-item/cart-item.component';
+import { ProductItemComponent } from './Views/Product/products-without-session/product-item/product-item.component';
 
 registerLocaleData(localeESP);
 
@@ -97,6 +98,8 @@ registerLocaleData(localeESP);
     CheckoutComponent,
     ClientContactComponent,
     ProfileComponent,
+    CartItemComponent,
+    ProductItemComponent,
     TermsComponent,
   ],
 

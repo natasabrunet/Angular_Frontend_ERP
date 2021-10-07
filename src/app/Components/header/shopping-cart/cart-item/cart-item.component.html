@@ -18,7 +18,7 @@
         (ngModelChange)="sendItemQuantity(cartItem.quantity)"
     /></span>
 
-    <strong class="item-price">{{ cartItem.price | currency: "EUR" }}</strong>
+    <span class="item-price">{{ cartItem.price | currency: "EUR" }}</span>
     <span class="item-removal">
       <button class="btn btn-xs" (click)="sendItemToRemove(cartItem)">
         <fa-icon
@@ -30,8 +30,8 @@
         ></fa-icon>
       </button>
     </span>
-    <span class="item-line-price text-highlight"
-      >{{ cartItem.price * cartItem.quantity | number: "1.2-2" }} €</span
+    <strong class="item-line-price text-highlight"
+      >{{ cartItem.price * cartItem.quantity | number: "1.2-2" }} €</strong
     >
   </div>
 </div>

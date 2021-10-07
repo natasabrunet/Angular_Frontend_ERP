@@ -27,8 +27,6 @@ export class ShoppingCartComponent implements OnInit {
   public cartItems: any = [];
   public cartTotal: number = 0;
   sesionCartName = 'erpCart';
-
-  cartIcon = document.getElementById('cartBasket');
   constructor(
     public ProductEmitterService: ProductEmitterService,
     private route: Router,
@@ -53,10 +51,8 @@ export class ShoppingCartComponent implements OnInit {
 
     for (let i in this.cartItems) {
       if (this.cartItems[i].productId === product.id) {
-        // this.checkCartAnimation();
-
         this.cartItems[i].quantity++;
-        // this.addCartAnimation();
+
         if (this.cartItems[i].quantity > this.cartItems[i].stock) {
           Swal.fire({
             title: 'Ups!',
@@ -67,6 +63,7 @@ export class ShoppingCartComponent implements OnInit {
         }
 
         productExists = true;
+
         break;
       }
     }
@@ -102,11 +99,10 @@ export class ShoppingCartComponent implements OnInit {
       } else {
         this.cartItems.push(newcartItem);
 
-        // this.addCartAnimation();
         console.log(newcartItem);
       }
     }
-    // this.checkCartAnimation();
+
     this.cartTotal = 0;
 
     this.cartItems.forEach((item) => {
@@ -114,9 +110,6 @@ export class ShoppingCartComponent implements OnInit {
     });
     console.log(this.cartTotal);
     this.shoppingCartService.saveSessionStorage(this.cartItems);
-    // Emit cart update observable
-
-    // this.shoppinCartService.cartUpdated.emit(this.cartTotal);
   }
   getItemTotal(qty: number, price: number) {
     return qty * price;
@@ -134,14 +127,13 @@ export class ShoppingCartComponent implements OnInit {
   }
   upDateQty(qty) {
     this.cartTotal = 0;
+
     for (let item of this.cartItems) {
-      // this.checkCartAnimation();
       if (item.quantity != qty) {
         break;
       } else {
         item.quantity = qty;
       }
-      // this.addCartAnimation();
 
       if (item.quantity > item.stock) {
         Swal.fire({
@@ -156,12 +148,11 @@ export class ShoppingCartComponent implements OnInit {
     this.cartItems.forEach((item) => {
       this.cartTotal += item.quantity * item.price;
     });
+    let cartIcon = document.getElementById('cartBasket');
+
+    cartIcon.classList.add('newQuantity');
     this.shoppingCartService.saveSessionStorage(this.cartItems);
   }
-
-  // ngOnDestroy(): void {
-  //   this.cartSubscription.unsubscribe();
-  // }
 
   loadCartItems() {
     this.cartItems = this.cart;
@@ -194,14 +185,4 @@ export class ShoppingCartComponent implements OnInit {
   clearSessionStorage() {
     sessionStorage.removeItem(this.sesionCartName);
   }
-
-  addCartAnimation() {
-    this.cartIcon.classList.add('ItemToCart');
-  }
-  checkCartAnimation() {
-    if (this.cartIcon.classList.contains('itemToCart')) {
-      this.cartIcon.classList.remove('itemToCart');
-    }
-  }
-  removeCartAnimation() {}
 }

@@ -14,11 +14,13 @@
         size="lg"
         class="{{ iconClass }}"
       ></fa-icon>
+
       <span
         *ngIf="cartItems.length > 0"
+        id="counter"
         class="shopping-cart-counter d-flex align-items-center justify-content-center {{
           badgeClass
-        }}"
+        }} newQuantity2"
         >{{ cartItems.length }}</span
       >
     </a>

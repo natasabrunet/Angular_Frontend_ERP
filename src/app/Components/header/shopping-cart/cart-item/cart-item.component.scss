@@ -2,120 +2,129 @@ $text-highlight-color: #6394f8;
 $shopping-cart-badge-color: #418deb;
 $shopping-cart-text-color: #ffffff;
 
-.shopping-cart-icon {
-  padding-left: 0.5em;
-  margin-right: 0.5em;
-}
-.shopping-cart-counter {
-  font-size: 0.6rem;
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-}
+// .shopping-cart-icon {
+//   padding-left: 0.5em;
+//   margin-right: 0.5em;
+// }
+// .shopping-cart-counter {
+//   font-size: 0.6rem;
+//   position: absolute;
+//   top: 5px;
+//   right: 15px;
+//   width: 15px;
+//   height: 15px;
+//   border-radius: 50%;
+// }
 
-.blue-badge {
-  background-color: $shopping-cart-badge-color;
-  color: $shopping-cart-text-color;
-}
+// .blue-badge {
+//   background-color: $shopping-cart-badge-color;
+//   color: $shopping-cart-text-color;
+// }
 
-.red-badge {
-  color: red;
-  background-color: yellow;
-}
-.menu-box {
-  box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
-  border: none;
-  margin-top: 2rem;
-  overflow-y: scroll;
-  height: 400px;
-}
-.text-highlight {
-  color: $text-highlight-color;
-}
-.p-r-05 {
-  padding-right: 0.5em;
-}
-.shopping-cart {
+// .red-badge {
+//   color: red;
+//   background-color: yellow;
+// }
+// .menu-box {
+//   box-shadow: 0px 3px 21px 0px rgba(0, 0, 0, 0.2);
+//   border: none;
+//   margin-top: 2rem;
+//   overflow-y: scroll;
+//   height: 400px;
+// }
+// .text-highlight {
+//   color: $text-highlight-color;
+// }
+// .p-r-05 {
+//   padding-right: 0.5em;
+// }
+// .shopping-cart {
+//   font: 14px/22px "Lato", Arial, sans-serif;
+//   width: 420px;
+
+//   .deleteIcon {
+//     color: #dd5d56;
+//   }
+
+//   .deleteButton {
+//     background-color: #dd5d56;
+//   }
+
+//   .shopping-cart-header {
+//     border-bottom: 1px solid #e8e8e8;
+//     padding-right: 0.5em;
+//     text-align: right;
+//   }
+
+//   .shopping-cart-buttons {
+//     padding-left: 0.5em;
+//     padding-right: 0.5em;
+//     & .btn-block {
+//       width: 100%;
+//     }
+//   }
+.shopping-cart-items {
+  list-style-type: none;
+  padding-top: 10px;
+  max-width: 415px;
+  margin-right: 5px;
+  margin-left: -15px;
   font: 14px/22px "Lato", Arial, sans-serif;
-  width: 420px;
+  li {
+    margin-bottom: 18px;
+  }
 
+  img {
+    float: left;
+    margin-right: 12px;
+    max-width: 70px;
+    max-height: 70px;
+  }
   .deleteIcon {
     color: #dd5d56;
   }
 
   .deleteButton {
     background-color: #dd5d56;
+    margin-left: -10px;
+  }
+  .item-name {
+    display: block;
+    font-size: 16px;
+  }
+  .item-detail {
+    display: block;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  .shopping-cart-header {
-    border-bottom: 1px solid #e8e8e8;
-    padding-right: 0.5em;
+  .item-price {
+    display: inline-block;
     text-align: right;
+    margin-right: 0.8em;
+    width: 20%;
+    color: #6394f8;
   }
 
-  .shopping-cart-buttons {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    & .btn-block {
-      width: 100%;
+  .item-quantity {
+    display: inline-block;
+    margin-right: 0.3em;
+    input {
+      width: 60px;
     }
   }
-  .shopping-cart-items {
-    list-style-type: none;
-    padding-top: 10px;
-    max-width: 415px;
-    margin-right: 5px;
-    margin-left: -15px;
 
-    li {
-      margin-bottom: 18px;
-    }
+  .item-removal {
+    display: inline-block;
+    width: 15%;
+    color: red;
+  }
 
-    img {
-      float: left;
-      margin-right: 12px;
-      max-width: 70px;
-      max-height: 70px;
-    }
-
-    .item-name {
-      display: block;
-      font-size: 16px;
-    }
-    .item-detail {
-      display: block;
-      font-size: 12px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .item-price {
-      display: inline-block;
-      text-align: right;
-      margin-right: 0.5em;
-      width: 20%;
-    }
-
-    .item-quantity {
-      display: inline-block;
-      input {
-        width: 50px;
-      }
-    }
-
-    .item-removal {
-      display: inline-block;
-      width: 15%;
-      color: red;
-    }
-
-    .item-line-price {
-      display: inline-block;
-      text-align: right;
-      width: 20%;
-    }
+  .item-line-price {
+    display: inline-block;
+    text-align: right;
+    width: 20%;
+    color: $shopping-cart-badge-color;
   }
 }

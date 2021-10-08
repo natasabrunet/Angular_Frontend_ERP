@@ -171,10 +171,18 @@
         "message": "Are you sure you want to delete this client?",
         "button-no": "No",
         "button-delete": "Delete"
+      },
+      "update": {
+        "title": "Updating…",
+        "message": "Are you sure you want to update this client?",
+        "button-no": "No",
+        "button-update": "Update"
       }
     },
     "deleteOkMessage": "Client has been deleted correclty.",
-    "deleteErrorMessage": "Client has not been deleted. Please, contact with IT team."
+    "deleteErrorMessage": "Client has not been deleted. Please, contact with IT team.",
+    "updateOkMessage": "Client has been updated correclty.",
+    "updateErrorMessage": "Client has not been updated. Please, contact with IT team."
   },
   "Employees-list": {
     "page-head": "Employees list",

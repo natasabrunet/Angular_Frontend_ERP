@@ -171,10 +171,16 @@
         "message": "¿Estás seguro que quieres borrar este cliente?",
         "button-no": "No",
         "button-delete": "Borrar"
+      },
+      "update": {
+        "title": "Actualizando…",
+        "message": "¿Estás seguro que quieres actualizar este cliente?",
+        "button-no": "No",
+        "button-update": "Actualizar"
       }
     },
-    "deleteOkMessage": "El cliente ha sido borrado correctament.",
-    "deleteErrorMessage": "El cliente no ha sido borrado. Por favor contacta con el equipo de IT."
+    "deleteOkMessage": "El cliente ha sido actualizado correctament.",
+    "deleteErrorMessage": "El cliente no ha sido actualizado. Por favor contacta con el equipo de IT."
   },
   "Employees-list": {
     "page-head": "Lista de empleados",

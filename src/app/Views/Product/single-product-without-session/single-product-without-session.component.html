@@ -1,0 +1,73 @@
+<div class="container row justify-content-around  mt-5">
+    <div class="col-lg-9 row ">
+        <div class="col-12">
+            <div class="row w-100">
+                <div class="col-md-6">
+                    <div>
+                        <!-- once the url image in API is updated we can exchange the img src for {{currentProduct.image}} -->
+                        <img src="/assets/images/{{mainImage}}.jpg" alt="product photo" class="image-product img-fluid">
+                    </div>
+                    <div class="row justify-content-around">
+                        <!-- stills a mistery how the different img of the same product will be stored... 
+                            so problably we'll may get the img in a diferent way -->
+                        <img *ngFor="let pict of imagesProduct1" src="/assets/images/{{pict}}.jpg" class="col-2 galery-images" 
+                        (mouseover)="displayImg(pict)" (mouseleave)="mainImg()"> 
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="text-center col-12 mt-3">{{'single-product-no-session.product-list.product-'+currentProduct.id | translate}}</h3>
+                    <div class="description-product">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur labore ipsa 
+                            reprehenderit beatae velit repellat.</p>
+                    </div>
+                    <div class="mt-5">
+                        <h4>{{'single-product-no-session.details' | translate}}</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, repellendus.</p>
+                        <ul>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="related-products d-none d-lg-block col-md-12">
+            <h4 >{{'single-product-no-session.related-products' | translate}}</h4>
+            <div class="d-flex display-related">
+                 <!-- once the url image in API is updated we can exchange the img src to {{related.image}} -->
+                <div *ngFor="let related of relatedProducts" class=" image-link">
+                    <a href="/single-product-without-session/{{related.id}}"><img  src="assets/images/product1.jpg" class="related-images " alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="aside col-9 col-lg-3 d-flex mt-5 mt-lg-0">
+        <form  class="row justify-content-around content-aside ">
+            <h3 class="text-center mb-lg-5 mt-3" >{{'single-product-no-session.buy-details' | translate}}</h3>
+            
+                <div class=" container-input-price text-center mb-4 justify-content-between d-flex " id="price">
+                    <p class="price-info">{{'single-product-no-session.retail-price' | translate}}</p>
+                    <input #price  name="price" type="radio" id="small" class="prices d-none" value="{{currentProduct.price}}">
+                    <label (click)="selectProd()" for="small">{{currentProduct.price}}€</label>
+                </div>
+           
+                <div class=" container-input-price text-center mb-4 justify-content-between d-flex " id="wholesalePrice">
+                    <p class="price-info">{{'single-product-no-session.wholesale-price' | translate}}</p>
+                    <input #wholesalePrice  name="price" type="radio" id="big" class="prices d-none" value="{{currentProduct.wholesale_price}}">
+                    <label (click)="selectProd()" for="big">{{currentProduct.wholesale_price}}€</label>
+                </div>
+                <div class="text-center invalid-feedback ">{{'single-product-no-session.error' | translate}}</div>
+            <div class="d-flex justify-content-around mt-lg-5">
+                <label for="uniits">{{'single-product-no-session.quantity' | translate}}</label>
+                <select name="units" id="">
+                    <option value="1">1</option>
+                </select>
+            </div>
+            <div class=" d-flex justify-content-center mt-3 mt-lg-5 mb-5 mb-lg-0">
+                <button class="btn addCartBtn " (click)="addToCart(price.checked, wholesalePrice.checked )"> {{'single-product-no-session.add-to-cart' | translate}}</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -317,5 +317,29 @@
   "terms": {
     "text-1":"Un acord de condicions generals recull les condicions que els visitants han d'acceptar si volen interactuar amb el lloc web. Bàsicament, si el visitant segueix utilitzant el lloc web després d'acceptar les condicions generals, estarà subscrivint un contracte amb vostè.",
     "text-2": "A diferència de les polítiques de privacitat, no està legalment obligat a tenir un acord de condicions generals. No obstant això, hi ha molts motius pels quals hauria de redactar un i publicar al seu lloc web."
+  },
+  "single-product-no-session":{
+    "details":"Especificacions",
+    "buy-details":"Detalls de compra",
+    "quantity":"Quantitat",
+    "add-to-cart":"Afegir al carret",
+    "related-products":"Productes relacionats",
+    "error":"Selecciona un producte",
+    "retail-price":"Preu al per menor: ",
+    "wholesale-price":"Preu a l'engrós: ",
+    "product-list":{
+      "product-1": "Aigua",
+      "product-2": "Pizza",
+      "product-3": "Pasta",
+      "product-4": "Flam",
+      "product-5": "Gelat",
+      "product-6": "Iogurt",
+      "product-7": "Pà",
+      "product-8": "Arròs",
+      "product-9": "Sopa",
+      "product-10": "Paella",
+      "product-11": "Aigua carbonatada",
+      "product-12": "Pastís"
+    }
   }
 }

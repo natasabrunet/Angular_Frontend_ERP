@@ -317,5 +317,29 @@
   "terms": {
     "text-1":"A General Conditions agreement sets out the conditions that visitors must accept if they wish to interact with the website. Basically, if the visitor continues to use the website after accepting the General Conditions, she will be signing a contract with you.",
     "text-2": "Unlike the Privacy Policies, you are not legally obliged to have a General Conditions agreement. However, there are many reasons why you should write one and post it on your website."
+  },
+  "single-product-no-session":{
+    "details":"Details",
+    "buy-details":"Buy details",
+    "quantity":"Quantity",
+    "add-to-cart":"Add to cart",
+    "related-products":"Related products",
+    "error":"Select a product",
+    "retail-price":"Retail price: ",
+    "wholesale-price":"Wholesale price: ",
+    "product-list":{
+      "product-1": "Water",
+      "product-2": "Pizza",
+      "product-3": "Pasta",
+      "product-4": "Flan",
+      "product-5": "Ice-cream",
+      "product-6": "Yogurt",
+      "product-7": "Bread",
+      "product-8": "Rice",
+      "product-9": "Soup",
+      "product-10": "Paella",
+      "product-11": "Soda",
+      "product-12": "Cake"
+    }
   }
 }

@@ -1,0 +1,81 @@
+
+<div class="container mt-5">
+  <div class="row">
+    <h2>{{'Offers.page-head'|translate}}</h2>
+  </div>
+  <div class="row mt-5">
+
+    <div class="form-group col-3 buscador">
+      <input type="text" class="form-control" placeholder="{{'Offers.search'|translate}}" [(ngModel)]="description"(input)="Search()"/>
+    </div>
+    <div class="col">
+      <button class="btn btn-primary">{{'Offers.new_Offer'|translate}}</button>
+
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <table class="table table-responsive-md mt-5 productTable align-middle">
+      <thead>
+        <tr>
+          <th scope="col">{{'Offers.id'|translate}}</th>
+          <th scope="col">{{'Offers.description'|translate}}</th>
+          <th scope="col">{{'Offers.discount'|translate}}</th>
+          <th scope="col">{{'Offers.start_date'|translate}}</th>
+          <th scope="col">{{'Offers.end_date'|translate}}</th>
+          <th scope="col">{{'Offers.paid_quantity'|translate}}</th>
+          <th scope="col">{{'Offers.free_quantity'|translate}}</th>
+          <th scope="col">{{'Offers.delete'|translate}}</th>
+          <th scope="col">{{'Offers.update'|translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let elemento of offers, let i = index">
+          <td>{{elemento.id}}</td>
+          <td>{{elemento.description}}</td>
+          <td>{{elemento.discount}}</td>
+          <td>{{elemento.start_date}}</td>
+          <td>{{elemento.end_date}}</td>
+          <td>{{elemento.paid_quantity}}</td>
+          <td>{{elemento.free_quantity}}</td>
+          <!--Delete/Edit-->
+          <td>
+            <!--Delete-->
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn">
+                <fa-icon
+                class="mx-md-3"
+                [icon]="faTrashAlt"
+                size="lg"
+                role="button">
+                </fa-icon>
+              </button>
+            </div>
+          </td>
+          <td>
+            <!--Edit-->
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn">
+                <fa-icon
+                class="mx-md-3"
+                [icon]="faEdit"
+                size="lg"
+                role="button">
+                </fa-icon>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+</div>
+

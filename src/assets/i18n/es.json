@@ -211,6 +211,32 @@
       "update": "Guardar",
       "delete": "Borrar"
     },
+<<<<<<< HEAD
+    "Employee": {
+        "new-employee": "Nuevo empleado",
+        "employee-detail": "Detalles del empleado",
+        "back-to-employees-list":"Regresar a la lista de empleados",
+        "updateOkMessage": "Se ha actualizado correctamente",
+        "updateErrorMessage": "Ha ocurrido un error",
+        "name": "Nombre",
+        "surname": "Apellido",
+        "salary": "Sueldo",
+        "total-sellings": "Total de ventas",
+        "orders-attended": "Pedidos atendidos",
+        "phone": "Teléfono",
+        "orders-assigned": "Pedidos asignados",
+        "buttons": {
+          "update": "Guardar",
+          "delete": "Borrar"
+        },
+        "modal":{
+          "delete": {
+            "title":"Borrando…",
+            "message": "¿Seguro quieres borrar este empleado/a?",
+            "button-delete":"Borrar"
+          }
+        }
+=======
     "modal": {
       "delete": {
         "title": "Borrando…",
@@ -238,6 +264,7 @@
     "navbar-signup": "Registrarse",
     "navbar-terms": "Términos y condiciones"
   },
+>>>>>>> a3bad79b3fffb07df6c9e59e7b89acfe139a96d4
 
   "about": {
     "text-greeting": "¡Hola!",
@@ -292,7 +319,6 @@
   "employee": "empleado",
   "employees": "empleados",
   "clock": "horario",
-
   "contact-page":{
     "page-head":"Contacta con nosotr@s!",
     "form":{
@@ -303,6 +329,28 @@
       "news-letter":"Me gustaría recibir vuestro newsletter",
       "terms":"He leído y acepto los términos y condiciones",
       "button": "Enviar!"
+    },
+    "pageNotFound": {
+        "h1": "Error 404",
+        "text-1": "¡No te preocupes, no eres tú, somos nosotros!",
+        "text-2": "¡No pudimos encontrar esa página!",
+        "btn-goBack": "Ir atras!"
+    },
+    "Offers":{
+      "page-head": "Lista de Ofertas",
+      "delete": "Eliminar",
+      "update": "Actualizar",
+      "id": "Id Oferta",
+      "discount": "Descuento",
+      "paid_quantity": "Cantidad Pagada",
+      "free_quantity": "Cantidad Libre",
+      "start_date": "Fecha Inicio",
+      "end_date": "Fecha Fin",
+      "description": "Descripción Promoción",
+      "new_Offer": "Crear Nueva Oferta",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "search": "Escribe para buscar"
     },
     "error":{
       "name-missing":"Introduzca su nombre" ,

@@ -202,6 +202,7 @@
     "updateOkMessage": "S'ha actualitzat correctament",
     "updateErrorMessage": "Ha ocorregut un error",
     "name": "Nom",
+    "surname": "Cognom",
     "salary": "Sou",
     "total-sellings": "Total de vendes",
     "orders-attended": "Comandes ateses",
@@ -292,7 +293,6 @@
   "employee": "empleat",
   "employees": "empleats",
   "clock": "horari",
-
   "contact-page":{
     "page-head":"Contacta amb nosaltres!",
     "form":{
@@ -303,6 +303,22 @@
       "news-letter":"M'agradaria rebre el vostre newsletter",
       "terms":"He llegit i estic d'acord amb els termes i les condicions",
       "button": "Enviar!"
+    },
+    "Offers":{
+      "page-head": "Llista d'Ofertes",
+      "delete": "Eliminar",
+      "update": "Actualitzar",
+      "id": "Id Oferta",
+      "discount": "Descompte",
+      "paid_quantity": "Quantitat Pagada",
+      "free_quantity": "Quantitat Lliure",
+      "start_date": "Data Inici",
+      "end_date": "Data Fin",
+      "description": "Descripció Promoció",
+      "new_Offer": "Crear nova Oferta",
+      "previous": "Anterior",
+      "next": "Següent",
+      "search": "Escriu per buscar"
     },
     "error":{
       "name-missing":"Introdueixi el seu nom" ,
@@ -318,4 +334,5 @@
     "text-1":"Un acord de condicions generals recull les condicions que els visitants han d'acceptar si volen interactuar amb el lloc web. Bàsicament, si el visitant segueix utilitzant el lloc web després d'acceptar les condicions generals, estarà subscrivint un contracte amb vostè.",
     "text-2": "A diferència de les polítiques de privacitat, no està legalment obligat a tenir un acord de condicions generals. No obstant això, hi ha molts motius pels quals hauria de redactar un i publicar al seu lloc web."
   }
+
 }

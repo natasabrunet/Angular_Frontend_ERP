@@ -25,6 +25,9 @@ import { ClientDetailComponent } from './Views/Client/client-detail/client-detai
 // Orders import
 import { OrdersComponent } from './Views/orders/orders.component';
 
+// Offers import
+import { OffersComponent } from './Views/Offers/offers/offers.component';
+
 // Employees import
 import { EmployeesListComponent } from './Views/employees/employees-list/employees-list.component';
 import { EmployeeComponent } from './Views/employees/employee/employee.component';
@@ -64,6 +67,7 @@ const routes: Routes = [
     component: ProductsWithoutSessionComponent,
   },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: 'offers', component: OffersComponent, canActivate: [AuthGuard]},
   {
     path: 'employees-list',
     component: EmployeesListComponent,

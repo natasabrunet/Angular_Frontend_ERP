@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { newProductDto } from '../Models/DTOs/newProductDto';
 import { updateProductDto } from '../Models/DTOs/updateProductDto';
 import { LoginService } from './login.service';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -36,6 +35,7 @@ export class ProductsService {
         id: id,
       },
     };
+
     return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
   }
 

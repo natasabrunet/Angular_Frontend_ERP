@@ -15,7 +15,8 @@ import { AboutPageComponent } from './Views/about-page/about-page.component';
 import { ContactPageComponent } from './Views/contact-page/contact-page.component';
 import { ProductsWithoutSessionComponent } from './Views/Product/products-without-session/products-without-session.component';
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
-
+import { ProfileComponent } from './Views/profile/profile.component';
+import { TermsComponent } from './Views/terms/terms.component';
 // Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
 import { ClientListComponent } from './Views/Client/client-list/client-list.component';
@@ -41,12 +42,18 @@ const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'admin', component: AdminViewComponent, canActivate: [AuthGuard] },
+  { path: 'terms', component: TermsComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'log-in', component: LoginComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'licence', component: LicenceComponent },
   { path: 'product-list', component: ProductsListComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'client-list',
     component: ClientListComponent,
@@ -69,7 +76,11 @@ const routes: Routes = [
   { path: 'employee/:id', component: EmployeeComponent },
   { path: 'stats', component: StatsComponent, canActivate: [AuthGuard] },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'client-contact', component: ClientContactComponent },
+  {
+    path: 'client-contact',
+    component: ClientContactComponent,
+    canActivate: [AuthGuard],
+  },
 
   // developers views
   { path: 'dev/admin', component: AdminViewComponent },

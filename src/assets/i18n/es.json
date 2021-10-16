@@ -1,187 +1,217 @@
 {
-    "Search": {
-        "searchph": "buscar"
+  "Search": {
+    "searchph": "buscar"
+  },
+  "Header": {
+    "notifications": {
+      "head": "Notificaciones",
+      "event_head_today": "Evento de hoy",
+      "event_description": "Recordatorio de un evento de hoy"
+    }
+  },
+  "Admin": {
+    "header": {
+      "profile": "Perfil",
+      "inbox": "Bandeja de entrada",
+      "settings": "Ajustes",
+      "logout": "Salir"
+    }
+  },
+  "Profile": {
+    "page-head": "Perfil de Usuario",
+    "Client-fields": {
+      "name": "Nombre",
+      "address": "Dirección",
+      "cif": "CIF",
+      "password": "Contraseña",
+      "new-password": "Nueva Contraseña",
+      "buttons": {
+        "save": "Guardar"
+      }
+    }
+  },
+  "btn": {
+    "add": "Añadir",
+    "add-to-cart": "Añadir al carrito",
+    "delete": "Borrar",
+    "update": "Modificar",
+    "edit": "Editar",
+    "go": "Ir",
+    "go-to-page": "Ir a la página"
+  },
+  "footer": {
+    "developer": "Desarrollado por"
+  },
+  "singleProd": {
+    "tittleNew": "NUEVO PRODUCTO",
+    "tittleUpdate": "MODIFICAR PRODUCTO",
+    "name": "Nombre",
+    "namePlaceHolder": "Introduzca el nombre del producto",
+    "stock": "Stock",
+    "stockPlaceHolder": "Introduzca la cantidad del producto",
+    "price": "Precio",
+    "pricePlaceHolder": "Introduzca el precio",
+    "addOkMessage": "El producto ha sido añadido con éxito.",
+    "addErrorMessage": "No se ha podido dar de alta el producto. Por favor, contacte con el equipo IT.",
+    "updateOkMessage": "El producto ha sido actualizado correctamente.",
+    "updateErrorMessage": "No se ha podigo actualizar el producto. Por favor, contacte con el equipo IT.",
+    "deleteOkMessage": "El producto ha sido borrado correctamente.",
+    "deleteErrorMessage": "No se ha podido borrar el producto. Por favor, contacte con el equipo IT."
+  },
+  "Products-list": {
+    "page-head": "Lista de productos",
+    "list": {
+      "head-name": "Nombre",
+      "head-stock": "Stock",
+      "head-price": "Precio",
+      "head-image": "Imagen",
+      "head-options": "Opciones"
     },
-    "Header": {
-        "notifications": {
-            "head": "Notificaciones",
-            "event_head_today": "Evento de hoy",
-            "event_description": "Recordatorio de un evento de hoy"
-        }
+    "modal": {
+      "title": "Borrando…",
+      "message": "¿Estás seguro que quieres borrar el producto ",
+      "button-no": "No",
+      "button-delete": "Borrar"
     },
-    "Admin": {
-        "header": {
-            "profile": "Perfil",
-            "inbox": "Bandeja de entrada",
-            "settings": "Ajustes",
-            "logout": "Salir"
-        }
+    "button": {
+      "new-product": "añadir producto"
+    }
+  },
+  "order-review": {
+    "page-head": "Revisión del pedido",
+    "list": {
+      "head-list": "Detalles",
+      "head-price": "Precio:",
+      "head-subTotal": "Subtotal:",
+      "head-quantity": "CANT:"
+    }
+  },
+  "payment-methods": {
+    "page-head": "Métodos de pago",
+    "list": {
+      "credit-card": "Tarjeta de crédito",
+      "paypal": "PayPal",
+      "cash": "Efectivo",
+      "shipping": "Envío:",
+      "head-total": "Total:"
     },
-    "btn": {
-        "add": "Añadir",
-        "add-to-cart": "Añadir al carrito",
-        "delete": "Borrar",
-        "update": "Modificar",
-        "edit": "Editar",
-        "go": "Ir",
-        "go-to-page": "Ir a la página"
+    "button": {
+      "buy-now": "Finalizar compra"
+    }
+  },
+  "billing-information": {
+    "page-head": "Información de facturación",
+    "error-list": {
+      "name-error": "El nombre es obligatorio",
+      "surname-error": "El apellido es obligatorio",
+      "id-error": "El ID es obligatorio",
+      "cif-error": "Proporcionar un CIF válido (1 letra 7 números 1 letra)",
+      "dni-error": "o DNI válido (8 números 1 letra)",
+      "email-error": "El correo es obligatorio",
+      "emailFormat-error": "El formato de correo no es válido",
+      "adress-error": "La dirección es obligatoria",
+      "country-error": "El país es obligatorio",
+      "province-error": "La provincia es obligatoria",
+      "city-error": "La ciudad es obligatoria",
+      "zip-error": "El codigo postal es obligatorio",
+      "minimum": "Mínimo",
+      "characters-required": "caracteres necesarios"
     },
-    "footer": {
-        "developer": "Desarrollado por"
+    "list": {
+      "country": "País ",
+      "province": "Provincia",
+      "city": "Ciudad",
+      "zip-code": "Codigo postal",
+      "shipping-address": "Dirección de envío",
+      "name": "Nombre",
+      "first-name": "Nombre",
+      "last-name": "Apellido",
+      "dni": "DNI",
+      "email": "Correo",
+      "address": "Dirección",
+      "shipping-information": "Información de envío",
+      "alternative-adress": "Enviar a otra dirección"
+    }
+  },
+  "Clients-list": {
+    "page-head": "Lista de clientes",
+    "list": {
+      "head-name": "Nombre",
+      "head-address": "Dirección",
+      "head-cif": "CIF",
+      "head-options": "Opciones"
     },
-    "singleProd": {
-        "tittleNew": "NUEVO PRODUCTO",
-        "tittleUpdate": "MODIFICAR PRODUCTO",
-        "name": "Nombre",
-        "namePlaceHolder": "Introduzca el nombre del producto",
-        "stock": "Stock",
-        "stockPlaceHolder": "Introduzca la cantidad del producto",
-        "price": "Precio",
-        "pricePlaceHolder": "Introduzca el precio",
-        "addOkMessage": "El producto ha sido añadido con éxito.",
-        "addErrorMessage": "No se ha podido dar de alta el producto. Por favor, contacte con el equipo IT.",
-        "updateOkMessage": "El producto ha sido actualizado correctamente.",
-        "updateErrorMessage": "No se ha podigo actualizar el producto. Por favor, contacte con el equipo IT.",
-        "deleteOkMessage": "El producto ha sido borrado correctamente.",
-        "deleteErrorMessage": "No se ha podido borrar el producto. Por favor, contacte con el equipo IT."
+    "modal": {
+      "title": "Borrando…",
+      "message": "¿Estás seguro que quieres borrar el cliente ",
+      "button-no": "No",
+      "button-delete": "Borrar"
     },
-    "Products-list": {
-        "page-head": "Lista de productos",
-        "list": {
-            "head-name": "Nombre",
-            "head-stock": "Stock",
-            "head-price": "Precio",
-            "head-image": "Imagen",
-            "head-options": "Opciones"
-        },
-        "modal": {
-            "title": "Borrando…",
-            "message": "¿Estás seguro que quieres borrar el producto ",
-            "button-no": "No",
-            "button-delete": "Borrar"
-        },
-        "button": {
-            "new-product": "añadir producto"
-        }
+    "button": {
+      "new-client": "añadir cliente",
+      "go": "ir"
     },
-    "order-review": {
-        "page-head": "Revisión del pedido",
-        "list": {
-            "head-list": "Detalles",
-            "head-price": "Precio:",
-            "head-subTotal": "Subtotal:",
-            "head-quantity": "CANT:"
-        }
-
+    "literals": {
+      "go-to-page": "ir a la página"
+    }
+  },
+  "Client": {
+    "back-to-client-list": "Volver a la administración de clientes",
+    "client-detail": "Detalle del Cliente",
+    "name": "Nombre",
+    "address": "Dirección",
+    "cif": "CIF",
+    "buttons": {
+      "delete": "Borrar",
+      "save": "Guardar"
     },
-    "payment-methods": {
-        "page-head": "Métodos de pago",
-        "list": {
-            "credit-card": "Tarjeta de crédito",
-            "paypal": "PayPal",
-            "cash": "Efectivo",
-            "shipping": "Envío:",
-            "head-total": "Total:"
-        },
-        "button": {
-            "buy-now": "Finalizar compra"
-        }
-
+    "modal": {
+      "delete": {
+        "title": "Borrando…",
+        "message": "¿Estás seguro que quieres borrar este cliente?",
+        "button-no": "No",
+        "button-delete": "Borrar"
+      }
     },
-    "billing-information": {
-        "page-head": "Información de facturación",
-        "error-list": {
-            "name-error": "El nombre es obligatorio",
-            "surname-error": "El apellido es obligatorio",
-            "id-error": "El ID es obligatorio",
-            "cif-error": "Proporcionar un CIF válido (1 letra 7 números 1 letra)",
-            "dni-error": "o DNI válido (8 números 1 letra)",
-            "email-error": "El correo es obligatorio",
-            "emailFormat-error": "El formato de correo no es válido",
-            "adress-error": "La dirección es obligatoria",
-            "country-error": "El país es obligatorio",
-            "province-error": "La provincia es obligatoria",
-            "city-error": "La ciudad es obligatoria",
-            "zip-error": "El codigo postal es obligatorio",
-            "minimum": "Mínimo",
-            "characters-required": "caracteres necesarios"
-        },
-        "list": {
-            "country": "País ",
-            "province": "Provincia",
-            "city": "Ciudad",
-            "zip-code": "Codigo postal",
-            "shipping-address": "Dirección de envío",
-            "name": "Nombre",
-            "first-name": "Nombre",
-            "last-name": "Apellido",
-            "dni": "DNI",
-            "email": "Correo",
-            "address": "Dirección",
-            "shipping-information": "Información de envío",
-            "alternative-adress": "Enviar a otra dirección"
-        }
+    "deleteOkMessage": "El cliente ha sido borrado correctament.",
+    "deleteErrorMessage": "El cliente no ha sido borrado. Por favor contacta con el equipo de IT."
+  },
+  "Employees-list": {
+    "page-head": "Lista de empleados",
+    "list": {
+      "head-id": "ID",
+      "head-name": "Nombre",
+      "head-total-sellings": "Ventas Totales",
+      "head-orders-attended": "# Pedidos Atendidos",
+      "head-options": "Opciones"
     },
-    "Clients-list": {
-        "page-head": "Lista de clientes",
-        "list": {
-            "head-name": "Nombre",
-            "head-address": "Dirección",
-            "head-cif": "CIF",
-            "head-options": "Opciones"
-        },
-        "modal": {
-            "title": "Borrando…",
-            "message": "¿Estás seguro que quieres borrar el cliente ",
-            "button-no": "No",
-            "button-delete": "Borrar"
-        },
-        "button": {
-            "new-client": "añadir cliente",
-            "go": "ir"
-        },
-        "literals": {
-            "go-to-page": "ir a la página"
-        }
+    "modal": {
+      "title": "Borrando…",
+      "message": "¿Estás seguro que quieres borrar el empleado ",
+      "button-no": "No",
+      "button-delete": "Borrar"
     },
-    "Client": {
-        "back-to-client-list": "Volver a la administración de clientes",
-        "client-detail": "Detalle del Cliente",
-        "name": "Nombre",
-        "address": "Dirección",
-        "cif": "CIF",
-        "buttons": {
-            "delete": "Borrar",
-            "save": "Guardar"
-        },
-        "modal": {
-            "delete": {
-                "title": "Borrando…",
-                "message": "¿Estás seguro que quieres borrar este cliente?",
-                "button-no": "No",
-                "button-delete": "Borrar"
-            }
-        }
+    "button": {
+      "new-employee": "Añadir empleado"
+    }
+  },
+  "Employee": {
+    "new-employee": "Nuevo empleado",
+    "employee-detail": "Detalles del empleado",
+    "back-to-employees-list": "Regresar a la lista de empleados",
+    "updateOkMessage": "Se ha actualizado correctamente",
+    "updateErrorMessage": "Ha ocurrido un error",
+    "name": "Nombre",
+    "salary": "Sueldo",
+    "total-sellings": "Total de ventas",
+    "orders-attended": "Pedidos atendidos",
+    "phone": "Teléfono",
+    "orders-assigned": "Pedidos asignados",
+    "buttons": {
+      "update": "Guardar",
+      "delete": "Borrar"
     },
-    "Employees-list": {
-        "page-head": "Lista de empleados",
-        "list": {
-            "head-id": "ID",
-            "head-name": "Nombre",
-            "head-total-sellings": "Ventas Totales",
-            "head-orders-attended": "# Pedidos Atendidos",
-            "head-options": "Opciones"
-        },
-        "modal": {
-            "title": "Borrando…",
-            "message": "¿Estás seguro que quieres borrar el empleado ",
-            "button-no": "No",
-            "button-delete": "Borrar"
-        },
-        "button": {
-            "new-employee": "Añadir empleado"
-        }
-    },
+<<<<<<< HEAD
     "Employee": {
         "new-employee": "Nuevo empleado",
         "employee-detail": "Detalles del empleado",
@@ -206,32 +236,99 @@
             "button-delete":"Borrar"
           }
         }
+=======
+    "modal": {
+      "delete": {
+        "title": "Borrando…",
+        "message": "¿Seguro quieres borrar este empleado/a?",
+        "button-delete": "Borrar"
+      }
+    }
+  },
+  "Validation": {
+    "required-field": "Campo obligatorio"
+  },
+  "Format": {
+    "email-field": "Correo eletrónico no válido"
+  },
+  "homepage": {
+    "welcome-msg": "Bienvenidos a ERP!",
+    "cheers-msg": "SALUD!!!"
+  },
+  "navbar-client": {
+    "navbar-home": "Inicio",
+    "navbar-about": "Nosotros",
+    "navbar-products": "Productos",
+    "navbar-contact": "Contacto",
+    "navbar-login": "Entrar",
+    "navbar-signup": "Registrarse",
+    "navbar-terms": "Términos y condiciones"
+  },
+>>>>>>> a3bad79b3fffb07df6c9e59e7b89acfe139a96d4
 
+  "about": {
+    "text-greeting": "¡Hola!",
+    "text-1": "Somos estudiantes afortunados de la IT Academy que acabamos de terminar el itinerario escogido y tuvimos la oportunidad de trabajar juntos en el proyecto beer-nice.",
+    "text-2": "Somos un equipo multicultural al que nos gusta pasar tiempo juntos: reírnos o resolver los problemas que a veces aparecen y esperamos que pronto disfrutemos juntos de unas cervezas multiculturales y nos olvidemos de los problemas. Será una situación en la que todos saldremos ganando.",
+    "text-goodbye": "¡Saludos!"
+  },
+  "pageNotFound": {
+    "h1": "Error 404",
+    "text-1": "¡No te preocupes, no eres tú, somos nosotros!",
+    "text-2": "¡No pudimos encontrar esa página!",
+    "btn-goBack": "Ir atras!"
+  },
+  "client-contact": {
+    "page-head": "Enviar una Consulta",
+    "type": "Tipo de Consulta",
+    "list": {
+      "option-default": "Selecciona una opción",
+      "option-1": "Información producto",
+      "option-2": "Proceso de compra",
+      "option-3": "Pago y facturación",
+      "option-4": "Envíos y devoluciones",
+      "option-5": "Ofertas",
+      "option-6": "Otra consulta"
     },
-    "Validation": {
-        "required-field": "Campo obligatorio"
-    },
-    "Format": {
-        "email-field": "Correo eletrónico no válido"
-    },
-    "homepage": {
-        "welcome-msg": "Bienvenidos a ERP!",
-        "cheers-msg": "SALUD!!!"
-    },
-    "navbar-client": {
-        "navbar-home": "Inicio",
-        "navbar-about": "Nosotros",
-        "navbar-products": "Productos",
-        "navbar-contact": "Contacto",
-        "navbar-login": "Entrar",
-        "navbar-signup": "Registrarse"
-    },
-
-    "about": {
-        "text-greeting": "¡Hola!",
-        "text-1": "Somos estudiantes afortunados de la IT Academy que acabamos de terminar el itinerario escogido y tuvimos la oportunidad de trabajar juntos en el proyecto beer-nice.",
-        "text-2": "Somos un equipo multicultural al que nos gusta pasar tiempo juntos: reírnos o resolver los problemas que a veces aparecen y esperamos que pronto disfrutemos juntos de unas cervezas multiculturales y nos olvidemos de los problemas. Será una situación en la que todos saldremos ganando.",
-        "text-goodbye": "¡Saludos!"
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "privacy": "Acepta la política de Privacidad",
+    "button": {
+      "submit": "Enviar",
+      "cancel": "Cancelar"
+    }
+  },
+  "client-error": {
+    "select-error": "Por favor seleciona una opción",
+    "subject-error": "El asunto debe tener mínimo 2 letras",
+    "maxlength-error": "El asunto debe tener un máximo de 50 caracteres",
+    "message-error": "Por favor escribe un mensage de máximo 500 caracteres",
+    "privacy-error": "Por favor acepta nuestra política de privacidad"
+  },
+  "client": "cliente",
+  "clients": "clientes",
+  "order": "pedido",
+  "orders": "pedidos",
+  "contact": "contacto",
+  "contacts": "contactos",
+  "profile": "perfil",
+  "delete": "eliminar",
+  "stats": "stats",
+  "product": "producto",
+  "products": "productos",
+  "employee": "empleado",
+  "employees": "empleados",
+  "clock": "horario",
+  "contact-page":{
+    "page-head":"Contacta con nosotr@s!",
+    "form":{
+      "title": "Alguna duda?",
+      "name":"Nombre",
+      "email":"Correo electrónico",
+      "message":"Mensaje",
+      "news-letter":"Me gustaría recibir vuestro newsletter",
+      "terms":"He leído y acepto los términos y condiciones",
+      "button": "Enviar!"
     },
     "pageNotFound": {
         "h1": "Error 404",
@@ -255,19 +352,18 @@
       "next": "Siguiente",
       "search": "Escribe para buscar"
     },
-
-    "client": "cliente",
-    "clients": "clientes",
-    "order": "pedido",
-    "orders": "pedidos",
-    "contact": "contacto",
-    "contacts": "contactos",
-    "profile": "perfil",
-    "delete": "eliminar",
-    "stats": "stats",
-    "product": "producto",
-    "products": "productos",
-    "employee": "empleado",
-    "employees": "empleados",
-    "clock": "horario"
+    "error":{
+      "name-missing":"Introduzca su nombre" ,
+      "name-minlength": "El nombre tiene que contener mínimo 2 caracteres",
+      "email-missing": "Introduzca su correo electrónico",
+      "email-invalid": "Introduzca un correo electrónico válido",
+      "message-missing": "¿Que quiere hacernos llegar? Introduzca su mensaje",
+      "message-maxlength":"El mensaje no puede tener más de 500 caracteres",
+      "contact-terms-missing": "Los términos y condiciones deben ser aceptados"
+    }
+  },
+  "terms": {
+    "text-1":"Un acuerdo de Condiciones Generales recoge las condiciones que los visitantes deben aceptar si desean interactuar con el sitio web. Básicamente, si el visitante sigue utilizando el sitio web después de aceptar las Condiciones Generales, estará suscribiendo un contrato con usted.",
+    "text-2": "A diferencia de las Políticas de Privacidad, no está legalmente obligado a tener un acuerdo de Condiciones Generales. Sin embargo, existen muchos motivos por los que debería redactar uno y publicarlo en su sitio web."
+  }
 }

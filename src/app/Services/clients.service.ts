@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginService } from './login.service';
+import { Clients } from '../Models/clients';
+import { Observable } from 'rxjs';
+import { UserSignUpDto } from '../Models/DTOs/newUserDto';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClientsService {
-
   url: string = 'http://217.76.158.200:8080';
   endPoint: string = '/api/clients';
   token: string;
   clientsPerPage: number = 5;
+
 
   constructor(
     private httpClient: HttpClient,
@@ -21,41 +24,50 @@ export class ClientsService {
     this.token = this.loginService.getBearerToken;
   }
 
-  getAllClients() {
+  getClients(amount: number, page: number) {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
 
-    return this.httpClient.get( `${this.url}${this.endPoint}`, {headers} );
+    return this.httpClient.get(
+      `${this.url}${this.endPoint}/list/${amount}/${page}`,
+      { headers }
+    );
   }
 
-  getClients(amount: number, page: number ) {
+  getClientByID(id: string) {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
-
-    return this.httpClient.get( `${this.url}${this.endPoint}/list/${amount}/${page}`, {headers} );
-  }
-
-  getClientByID(id: string ) {
-    const headers = new HttpHeaders({
-      Authorization: this.token
+    return this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {
+      headers,
     });
-    return this.httpClient.get( `${this.url}${this.endPoint}/${id}`, {headers} );
   }
 
   updateClient(client) {
     const headers = new HttpHeaders({
-      Authorization: this.token
+      Authorization: this.token,
     });
-    return this.httpClient.put( `${this.url}${this.endPoint}/${client.id}`, client, {headers} );
+    return this.httpClient.put(
+      `${this.url}${this.endPoint}/${client.id}`,
+      client,
+      { headers }
+    );
   }
+
 
   deleteClient(id: string) {
-    const headers = new HttpHeaders({
-      Authorization: this.token
-    });
+    const options = {
+      headers: new HttpHeaders({
+        Authorization: this.token
+      }),
+      body: {
+        id: id
+      }
+    };
 
-    return this.httpClient.delete( `${this.url}${this.endPoint}/${id}`, {headers} );
+    return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
   }
 }
+
+

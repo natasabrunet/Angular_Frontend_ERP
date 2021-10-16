@@ -1,59 +1,153 @@
-<h2 class="mt-5 mx-5">Enviar una Consulta</h2>
+<h2 class="mt-5 mx-5">{{ "client-contact.page-head" | translate }}</h2>
 
-<form class="d-flex-column justify-content-center p-4 m-4">
+<form
+  class="d-flex-column justify-content-center p-4 m-4"
+  [formGroup]="cliContactForm"
+  (ngSubmit)="clientSubmit()"
+  novalidate
+>
   <div class="form-group row m-4">
     <div class="col-sm-2 col-form-label">
-      <label for="Tipo de Consulta">Tipo de Consulta</label>
+      <label for="Tipo de Consulta">{{
+        "client-contact.type" | translate
+      }}</label>
     </div>
 
     <div class="col-sm-6">
       <select
         class="form-control"
         [(ngModel)]="selectedOption"
+        formControlName="inputSelect"
         (change)="showSelected()"
+        [ngClass]="{ 'is-invalid': isValidInput('inputSelect') }"
       >
-        <option value="">Selecciona una opción</option>
-        <option *ngFor="let option of contactOptions">{{ option }}</option>
+        <option disabled selected value=""></option>
+        <option value="1">
+          {{ "client-contact.list.option-1" | translate }}
+        </option>
+        <option value="2">
+          {{ "client-contact.list.option-2" | translate }}
+        </option>
+        <option value="3">
+          {{ "client-contact.list.option-3" | translate }}
+        </option>
+        <option value="4">
+          {{ "client-contact.list.option-4" | translate }}
+        </option>
+        <option value="5">
+          {{ "client-contact.list.option-5" | translate }}
+        </option>
+        <option value="6">
+          {{ "client-contact.list.option-6" | translate }}
+        </option>
+        -->
+        <!-- <option *ngFor="let option of contactOptions">{{ option }}</option> -->
       </select>
+      <div class="invalid-feedback">
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputSelect')?.errors?.required"
+        >
+          {{ "client-error.select-error" | translate }}
+        </span>
+      </div>
     </div>
   </div>
   <div class="form-group row m-4">
     <div class="col-sm-2 col-form-label">
-      <label for="Asunto">Asunto</label>
+      <label for="Asunto">{{ "client-contact.subject" | translate }}</label>
     </div>
 
     <div class="col-sm-8">
-      <input type="text" class="form-control" />
+      <input
+        type="text"
+        class="form-control"
+        formControlName="inputSubject"
+        [ngClass]="{ 'is-invalid': isValidInput('inputSubject') }"
+      />
+      <div class="invalid-feedback">
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputSubject')?.errors?.required"
+        >
+          {{ "Validation.required-field" | translate }}
+        </span>
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputSubject')?.errors?.minlength"
+        >
+          {{ "client-error.subject-error" | translate }}
+        </span>
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputSubject')?.errors?.maxlength"
+        >
+          {{ "client-error.maxlength-error" | translate }}
+        </span>
+      </div>
     </div>
   </div>
   <div class="form-group row m-4">
     <div class="col-sm-2 col-form-label">
-      <label for="Asunto">Mensaje</label>
+      <label for="message">{{ "client-contact.message" | translate }}</label>
     </div>
 
     <div class="col-sm-8">
-      <textarea class="form-control" cols="30" rows="10"></textarea>
+      <textarea
+        class="form-control"
+        cols="30"
+        rows="10"
+        formControlName="inputMessage"
+        [ngClass]="{ 'is-invalid': isValidInput('inputMessage') }"
+      ></textarea>
+      <div class="invalid-feedback">
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputMessage')?.errors?.required"
+        >
+          {{ "Validation.required-field" | translate }}
+        </span>
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputMessage')?.errors?.maxlength"
+        >
+          {{ "client-error.message-error" | translate }}
+        </span>
+      </div>
     </div>
   </div>
   <div class="form-group row m-4">
     <div class="col-sm-2 col-form-label"></div>
     <div class="form-check col-sm-8 m-3">
-      <input class="form-check-input" type="checkbox" />
+      <input
+        class="form-check-input"
+        type="checkbox"
+        formControlName="inputPrivacy"
+        [ngClass]="{ 'is-invalid': isValidInput('inputPrivacy') }"
+      />
       <label class="form-check-label" for="">
-        Acepta la política de Privacidad
+        {{ "client-contact.privacy" | translate }}
       </label>
+      <div class="invalid-feedback">
+        <span
+          class="form-text text-danger"
+          *ngIf="cliContactForm.get('inputMessage')?.errors?.maxlength"
+        >
+          {{ "client-error.privacy-error" | translate }}
+        </span>
+      </div>
     </div>
   </div>
   <div class="form-group row m-4">
     <div class="col-sm-2 col-form-label"></div>
     <div class="col-sm-4 px-2">
       <button type="submit" class="btn clientContactBtn m-1 w-100">
-        Enviar
+        {{ "client-contact.button.submit" | translate }}
       </button>
     </div>
     <div class="col-sm-4">
       <button type="submit" class="btn btn-secondary m-1 w-100">
-        Cancelar
+        {{ "client-contact.button.cancel" | translate }}
       </button>
     </div>
   </div>

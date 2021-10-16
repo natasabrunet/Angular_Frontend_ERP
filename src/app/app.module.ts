@@ -46,6 +46,8 @@ import { ProductsWithoutSessionComponent } from './Views/Product/products-withou
 import { ShoppingCartComponent } from './Components/header/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
 import { ClientContactComponent } from './Views/client-contact/client-contact.component';
+import { ProfileComponent } from './Views/profile/profile.component';
+import { TermsComponent } from './Views/terms/terms.component';
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
@@ -59,6 +61,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { OffersComponent } from './Views/Offers/offers/offers.component';
+import { CartItemComponent } from './Components/header/shopping-cart/cart-item/cart-item.component';
+import { ProductItemComponent } from './Views/Product/products-without-session/product-item/product-item.component';
+
 
 registerLocaleData(localeESP);
 
@@ -96,6 +101,10 @@ registerLocaleData(localeESP);
     CheckoutComponent,
     ClientContactComponent,
     OffersComponent,
+    ProfileComponent,
+    CartItemComponent,
+    ProductItemComponent,
+    TermsComponent
   ],
 
   imports: [

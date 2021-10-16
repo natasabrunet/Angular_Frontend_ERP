@@ -1,9 +1,19 @@
-<div class="d-flex align-items-center ">
+<div class="d-flex align-items-center">
   <div class="nav-profile dropdown mx-2">
-    <a class="nav-link text-decoration-none" id="profileDropdown" role="button" data-bs-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">
+    <a
+      class="nav-link text-decoration-none"
+      id="profileDropdown"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
       <div class="d-flex flex-row align-items-center">
-        <img class="nav-profile-img" src="assets/images/mockup-portrait.jpg" alt="admin image" />
+        <img
+          class="nav-profile-img"
+          src="assets/images/mockup-portrait.jpg"
+          alt="admin image"
+        />
         <div class="ms-3">
           <a class="nav-profile-name mb-0 text-erp-black">{{ name }}</a>
         </div>
@@ -12,19 +22,24 @@
 
     <!-- Dropdown menu -->
 
-    <div class="dropdown-menu dropdown-menu-end admin-menu mt-4" aria-labelledby="profileDropdown">
-
+    <div
+      class="dropdown-menu dropdown-menu-end admin-menu mt-4"
+      aria-labelledby="profileDropdown"
+    >
       <a class="dropdown-item admin-menu__item">
         <div class="d-flex align-items-center">
           <div class="admin-menu__item--thumbnail">
             <fa-icon [icon]="faUserCircle" size="lg"></fa-icon>
           </div>
-          <p class="admin-menu__item--text mb-0">
-            {{ 'Admin.header.profile' | translate }}
+          <p
+            class="admin-menu__item--text mb-0"
+            (click)="profile()"
+            class="admin-menu__item--text mb-0"
+          >
+            {{ "Admin.header.profile" | translate }}
           </p>
         </div>
       </a>
-
 
       <a class="dropdown-item admin-menu__item">
         <div class="d-flex align-items-center">
@@ -32,11 +47,10 @@
             <fa-icon [icon]="faCog" size="lg"></fa-icon>
           </div>
           <p class="admin-menu__item--text mb-0">
-            {{ 'Admin.header.settings' | translate }}
+            {{ "Admin.header.settings" | translate }}
           </p>
         </div>
       </a>
-
 
       <a class="dropdown-item admin-menu__item">
         <div class="d-flex align-items-center">
@@ -44,11 +58,10 @@
             <fa-icon [icon]="faPowerOff" size="lg"></fa-icon>
           </div>
           <p (click)="logout()" class="admin-menu__item--text mb-0">
-            {{ 'Admin.header.logout' | translate }}
+            {{ "Admin.header.logout" | translate }}
           </p>
         </div>
       </a>
-
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  mode: 'Dev Mode!'
+  mode: 'Dev Mode!',
 };
 
 /*

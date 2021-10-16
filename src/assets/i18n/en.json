@@ -1,242 +1,308 @@
 {
-    "Search": {
-        "searchph": "search"
+  "Search": {
+    "searchph": "search"
+  },
+  "Header": {
+    "notifications": {
+      "head": "Notifications",
+      "event_head_today": "Event today",
+      "event_description": "Just a reminder that you have an event today"
+    }
+  },
+  "Admin": {
+    "header": {
+      "profile": "Profile",
+      "inbox": "Inbox",
+      "settings": "Settings",
+      "logout": "Logout"
+    }
+  },
+  "Profile": {
+    "page-head": "User Profile",
+    "Client-fields": {
+      "name": "Name",
+      "address": "Addresss",
+      "cif": "CIF",
+      "password": "Password",
+      "new-password": "New Password",
+      "buttons": {
+        "save": "Save"
+      }
+    }
+  },
+  "btn": {
+    "add": "Add",
+    "add-to-cart": "Add to cart",
+    "delete": "Delete",
+    "update": "Update",
+    "edit": "Edit",
+    "go": "Go",
+    "go-to-page": "Go to page"
+  },
+  "footer": {
+    "developer": "Developed by"
+  },
+  "singleProd": {
+    "tittleNew": "NEW PRODUCT",
+    "tittleUpdate": "UPDATE PRODUCTE",
+    "name": "Name",
+    "namePlaceHolder": "Enter product name",
+    "stock": "Stock",
+    "stockPlaceHolder": "Enter products amount",
+    "price": "Price",
+    "pricePlaceHolder": "Enter price product",
+    "addOkMessage": "Product has been added successfully.",
+    "addErrorMessage": "Product has not been added correctly. Please, contact with IT team.",
+    "updateOkMessage": "Product has been updated correclty.",
+    "updateErrorMessage": "Product has not been updated. Please, contact with IT team.",
+    "deleteOkMessage": "Product has been deleted correclty.",
+    "deleteErrorMessage": "Product has not been deleted. Please, contact with IT team."
+  },
+  "Products-list": {
+    "page-head": "Products list",
+    "list": {
+      "head-name": "Name",
+      "head-stock": "Stock",
+      "head-price": "Price",
+      "head-image": "Image",
+      "head-options": "Options"
     },
-    "Header": {
-        "notifications": {
-            "head": "Notifications",
-            "event_head_today": "Event today",
-            "event_description": "Just a reminder that you have an event today"
-        }
+    "modal": {
+      "title": "Deleting…",
+      "message": "Are you sure you want to delete ",
+      "button-no": "No",
+      "button-delete": "Delete"
     },
-    "Admin": {
-        "header": {
-            "profile": "Profile",
-            "inbox": "Inbox",
-            "settings": "Settings",
-            "logout": "Logout"
-        }
+    "button": {
+      "new-product": "New product"
+    }
+  },
+  "order-review": {
+    "page-head": "Order Review",
+    "list": {
+      "head-list": "Product Details",
+      "head-price": "Price:",
+      "head-subTotal": "Sub-Total:",
+      "head-quantity": "QTY:"
+    }
+  },
+  "payment-methods": {
+    "page-head": "Payments Methods",
+    "list": {
+      "credit-card": "Credit-card",
+      "paypal": "PayPal",
+      "cash": "Cash",
+      "shipping": "Shipping:",
+      "head-total": "Total:"
     },
-    "btn": {
-        "add": "Add",
-        "add-to-cart": "Add to cart",
-        "delete": "Delete",
-        "update": "Update",
-        "edit": "Edit",
-        "go": "Go",
-        "go-to-page": "Go to page"
+    "button": {
+      "buy-now": "BUY NOW"
+    }
+  },
+  "billing-information": {
+    "page-head": "Billing Information",
+    "error-list": {
+      "name-error": "Your name is required",
+      "surname-error": "Your surname is required",
+      "id-error": "Your ID is required",
+      "cif-error": "Provide a valid CIF (1 letter 7 numbers 1 letter)",
+      "dni-error": "or valid DNI (8 numbers 1 letter)",
+      "email-error": "Your email is required",
+      "emailFormat-error": "Email format is invalid",
+      "adress-error": "Your address is required",
+      "country-error": "Your country is required",
+      "province-error": "Your province is required",
+      "city-error": "Your city is required",
+      "zip-error": "Your zip code is required",
+      "minimum": "Minimum ",
+      "characters-required": "characters required"
     },
-    "footer": {
-        "developer": "Developed by"
+    "list": {
+      "country": "Country",
+      "province": "Province",
+      "city": "City",
+      "zip-code": "ZIP Code",
+      "shipping-address": "Shipping Address",
+      "name": "Name",
+      "first-name": "First Name",
+      "last-name": "Last Name",
+      "dni": "DNI",
+      "email": "Email",
+      "address": "Address",
+      "shipping-information": "Shipping information",
+      "alternative-adress": "Send to different address"
+    }
+  },
+  "Clients-list": {
+    "page-head": "Clients List",
+    "list": {
+      "head-name": "Name",
+      "head-address": "Address",
+      "head-cif": "CIF",
+      "head-options": "Options"
     },
-    "singleProd": {
-        "tittleNew": "NEW PRODUCT",
-        "tittleUpdate": "UPDATE PRODUCTE",
-        "name": "Name",
-        "namePlaceHolder": "Enter product name",
-        "stock": "Stock",
-        "stockPlaceHolder": "Enter products amount",
-        "price": "Price",
-        "pricePlaceHolder": "Enter price product",
-        "addOkMessage": "Product has been added successfully.",
-        "addErrorMessage": "Product has not been added correctly. Please, contact with IT team.",
-        "updateOkMessage": "Product has been updated correclty.",
-        "updateErrorMessage": "Product has not been updated. Please, contact with IT team.",
-        "deleteOkMessage": "Product has been deleted correclty.",
-        "deleteErrorMessage": "Product has not been deleted. Please, contact with IT team."
+    "modal": {
+      "title": "Deleting…",
+      "message": "Are you sure you want to delete ",
+      "button-no": "No",
+      "button-delete": "Delete"
     },
-    "Products-list": {
-        "page-head": "Products list",
-        "list": {
-            "head-name": "Name",
-            "head-stock": "Stock",
-            "head-price": "Price",
-            "head-image": "Image",
-            "head-options": "Options"
-        },
-        "modal": {
-            "title": "Deleting…",
-            "message": "Are you sure you want to delete ",
-            "button-no": "No",
-            "button-delete": "Delete"
-        },
-        "button": {
-            "new-product": "New product"
-        }
+    "button": {
+      "new-client": "New client",
+      "go": "go"
     },
-    "order-review": {
-        "page-head": "Order Review",
-        "list": {
-            "head-list": "Product Details",
-            "head-price": "Price:",
-            "head-subTotal": "Sub-Total:",
-            "head-quantity": "QTY:"
-        }
+    "literals": {
+      "go-to-page": "go to page"
+    }
+  },
+  "Client": {
+    "back-to-client-list": "Back to clients admin",
+    "client-detail": "Client Detail",
+    "name": "Name",
+    "address": "Address",
+    "cif": "CIF",
+    "buttons": {
+      "delete": "Delete",
+      "save": "Save"
+    },
+    "modal": {
+      "delete": {
+        "title": "Deleting…",
+        "message": "Are you sure you want to delete this client?",
+        "button-no": "No",
+        "button-delete": "Delete"
+      }
+    },
+    "deleteOkMessage": "Client has been deleted correclty.",
+    "deleteErrorMessage": "Client has not been deleted. Please, contact with IT team."
+  },
+  "Employees-list": {
+    "page-head": "Employees list",
+    "list": {
+      "head-id": "ID",
+      "head-name": "Name",
+      "head-total-sellings": "Total Sellings",
+      "head-orders-attended": "# Orders Attended",
+      "head-options": "Options"
+    },
+    "modal": {
+      "title": "Deleting…",
+      "message": "Are you sure you want to delete ",
+      "button-no": "No",
+      "button-delete": "Delete"
+    },
+    "button": {
+      "new-employee": "New employee"
+    }
+  },
+  "Employee": {
+    "back-to-employees-list": "Back to employees admin",
+    "employee-detail": "Employee detail",
+    "new-employee": "New Employee",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "Email",
+    "salary": "Salary",
+    "dni": "DNI",
+    "phone": "Phone",
+    "total-sellings": "Total Sellings",
+    "orders-attended": "Orders Attended",
+    "orders-assigned": "Orders Assigned",
+    "buttons": {
+      "delete": "Delete",
+      "save": "Save",
+      "update": "Update",
+      "cancel": "Cancel"
+    },
+    "modal": {
+      "delete": {
+        "title": "Deleting…",
+        "message": "Are you sure you want to delete this employee?",
+        "button-no": "No",
+        "button-delete": "Delete"
+      }
+    },
+    "updateOkMessage": "Successfully Updated",
+    "updateErrorMessage": "An error has occurred"
+  },
+  "Validation": {
+    "required-field": "Required field"
+  },
+  "Format": {
+    "email-field": "Email not valid"
+  },
+  "homepage": {
+    "welcome-msg": "Welcome to ERP!",
+    "cheers-msg": "CHEERS!!!"
+  },
+  "navbar-client": {
+    "navbar-home": "Home",
+    "navbar-about": "About",
+    "navbar-products": "Products",
+    "navbar-contact": "Contact",
+    "navbar-login": "Log in",
+    "navbar-signup": "Sign up",
+    "navbar-terms": "Terms & conditions"
+  },
+  "about": {
+    "text-greeting": "Hi!",
+    "text-1": "We are some lucky students at the IT Academy who just finished the chosen itinerary and got the chance to work together on a beer-nice project!",
+    "text-2": "We are a multicultural team who enjoy spending time together: laughing or resolving the problems that sometimes appear and we hope that soon we'll enjoy some multicultural beers together and forget about the problems. Well, It'll be a win-win situation.",
+    "text-goodbye": "Cheers to that!"
+  },
+  "client-contact": {
+    "page-head": "Submit a request",
+    "type": "Request Type",
+    "list": {
+      "option-default": "Please select your request type",
+      "option-1": "Product information",
+      "option-2": "Purchasing Process",
+      "option-3": "Payment and billing",
+      "option-4": "Shipping & returns",
+      "option-5": "Offers",
+      "option-6": "Another request"
+    },
+    "subject": "Subject",
+    "message": "Message",
+    "privacy": "Accept privacy policy",
+    "button": {
+      "submit": "Submit",
+      "cancel": "Cancel"
+    }
+  },
 
-    },
-    "payment-methods": {
-        "page-head": "Payments Methods",
-        "list": {
-            "credit-card": "Credit-card",
-            "paypal": "PayPal",
-            "cash": "Cash",
-            "shipping": "Shipping:",
-            "head-total": "Total:"
-        },
-        "button": {
-            "buy-now": "BUY NOW"
-        }
+  "client-error": {
+    "select-error": "Please select an option",
+    "subject-error": "Subject must be at least 2 characters long",
+    "maxlength-error": "Subject must be maximum 50 characters long",
+    "message-error": "Please write a message of maximum 500 characters",
+    "privacy-error": "Please accept our privacy policy"
+  },
+  "client": "client",
+  "clients": "clients",
+  "order": "order",
+  "orders": "orders",
+  "contact": "contact",
+  "contacts": "contacts",
+  "profile": "profile",
+  "delete": "delete",
+  "stats": "stats",
+  "product": "product",
+  "products": "products",
+  "employee": "employee",
+  "employees": "employees",
+  "clock": "clock",
 
-    },
-    "billing-information": {
-        "page-head": "Billing Information",
-        "error-list": {
-            "name-error": "Your name is required",
-            "surname-error": "Your surname is required",
-            "id-error": "Your ID is required",
-            "cif-error": "Provide a valid CIF (1 letter 7 numbers 1 letter)",
-            "dni-error": "or valid DNI (8 numbers 1 letter)",
-            "email-error": "Your email is required",
-            "emailFormat-error": "Email format is invalid",
-            "adress-error": "Your address is required",
-            "country-error": "Your country is required",
-            "province-error": "Your province is required",
-            "city-error": "Your city is required",
-            "zip-error": "Your zip code is required",
-            "minimum": "Minimum ",
-            "characters-required": "characters required"
-        },
-        "list": {
-            "country": "Country",
-            "province": "Province",
-            "city": "City",
-            "zip-code": "ZIP Code",
-            "shipping-address": "Shipping Address",
-            "name": "Name",
-            "first-name": "First Name",
-            "last-name": "Last Name",
-            "dni": "DNI",
-            "email": "Email",
-            "address": "Address",
-            "shipping-information": "Shipping information",
-            "alternative-adress": "Send to different address"
-        }
-    },
-    "Clients-list": {
-        "page-head": "Clients List",
-        "list": {
-            "head-name": "Name",
-            "head-address": "Address",
-            "head-cif": "CIF",
-            "head-options": "Options"
-        },
-        "modal": {
-            "title": "Deleting…",
-            "message": "Are you sure you want to delete ",
-            "button-no": "No",
-            "button-delete": "Delete"
-        },
-        "button": {
-            "new-client": "New client",
-            "go": "go"
-        },
-        "literals": {
-            "go-to-page": "go to page"
-        }
-    },
-    "Client": {
-        "back-to-client-list": "Back to clients admin",
-        "client-detail": "Client Detail",
-        "name": "Name",
-        "address": "Address",
-        "cif": "CIF",
-        "buttons": {
-            "delete": "Delete",
-            "save": "Save"
-        },
-        "modal": {
-            "delete": {
-                "title": "Deleting…",
-                "message": "Are you sure you want to delete this client?",
-                "button-no": "No",
-                "button-delete": "Delete"
-            }
-        }
-    },
-    "Employees-list": {
-        "page-head": "Employees list",
-        "list": {
-            "head-id": "ID",
-            "head-name": "Name",
-            "head-total-sellings": "Total Sellings",
-            "head-orders-attended": "# Orders Attended",
-            "head-options": "Options"
-        },
-        "modal": {
-            "title": "Deleting…",
-            "message": "Are you sure you want to delete ",
-            "button-no": "No",
-            "button-delete": "Delete"
-        },
-        "button": {
-            "new-employee": "New employee"
-        }
-    },
-    "Employee": {
-        "back-to-employees-list": "Back to employees admin",
-        "employee-detail": "Employee detail",
-        "new-employee": "New Employee",
-        "name": "Name",
-        "surname": "Surname",
-        "email": "Email",
-        "salary": "Salary",
-        "dni": "DNI",
-        "phone": "Phone",
-        "total-sellings": "Total Sellings",
-        "orders-attended": "Orders Attended",
-        "orders-assigned": "Orders Assigned",
-        "buttons": {
-            "delete": "Delete",
-            "save": "Save",
-            "update": "Update",
-            "cancel": "Cancel"
-        },
-        "modal": {
-            "delete": {
-                "title": "Deleting…",
-                "message": "Are you sure you want to delete this employee?",
-                "button-no": "No",
-                "button-delete": "Delete"
-            }
-        },
-        "updateOkMessage": "Successfully Updated",
-        "updateErrorMessage": "An error has occurred"
-
-    },
-
-    "Validation": {
-        "required-field": "Required field"
-    },
-    "Format": {
-        "email-field": "Email not valid"
-    },
-    "homepage": {
-        "welcome-msg": "Welcome to ERP!",
-        "cheers-msg": "CHEERS!!!"
-    },
-    "navbar-client": {
-        "navbar-home": "Home",
-        "navbar-about": "About",
-        "navbar-products": "Products",
-        "navbar-contact": "Contact",
-        "navbar-login": "Log in",
-        "navbar-signup": "Sign up"
-    },
-    "about": {
-        "text-greeting": "Hi!",
-        "text-1": "We are some lucky students at the IT Academy who just finished the chosen itinerary and got the chance to work together on a beer-nice project!",
-        "text-2": "We are a multicultural team who enjoy spending time together: laughing or resolving the problems that sometimes appear and we hope that soon we'll enjoy some multicultural beers together and forget about the problems. Well, It'll be a win-win situation.",
-        "text-goodbye": "Cheers to that!"
+  "contact-page":{
+    "page-head":"Contact us!",
+    "form":{
+      "title": "Any doubt?",
+      "name":"Name",
+      "email":"Email",
+      "message":"Message",
+      "news-letter":"I would like to receive the newsletter",
+      "terms":"I've read and I agree with the terms and conditions",
+      "button": "Send!" 
     },
     "Offers":{
       "page-head": "Offers List",
@@ -254,18 +320,18 @@
       "next": "Next",
       "search": "Type to search"
     },
-    "client": "client",
-    "clients": "clients",
-    "order": "order",
-    "orders": "orders",
-    "contact": "contact",
-    "contacts": "contacts",
-    "profile": "profile",
-    "delete": "delete",
-    "stats": "stats",
-    "product": "product",
-    "products": "products",
-    "employee": "employee",
-    "employees": "employees",
-    "clock": "clock"
+    "error":{
+      "name-missing":"Your name is required" ,
+      "name-minlength": "The name must be at least 2 characters long",
+      "email-missing": "Your email is required",
+      "email-invalid": "Insert a valid email please",
+      "message-missing": "What do you want to tell us? Insert your message",
+      "message-maxlength":"The message cannot exceed 500 characters",
+      "contact-terms-missing": "Terms and conditions must be accepted"
+    }
+  },
+  "terms": {
+    "text-1":"A General Conditions agreement sets out the conditions that visitors must accept if they wish to interact with the website. Basically, if the visitor continues to use the website after accepting the General Conditions, she will be signing a contract with you.",
+    "text-2": "Unlike the Privacy Policies, you are not legally obliged to have a General Conditions agreement. However, there are many reasons why you should write one and post it on your website."
+  }
 }

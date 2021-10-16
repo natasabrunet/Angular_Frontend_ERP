@@ -1,26 +1,31 @@
 <div class="container">
-  <h4 class="text-center py-5">{{ 'Clients-list.page-head' | translate }}</h4>
+  <h4 class="text-center py-5">{{ "Clients-list.page-head" | translate }}</h4>
   <!-- Search -->
   <div class="row mb-5">
     <div class="col-sm-12 d-inline-flex justify-content-end ">
       <div class="col-sm-3 me-4">
         <input class="form-control me-4 rounded-pill" type="search"
-               placeholder="{{ 'Search.searchph' | translate }} ..." aria-label="Search">
+          placeholder="{{ 'Search.searchph' | translate }} ..." aria-label="Search">
       </div>
       <button type="submit" class="btn btn-erp-blue text-erp-white">
         {{ 'Clients-list.button.new-client' | translate}}
       </button>
     </div>
   </div>
+
   <!-- Client data -->
   <div class="table-responsive mb-5">
     <table class="table align-middle">
       <thead>
         <tr>
-          <th scope="col">{{ 'Clients-list.list.head-name' | translate }}</th>
-          <th scope="col">{{ 'Clients-list.list.head-address' | translate }}</th>
-          <th scope="col">{{ 'Clients-list.list.head-cif' | translate }}</th>
-          <th scope="col">{{ 'Clients-list.list.head-options' | translate }}</th>
+          <th scope="col">{{ "Clients-list.list.head-name" | translate }}</th>
+          <th scope="col">
+            {{ "Clients-list.list.head-address" | translate }}
+          </th>
+          <th scope="col">{{ "Clients-list.list.head-cif" | translate }}</th>
+          <th scope="col">
+            {{ "Clients-list.list.head-options" | translate }}
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -32,84 +37,97 @@
           <!-- Edit/Delete -->
           <td class="pr-td">
             <div class="d-flex justify-content-center align-items-center">
-
               <!-- Edit -->
               <button (click)="goEditClient(client.id)" class="btn">
                 <fa-icon class="mx-md-3" [icon]="faEdit" size="lg" role="button"></fa-icon>
               </button>
 
               <!-- Delete -->
-              <button type="button" class="btn" data-bs-toggle="modal" [attr.data-bs-target]="'#delete'+i">
+              <button type="button" class="btn" data-bs-toggle="modal" [attr.data-bs-target]="'#delete' + i">
                 <fa-icon class="mx-md-3 deleteIcon" [icon]="faTrashAlt" size="lg" role="button"></fa-icon>
               </button>
             </div>
           </td>
 
           <!-- Modal -->
-          <div class="modal fade modalMessage" [id]="'delete'+i" tabindex="-1"
-               aria-hidden="true">
+          <div class="modal fade modalMessage" [id]="'delete'+i" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">
-                    {{ 'Clients-list.modal.title' | translate }}
+                    {{ "Clients-list.modal.title" | translate }}
                   </h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                  {{ 'Clients-list.modal.message' | translate }} "{{client.nameAndSurname}}"?
+                  {{ 'Clients-list.modal.message' | translate }} "{{client.name_and_surname}}"?
                 </div>
 
                 <div class="modal-footer">
                   <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
-                    {{ 'Clients-list.modal.button-no' | translate }}
+                    {{ "Clients-list.modal.button-no" | translate }}
                   </button>
                   <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="delete(i)"
-                          data-bs-dismiss="modal">
+                    data-bs-dismiss="modal">
                     {{ 'Clients-list.modal.button-delete' | translate }}
                   </button>
                 </div>
               </div>
             </div>
           </div>
-
         </tr>
-        <!--      <tr>-->
-        <!--        <th scope="row"></th>-->
-        <!--        <td></td>-->
-        <!--        <td></td>-->
-        <!--        <td></td>-->
-        <!--      </tr>-->
       </tbody>
     </table>
+  </div>
+  <!-- Alert delete client-->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            {{ 'Client.modal.delete.title' | translate }}
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          {{ 'Client.modal.delete.message' | translate }}
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
+            {{ 'Client.modal.delete.button-no' | translate }}
+          </button>
+          <button type="button" class="btn btn-primary deleteButton text-uppercase" data-bs-dismiss="modal">
+            {{ 'Client.modal.delete.button-delete' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- Pagination -->
   <div class="row d-flex justify-content-end mb-5">
     <!-- Page numbers -->
-    <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-center">
+    <div class="
+        col-12 col-lg-8
+        d-flex
+        flex-column
+        justify-content-center
+        align-items-center
+      ">
       <nav aria-label="Page navigation">
         <ul class="pagination">
-          <li class="page-item"
-              [ngClass]="{'disabled': isFirstPage()}">
-            <a class="page-link rounded-circle"
-               href="#"
-               aria-label="Previous"
-               (click)="gotoPrevPage();">
+          <li class="page-item" [ngClass]="{'disabled': isFirstPage()}">
+            <a class="page-link rounded-circle" href="#" aria-label="Previous" (click)="gotoPrevPage();">
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
-          <li *ngFor="let page of pagesArray"
-              class="page-item"
-              [ngClass]="{'disabled': page == currentPage}">
+          <li *ngFor="let page of pagesArray" class="page-item" [ngClass]="{'disabled': page == currentPage}">
             <a class="page-link rounded-circle" href="#" (click)="goToPage(page)">{{ page }}</a>
           </li>
-          <li class="page-item"
-              [ngClass]="{'disabled': isLastPage()}">
-            <a class="page-link rounded-circle"
-               href="#"
-               aria-label="Next"
-               (click)="gotoNextPage()">
+          <li class="page-item" [ngClass]="{'disabled': isLastPage()}">
+            <a class="page-link rounded-circle" href="#" aria-label="Next" (click)="gotoNextPage()">
               <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
@@ -117,18 +135,21 @@
       </nav>
     </div>
     <!-- Go to page section -->
-    <div class="col-12 col-lg-3 d-flex justify-content-end align-items-center align-self-center">
-      <p class="text-center p-0 m-0 no-wrap">{{ 'Clients-list.literals.go-to-page' | translate}}:</p>
+    <div class="
+        col-12 col-lg-3
+        d-flex
+        justify-content-end
+        align-items-center align-self-center
+      ">
+      <p class="text-center p-0 m-0 no-wrap">
+        {{ "Clients-list.literals.go-to-page" | translate }}:
+      </p>
       <div class="col-3 col-sm-2 col-md-1 col-lg-3 me-2 ms-2">
-        <input type="search"
-               class="form-control rounded-pill"
-               aria-label="go to page"
-               pattern="[0-9]*"
-               value=""
-               [(ngModel)]="pageToGo">
+        <input type="search" class="form-control rounded-pill" aria-label="go to page" pattern="[0-9]*" value=""
+          [(ngModel)]="pageToGo">
       </div>
       <button type="button" class="btn btn-erp-blue text-erp-white rounded-pill" (click)="goToPage(pageToGo)">
-        {{ 'Clients-list.button.go' | translate}}
+        {{ "Clients-list.button.go" | translate }}
       </button>
     </div>
   </div>

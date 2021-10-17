@@ -5,7 +5,7 @@ import { Clients } from '../Models/clients';
 import { Observable } from 'rxjs';
 import { UserSignUpDto } from '../Models/DTOs/newUserDto';
 import { updateClient } from '../Models/updateClient';
-import { newClient } from '../Models/newClient';
+//import { newClient } from '../Models/newClient';
 
 
 @Injectable({
@@ -49,7 +49,7 @@ export class ClientsService {
   }
 
 
-  addClient(name: string, dni: string) {
+  /*addClient(name: string, dni: string) {
     let body = new newClient(name, dni);
 
     const options = {
@@ -58,7 +58,7 @@ export class ClientsService {
       })
     };
     return this.httpClient.post(`${this.url}${this.endPoint}`, body, options);
-  }
+  }*/
 
 
   updateClient(client){

@@ -75,10 +75,6 @@ export class NewClientComponent implements OnInit {
   }*/
 
   submit() {
-    console.log('Here 3:')
-    console.log(this.name, this.address, this.cif);
-
-
     if (this.form.invalid) {
       // Si el form es inválido, márcamos los controles como "touched" para que se marquen/muestren los errores
       return Object.values(this.form.controls).forEach((control) => {

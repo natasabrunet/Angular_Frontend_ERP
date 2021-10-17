@@ -131,7 +131,6 @@ export class ClientDetailComponent implements OnInit {
       ( client:any ) => {
       this.errorAPI = false;
       this.success=client.success;  
-      console.log(client);
               
     }, ( errorServicio ) => {
       this.errorAPI = true;

@@ -25,7 +25,7 @@ export class ClientsService {
   ) {
     //Accedemos al servicio de login para recuperar el token que se ha guardado
     this.token = this.loginService.getBearerToken;
-    console.log("token1: " + this.token);
+    //console.log("token1: " + this.token);
   }
 
   getClients(amount: number, page: number) {

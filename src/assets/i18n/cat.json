@@ -171,10 +171,18 @@
         "message": "Estàs segur que vols esborrar aquest client?",
         "button-no": "No",
         "button-delete": "Esborrar"
+      },
+      "update": {
+        "title": "Actualitzant…",
+        "message": "Estàs segur que vols actualitzar aquest client?",
+        "button-no": "No",
+        "button-update": "Actualitzar"
       }
     },
     "deleteOkMessage": "El client ha estat esborrat correctament.",
-    "deleteErrorMessage": "El client no ha estat esborrat. Si us plau contcta amb l'equip IT."
+    "deleteErrorMessage": "El client no ha estat esborrat. Si us plau contcta amb l'equip IT.",
+    "updateOkMessage": "El client ha estat actualitzat correctament.",
+    "updateErrorMessage": "El client no ha estat actualitzat. Si us plau contcta amb l'equip IT."
   },
   "Employees-list": {
     "page-head": "Llista d'empleats",

@@ -6,7 +6,6 @@
     <table class="table table-responsive-md mt-5 productTable align-middle">
       <thead>
         <tr>
-          <th scope="col">Order ID</th>
           <th scope="col">Client Name</th>
           <th scope="col">Date</th>
           <th scope="col">Price</th>
@@ -16,7 +15,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let elm of orders; let i = index">
-          <td>{{ elm.id }}</td>
+        
           <td>{{ elm.name }}</td>
           <td>{{ elm.date_created }}</td>
           <td>{{ elm.price }}</td>

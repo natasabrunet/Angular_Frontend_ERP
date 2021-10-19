@@ -46,27 +46,37 @@
     <div class="aside col-9 col-lg-3 d-flex mt-5 mt-lg-0">
         <form  class="row justify-content-around content-aside ">
             <h3 class="text-center mb-lg-5 mt-3" >{{'single-product-no-session.buy-details' | translate}}</h3>
-            
-                <div class=" container-input-price text-center mb-4 justify-content-between d-flex " id="price">
-                    <p class="price-info">{{'single-product-no-session.retail-price' | translate}}</p>
-                    <input #price  name="price" type="radio" id="small" class="prices d-none" value="{{currentProduct.price}}">
-                    <label (click)="selectProd()" for="small">{{currentProduct.price}}€</label>
+                <div class=" container-input-price text-center mb-4 justify-content-center d-flex " id="price">
+                    <input #price  name="price" type="radio" id="small" class="prices d-none " value="{{currentProduct.price}}">
+                    <label (click)="selectProd()" class="label-prices form-control" for="small"> 
+                        <span>{{'single-product-no-session.retail-price' | translate}}</span>
+                        <p class="price-info">{{currentProduct.price}}€</p>
+                    </label>
                 </div>
-           
-                <div class=" container-input-price text-center mb-4 justify-content-between d-flex " id="wholesalePrice">
-                    <p class="price-info">{{'single-product-no-session.wholesale-price' | translate}}</p>
-                    <input #wholesalePrice  name="price" type="radio" id="big" class="prices d-none" value="{{currentProduct.wholesale_price}}">
-                    <label (click)="selectProd()" for="big">{{currentProduct.wholesale_price}}€</label>
+                <div class=" container-input-price text-center justify-content-center d-flex " id="wholesalePrice">
+                    <input #wholesalePrice  name="price" type="radio" id="big" class="prices d-none" value="{{currentProduct.wholesale_price}}"> 
+                    <label (click)="selectProd()" class="label-prices form-control" for="big">
+                        <span >{{'single-product-no-session.wholesale-price' | translate}}</span>
+                        <p class="price-info">{{currentProduct.wholesale_price}}€</p>
+                    </label>
                 </div>
                 <div class="text-center invalid-feedback ">{{'single-product-no-session.error' | translate}}</div>
-            <div class="d-flex justify-content-around mt-lg-5">
-                <label for="uniits">{{'single-product-no-session.quantity' | translate}}</label>
-                <select name="units" id="">
-                    <option value="1">1</option>
+            <div class="d-flex justify-content-around mt-lg-5 " id="inputUnits">
+                <label for="units">{{'single-product-no-session.quantity' | translate}}</label>
+                <select (change)="HowManyUnits(units.value)" #units id="selectUnits" class="units form-control">
+                    <option value="1" selected >1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6+">6+</option>
                 </select>
+                <input (input)="unitsByUser(writtenUnits.value)" type="text" maxlength="3" 
+                #writtenUnits id="writeUnits" class="units d-none form-control">
             </div>
+            <div class="text-center invalid-feedback">{{'single-product-no-session.error2' | translate}}</div>
             <div class=" d-flex justify-content-center mt-3 mt-lg-5 mb-5 mb-lg-0">
-                <button class="btn addCartBtn " (click)="addToCart(price.checked, wholesalePrice.checked )"> {{'single-product-no-session.add-to-cart' | translate}}</button>
+                <button class="btn addCartBtn mb-3" (click)="addToCart(price.checked, wholesalePrice.checked, units.value, writtenUnits.value )"> {{'single-product-no-session.add-to-cart' | translate}}</button>
             </div>
         </form>
     </div>

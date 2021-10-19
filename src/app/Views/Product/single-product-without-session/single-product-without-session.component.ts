@@ -46,22 +46,21 @@ export class SingleProductWithoutSessionComponent implements OnInit {
   currentProduct:any;
   relatedProducts:string[]=[]
   langs:string[]=[]
+  quantity:number=0;
   
   getCurrentProduct():void{
     const id = Number(this.actRoute.snapshot.paramMap.get('id'));
     this.currentProduct = this.productsData.products.filter(p=>p.id ==id)
     this.currentProduct= this.currentProduct[0]
     this.relatedProducts = this.productsData.products.filter(p=>p.id!==id)
-    //console.log(this.relatedProducts)
-    //console.log(this.productsData.products)
   }
  
   selectProd(){
     document.getElementById('wholesalePrice').classList.remove('is-invalid')
     document.getElementById('price').classList.remove('is-invalid')
   }
-  addToCart(price:boolean, wholesale_price:boolean){
-    console.log(this.currentProduct)
+  addToCart(price:boolean, wholesale_price:boolean, units:any, writtenUnits:any){
+    // function to either know which price the user has selected nor if hasn't selected anything
     if(price){
       console.log(this.currentProduct.price)
     }
@@ -71,6 +70,24 @@ export class SingleProductWithoutSessionComponent implements OnInit {
     else{
       document.getElementById('wholesalePrice').classList.add('is-invalid')
       document.getElementById('price').classList.add('is-invalid')
+    }
+    if(units=='6+' && writtenUnits==''){
+      document.getElementById('inputUnits').classList.add('is-invalid')
+    }
+  }
+  HowManyUnits(units:any):void{
+    // function to know if user wants more than 6 units
+    if(units == '6+'){
+      console.log(this.quantity)
+      document.getElementById('selectUnits').classList.add('d-none')
+      var write = document.getElementById('writeUnits')
+      write.classList.remove('d-none')
+      write.focus()
+    }
+  }
+  unitsByUser(userunits:any){
+    if(userunits!==''){
+      document.getElementById('inputUnits').classList.remove('is-invalid')
     }
   }
 }

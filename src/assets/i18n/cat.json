@@ -171,10 +171,18 @@
         "message": "Estàs segur que vols esborrar aquest client?",
         "button-no": "No",
         "button-delete": "Esborrar"
+      },
+      "update": {
+        "title": "Actualitzant…",
+        "message": "Estàs segur que vols actualitzar aquest client?",
+        "button-no": "No",
+        "button-update": "Actualitzar"
       }
     },
     "deleteOkMessage": "El client ha estat esborrat correctament.",
-    "deleteErrorMessage": "El client no ha estat esborrat. Si us plau contcta amb l'equip IT."
+    "deleteErrorMessage": "El client no ha estat esborrat. Si us plau contcta amb l'equip IT.",
+    "updateOkMessage": "El client ha estat actualitzat correctament.",
+    "updateErrorMessage": "El client no ha estat actualitzat. Si us plau contcta amb l'equip IT."
   },
   "Employees-list": {
     "page-head": "Llista d'empleats",
@@ -202,6 +210,7 @@
     "updateOkMessage": "S'ha actualitzat correctament",
     "updateErrorMessage": "Ha ocorregut un error",
     "name": "Nom",
+    "surname": "Cognom",
     "salary": "Sou",
     "total-sellings": "Total de vendes",
     "orders-attended": "Comandes ateses",
@@ -292,7 +301,6 @@
   "employee": "empleat",
   "employees": "empleats",
   "clock": "horari",
-
   "contact-page":{
     "page-head":"Contacta amb nosaltres!",
     "form":{
@@ -303,6 +311,22 @@
       "news-letter":"M'agradaria rebre el vostre newsletter",
       "terms":"He llegit i estic d'acord amb els termes i les condicions",
       "button": "Enviar!"
+    },
+    "Offers":{
+      "page-head": "Llista d'Ofertes",
+      "delete": "Eliminar",
+      "update": "Actualitzar",
+      "id": "Id Oferta",
+      "discount": "Descompte",
+      "paid_quantity": "Quantitat Pagada",
+      "free_quantity": "Quantitat Lliure",
+      "start_date": "Data Inici",
+      "end_date": "Data Fin",
+      "description": "Descripció Promoció",
+      "new_Offer": "Crear nova Oferta",
+      "previous": "Anterior",
+      "next": "Següent",
+      "search": "Escriu per buscar"
     },
     "error":{
       "name-missing":"Introdueixi el seu nom" ,
@@ -343,4 +367,5 @@
       "product-12": "Pastís"
     }
   }
+
 }

@@ -41,14 +41,17 @@
             <div class="col-xs-12 mx-auto col-sm-12 col-md-8 col-lg-8 col-xl-8">
 <!-- Div de l'àrea del form -->
 <div class="mx-auto mb-3 ml-3 mr-3 pb-5 pt-5 pl-5 pr-5 bg-erp-white rounded-3 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-            <form>
+    <form method="post" role="form" class="php-email-form" autocomplete="off"
+    [formGroup]='form'
+    (ngSubmit)="submit()">
                 <div class="row mb-3 mx-auto">
-                    <label for="nameInput" class="col-md-4 col-form-label m-3">Name: </label>
+                    <label for="name" class="col-md-4 col-form-label m-3">Name: </label>
                     <input type="text"
                     class="col bg-erp-silver border-0 rounded-3 form-control m-3"
                     autocomplete="off"
-                    id="nameInput"
-                    name="nameInput"
+                    id="name"
+                    name="name"
+                    formControlName="name"
                     [formControl]="nameCtrl"/>
                     
                     <div class="row mx-auto">
@@ -59,13 +62,15 @@
                     </div>
                 </div>
                 
-                <div class="row mb-3 mx-auto">
-                    <label for="addressInput" class="col-sm-12 col-md-4 col-form-label m-3">Address: </label>
+                <div class="row mb-3 mx-auto formGroup">
+                    <label for="address" class="col-sm-12 col-md-4 col-form-label m-3">Address: </label>
                     <input type="text"
                     class="col bg-erp-silver border-0 rounded-3 form-control m-3"
                     autocomplete="off"
-                    id="addressInput"
-                    name="addressInput"
+                    id="address"
+                    name="address"
+                    formControlName="address"
+
                     [formControl]="addressCtrl"/>
                     <div class="row mx-auto">
                         <div class="col-md-5 col-form-label" ></div>
@@ -74,13 +79,14 @@
                     </p>
                     </div>
                 </div>
-                <div class="row mb-3 mx-auto">
-                    <label for="cifInput" class="col-sm-12 col-md-4 col-form-label m-3">CIF: </label>
+                <div class="row mb-3 mx-auto formGroup">
+                    <label for="cif" class="col-sm-12 col-md-4 col-form-label m-3">CIF: </label>
                     <input type="text"
                     class="col bg-erp-silver border-0 rounded-3 form-control m-3"
                     autocomplete="off"
-                    id="cifInput"
-                    name="cifInput"
+                    id="cif"
+                    name="cif"
+                    formControlName="cif"
                     [formControl]="cifCtrl"/>
                 </div>
                 <div class="row mx-auto">
@@ -93,14 +99,15 @@
                 <button
                 [disabled]="cifCtrl.invalid && addressCtrl.invalid && nameCtrl.invalid"
                 type="submit"
-                class="btn bg-erp-red col-4 m-4">
+                class="btn bg-erp-red col-4 m-4"
+                >
                 Clear
                 </button>
 
                 <button
-                [disabled]="cifCtrl.invalid && addressCtrl.invalid && nameCtrl.invalid" 
                 type="submit"
-                class="btn bg-erp-blue col-4  m-4">
+                class="btn bg-erp-blue col-4  m-4"
+                (click)=submit()>
                 Save
                 </button>
             </div>

@@ -20,6 +20,7 @@ import { AdminViewModule } from './Views/Admin-view/admin-view.module';
 import { ClientModule } from './Views/Client/client.module';
 import { ChartsModule } from 'ng2-charts'; //statistical charts
 
+
 // import components
 import { HeaderComponent } from './Components/header/header.component';
 import { AdminComponent } from './Components/header/admin/admin.component';
@@ -60,8 +61,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // popUps UI/UX answers
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { OffersComponent } from './Views/Offers/offers/offers.component';
 import { CartItemComponent } from './Components/header/shopping-cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './Views/Product/products-without-session/product-item/product-item.component';
+
 
 registerLocaleData(localeESP);
 
@@ -98,11 +101,13 @@ registerLocaleData(localeESP);
     BillingInformationComponent,
     CheckoutComponent,
     ClientContactComponent,
+    OffersComponent,
     ProfileComponent,
     CartItemComponent,
     ProductItemComponent,
     TermsComponent,
     SingleProductWithoutSessionComponent,
+    TermsComponent
   ],
 
   imports: [

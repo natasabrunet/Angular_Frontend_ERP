@@ -4,6 +4,10 @@ import { ClientsService } from 'src/app/Services/clients.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { getSourceFileOrError } from '@angular/compiler-cli/src/ngtsc/file_system';
 import { stringify } from '@angular/compiler/src/util';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LoginService } from 'src/app/Services/login.service';
+import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
+import { Clients } from 'src/app/Models/clients';
 
 @Component({
   selector: 'app-client-detail',
@@ -12,6 +16,7 @@ import { stringify } from '@angular/compiler/src/util';
 })
 export class ClientDetailComponent implements OnInit {
   // TODO: Create Interface for client object?
+
   id: string;
   name: string;
   address: string;
@@ -21,6 +26,13 @@ export class ClientDetailComponent implements OnInit {
   showAlert: boolean = false;
   success: boolean = false;
   alertMessage: string;
+  errorAPI:boolean;
+
+
+  token:string;
+  url: string = 'http://217.76.158.200:8080';
+  endPoint: string = '/api/clients';
+  
 
   form: FormGroup;
 
@@ -28,8 +40,13 @@ export class ClientDetailComponent implements OnInit {
     private clientsService: ClientsService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private httpClient: HttpClient,
+    private loginService: LoginService
   ) {
+    //Accedemos al servicio de login para recuperar el token que se ha guardado
+    this.token = this.loginService.getBearerToken;
+
     this.createForm();
   }
 
@@ -37,6 +54,7 @@ export class ClientDetailComponent implements OnInit {
     //Recuperamos el parámetro (id) del cliente y cargamos su info
     this.activatedRoute.params.subscribe((params) => {
       this.loadClient(params['id']);
+      console.log("id 1: " + params['id']);
     });
   }
 
@@ -87,6 +105,7 @@ export class ClientDetailComponent implements OnInit {
           this.form.get('name').setValue(this.name);
           this.form.get('address').setValue(this.address);
           this.form.get('cif').setValue(this.cif);
+          console.log("id 2: " + data.client.id)
         }
       },
       (err) => {
@@ -99,36 +118,29 @@ export class ClientDetailComponent implements OnInit {
   }
 
   updateClient() {
-    const client = {
+    let client = {
       id: this.id,
-      nameAndSurname: this.form.get('name').value,
+      name_and_surname: this.form.get('name').value,
       address: this.form.get('address').value,
       dni: this.form.get('cif').value,
-      image: this.image,
-    };
-    this.clientsService.updateClient(client).subscribe(
-      (resp) => {
-        this.showAlert = true;
-        this.success = true;
-        this.alertMessage = 'Client updated!!!';
+      image: this.image, 
+    };//Pasamos los nuevos datos de cliente
 
-        // let alert show up and then redirect
-        setTimeout(() => {
-          this.showAlert = false; // alert OK
-          this.alertMessage = '';
-        }, 2000);
-      },
-      (err) => {
-        // console.log(err);
-        this.showAlert = true;
-        this.success = false;
-        this.alertMessage = err.error.message;
-      }
-    );
+    this.clientsService.updateClient(client)
+    .subscribe(
+      ( client:any ) => {
+      this.errorAPI = false;
+      this.success=client.success;  
+              
+    }, ( errorServicio ) => {
+      this.errorAPI = true;
+      console.log(errorServicio);
+    });  
   }
 
   deleteClient() {
-    this.clientsService.deleteClient(this.id).subscribe(
+    this.clientsService.deleteClient(this.id)
+    .subscribe(
       (resp) => {
         this.showAlert = true;
         this.success = true;

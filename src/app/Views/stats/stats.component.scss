@@ -8,3 +8,27 @@ p{
     font-family: 'Raleway', sans-serif;
     color: #242A32;
 }
+
+.tablaRating{
+  font-size: small;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 25px;
+}
+
+.tablaRating2{
+  font-size: small;
+  width:max-content;
+  height: min-content;
+}
+
+.salaryprofit{
+  margin-left: 30px;
+}
+
+
+td:hover{
+  background-color: grey;
+  color:white;
+}
+

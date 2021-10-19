@@ -171,10 +171,18 @@
         "message": "Are you sure you want to delete this client?",
         "button-no": "No",
         "button-delete": "Delete"
+      },
+      "update": {
+        "title": "Updating…",
+        "message": "Are you sure you want to update this client?",
+        "button-no": "No",
+        "button-update": "Update"
       }
     },
     "deleteOkMessage": "Client has been deleted correclty.",
-    "deleteErrorMessage": "Client has not been deleted. Please, contact with IT team."
+    "deleteErrorMessage": "Client has not been deleted. Please, contact with IT team.",
+    "updateOkMessage": "Client has been updated correclty.",
+    "updateErrorMessage": "Client has not been updated. Please, contact with IT team."
   },
   "Employees-list": {
     "page-head": "Employees list",
@@ -200,6 +208,7 @@
     "employee-detail": "Employee detail",
     "new-employee": "New Employee",
     "name": "Name",
+    "surname": "Surname",
     "email": "Email",
     "salary": "Salary",
     "dni": "DNI",
@@ -224,7 +233,6 @@
     "updateOkMessage": "Successfully Updated",
     "updateErrorMessage": "An error has occurred"
   },
-
   "Validation": {
     "required-field": "Required field"
   },
@@ -303,6 +311,22 @@
       "news-letter":"I would like to receive the newsletter",
       "terms":"I've read and I agree with the terms and conditions",
       "button": "Send!" 
+    },
+    "Offers":{
+      "page-head": "Offers List",
+      "delete": "Delete",
+      "update": "Update",
+      "id": "Offer Id",
+      "discount": "Discount",
+      "paid_quantity": "Paid Quantity",
+      "free_quantity": "Free Quantity",
+      "start_date": "Start on Date",
+      "end_date": "Ends on Date",
+      "description": "Promotion Description",
+      "new_Offer": "Create New Offer",
+      "previous": "Previous",
+      "next": "Next",
+      "search": "Type to search"
     },
     "error":{
       "name-missing":"Your name is required" ,

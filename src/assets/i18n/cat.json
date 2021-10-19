@@ -325,6 +325,7 @@
     "add-to-cart":"Afegir al carret",
     "related-products":"Productes relacionats",
     "error":"Selecciona un producte",
+    "error2":"Insereix una quantitat",
     "retail-price":"Preu al per menor: ",
     "wholesale-price":"Preu a l'engrós: ",
     "product-list":{

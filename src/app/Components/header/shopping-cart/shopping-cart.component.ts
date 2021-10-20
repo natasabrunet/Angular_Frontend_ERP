@@ -116,7 +116,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   removeItem(itemToRemove: any) {
-    this.cartItems.splice(itemToRemove, 1);
+    this.cartItems = this.cartItems.filter(item => item.id !==itemToRemove.id);
 
     this.cartTotal = 0;
 

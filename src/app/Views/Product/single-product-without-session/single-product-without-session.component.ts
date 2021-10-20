@@ -59,33 +59,25 @@ export class SingleProductWithoutSessionComponent implements OnInit {
     document.getElementById('wholesalePrice').classList.remove('is-invalid')
     document.getElementById('price').classList.remove('is-invalid')
   }
-  addToCart(price:boolean, wholesale_price:boolean, units:any, writtenUnits:any){
+  addToCart(price:boolean, wholesale_price:boolean, writtenUnits:any){
     // function to either know which price the user has selected nor if hasn't selected anything
     if(price){
       console.log(this.currentProduct.price)
+      console.log(writtenUnits)
     }
     else if(wholesale_price){
       console.log(this.currentProduct.wholesale_price)
+      console.log(writtenUnits)
     }
     else{
       document.getElementById('wholesalePrice').classList.add('is-invalid')
       document.getElementById('price').classList.add('is-invalid')
     }
-    if(units=='6+' && writtenUnits==''){
+    if(writtenUnits==''){
       document.getElementById('inputUnits').classList.add('is-invalid')
     }
   }
-  HowManyUnits(units:any):void{
-    // function to know if user wants more than 6 units
-    if(units == '6+'){
-      console.log(this.quantity)
-      document.getElementById('selectUnits').classList.add('d-none')
-      var write = document.getElementById('writeUnits')
-      write.classList.remove('d-none')
-      write.focus()
-    }
-  }
-  unitsByUser(userunits:any){
+  HowManyUnits(userunits:any){
     if(userunits!==''){
       document.getElementById('inputUnits').classList.remove('is-invalid')
     }

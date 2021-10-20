@@ -63,20 +63,12 @@
                 <div class="text-center invalid-feedback ">{{'single-product-no-session.error' | translate}}</div>
             <div class="d-flex justify-content-around mt-lg-5 " id="inputUnits">
                 <label for="units">{{'single-product-no-session.quantity' | translate}}</label>
-                <select (change)="HowManyUnits(units.value)" #units id="selectUnits" class="units form-control">
-                    <option value="1" selected >1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6+">6+</option>
-                </select>
-                <input (input)="unitsByUser(writtenUnits.value)" type="text" maxlength="3" 
-                #writtenUnits id="writeUnits" class="units d-none form-control">
+                <input (input)="HowManyUnits(writtenUnits.value)" type="text" maxlength="3" 
+                #writtenUnits id="units" class="units form-control">
             </div>
             <div class="text-center invalid-feedback">{{'single-product-no-session.error2' | translate}}</div>
             <div class=" d-flex justify-content-center mt-3 mt-lg-5 mb-5 mb-lg-0">
-                <button class="btn addCartBtn mb-3" (click)="addToCart(price.checked, wholesalePrice.checked, units.value, writtenUnits.value )"> {{'single-product-no-session.add-to-cart' | translate}}</button>
+                <button class="btn addCartBtn mb-3" (click)="addToCart(price.checked, wholesalePrice.checked, writtenUnits.value )"> {{'single-product-no-session.add-to-cart' | translate}}</button>
             </div>
         </form>
     </div>

@@ -48,6 +48,7 @@ import { CheckoutComponent } from './Views/checkout/checkout/checkout.component'
 import { ClientContactComponent } from './Views/client-contact/client-contact.component';
 import { ProfileComponent } from './Views/profile/profile.component';
 import { TermsComponent } from './Views/terms/terms.component';
+import { SingleProductWithoutSessionComponent } from './Views/Product/single-product-without-session/single-product-without-session.component';
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
@@ -104,6 +105,8 @@ registerLocaleData(localeESP);
     ProfileComponent,
     CartItemComponent,
     ProductItemComponent,
+    TermsComponent,
+    SingleProductWithoutSessionComponent,
     TermsComponent
   ],
 

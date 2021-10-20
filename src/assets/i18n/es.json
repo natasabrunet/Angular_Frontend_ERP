@@ -215,9 +215,15 @@
     "orders-assigned": "Pedidos asignados",
     "buttons": {
       "update": "Guardar",
-      "delete": "Borrar"
+      "delete": "Borrar",
+      "modal": {
+        "delete": {
+          "title": "Borrando…",
+          "message": "¿Seguro quieres borrar este empleado/a?",
+          "button-delete": "Borrar"
+        }
+      }
     },
-<<<<<<< HEAD
     "Employee": {
         "new-employee": "Nuevo empleado",
         "employee-detail": "Detalles del empleado",
@@ -242,14 +248,6 @@
             "button-delete":"Borrar"
           }
         }
-=======
-    "modal": {
-      "delete": {
-        "title": "Borrando…",
-        "message": "¿Seguro quieres borrar este empleado/a?",
-        "button-delete": "Borrar"
-      }
-    }
   },
   "Validation": {
     "required-field": "Campo obligatorio"
@@ -270,8 +268,6 @@
     "navbar-signup": "Registrarse",
     "navbar-terms": "Términos y condiciones"
   },
->>>>>>> a3bad79b3fffb07df6c9e59e7b89acfe139a96d4
-
   "about": {
     "text-greeting": "¡Hola!",
     "text-1": "Somos estudiantes afortunados de la IT Academy que acabamos de terminar el itinerario escogido y tuvimos la oportunidad de trabajar juntos en el proyecto beer-nice.",
@@ -371,5 +367,31 @@
   "terms": {
     "text-1":"Un acuerdo de Condiciones Generales recoge las condiciones que los visitantes deben aceptar si desean interactuar con el sitio web. Básicamente, si el visitante sigue utilizando el sitio web después de aceptar las Condiciones Generales, estará suscribiendo un contrato con usted.",
     "text-2": "A diferencia de las Políticas de Privacidad, no está legalmente obligado a tener un acuerdo de Condiciones Generales. Sin embargo, existen muchos motivos por los que debería redactar uno y publicarlo en su sitio web."
+  },
+  "single-product-no-session":{
+    "details":"Especificaciones",
+    "buy-details":"Detalles de compra",
+    "quantity":"Cantidad",
+    "add-to-cart":"Añadir al carrito",
+    "related-products":"Productos relacionados",
+    "error":"Selecciona un producto",
+    "error2":"Inserte una cantidad",
+    "retail-price":"Precio al por menor: ",
+    "wholesale-price":"Precio al por mayor: ",
+    "product-list":{
+      "product-1": "Agua",
+      "product-2": "Pizza",
+      "product-3": "Pasta",
+      "product-4": "Flan",
+      "product-5": "Helado",
+      "product-6": "Yogur",
+      "product-7": "Pan",
+      "product-8": "Arroz",
+      "product-9": "Sopa",
+      "product-10": "Paella",
+      "product-11": "Agua carbonatada",
+      "product-12": "Pastel"
+    }
+    
   }
 }

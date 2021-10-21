@@ -171,10 +171,16 @@
         "message": "¿Estás seguro que quieres borrar este cliente?",
         "button-no": "No",
         "button-delete": "Borrar"
+      },
+      "update": {
+        "title": "Actualizando…",
+        "message": "¿Estás seguro que quieres actualizar este cliente?",
+        "button-no": "No",
+        "button-update": "Actualizar"
       }
     },
-    "deleteOkMessage": "El cliente ha sido borrado correctament.",
-    "deleteErrorMessage": "El cliente no ha sido borrado. Por favor contacta con el equipo de IT."
+    "deleteOkMessage": "El cliente ha sido actualizado correctament.",
+    "deleteErrorMessage": "El cliente no ha sido actualizado. Por favor contacta con el equipo de IT."
   },
   "Employees-list": {
     "page-head": "Lista de empleados",
@@ -218,9 +224,27 @@
           "message": "¿Seguro quieres borrar este empleado/a?",
           "button-delete":"Borrar"
         }
-      }
-    },
-
+      } 
+  },
+  "Validation": {
+    "required-field": "Campo obligatorio"
+  },
+  "Format": {
+    "email-field": "Correo eletrónico no válido"
+  },
+  "homepage": {
+    "welcome-msg": "Bienvenidos a ERP!",
+    "cheers-msg": "SALUD!!!"
+  },
+  "navbar-client": {
+    "navbar-home": "Inicio",
+    "navbar-about": "Nosotros",
+    "navbar-products": "Productos",
+    "navbar-contact": "Contacto",
+    "navbar-login": "Entrar",
+    "navbar-signup": "Registrarse",
+    "navbar-terms": "Términos y condiciones"
+  },
   "about": {
     "text-greeting": "¡Hola!",
     "text-1": "Somos estudiantes afortunados de la IT Academy que acabamos de terminar el itinerario escogido y tuvimos la oportunidad de trabajar juntos en el proyecto beer-nice.",
@@ -322,5 +346,31 @@
   "terms": {
     "text-1":"Un acuerdo de Condiciones Generales recoge las condiciones que los visitantes deben aceptar si desean interactuar con el sitio web. Básicamente, si el visitante sigue utilizando el sitio web después de aceptar las Condiciones Generales, estará suscribiendo un contrato con usted.",
     "text-2": "A diferencia de las Políticas de Privacidad, no está legalmente obligado a tener un acuerdo de Condiciones Generales. Sin embargo, existen muchos motivos por los que debería redactar uno y publicarlo en su sitio web."
+  },
+  "single-product-no-session":{
+    "details":"Especificaciones",
+    "buy-details":"Detalles de compra",
+    "quantity":"Cantidad",
+    "add-to-cart":"Añadir al carrito",
+    "related-products":"Productos relacionados",
+    "error":"Selecciona un producto",
+    "error2":"Inserte una cantidad",
+    "retail-price":"Precio al por menor: ",
+    "wholesale-price":"Precio al por mayor: ",
+    "product-list":{
+      "product-1": "Agua",
+      "product-2": "Pizza",
+      "product-3": "Pasta",
+      "product-4": "Flan",
+      "product-5": "Helado",
+      "product-6": "Yogur",
+      "product-7": "Pan",
+      "product-8": "Arroz",
+      "product-9": "Sopa",
+      "product-10": "Paella",
+      "product-11": "Agua carbonatada",
+      "product-12": "Pastel"
+    }
+    
   }
 }

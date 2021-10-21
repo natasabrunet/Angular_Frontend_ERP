@@ -17,6 +17,7 @@ import { ProductsWithoutSessionComponent } from './Views/Product/products-withou
 import { CheckoutComponent } from './Views/checkout/checkout/checkout.component';
 import { ProfileComponent } from './Views/profile/profile.component';
 import { TermsComponent } from './Views/terms/terms.component';
+import { SingleProductWithoutSessionComponent } from './Views/Product/single-product-without-session/single-product-without-session.component';
 // Clients import
 import { NewClientComponent } from './Views/Client/new-client/new-client.component';
 import { ClientListComponent } from './Views/Client/client-list/client-list.component';
@@ -67,6 +68,8 @@ const routes: Routes = [
     path: 'products-without-session',
     component: ProductsWithoutSessionComponent,
   },
+  {path:'single-product-without-session/:id',
+    component:SingleProductWithoutSessionComponent},
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'offers', component: OffersComponent, canActivate: [AuthGuard]},
   { path: 'offer-detail/:id', component: OfferDetailComponent },

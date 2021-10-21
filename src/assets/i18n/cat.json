@@ -171,10 +171,18 @@
         "message": "Estàs segur que vols esborrar aquest client?",
         "button-no": "No",
         "button-delete": "Esborrar"
+      },
+      "update": {
+        "title": "Actualitzant…",
+        "message": "Estàs segur que vols actualitzar aquest client?",
+        "button-no": "No",
+        "button-update": "Actualitzar"
       }
     },
     "deleteOkMessage": "El client ha estat esborrat correctament.",
-    "deleteErrorMessage": "El client no ha estat esborrat. Si us plau contcta amb l'equip IT."
+    "deleteErrorMessage": "El client no ha estat esborrat. Si us plau contcta amb l'equip IT.",
+    "updateOkMessage": "El client ha estat actualitzat correctament.",
+    "updateErrorMessage": "El client no ha estat actualitzat. Si us plau contcta amb l'equip IT."
   },
   "Employees-list": {
     "page-head": "Llista d'empleats",
@@ -335,6 +343,31 @@
     "search": "Escriu per buscar",
     "back-to-offers-list": "Tornar a la llista",
     "offer-detail": "Detall de l'oferta"
+  },
+  "single-product-no-session":{
+    "details":"Especificacions",
+    "buy-details":"Detalls de compra",
+    "quantity":"Quantitat",
+    "add-to-cart":"Afegir al carret",
+    "related-products":"Productes relacionats",
+    "error":"Selecciona un producte",
+    "error2":"Insereix una quantitat",
+    "retail-price":"Preu al per menor: ",
+    "wholesale-price":"Preu a l'engrós: ",
+    "product-list":{
+      "product-1": "Aigua",
+      "product-2": "Pizza",
+      "product-3": "Pasta",
+      "product-4": "Flam",
+      "product-5": "Gelat",
+      "product-6": "Iogurt",
+      "product-7": "Pà",
+      "product-8": "Arròs",
+      "product-9": "Sopa",
+      "product-10": "Paella",
+      "product-11": "Aigua carbonatada",
+      "product-12": "Pastís"
+    }
   }
 
 }

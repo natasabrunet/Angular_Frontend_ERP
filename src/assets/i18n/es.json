@@ -196,75 +196,30 @@
     }
   },
   "Employee": {
-    "new-employee": "Nuevo empleado",
-    "employee-detail": "Detalles del empleado",
-    "back-to-employees-list": "Regresar a la lista de empleados",
-    "updateOkMessage": "Se ha actualizado correctamente",
-    "updateErrorMessage": "Ha ocurrido un error",
-    "name": "Nombre",
-    "salary": "Sueldo",
-    "total-sellings": "Total de ventas",
-    "orders-attended": "Pedidos atendidos",
-    "phone": "Teléfono",
-    "orders-assigned": "Pedidos asignados",
-    "buttons": {
-      "update": "Guardar",
-      "delete": "Borrar"
-    },
-<<<<<<< HEAD
-    "Employee": {
-        "new-employee": "Nuevo empleado",
-        "employee-detail": "Detalles del empleado",
-        "back-to-employees-list":"Regresar a la lista de empleados",
-        "updateOkMessage": "Se ha actualizado correctamente",
-        "updateErrorMessage": "Ha ocurrido un error",
-        "name": "Nombre",
-        "surname": "Apellido",
-        "salary": "Sueldo",
-        "total-sellings": "Total de ventas",
-        "orders-attended": "Pedidos atendidos",
-        "phone": "Teléfono",
-        "orders-assigned": "Pedidos asignados",
-        "buttons": {
-          "update": "Guardar",
-          "delete": "Borrar"
-        },
-        "modal":{
-          "delete": {
-            "title":"Borrando…",
-            "message": "¿Seguro quieres borrar este empleado/a?",
-            "button-delete":"Borrar"
-          }
+      "new-employee": "Nuevo empleado",
+      "employee-detail": "Detalles del empleado",
+      "back-to-employees-list":"Regresar a la lista de empleados",
+      "updateOkMessage": "Se ha actualizado correctamente",
+      "updateErrorMessage": "Ha ocurrido un error",
+      "name": "Nombre",
+      "surname": "Apellido",
+      "salary": "Sueldo",
+      "total-sellings": "Total de ventas",
+      "orders-attended": "Pedidos atendidos",
+      "phone": "Teléfono",
+      "orders-assigned": "Pedidos asignados",
+      "buttons": {
+        "update": "Guardar",
+        "delete": "Borrar"
+      },
+      "modal":{
+        "delete": {
+          "title":"Borrando…",
+          "message": "¿Seguro quieres borrar este empleado/a?",
+          "button-delete":"Borrar"
         }
-=======
-    "modal": {
-      "delete": {
-        "title": "Borrando…",
-        "message": "¿Seguro quieres borrar este empleado/a?",
-        "button-delete": "Borrar"
       }
-    }
-  },
-  "Validation": {
-    "required-field": "Campo obligatorio"
-  },
-  "Format": {
-    "email-field": "Correo eletrónico no válido"
-  },
-  "homepage": {
-    "welcome-msg": "Bienvenidos a ERP!",
-    "cheers-msg": "SALUD!!!"
-  },
-  "navbar-client": {
-    "navbar-home": "Inicio",
-    "navbar-about": "Nosotros",
-    "navbar-products": "Productos",
-    "navbar-contact": "Contacto",
-    "navbar-login": "Entrar",
-    "navbar-signup": "Registrarse",
-    "navbar-terms": "Términos y condiciones"
-  },
->>>>>>> a3bad79b3fffb07df6c9e59e7b89acfe139a96d4
+    },
 
   "about": {
     "text-greeting": "¡Hola!",
@@ -336,22 +291,6 @@
         "text-2": "¡No pudimos encontrar esa página!",
         "btn-goBack": "Ir atras!"
     },
-    "Offers":{
-      "page-head": "Lista de Ofertas",
-      "delete": "Eliminar",
-      "update": "Actualizar",
-      "id": "Id Oferta",
-      "discount": "Descuento",
-      "paid_quantity": "Cantidad Pagada",
-      "free_quantity": "Cantidad Libre",
-      "start_date": "Fecha Inicio",
-      "end_date": "Fecha Fin",
-      "description": "Descripción Promoción",
-      "new_Offer": "Crear Nueva Oferta",
-      "previous": "Anterior",
-      "next": "Siguiente",
-      "search": "Escribe para buscar"
-    },
     "error":{
       "name-missing":"Introduzca su nombre" ,
       "name-minlength": "El nombre tiene que contener mínimo 2 caracteres",
@@ -361,6 +300,24 @@
       "message-maxlength":"El mensaje no puede tener más de 500 caracteres",
       "contact-terms-missing": "Los términos y condiciones deben ser aceptados"
     }
+  },
+  "Offers":{
+    "page-head": "Lista de Ofertas",
+    "delete": "Eliminar",
+    "update": "Actualizar",
+    "id": "Id Oferta",
+    "discount": "Descuento",
+    "paid_quantity": "Cantidad Pagada",
+    "free_quantity": "Cantidad Libre",
+    "start_date": "Fecha Inicio",
+    "end_date": "Fecha Fin",
+    "description": "Descripción Promoción",
+    "new_Offer": "Crear Nueva Oferta",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "search": "Escribe para buscar",
+    "back-to-offers-list": "Volver a la lista",
+    "offer-detail": "Detalle de la oferta"
   },
   "terms": {
     "text-1":"Un acuerdo de Condiciones Generales recoge las condiciones que los visitantes deben aceptar si desean interactuar con el sitio web. Básicamente, si el visitante sigue utilizando el sitio web después de aceptar las Condiciones Generales, estará suscribiendo un contrato con usted.",

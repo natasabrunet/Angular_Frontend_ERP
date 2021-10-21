@@ -1,0 +1,260 @@
+
+<div class="container">
+    <div class="row py-5">
+      <div class="col-sm-12 d-flex justify-content-end">
+        <a [routerLink]="['/offers']">{{ 'Offers.back-to-offers-list' | translate}}</a>
+      </div>
+      <h4 class="text-center pb-5">{{ 'Offers.offer-detail' | translate}}</h4>
+    </div>
+    <div class="row">
+        <form method="post" role="form" class="php-email-form row" autocomplete="off"
+            [formGroup]='form'
+            (ngSubmit)="submit()">
+            <!-- Id -->
+            <div class="col-6 form-group"> 
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="id" class="col-form-label">{{ 'Offers.id' | translate}}:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="id"
+                            name="id"
+                            type="text"
+                            class="form-control"
+                            autocomplete="off"
+                            formControlName="id"
+                            [class.is-invalid]="isIdInvalid"
+                            autofocus />
+                        <div *ngIf="isIdInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Date -->
+            <div class="col-6 form-group"> 
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="start_date" class="col-form-label">{{ 'Offers.start_date' | translate}}:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="start_date"
+                            name="start_date"
+                            type="text"
+                            class="form-control"
+                            autocomplete="off"
+                            formControlName="start_date"
+                            [class.is-invalid]="isStartDateInvalid"
+                            autofocus />
+                        <div *ngIf="isStartDateInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Discount -->
+            <div class="col-6 form-group"> 
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="discount" class="col-form-label">{{ 'Offers.discount' | translate}}:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="discount"
+                            name="discount"
+                            type="text"
+                            class="form-control"
+                            autocomplete="off"
+                            formControlName="discount"
+                            [class.is-invalid]="isDiscountInvalid"
+                            autofocus />
+                        <div *ngIf="isDiscountInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Date -->
+            <div class="col-6 form-group"> 
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="end_date" class="col-form-label">{{ 'Offers.end_date' | translate}}:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="end_date"
+                            name="end_date"
+                            type="text"
+                            class="form-control"
+                            autocomplete="off"
+                            formControlName="end_date"
+                            [class.is-invalid]="isEndDateInvalid"
+                            autofocus />
+                        <div *ngIf="isEndDateInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Description -->
+            <div class="col-6 form-group"> 
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="description" class="col-form-label">{{ 'Offers.description' | translate}}:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="description"
+                            name="description"
+                            type="text"
+                            class="form-control"
+                            autocomplete="off"
+                            formControlName="description"
+                            [class.is-invalid]="isDescriptionInvalid"
+                            autofocus />
+                        <div *ngIf="isDescriptionInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Paid Quantity -->
+            <div class="col-6 form-group"> 
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="paid_quantity" class="col-form-label">{{ 'Offers.paid_quantity' | translate}}:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="paid_quantity"
+                                name="paid_quantity"
+                                type="text"
+                                class="form-control"
+                                autocomplete="off"
+                                formControlName="paid_quantity"
+                                [class.is-invalid]="isPaidQuantityInvalid"
+                                autofocus />
+                        <div *ngIf="isPaidQuantityInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Free Quantity -->
+            <div class="col-6"></div>
+            <div class="col-6 form-group"> 
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="free_quantity" class="col-form-label">{{ 'Offers.free_quantity' | translate}}:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="free_quantity"
+                                name="free_quantity"
+                                type="text"
+                                class="form-control"
+                                autocomplete="off"
+                                formControlName="free_quantity"
+                                [class.is-invalid]="isFreeQuantityInvalid"
+                                autofocus />
+                        <div *ngIf="isFreeQuantityInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!--SERVER RESPONSE ALERT (copied from login page) -->
+            <div *ngIf="showAlert"
+                class="mb-3 mx-auto text-center border rounded-3"
+                [ngClass]="{
+                    'border-erp-darkgreen': success,
+                    'text-erp-darkgreen': success,
+                    'bg-erp-palegreen': success,
+                    'border-erp-firebrick ': !success,
+                    'text-erp-firebrick ': !success,
+                    'bg-erp-pink': !success
+                    }">
+                <small>{{ alertMessage }}</small>
+            </div>
+            <!--Buttons-->
+            <div class="row py-2">
+                <div class="col-7 d-flex justify-content-center">
+                <button type="button" class="btn btn-erp-red text-erp-white me-3" data-bs-toggle="modal"
+                        data-bs-target="#deleteModal">{{ 'Offers.delete' | translate}}</button>
+                <button type="submit" class="btn btn-erp-blue text-erp-white me-3">{{ 'Client.buttons.save' |
+                    translate}}</button>
+                </div>
+            </div>
+        
+            <!-- Modal - Delete Confirmation -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> {{ 'Client.modal.delete.title' | translate }} </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+  
+                        <div class="modal-body"> {{ 'Client.modal.delete.message' | translate }} </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal"> {{ 'Client.modal.delete.button-no' | translate }} </button>
+                            <button type="button" class="btn btn-primary deleteButton text-uppercase" data-bs-dismiss="modal"> {{ 'Client.modal.delete.button-delete' | translate }} </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!--<div class="container mt-5">
+    <div class="row">
+      <h2>{{'Offers.page-head'|translate}}</h2>
+    </div>
+    <div class="row">
+      <table class="table table-responsive-md mt-5 productTable align-middle">
+        <thead>
+          <tr>
+            <th scope="col">{{'Offers.id'|translate}}</th>
+            <th scope="col">{{'Offers.description'|translate}}</th>
+            <th scope="col">{{'Offers.discount'|translate}}</th>
+            <th scope="col">{{'Offers.start_date'|translate}}</th>
+            <th scope="col">{{'Offers.end_date'|translate}}</th>
+            <th scope="col">{{'Offers.paid_quantity'|translate}}</th>
+            <th scope="col">{{'Offers.free_quantity'|translate}}</th>
+            <th scope="col">{{'Offers.delete'|translate}}</th>
+            <th scope="col">{{'Offers.update'|translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{id}}</td>
+            <td>{{description}}</td>
+            <td>{{discount}}</td>
+            <td>{{start_date}}</td>
+            <td>{{end_date}}</td>
+            <td>{{paid_quantity}}</td>
+            <td>{{free_quantity}}</td>
+            //Delete/Edit
+            <td>
+              //Delete-->
+              <!--<div class="d-flex justify-content-center align-items-center">
+                <button class="btn">
+                  <fa-icon
+                  class="mx-md-3"
+                  [icon]="faTrashAlt"
+                  size="lg"
+                  role="button">
+                  </fa-icon>
+                </button>
+              </div>
+            </td>
+            <td>
+              //Edit-->
+              <!--<div class="d-flex justify-content-center align-items-center">
+                <button class="btn">
+                  <fa-icon
+                  class="mx-md-3"
+                  [icon]="faEdit"
+                  size="lg"
+                  role="button">
+                  </fa-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+-->
+  

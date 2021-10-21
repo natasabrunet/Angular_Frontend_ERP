@@ -5,6 +5,7 @@ import { OffersService } from 'src/app/Services/offers.service';
 
 
 
+
 const PAGE_SIZE = 2;
 
 
@@ -31,6 +32,8 @@ export class OffersComponent implements OnInit {
 
   paginatedOffers: any[];
   pagesArray: number[];
+
+  id: string;
 
   constructor(private offersService: OffersService, private router: Router) { }
 
@@ -93,6 +96,10 @@ export class OffersComponent implements OnInit {
       this.ngOnInit();
     }
 
+  }
+
+  goShowOffer(id: number){
+    this.router.navigate(['/offer-detail', id]);
   }
 
 }

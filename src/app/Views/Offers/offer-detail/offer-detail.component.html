@@ -161,10 +161,12 @@
             <!--Buttons-->
             <div class="row py-2">
                 <div class="col-7 d-flex justify-content-center">
-                <button type="button" class="btn btn-erp-red text-erp-white me-3" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal">{{ 'Offers.delete' | translate}}</button>
-                <button type="submit" class="btn btn-erp-blue text-erp-white me-3">{{ 'Client.buttons.save' |
-                    translate}}</button>
+                <button type="button" class="btn btn-erp-red text-erp-white me-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    {{ 'Offers.delete' | translate}}
+                </button>
+                <button type="submit" class="btn btn-erp-blue text-erp-white me-3" data-bs-toggle="modal" data-bs-target="#updateModal">
+                    {{ 'Client.buttons.save' | translate}}
+                </button>
                 </div>
             </div>
         
@@ -179,8 +181,32 @@
   
                         <div class="modal-body"> {{ 'Client.modal.delete.message' | translate }} </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal"> {{ 'Client.modal.delete.button-no' | translate }} </button>
-                            <button type="button" class="btn btn-primary deleteButton text-uppercase" data-bs-dismiss="modal"> {{ 'Client.modal.delete.button-delete' | translate }} </button>
+                            <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">
+                                 {{ 'Client.modal.delete.button-no' | translate }} 
+                            </button>
+                            <button type="button" class="btn btn-primary deleteButton text-uppercase" (click)="deleteOffer()" data-bs-dismiss="modal"> 
+                                {{ 'Client.modal.delete.button-delete' | translate }} 
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal - Update Confirmation -->
+            <div class="modal fade" id="updateModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> {{ 'Client.modal.update.title' | translate }} </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"> {{ 'Client.modal.update.message' | translate }} </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal"> 
+                                {{ 'Client.modal.update.button-no' | translate }} 
+                            </button>
+                            <button type="button" class="btn btn-primary updateButton text-uppercase" (click)="updateOffer()" data-bs-dismiss="modal"> 
+                                {{ 'Client.modal.update.button-update' | translate }}
+                            </button>
                         </div>
                     </div>
                 </div>

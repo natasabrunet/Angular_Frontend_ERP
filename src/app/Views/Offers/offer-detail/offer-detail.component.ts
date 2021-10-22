@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/Services/login.service';
 import { OffersService } from 'src/app/Services/offers.service';
 
 
@@ -18,9 +19,15 @@ export class OfferDetailComponent implements OnInit {
   end_date: string;
   paid_quantity: number;
   free_quantity: number;
+
   showAlert: boolean = false;
   success: boolean = false;
   alertMessage: string;
+  errorAPI:boolean;
+ 
+  token:string;
+  url: string = 'http://217.76.158.200:8080';
+  endPoint: string = '/api/offers';
 
   form: FormGroup;
 
@@ -28,9 +35,14 @@ export class OfferDetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private offersService: OffersService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private loginService: LoginService
 
   ) { 
+    //Accedemos al servicio de login para recuperar el token que se ha guardado
+    this.token = this.loginService.getBearerToken;
+    console.log(this.token);
+
     this.createForm();
   }
 
@@ -111,9 +123,53 @@ export class OfferDetailComponent implements OnInit {
       // Si el form es inválido, márcamos los controles como "touched" para que se marquen/muestren los errores
       return Object.values(this.form.controls).forEach((control) => {
         control.markAsTouched();
-        console.log(Object.values);
       });
     }
-    //this.updateOffer();
+    this.updateOffer();
+  }
+
+  updateOffer(){
+    let offer = {
+      id: this.id,
+      name: this.form.get('description').value,
+      discount: this.form.get('discount').value,
+      start_date: this.form.get('start_date').value,
+      end_date: this.form.get('end_date').value,
+      paid_quantity: this.form.get('paid_quantity').value,
+      free_quantity: this.form.get('free_quantity').value,
+    }//Pasamos los nuevos datos de a oferta
+    this.offersService.updateOffer(offer)
+    .subscribe(
+      ( offer: any ) => {
+        this.errorAPI = false;
+        this.success = offer.success;
+      }, ( errorServicio ) => {
+        this.errorAPI = true;
+        console.log(errorServicio);
+      });
+  }
+  deleteOffer() {
+    console.log("DELETE");
+    this.offersService.deleteOffer(this.id)
+    .subscribe(
+      (resp) => {
+        this.showAlert = true;
+        this.success = true;
+        this.alertMessage = 'Offer deleted!!!';
+
+        // let alert show up and then redirect
+        setTimeout(() => {
+          this.showAlert = false; // alert OK
+          this.alertMessage = '';
+          this.router.navigateByUrl('offers'); // redirect to client-list
+        }, 2000);
+      },
+      (err) => {
+        console.log(err);
+        this.showAlert = true;
+        this.success = false;
+        this.alertMessage = err.message;
+      }
+    );
   }
 }

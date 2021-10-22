@@ -28,6 +28,7 @@ import { OrdersComponent } from './Views/orders/orders.component';
 
 // Offers import
 import { OffersComponent } from './Views/Offers/offers/offers.component';
+import { OfferDetailComponent } from './Views/Offers/offer-detail/offer-detail.component';
 
 // Employees import
 import { EmployeesListComponent } from './Views/employees/employees-list/employees-list.component';
@@ -36,7 +37,6 @@ import { EmployeeComponent } from './Views/employees/employee/employee.component
 // Stats import
 import { StatsComponent } from './Views/stats/stats.component';
 import { ClientContactComponent } from './Views/client-contact/client-contact.component';
-import { OfferDetailComponent } from './Views/Offers/offer-detail/offer-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

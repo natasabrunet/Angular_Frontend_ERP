@@ -53,9 +53,19 @@
           <td>
             {{ employee.total_orders_attended }}
           </td>
-          <!-- Edit/Delete -->
+          <!-- working hours/Edit/Delete -->
           <td class="pr-td">
             <div class="d-flex justify-content-center align-items-center">
+              <!-- Working hours  -->
+              <button (click)="goWorkinngHoursEmployee(employee.id)" class="btn">
+                <fa-icon
+                  class="mx-md-3"
+                  [icon]="faBussinesTime"
+                  size="lg"
+                  title="{{ 'btn.edit' | translate }}"
+                  role="button"
+                ></fa-icon>
+              </button>
               <!-- Edit -->
               <button (click)="goEditEmployee(employee.id)" class="btn">
                 <fa-icon

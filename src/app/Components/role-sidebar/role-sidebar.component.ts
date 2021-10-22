@@ -59,6 +59,8 @@ export class RoleSidebarComponent implements OnInit, OnChanges {
               // ['far fa-address-card', 'profile', 'profile'], // TODO: app-routing.module.ts
 
               ['fas fa-chart-line', 'stats', 'stats'], // TODO: app-routing.module.ts
+
+              ['fas fa-shopping-basket', 'Product', 'products-without-session'], // TODO: app-routing.module.ts
             ],
           };
         })();

@@ -49,6 +49,7 @@ import { ClientContactComponent } from './Views/client-contact/client-contact.co
 import { ProfileComponent } from './Views/profile/profile.component';
 import { TermsComponent } from './Views/terms/terms.component';
 import { SingleProductWithoutSessionComponent } from './Views/Product/single-product-without-session/single-product-without-session.component';
+import { EmployeesWorkingHoursComponent } from './Views/employees/employees-working-hours/employees-working-hours.component';
 
 // Pipes
 import { NoProductImagePipe } from './pipes/no-product-image.pipe';
@@ -64,6 +65,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { OffersComponent } from './Views/Offers/offers/offers.component';
 import { CartItemComponent } from './Components/header/shopping-cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './Views/Product/products-without-session/product-item/product-item.component';
+
 
 
 registerLocaleData(localeESP);
@@ -107,7 +109,8 @@ registerLocaleData(localeESP);
     ProductItemComponent,
     TermsComponent,
     SingleProductWithoutSessionComponent,
-    TermsComponent
+    TermsComponent,
+    EmployeesWorkingHoursComponent
   ],
 
   imports: [

@@ -201,29 +201,6 @@
       "new-employee": "Añadir empleado"
     }
   },
-  "Employee": {
-    "new-employee": "Nuevo empleado",
-    "employee-detail": "Detalles del empleado",
-    "back-to-employees-list": "Regresar a la lista de empleados",
-    "updateOkMessage": "Se ha actualizado correctamente",
-    "updateErrorMessage": "Ha ocurrido un error",
-    "name": "Nombre",
-    "salary": "Sueldo",
-    "total-sellings": "Total de ventas",
-    "orders-attended": "Pedidos atendidos",
-    "phone": "Teléfono",
-    "orders-assigned": "Pedidos asignados",
-    "buttons": {
-      "update": "Guardar",
-      "delete": "Borrar",
-      "modal": {
-        "delete": {
-          "title": "Borrando…",
-          "message": "¿Seguro quieres borrar este empleado/a?",
-          "button-delete": "Borrar"
-        }
-      }
-    },
     "Employee": {
         "new-employee": "Nuevo empleado",
         "employee-detail": "Detalles del empleado",
@@ -392,6 +369,16 @@
       "product-11": "Agua carbonatada",
       "product-12": "Pastel"
     }
-    
+  },
+  "employee-working-hours":{
+    "title": "Horas de trabajo",
+    "name":"Nombre",
+    "email":"Correo",
+    "id":"Id",
+    "table":{
+      "date":"Fecha",
+      "check_in":"Hora de entrada",
+      "check_out":"Hora de salida"
+    }
   }
 }

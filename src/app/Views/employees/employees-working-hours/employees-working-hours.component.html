@@ -1,0 +1,42 @@
+<div class="container">
+    <h4 class="text-center my-5">{{"employee-working-hours.title" |translate}}</h4>
+    <div class="row justify-content-around view-container">
+        <div class="employee-info col-11 col-md-4">
+            <img src="/assets/images/employees.jpg" alt="">
+            <p class="mt-3"><b>{{"employee-working-hours.name" |translate}} : </b> {{employee.name}} {{employee.surname}}</p>
+            <p class="mt-3"> <b>{{"employee-working-hours.email" |translate}} : </b>  {{employee.user.username}}</p>
+            <p class="mt-3"><b> {{"employee-working-hours.id" |translate}} :</b> {{employee.id}}</p>
+        </div>
+        <div class="table-responsive mb-5 col-12 col-md-6">
+            <table class="table align-middle text-center">
+              <thead>
+                <tr>
+                  <th class="col-3" scope="col ">
+                    {{"employee-working-hours.table.date" |translate}} 
+                  </th>
+                  <th class="col-5" scope="col ">
+                    {{"employee-working-hours.table.check_in" |translate}} 
+                  </th>
+                  <th class="col-5" scope="col ">
+                    {{"employee-working-hours.table.check_out" |translate}} 
+                  </th>
+                </tr>
+              </thead>
+                <tbody>
+                  <tr *ngFor="let schedule of workingHours">
+                    <td>
+                      {{ schedule.date }}
+                    </td>
+                    <td>
+                      {{ schedule.check_in }}
+                    </td>
+                    <td>
+                      {{ schedule.check_out }}
+                    </td>
+                    </tr>
+                </tbody>
+              
+            </table>
+        </div>
+    </div>
+</div>

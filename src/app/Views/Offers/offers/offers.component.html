@@ -4,18 +4,13 @@
     <h2>{{'Offers.page-head'|translate}}</h2>
   </div>
   <div class="row mt-5">
-
     <div class="form-group col-3 buscador">
       <input type="text" class="form-control" placeholder="{{'Offers.search'|translate}}" [(ngModel)]="description"(input)="Search()"/>
     </div>
     <div class="col">
       <button class="btn btn-primary">{{'Offers.new_Offer'|translate}}</button>
-
     </div>
-
   </div>
-
-
   <div class="row">
     <table class="table table-responsive-md mt-5 productTable align-middle">
       <thead>
@@ -36,8 +31,8 @@
           <td>{{elemento.id}}</td>
           <td>{{elemento.description}}</td>
           <td>{{elemento.discount}}</td>
-          <td>{{elemento.start_date}}</td>
-          <td>{{elemento.end_date}}</td>
+          <td>{{elemento.starts_on}}</td>
+          <td>{{elemento.ends_on}}</td>
           <td>{{elemento.paid_quantity}}</td>
           <td>{{elemento.free_quantity}}</td>
           <!--Delete/Edit-->
@@ -62,7 +57,8 @@
                 class="mx-md-3"
                 [icon]="faEdit"
                 size="lg"
-                role="button">
+                role="button"
+                (click)="goShowOffer(elemento.id)">
                 </fa-icon>
               </button>
             </div>
@@ -71,11 +67,5 @@
       </tbody>
     </table>
   </div>
-
-
-
-
-
-
 </div>
 

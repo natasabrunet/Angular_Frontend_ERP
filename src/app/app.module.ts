@@ -64,6 +64,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { OffersComponent } from './Views/Offers/offers/offers.component';
 import { CartItemComponent } from './Components/header/shopping-cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './Views/Product/products-without-session/product-item/product-item.component';
+import { OfferDetailComponent } from './Views/Offers/offer-detail/offer-detail.component';
 
 
 registerLocaleData(localeESP);
@@ -106,6 +107,7 @@ registerLocaleData(localeESP);
     CartItemComponent,
     ProductItemComponent,
     TermsComponent,
+    OfferDetailComponent,
     SingleProductWithoutSessionComponent,
     TermsComponent
   ],

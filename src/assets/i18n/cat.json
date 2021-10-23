@@ -59,7 +59,7 @@
     "deleteErrorMessage": "No s'ha pogut esborrar el producte. Si us plau, contacte amb el equip IT."
   },
   "Products-list": {
-    "page-head": "Lista de productes",
+    "page-head": "Llista de productes",
     "list": {
       "head-name": "Nom",
       "head-stock": "Stock",
@@ -312,22 +312,6 @@
       "terms":"He llegit i estic d'acord amb els termes i les condicions",
       "button": "Enviar!"
     },
-    "Offers":{
-      "page-head": "Llista d'Ofertes",
-      "delete": "Eliminar",
-      "update": "Actualitzar",
-      "id": "Id Oferta",
-      "discount": "Descompte",
-      "paid_quantity": "Quantitat Pagada",
-      "free_quantity": "Quantitat Lliure",
-      "start_date": "Data Inici",
-      "end_date": "Data Fin",
-      "description": "Descripció Promoció",
-      "new_Offer": "Crear nova Oferta",
-      "previous": "Anterior",
-      "next": "Següent",
-      "search": "Escriu per buscar"
-    },
     "error":{
       "name-missing":"Introdueixi el seu nom" ,
       "name-minlength": "El nom ha de contenir com a mínim 2 caràcters",
@@ -336,11 +320,29 @@
       "message-missing": "Què vol fer-nos saber? Introdueixi el missatge",
       "message-maxlength":"El missatge no pot excedir els 500 caràcters",
       "contact-terms-missing": "Els termes i les condicions han de ser acceptades"
-    } 
+    }
   },
   "terms": {
     "text-1":"Un acord de condicions generals recull les condicions que els visitants han d'acceptar si volen interactuar amb el lloc web. Bàsicament, si el visitant segueix utilitzant el lloc web després d'acceptar les condicions generals, estarà subscrivint un contracte amb vostè.",
     "text-2": "A diferència de les polítiques de privacitat, no està legalment obligat a tenir un acord de condicions generals. No obstant això, hi ha molts motius pels quals hauria de redactar un i publicar al seu lloc web."
+  },
+  "Offers":{
+    "page-head": "Llista d'Ofertes",
+    "delete": "Eliminar",
+    "update": "Actualitzar",
+    "id": "Id Oferta",
+    "discount": "Descompte",
+    "paid_quantity": "Quantitat Pagada",
+    "free_quantity": "Quantitat Lliure",
+    "start_date": "Data Inici",
+    "end_date": "Data Fi",
+    "description": "Descripció Promoció",
+    "new_Offer": "Crear nova Oferta",
+    "previous": "Anterior",
+    "next": "Següent",
+    "search": "Escriu per buscar",
+    "back-to-offers-list": "Tornar a la llista",
+    "offer-detail": "Detall de l'oferta"
   },
   "single-product-no-session":{
     "details":"Especificacions",

@@ -46,6 +46,7 @@ export class ClientDetailComponent implements OnInit {
   ) {
     //Accedemos al servicio de login para recuperar el token que se ha guardado
     this.token = this.loginService.getBearerToken;
+    console.log(this.token);
 
     this.createForm();
   }
@@ -54,7 +55,6 @@ export class ClientDetailComponent implements OnInit {
     //Recuperamos el parámetro (id) del cliente y cargamos su info
     this.activatedRoute.params.subscribe((params) => {
       this.loadClient(params['id']);
-      console.log("id 1: " + params['id']);
     });
   }
 
@@ -105,7 +105,6 @@ export class ClientDetailComponent implements OnInit {
           this.form.get('name').setValue(this.name);
           this.form.get('address').setValue(this.address);
           this.form.get('cif').setValue(this.cif);
-          console.log("id 2: " + data.client.id)
         }
       },
       (err) => {

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 import { LoginService } from './login.service';
 
 @Injectable({
@@ -15,13 +13,17 @@ export class OffersService {
   endPoint: string = '/api/offers';
   token: string;
 
-
   offerById: Observable<any>;
 
 
-  constructor(private httpClient: HttpClient, private loginService: LoginService) {
-    this.token = this.loginService.getBearerToken;
-   }
+  constructor(
+    private httpClient: HttpClient, 
+    private loginService: LoginService
+    ) {
+      //Accedemos al servicio de login para recuperar el token que se ha guardado
+      this.token = this.loginService.getBearerToken;
+      //console.log(this.token);
+    }
 
    headers: HttpHeaders = new HttpHeaders({
      Authorization: this.loginService.getBearerToken
@@ -33,7 +35,12 @@ export class OffersService {
 
    //Get offers by id
    getOfferById(id: string){
-     return (this.offerById = this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {headers: this.headers}));
+
+     return this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {
+       headers: this.headers       
+      });
    }
+
+   
 }
 

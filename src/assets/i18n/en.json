@@ -368,5 +368,16 @@
       "product-11": "Soda",
       "product-12": "Cake"
     }
+  },
+  "employee-working-hours":{
+    "title": "Working hours",
+    "name":"Name",
+    "email":"Email",
+    "id":"Id",
+    "table":{
+      "date":"Date",
+      "check_in":"Check in",
+      "check_out":"Check out"
+    }
   }
 }

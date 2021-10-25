@@ -1,0 +1,14 @@
+.container{
+    margin-bottom: 100px;
+}
+.employee-info{
+     align-self: center;
+     img{
+        width: 100%;
+    }
+} 
+@media (max-width:766px) {
+    .view-container{
+        flex-direction: column-reverse;
+    }
+}

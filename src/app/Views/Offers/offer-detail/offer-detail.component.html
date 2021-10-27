@@ -23,9 +23,10 @@
                             class="form-control"
                             autocomplete="off"
                             formControlName="id"
-                            [class.is-invalid]="isIdInvalid"
+                            readonly="readonly"
+                        
                             autofocus />
-                        <div *ngIf="isIdInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
+                        <!--<div *ngIf="isIdInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>-->
                     </div>
                 </div>
             </div>
@@ -43,7 +44,7 @@
                             autocomplete="off"
                             formControlName="start_date"
                             [class.is-invalid]="isStartDateInvalid"
-                            autofocus />
+                            autofocus/>
                         <div *ngIf="isStartDateInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
                     </div>
                 </div>
@@ -76,12 +77,12 @@
                     <div class="col-md-6">
                         <input id="end_date"
                             name="end_date"
-                            type="text"
+                            type="ptdate"
                             class="form-control"
                             autocomplete="off"
                             formControlName="end_date"
                             [class.is-invalid]="isEndDateInvalid"
-                            autofocus />
+                            autofocus/>
                         <div *ngIf="isEndDateInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>
                     </div>
                 </div>
@@ -161,12 +162,12 @@
             <!--Buttons-->
             <div class="row py-2">
                 <div class="col-7 d-flex justify-content-center">
-                <button type="button" class="btn btn-erp-red text-erp-white me-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                    {{ 'Offers.delete' | translate}}
-                </button>
-                <button type="submit" class="btn btn-erp-blue text-erp-white me-3" data-bs-toggle="modal" data-bs-target="#updateModal">
-                    {{ 'Client.buttons.save' | translate}}
-                </button>
+                    <button type="button" class="btn btn-erp-red text-erp-white me-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        {{ 'Offers.delete' | translate}}
+                    </button>
+                    <button type="submit" class="btn btn-erp-blue text-erp-white me-3" (click)="submit()">
+                        {{ 'Client.buttons.save' | translate}}
+                    </button>
                 </div>
             </div>
         
@@ -192,16 +193,16 @@
                 </div>
             </div>
             <!-- Modal - Update Confirmation -->
-            <div class="modal fade" id="updateModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="updateModal" tabindex="-1" aria-modal="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title"> {{ 'Client.modal.update.title' | translate }} </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)='closeModal()'></button>
                         </div>
                         <div class="modal-body"> {{ 'Client.modal.update.message' | translate }} </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal"> 
+                            <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal" (click)='closeModal()'> 
                                 {{ 'Client.modal.update.button-no' | translate }} 
                             </button>
                             <button type="button" class="btn btn-primary updateButton text-uppercase" (click)="updateOffer()" data-bs-dismiss="modal"> 
@@ -216,71 +217,3 @@
 </div>
 
 
-
-
-
-
-
-
-<!--<div class="container mt-5">
-    <div class="row">
-      <h2>{{'Offers.page-head'|translate}}</h2>
-    </div>
-    <div class="row">
-      <table class="table table-responsive-md mt-5 productTable align-middle">
-        <thead>
-          <tr>
-            <th scope="col">{{'Offers.id'|translate}}</th>
-            <th scope="col">{{'Offers.description'|translate}}</th>
-            <th scope="col">{{'Offers.discount'|translate}}</th>
-            <th scope="col">{{'Offers.start_date'|translate}}</th>
-            <th scope="col">{{'Offers.end_date'|translate}}</th>
-            <th scope="col">{{'Offers.paid_quantity'|translate}}</th>
-            <th scope="col">{{'Offers.free_quantity'|translate}}</th>
-            <th scope="col">{{'Offers.delete'|translate}}</th>
-            <th scope="col">{{'Offers.update'|translate}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{id}}</td>
-            <td>{{description}}</td>
-            <td>{{discount}}</td>
-            <td>{{start_date}}</td>
-            <td>{{end_date}}</td>
-            <td>{{paid_quantity}}</td>
-            <td>{{free_quantity}}</td>
-            //Delete/Edit
-            <td>
-              //Delete-->
-              <!--<div class="d-flex justify-content-center align-items-center">
-                <button class="btn">
-                  <fa-icon
-                  class="mx-md-3"
-                  [icon]="faTrashAlt"
-                  size="lg"
-                  role="button">
-                  </fa-icon>
-                </button>
-              </div>
-            </td>
-            <td>
-              //Edit-->
-              <!--<div class="d-flex justify-content-center align-items-center">
-                <button class="btn">
-                  <fa-icon
-                  class="mx-md-3"
-                  [icon]="faEdit"
-                  size="lg"
-                  role="button">
-                  </fa-icon>
-                </button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-</div>
--->
-  

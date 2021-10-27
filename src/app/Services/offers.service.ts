@@ -20,7 +20,6 @@ export class OffersService {
     ) {
       //Accedemos al servicio de login para recuperar el token que se ha guardado
       this.token = this.loginService.getBearerToken;
-      //console.log(this.token);
     }
 
     headers: HttpHeaders = new HttpHeaders({
@@ -40,6 +39,7 @@ export class OffersService {
 
     updateOffer(offer){
       let body = new Offer ( offer.id, offer.name, offer.discount, offer.start_date, offer.end_date, offer.paid_quantity, offer.free_quantity);
+
       const options = {
         headers: new HttpHeaders({
           Authorization: this.token
@@ -60,6 +60,5 @@ export class OffersService {
       };
       return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
     }
-   
   }
 

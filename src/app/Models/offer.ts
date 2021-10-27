@@ -3,8 +3,8 @@ export class Offer{
         id: string;
         name: string;
         discount: number;
-        start_date: string;
-        end_date: string;
+        starts_on: string;
+        ends_on: string;
         paid_quantity: number;
         free_quantity: number;
     
@@ -12,16 +12,16 @@ export class Offer{
         id: string,
         name: string,
         discount: number,
-        start_date: string,
-        end_date: string,
+        starts_on: string,
+        ends_on: string,
         paid_quantity: number,
         free_quantity: number
     ){
         this.id = id;
         this.name = name;
         this.discount = discount;
-        this.start_date = start_date;
-        this.end_date = end_date;
+        this.starts_on = starts_on;
+        this.ends_on = ends_on;
         this.paid_quantity = paid_quantity;
         this.free_quantity = free_quantity;
     }    

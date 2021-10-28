@@ -60,5 +60,17 @@ export class OffersService {
       };
       return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
     }
+
+    createOffer(offer){
+      let body = new Offer ( offer.id, offer.name, offer.discount, offer.start_date, offer.end_date, offer.paid_quantity, offer.free_quantity);
+
+      const options = {
+        headers: new HttpHeaders({
+          Authorization: this.token
+        })
+      }
+      return this.httpClient.post(`${this.url}${this.endPoint}`, body, options);
+    }
   }
+
 

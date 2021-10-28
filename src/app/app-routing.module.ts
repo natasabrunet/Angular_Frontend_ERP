@@ -73,7 +73,6 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'offers', component: OffersComponent, canActivate: [AuthGuard]},
   { path: 'offer-detail/:id', component: OfferDetailComponent },
-
   {
     path: 'employees-list',
     component: EmployeesListComponent,

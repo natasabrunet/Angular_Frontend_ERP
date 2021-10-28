@@ -342,7 +342,8 @@
     "next": "Següent",
     "search": "Escriu per buscar",
     "back-to-offers-list": "Tornar a la llista",
-    "offer-detail": "Detall de l'oferta"
+    "offer-detail": "Detall de l'oferta",
+    "create": "Crear"  
   },
   "single-product-no-session":{
     "details":"Especificacions",

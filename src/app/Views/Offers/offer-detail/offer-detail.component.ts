@@ -34,7 +34,6 @@ export class OfferDetailComponent implements OnInit {
 
   endLessStart: boolean = false;
 
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private offersService: OffersService,
@@ -50,10 +49,11 @@ export class OfferDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
      //Recuperamos el parámetro (id) de la oferta y cargamos su info
-     this.activatedRoute.params.subscribe((params) => {
-      this.loadOffer(params['id']);
-    });
+      this.activatedRoute.params.subscribe((params) => {
+        this.loadOffer(params['id']);
+    })
   }
 
   loadOffer(id: string) {
@@ -90,7 +90,7 @@ export class OfferDetailComponent implements OnInit {
   
   createForm() {
     this.form = this.fb.group({
-      id: this.id, //[this.id, [Validators.required]],
+      id: this.id,
       description: [this.description, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
       discount: [this.discount, [Validators.required]],
       start_date: [this.start_date, [Validators.required]],
@@ -98,38 +98,8 @@ export class OfferDetailComponent implements OnInit {
       paid_quantity: [this.paid_quantity, [Validators.required]],
       free_quantity: [this.free_quantity, [Validators.required]]
     });
-    
   }
-   
-  dateLessThan(from:string, to:string) {
-    this.endLessStart = false;
-
-    let partStart = from.split("-");
-    let partEnd = to.split("-");
-    let startDate = new Date(parseInt(partStart[2], 10),
-                    parseInt(partStart[1], 10) - 1,
-                    parseInt(partStart[0], 10));
-    let endDate = new Date(parseInt(partEnd[2], 10),
-                    parseInt(partEnd[1], 10) - 1,
-                    parseInt(partEnd[0], 10));  
     
-    
-    const timestampStart = startDate.getTime();
-    const timestampEnd = endDate.getTime();
-             
-    if(timestampEnd < timestampStart){
-        this.showAlert = true;
-        this.success = true;
-        this.alertMessage = 'Wrong dates!!!';
-        this.endLessStart = true;
-        return this.endLessStart;
-    }
-  }
-
- 
-  /*get isIdInvalid() {
-    return this.form.get('id').invalid && this.form.get('id').touched;
-  }*/
   get isDescriptionInvalid() {
     return this.form.get('description').invalid && this.form.get('description').touched;
   }
@@ -159,10 +129,40 @@ export class OfferDetailComponent implements OnInit {
         control.markAsTouched();
       });
     }
-    else{
+    else if (this.id){
       //Open Modal
       document.getElementById("updateModal").style.display = "block";
       document.getElementById("updateModal").classList.add("show")
+    }
+    else {
+      console.log("NEW");
+      this.createOffer();
+    }
+  }
+
+  dateLessThan(from:string, to:string) {
+    this.endLessStart = false;
+
+    let exp = /[\W]+/;
+    let partStart = from.split(exp);
+    let partEnd = to.split(exp);
+    let startDate = new Date(parseInt(partStart[2], 10),
+                    parseInt(partStart[1], 10) - 1,
+                    parseInt(partStart[0], 10));
+    let endDate = new Date(parseInt(partEnd[2], 10),
+                    parseInt(partEnd[1], 10) - 1,
+                    parseInt(partEnd[0], 10));  
+    
+    
+    const timestampStart = startDate.getTime();
+    const timestampEnd = endDate.getTime();
+             
+    if(timestampEnd < timestampStart){
+        this.showAlert = true;
+        this.success = true;
+        this.alertMessage = 'Wrong dates!!!';
+        this.endLessStart = true;
+        return this.endLessStart;
     }
   }
 
@@ -219,4 +219,29 @@ export class OfferDetailComponent implements OnInit {
       }
     );
   }
-}
+    createOffer(){
+	    let newOffer = {
+	      id: this.id,
+	      name: this.form.get('description').value,
+	      discount: this.form.get('discount').value,
+	      start_date: `${this.form.get('start_date').value}${" "}${"00:00:00"}`,
+	      end_date: `${this.form.get('end_date').value}${" "}${"00:00:00"}`,
+	      paid_quantity: this.form.get('paid_quantity').value,
+	      free_quantity: this.form.get('free_quantity').value,
+	    }//Pasamos los datos de a oferta
+
+	    this.offersService.updateOffer(newOffer)
+	    .subscribe(
+	      ( offer: any ) => {
+	        this.errorAPI = false;
+	        this.showAlert = true;
+	        this.success = offer.success;
+	        this.alertMessage = 'Offer created!!!';        
+	      },
+	       ( errorServicio ) => {
+	        this.errorAPI = true;
+	        console.log(errorServicio);
+	      });
+	  }
+	}
+

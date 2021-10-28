@@ -109,7 +109,7 @@ registerLocaleData(localeESP);
     TermsComponent,
     OfferDetailComponent,
     SingleProductWithoutSessionComponent,
-    TermsComponent
+    TermsComponent,
   ],
 
   imports: [

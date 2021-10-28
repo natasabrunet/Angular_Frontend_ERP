@@ -8,8 +8,7 @@
     </div>
     <div class="row">
         <form method="post" role="form" class="php-email-form row" autocomplete="off"
-            [formGroup]='form'
-            (ngSubmit)="submit()">
+            [formGroup]='form'>
             <!-- Id -->
             <div class="col-6 form-group"> 
                 <div class="row mb-3">
@@ -145,7 +144,6 @@
                     </div>
                 </div>
             </div>
-
             <!--SERVER RESPONSE ALERT (copied from login page) -->
             <div *ngIf="showAlert"
                 class="mb-3 mx-auto text-center border rounded-3"
@@ -166,11 +164,13 @@
                         {{ 'Offers.delete' | translate}}
                     </button>
                     <button type="submit" class="btn btn-erp-blue text-erp-white me-3" (click)="submit()">
-                        {{ 'Client.buttons.save' | translate}}
+                        {{ 'Offers.update' | translate}}
                     </button>
+                        <button type="submit" class="btn btn-erp-blue text-erp-white me-3" (click)="submit()">
+                            {{ 'Offers.create' | translate}}
+                        </button>    
                 </div>
             </div>
-        
             <!-- Modal - Delete Confirmation -->
             <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog">
@@ -179,7 +179,6 @@
                             <h5 class="modal-title"> {{ 'Client.modal.delete.title' | translate }} </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-  
                         <div class="modal-body"> {{ 'Client.modal.delete.message' | translate }} </div>
                         <div class="modal-footer">
                             <button type="button" class="btn appButton text-uppercase" data-bs-dismiss="modal">

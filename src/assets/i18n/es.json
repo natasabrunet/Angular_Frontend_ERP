@@ -372,6 +372,16 @@
       "product-11": "Agua carbonatada",
       "product-12": "Pastel"
     }
-    
+  },
+  "employee-working-hours":{
+    "title": "Horas de trabajo",
+    "name":"Nombre",
+    "email":"Correo",
+    "id":"Id",
+    "table":{
+      "date":"Fecha",
+      "check_in":"Hora de entrada",
+      "check_out":"Hora de salida"
+    }
   }
 }

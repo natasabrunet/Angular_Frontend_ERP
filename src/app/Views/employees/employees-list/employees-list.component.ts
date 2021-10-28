@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { faTrashAlt, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
 import { EmployeesService } from '../../../Services/employees.service';
+import { faBusinessTime } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-employees-list',
@@ -13,6 +14,7 @@ export class EmployeesListComponent implements OnInit {
   //Icons
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
+  faBussinesTime= faBusinessTime;
   employees: any[];
   currentPage: number;
   totalPages: number;
@@ -38,6 +40,9 @@ export class EmployeesListComponent implements OnInit {
   //Función para que se abra la página de single Employee
   goEditEmployee(id: string) {
     this.router.navigate(['/employee', id]);
+  }
+  goWorkinngHoursEmployee(id: string) {
+    this.router.navigate(['/employee-hours/', id]);
   }
 
   isLastPage() {

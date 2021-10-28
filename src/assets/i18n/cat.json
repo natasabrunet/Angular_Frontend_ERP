@@ -369,6 +369,17 @@
       "product-11": "Aigua carbonatada",
       "product-12": "Pastís"
     }
+  },
+  "employee-working-hours":{
+    "title": "Hores de treball",
+    "name":"Nom",
+    "email":"Correu",
+    "id":"Id",
+    "table":{
+      "date":"Data",
+      "check_in":"Hora d'entrada",
+      "check_out":"Hora de sortida"
+    }
   }
 
 }

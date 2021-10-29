@@ -159,13 +159,13 @@
             <!--Buttons-->
             <div class="row py-2">
                 <div class="col-7 d-flex justify-content-center">
-                    <button type="button" class="btn btn-erp-red text-erp-white me-3" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <button type="button" class="btn btn-erp-red text-erp-white me-3" id="deleteBtn"data-bs-toggle="modal" data-bs-target="#deleteModal">
                         {{ 'Offers.delete' | translate}}
                     </button>
-                    <button type="submit" class="btn btn-erp-blue text-erp-white me-3" (click)="submit()">
+                    <button type="submit" class="btn btn-erp-blue text-erp-white me-3" id="updateBtn" (click)="submit()">
                         {{ 'Offers.update' | translate}}
                     </button>
-                        <button type="submit" class="btn btn-erp-blue text-erp-white me-3" (click)="submit()">
+                        <button type="submit" class="btn btn-erp-blue text-erp-white me-3 show" id="createBtn" (click)="submit()">
                             {{ 'Offers.create' | translate}}
                         </button>    
                 </div>

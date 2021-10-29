@@ -50,9 +50,17 @@ export class OfferDetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-     //Recuperamos el parámetro (id) de la oferta y cargamos su info
-      this.activatedRoute.params.subscribe((params) => {
-        this.loadOffer(params['id']);
+    //Recuperamos el parámetro (id) de la oferta y cargamos su info
+    this.activatedRoute.params.subscribe((params) => {
+      this.loadOffer(params['id']);
+ 
+      if((params['id'].length == 1) && (params['id'].charAt(0) == '0')){
+        document.getElementById("updateBtn").style.display = "none";
+        document.getElementById("deleteBtn").style.display = "none";
+      }
+      else{
+        document.getElementById("createBtn").style.display = "none";
+      }
     })
   }
 
@@ -132,9 +140,10 @@ export class OfferDetailComponent implements OnInit {
     else if (this.id){
       //Open Modal
       document.getElementById("updateModal").style.display = "block";
-      document.getElementById("updateModal").classList.add("show")
+      document.getElementById("updateModal").classList.add("show");
     }
     else {
+
       this.createOffer();
     }
   }

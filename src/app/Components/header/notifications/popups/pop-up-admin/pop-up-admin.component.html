@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="pop-up" id="notificationPopup"
+        *ngIf="totalNotifications!==0"
+        [@flyInOut]
+        (mouseover)="mouseOnNotification()" 
+        (mouseleave)="mouseLeaveNotification()"
+        >
+        <h5 class="title-pop-up text-center"> {{'pop-up-notifications.title'| translate}}</h5> 
+        <div class="dropdown-divider mb-0"></div>
+        <div class="container mb-0"     
+            >
+            <div *ngIf="numberNotificationsCheckIn!=0" class="row justify-content-around hover" (click)="readNotifications()" routerLink="/employees-list">
+                <div class="col-2">
+                    <fa-icon class="text-center" [icon]="faUserPlus"></fa-icon>
+                </div>
+                <div class="col-7 info-pop-up d-flex">
+                        <p class="text-center">{{'pop-up-notifications.activity-in'| translate}} ({{numberNotificationsCheckIn}})</p>
+                </div>
+            </div>
+            <div class="dropdown-divider mb-0 mt-0"></div>
+            <div *ngIf="numberNotificationsCheckOut!=0" class="row justify-content-around hover" (click)="readNotifications()" routerLink="/employees-list">
+                
+                <div class="col-2">
+                    <fa-icon class="text-center" [icon]="faUserMinus"></fa-icon>
+                </div>
+                <div class="col-7 info-pop-up d-flex">
+                        <p class="text-center">{{'pop-up-notifications.activity-out'| translate}} ({{numberNotificationsCheckOut}})</p>
+                </div>
+            </div> 
+        </div>
+        <div class="dropdown-divider mb-0 mt-0"></div>
+    </div>
+</div>

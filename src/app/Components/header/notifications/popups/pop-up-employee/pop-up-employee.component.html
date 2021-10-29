@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="pop-up" *ngIf="numberNewOrderNotifications!==0" [@flyInOut] id="notificationPopup">
+        <h5 class="title-pop-up text-center">{{'pop-up-notifications.title'| translate}} </h5> 
+        <div class="dropdown-divider mb-0"></div>
+        <div class="container hover mb-0"
+            (mouseover)="mouseOnNotification()" 
+            (mouseleave)="mouseLeaveNotification()"
+            >
+            <div class="row justify-content-around" (click)="readNotifications()" routerLink="/orders">
+                <div class="col-2">
+                    <fa-icon class="text-center" [icon]="faListAlt"></fa-icon>
+                </div>
+                <div class="col-7 info-pop-up d-flex">
+                        <p class="text-center">{{'pop-up-notifications.activity-order'| translate}}({{numberNewOrderNotifications}})</p>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-divider mb-0 mt-0"></div>
+    </div>
+</div>

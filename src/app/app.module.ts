@@ -112,7 +112,7 @@ registerLocaleData(localeESP);
     OfferDetailComponent,
     SingleProductWithoutSessionComponent,
     TermsComponent,
-    EmployeesWorkingHoursComponent
+    EmployeesWorkingHoursComponent,
   ],
 
   imports: [

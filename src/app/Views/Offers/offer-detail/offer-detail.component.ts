@@ -135,7 +135,6 @@ export class OfferDetailComponent implements OnInit {
       document.getElementById("updateModal").classList.add("show")
     }
     else {
-      console.log("NEW");
       this.createOffer();
     }
   }
@@ -230,7 +229,7 @@ export class OfferDetailComponent implements OnInit {
 	      free_quantity: this.form.get('free_quantity').value,
 	    }//Pasamos los datos de a oferta
 
-	    this.offersService.updateOffer(newOffer)
+	    this.offersService.createOffer(newOffer)
 	    .subscribe(
 	      ( offer: any ) => {
 	        this.errorAPI = false;

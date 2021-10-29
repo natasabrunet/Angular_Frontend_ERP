@@ -62,8 +62,7 @@ export class OffersService {
     }
 
     createOffer(offer){
-      let body = new Offer ( offer.id, offer.name, offer.discount, offer.start_date, offer.end_date, offer.paid_quantity, offer.free_quantity);
-
+      let body = new Offer ( offer.id, offer.name, offer.discount, offer.starts_on, offer.ends_on, offer.paid_quantity, offer.free_quantity);
       const options = {
         headers: new HttpHeaders({
           Authorization: this.token

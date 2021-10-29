@@ -23,9 +23,7 @@
                             autocomplete="off"
                             formControlName="id"
                             readonly="readonly"
-                        
                             autofocus />
-                        <!--<div *ngIf="isIdInvalid" class="invalid-feedback">{{ 'Validation.required-field' | translate}}</div>-->
                     </div>
                 </div>
             </div>
@@ -38,7 +36,7 @@
                     <div class="col-md-6">
                         <input id="start_date"
                             name="start_date"
-                            type="text"
+                            type="date"
                             class="form-control"
                             autocomplete="off"
                             formControlName="start_date"
@@ -57,7 +55,8 @@
                     <div class="col-md-6">
                         <input id="discount"
                             name="discount"
-                            type="text"
+                            type="number"
+                            step="0.01"
                             class="form-control"
                             autocomplete="off"
                             formControlName="discount"
@@ -76,7 +75,7 @@
                     <div class="col-md-6">
                         <input id="end_date"
                             name="end_date"
-                            type="ptdate"
+                            type="date"
                             class="form-control"
                             autocomplete="off"
                             formControlName="end_date"
@@ -114,7 +113,7 @@
                     <div class="col-md-6">
                         <input id="paid_quantity"
                                 name="paid_quantity"
-                                type="text"
+                                type="number"
                                 class="form-control"
                                 autocomplete="off"
                                 formControlName="paid_quantity"
@@ -134,7 +133,7 @@
                     <div class="col-md-6">
                         <input id="free_quantity"
                                 name="free_quantity"
-                                type="text"
+                                type="number"
                                 class="form-control"
                                 autocomplete="off"
                                 formControlName="free_quantity"

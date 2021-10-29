@@ -382,5 +382,11 @@
       "check_in":"Hora de entrada",
       "check_out":"Hora de salida"
     }
+  },
+  "pop-up-notifications":{
+    "title": "Notificaciones",
+    "activity-in":"Nueva entrada",
+    "activity-out":"Nueva salida",
+    "activity-order":"Nuevo pedido"
   }
 }

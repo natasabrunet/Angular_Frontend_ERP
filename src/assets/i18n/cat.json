@@ -379,6 +379,12 @@
       "check_in":"Hora d'entrada",
       "check_out":"Hora de sortida"
     }
+  },
+  "pop-up-notifications":{
+    "title": "Notificacions",
+    "activity-in":"Nova entrada",
+    "activity-out":"Nova sortida",
+    "activity-order":"Nova comanda"
   }
 
 }

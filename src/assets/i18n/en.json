@@ -338,7 +338,8 @@
     "next": "Next",
     "search": "Type to search",
     "back-to-offers-list": "Back to list",
-    "offer-detail": "Offer details"
+    "offer-detail": "Offer details",
+    "create": "Create"
   },
   "terms": {
     "text-1":"A General Conditions agreement sets out the conditions that visitors must accept if they wish to interact with the website. Basically, if the visitor continues to use the website after accepting the General Conditions, she will be signing a contract with you.",

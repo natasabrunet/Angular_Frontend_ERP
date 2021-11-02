@@ -48,7 +48,6 @@ export class ClientsService {
     });
   }
 
-
   /*addClient(name: string, dni: string) {
     let body = new newClient(name, dni);
 
@@ -59,7 +58,6 @@ export class ClientsService {
     };
     return this.httpClient.post(`${this.url}${this.endPoint}`, body, options);
   }*/
-
 
   updateClient(client){
     let body = new updateClient (client.id, client.dni, client.name_and_surname);

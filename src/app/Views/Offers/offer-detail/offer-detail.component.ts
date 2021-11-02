@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/Services/login.service';
 import { OffersService } from 'src/app/Services/offers.service';
 
 
@@ -18,34 +19,54 @@ export class OfferDetailComponent implements OnInit {
   end_date: string;
   paid_quantity: number;
   free_quantity: number;
+
   showAlert: boolean = false;
   success: boolean = false;
   alertMessage: string;
+  errorAPI:boolean;
+ 
+  token:string;
+  url: string = 'http://217.76.158.200:8080';
+  endPoint: string = '/api/offers';
 
   form: FormGroup;
+  dateForm: FormGroup;
+
+  endLessStart: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private offersService: OffersService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private loginService: LoginService
 
   ) { 
+    //Accedemos al servicio de login para recuperar el token que se ha guardado
+    this.token = this.loginService.getBearerToken;
+
     this.createForm();
   }
 
   ngOnInit(): void {
-     //Recuperamos el parámetro (id) de la oferta y cargamos su info
-     this.activatedRoute.params.subscribe((params) => {
+
+    //Recuperamos el parámetro (id) de la oferta y cargamos su info
+    this.activatedRoute.params.subscribe((params) => {
       this.loadOffer(params['id']);
-    });
+ 
+      if((params['id'].length == 1) && (params['id'].charAt(0) == '0')){
+        document.getElementById("updateBtn").style.display = "none";
+        document.getElementById("deleteBtn").style.display = "none";
+      }
+      else{
+        document.getElementById("createBtn").style.display = "none";
+      }
+    })
   }
 
   loadOffer(id: string) {
     this.offersService.getOfferById(id).subscribe(
       (data: any) => {
-        console.log("DATA");
-        console.log(data);
         if (!data) {
           this.router.navigateByUrl('offers'); // redirect to offers-list
         } else {
@@ -74,20 +95,19 @@ export class OfferDetailComponent implements OnInit {
       }
     ); //Llamamos al servicio que accede a la API para recuperar la info de la oferta y lo movemos a la propiedad offers para que se cargue en la vista
   }
+  
   createForm() {
     this.form = this.fb.group({
-      id: [this.id, [Validators.required]],
-      description: [this.description, [Validators.required]],
+      id: this.id,
+      description: [this.description, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
       discount: [this.discount, [Validators.required]],
       start_date: [this.start_date, [Validators.required]],
       end_date: [this.end_date, [Validators.required]],
       paid_quantity: [this.paid_quantity, [Validators.required]],
-      free_quantity: [this.free_quantity, [Validators.required]],
-    })
+      free_quantity: [this.free_quantity, [Validators.required]]
+    });
   }
-  get isIdInvalid() {
-    return this.form.get('id').invalid && this.form.get('id').touched;
-  }
+    
   get isDescriptionInvalid() {
     return this.form.get('description').invalid && this.form.get('description').touched;
   }
@@ -106,14 +126,130 @@ export class OfferDetailComponent implements OnInit {
   get isFreeQuantityInvalid() {
     return this.form.get('free_quantity').invalid && this.form.get('free_quantity').touched;
   }
+
   submit() {
-    if (this.form.invalid) {
+    let from = this.form.get('start_date').value;
+    let to = this.form.get('end_date').value;
+    this.dateLessThan(from, to);
+    if (this.form.invalid || this.endLessStart) {
       // Si el form es inválido, márcamos los controles como "touched" para que se marquen/muestren los errores
       return Object.values(this.form.controls).forEach((control) => {
         control.markAsTouched();
-        console.log(Object.values);
       });
     }
-    //this.updateOffer();
+    else if (this.id){
+      //Open Modal
+      document.getElementById("updateModal").style.display = "block";
+      document.getElementById("updateModal").classList.add("show");
+    }
+    else {
+
+      this.createOffer();
+    }
   }
-}
+
+  dateLessThan(from:string, to:string) {
+    this.endLessStart = false;
+
+    let exp = /[\W]+/;
+    let partStart = from.split(exp);
+    let partEnd = to.split(exp);
+    let startDate = new Date(parseInt(partStart[2], 10),
+                    parseInt(partStart[1], 10) - 1,
+                    parseInt(partStart[0], 10));
+    let endDate = new Date(parseInt(partEnd[2], 10),
+                    parseInt(partEnd[1], 10) - 1,
+                    parseInt(partEnd[0], 10));  
+    
+    
+    const timestampStart = startDate.getTime();
+    const timestampEnd = endDate.getTime();
+             
+    if(timestampEnd < timestampStart){
+        this.showAlert = true;
+        this.success = true;
+        this.alertMessage = 'Wrong dates!!!';
+        this.endLessStart = true;
+        return this.endLessStart;
+    }
+  }
+
+  closeModal(){
+    document.getElementById("updateModal").style.display = "none";
+    document.getElementById("updateModal").classList.remove("show");
+  }
+
+  updateOffer(){
+    let offer = {
+      id: this.id,
+      name: this.form.get('description').value,
+      discount: this.form.get('discount').value,
+      start_date: `${this.form.get('start_date').value}${" "}${"00:00:00"}`,
+      end_date: `${this.form.get('end_date').value}${" "}${"00:00:00"}`,
+      paid_quantity: this.form.get('paid_quantity').value,
+      free_quantity: this.form.get('free_quantity').value,
+    }//Pasamos los nuevos datos de a oferta
+
+    this.offersService.updateOffer(offer)
+    .subscribe(
+      ( offer: any ) => {
+        this.errorAPI = false;
+        this.showAlert = true;
+        this.success = offer.success;
+        this.alertMessage = 'Offer updated!!!';
+        this.closeModal();
+        
+      }, ( errorServicio ) => {
+        this.errorAPI = true;
+        console.log(errorServicio);
+      });
+  }
+  deleteOffer() {
+    this.offersService.deleteOffer(this.id)
+    .subscribe(
+      (resp) => {
+        this.showAlert = true;
+        this.success = true;
+        this.alertMessage = 'Offer deleted!!!';
+
+        // let alert show up and then redirect
+        setTimeout(() => {
+          this.showAlert = false; // alert OK
+          this.alertMessage = '';
+          this.router.navigateByUrl('offers'); // redirect to client-list
+        }, 2000);
+      },
+      (err) => {
+        console.log(err);
+        this.showAlert = true;
+        this.success = false;
+        this.alertMessage = err.message;
+      }
+    );
+  }
+    createOffer(){
+	    let newOffer = {
+	      id: this.id,
+	      name: this.form.get('description').value,
+	      discount: this.form.get('discount').value,
+	      start_date: `${this.form.get('start_date').value}${" "}${"00:00:00"}`,
+	      end_date: `${this.form.get('end_date').value}${" "}${"00:00:00"}`,
+	      paid_quantity: this.form.get('paid_quantity').value,
+	      free_quantity: this.form.get('free_quantity').value,
+	    }//Pasamos los datos de a oferta
+
+	    this.offersService.createOffer(newOffer)
+	    .subscribe(
+	      ( offer: any ) => {
+	        this.errorAPI = false;
+	        this.showAlert = true;
+	        this.success = offer.success;
+	        this.alertMessage = 'Offer created!!!';        
+	      },
+	       ( errorServicio ) => {
+	        this.errorAPI = true;
+	        console.log(errorServicio);
+	      });
+	  }
+	}
+

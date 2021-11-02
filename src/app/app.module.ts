@@ -66,6 +66,8 @@ import { OffersComponent } from './Views/Offers/offers/offers.component';
 import { CartItemComponent } from './Components/header/shopping-cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './Views/Product/products-without-session/product-item/product-item.component';
 import { OfferDetailComponent } from './Views/Offers/offer-detail/offer-detail.component';
+import { PopUpEmployeeComponent } from './Components/header/notifications/popups/pop-up-employee/pop-up-employee.component';
+import { PopUpAdminComponent } from './Components/header/notifications/popups/pop-up-admin/pop-up-admin.component';
 
 
 
@@ -113,6 +115,8 @@ registerLocaleData(localeESP);
     SingleProductWithoutSessionComponent,
     TermsComponent,
     EmployeesWorkingHoursComponent,
+    PopUpEmployeeComponent,
+    PopUpAdminComponent
   ],
 
   imports: [

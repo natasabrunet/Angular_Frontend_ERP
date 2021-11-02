@@ -380,5 +380,11 @@
       "check_in":"Check in",
       "check_out":"Check out"
     }
+  },
+  "pop-up-notifications":{
+    "title": "Notifications",
+    "activity-in":"New check-in",
+    "activity-out":"New check-out",
+    "activity-order":"New order"
   }
 }

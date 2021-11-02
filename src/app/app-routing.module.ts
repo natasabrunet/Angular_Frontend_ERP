@@ -28,6 +28,7 @@ import { OrdersComponent } from './Views/orders/orders.component';
 
 // Offers import
 import { OffersComponent } from './Views/Offers/offers/offers.component';
+import { OfferDetailComponent } from './Views/Offers/offer-detail/offer-detail.component';
 
 // Employees import
 import { EmployeesListComponent } from './Views/employees/employees-list/employees-list.component';
@@ -37,7 +38,6 @@ import { EmployeeComponent } from './Views/employees/employee/employee.component
 import { StatsComponent } from './Views/stats/stats.component';
 import { ClientContactComponent } from './Views/client-contact/client-contact.component';
 import { EmployeesWorkingHoursComponent } from './Views/employees/employees-working-hours/employees-working-hours.component';
-import { OfferDetailComponent } from './Views/Offers/offer-detail/offer-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -74,7 +74,6 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'offers', component: OffersComponent, canActivate: [AuthGuard]},
   { path: 'offer-detail/:id', component: OfferDetailComponent },
-
   {
     path: 'employees-list',
     component: EmployeesListComponent,

@@ -8,7 +8,7 @@
       <input type="text" class="form-control" placeholder="{{'Offers.search'|translate}}" [(ngModel)]="description"(input)="Search()"/>
     </div>
     <div class="col">
-      <button class="btn btn-primary">{{'Offers.new_Offer'|translate}}</button>
+      <button class="btn btn-primary" (click)="goNewOffer()">{{'Offers.new_Offer'|translate}}</button>
     </div>
   </div>
   <div class="row">

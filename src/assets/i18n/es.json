@@ -341,7 +341,8 @@
     "next": "Siguiente",
     "search": "Escribe para buscar",
     "back-to-offers-list": "Volver a la lista",
-    "offer-detail": "Detalle de la oferta"
+    "offer-detail": "Detalle de la oferta",
+    "create": "Crear"
   },
   "terms": {
     "text-1":"Un acuerdo de Condiciones Generales recoge las condiciones que los visitantes deben aceptar si desean interactuar con el sitio web. Básicamente, si el visitante sigue utilizando el sitio web después de aceptar las Condiciones Generales, estará suscribiendo un contrato con usted.",

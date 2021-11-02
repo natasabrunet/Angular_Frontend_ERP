@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { LoginService } from './login.service';
+import { Offer } from '../Models/offer';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,6 @@ export class OffersService {
   endPoint: string = '/api/offers';
   token: string;
 
-  offerById: Observable<any>;
-
 
   constructor(
     private httpClient: HttpClient, 
@@ -22,25 +20,56 @@ export class OffersService {
     ) {
       //Accedemos al servicio de login para recuperar el token que se ha guardado
       this.token = this.loginService.getBearerToken;
-      //console.log(this.token);
     }
 
-   headers: HttpHeaders = new HttpHeaders({
-     Authorization: this.loginService.getBearerToken
-   });
+    headers: HttpHeaders = new HttpHeaders({
+      Authorization: this.loginService.getBearerToken
+    });
 
-   getAllOffers(){
-     return this.httpClient.get(`${this.url}${this.endPoint}`, {headers: this.headers});
-   }
+    getAllOffers(){
+      return this.httpClient.get(`${this.url}${this.endPoint}`, {headers: this.headers});
+    }
 
-   //Get offers by id
-   getOfferById(id: string){
-
-     return this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {
-       headers: this.headers       
+    //Get offers by id
+    getOfferById(id: string){
+      return this.httpClient.get(`${this.url}${this.endPoint}/${id}`, {
+        headers: this.headers       
       });
-   }
+    }
 
-   
-}
+    updateOffer(offer){
+      let body = new Offer ( offer.id, offer.name, offer.discount, offer.start_date, offer.end_date, offer.paid_quantity, offer.free_quantity);
+
+      const options = {
+        headers: new HttpHeaders({
+          Authorization: this.token
+        })
+      }
+      return this.httpClient.put(`${this.url}${this.endPoint}`, body, options);
+    }
+
+    deleteOffer(id: string) {    
+      const options = {
+        headers: new HttpHeaders({
+          Authorization: this.token
+        }),
+        body: {
+          id: id,
+          name: "offer  deteled"
+        }
+      };
+      return this.httpClient.delete(`${this.url}${this.endPoint}`, options);
+    }
+
+    createOffer(offer){
+      let body = new Offer ( offer.id, offer.name, offer.discount, offer.starts_on, offer.ends_on, offer.paid_quantity, offer.free_quantity);
+      const options = {
+        headers: new HttpHeaders({
+          Authorization: this.token
+        })
+      }
+      return this.httpClient.post(`${this.url}${this.endPoint}`, body, options);
+    }
+  }
+
 

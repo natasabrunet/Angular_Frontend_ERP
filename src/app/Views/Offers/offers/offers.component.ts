@@ -76,7 +76,6 @@ export class OffersComponent implements OnInit {
 
   setPagesArray():void{
     this.pagesArray = [...new Array<number>(this.getTotalPages()).keys()]
-
   }
 
   ngOnInit(): void {
@@ -95,11 +94,11 @@ export class OffersComponent implements OnInit {
     }else if(this.description == ""){
       this.ngOnInit();
     }
-
   }
-
   goShowOffer(id: number){
     this.router.navigate(['/offer-detail', id]);
   }
-
+  goNewOffer(){
+    this.router.navigate(['/offer-detail', 0]);
+  }
 }

@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 
 import { LoginService } from './login.service';
 
-import { map } from 'rxjs/operators';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -39,10 +37,6 @@ export class OrdersService {
       { headers: this.headers }
     ));
   }
-
-  /* getTotalPrice(){
-
-  } */
 
   deleteOrder(id: string) {
     const options = {

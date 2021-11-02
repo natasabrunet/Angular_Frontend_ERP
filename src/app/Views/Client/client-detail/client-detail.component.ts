@@ -127,7 +127,7 @@ export class ClientDetailComponent implements OnInit {
 
     this.clientsService.updateClient(client)
     .subscribe(
-      ( client:any ) => {
+      ( client: any ) => {
       this.errorAPI = false;
       this.success=client.success;  
               

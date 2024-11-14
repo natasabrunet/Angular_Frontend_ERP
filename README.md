@@ -1,17 +1,6 @@
-# ITProject-ERP-Frontend
-
-For this project, whe have a given repo named ITProject-ERP-Frontend,  
-with a GitHub remote URL: https://github.com/it-academyproject/ITProject-ERP-Frontend.git
+# ERP-Frontend-Angular
 
 This documentation will guide you through this Angular project installation.
-
-NOTE: in this documentation...
-
-- We will use `<localProjectFolderName>` as a generic alias for the local folder's name
-- We will use `<repoURL>` as a generic alias for the remote repo's URL
-- We will use `<featureBranchName>` as a generic alias for the branches generated from 'Dev'
-- We will use `<yourGitHubName>` and `<yourGitHubEmail>` as alias for your user name and email registered in your GitHub account
-- We will use `<ScrumTask_ID>` as alias for your tasks's **id** as stated in your **SCRUM** table.
 
 ## REQUIREMENTS
 
